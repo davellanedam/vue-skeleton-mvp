@@ -85,14 +85,15 @@ export default {
       if (this.isAuthenticated) {
         return [
           { title: 'Home', link: 'home', icon: 'home' },
-          { title: 'About', link: 'about', icon: 'help_outline' }
+          { title: 'About', link: 'about', icon: 'help_outline' },
+          { title: 'My Profile', link: 'profile', icon: 'face' }
         ]
       } else {
         return [
           { title: 'Home', link: 'landing', icon: 'home' },
           { title: 'About', link: 'about', icon: 'help_outline' },
           { title: 'Login', link: 'login', icon: 'lock' },
-          { title: 'Register', link: 'register', icon: 'face' }
+          { title: 'Sign Up', link: 'signup', icon: 'add_circle_outline' }
         ]
       }
     }

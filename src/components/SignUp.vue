@@ -2,10 +2,10 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 class="text-xs-center" mt-5>
-        <h1>Register</h1>
+        <h1 class="display-2 font-weight-bold mb-3">SIGN UP</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 mt-3>
-        <form @submit.prevent="userRegister">
+        <form @submit.prevent="userSignUp">
           <v-layout column>
             <v-flex>
               <v-alert type="error" dismissible v-model="alert">
@@ -45,7 +45,7 @@
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
               <v-btn color="primary" type="submit" :disabled="loading"
-                >Register</v-btn
+                >Sign me up</v-btn
               >
             </v-flex>
           </v-layout>
@@ -79,11 +79,11 @@ export default {
     }
   },
   methods: {
-    userRegister() {
+    userSignUp() {
       if (this.comparePasswords !== true) {
         return
       }
-      this.$store.dispatch('userRegister', {
+      this.$store.dispatch('userSignUp', {
         email: this.email,
         password: this.password
       })

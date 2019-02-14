@@ -6,9 +6,9 @@ export default [
       import(/* webpackChunkName: "login" */ '../components/Login.vue')
   },
   {
-    path: '/register',
-    name: 'register',
+    path: '/signup',
+    name: 'signup',
     component: () =>
-      import(/* webpackChunkName: "register" */ '../components/Register.vue')
+      import(/* webpackChunkName: "signup" */ '../components/SignUp.vue')
   }
 ]
