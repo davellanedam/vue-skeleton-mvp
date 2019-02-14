@@ -24,7 +24,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['appTitle', 'isAuthenticated'])
+    ...mapGetters(['appTitle'])
   }
 }
 </script>
