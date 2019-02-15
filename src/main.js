@@ -12,9 +12,9 @@ new Vue({
   store,
   render: h => h(App),
   created() {
-    const isLoggedIn = this.$store.getters.isLoggedIn
-    console.log('IS LOGGED IN ?:', isLoggedIn)
-    if (isLoggedIn) {
+    const isTokenSet = this.$store.getters.isTokenSet
+    console.log('IS LOGGED IN ?:', isTokenSet)
+    if (isTokenSet) {
       store.dispatch('autoLogin', localStorage.getItem('user'))
     }
   }

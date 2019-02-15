@@ -3,24 +3,19 @@ import axios from 'axios'
 
 const state = {
   user: null,
-  token: null,
-  id: JSON.parse(!!localStorage.getItem('user'))._id,
-  emailVerified: false,
+  token: JSON.parse(!!localStorage.getItem('token')) || null,
   error: null,
   loading: false,
-  isLoggedIn: !!localStorage.getItem('token')
+  isTokenSet: !!localStorage.getItem('token')
 }
 
 const getters = {
   user: state => state.user,
   token: state => state.token,
-  id: state => state.id,
   error: state => state.error,
   loading: state => state.loading,
-  isLoggedIn: state => state.isLoggedIn,
-  isAuthenticated(state) {
-    return state.user !== null && state.user !== undefined
-  }
+  isTokenSet: state => state.isTokenSet,
+  isAuthenticated: state => state.user !== null && state.user !== undefined
 }
 
 const actions = {
@@ -51,9 +46,9 @@ const actions = {
           authUser.token = response.data.token
           commit('setToken', authUser.token)
           commit('setUser', authUser.user.email)
-          commit('setVerified', authUser.user.verified)
           window.localStorage.setItem('token', JSON.stringify(authUser.token))
           window.localStorage.setItem('user', JSON.stringify(authUser.user))
+          commit('setIsTokenSet', true)
           commit('setLoading', false)
           commit('setError', null)
           router.push('/home')
@@ -69,13 +64,14 @@ const actions = {
       })
   },
   autoLogin({ commit }, payload) {
-    commit('setUser', {
-      email: JSON.parse(payload)
-    })
+    commit('setUser', JSON.parse(payload))
+    commit('setToken', localStorage.getItem('token'))
     router.push('/home')
   },
   userLogout({ commit }) {
     commit('setUser', null)
+    commit('setToken', null)
+    commit('setIsTokenSet', false)
     window.localStorage.removeItem('token')
     window.localStorage.removeItem('user')
     router.push('/login')
@@ -95,8 +91,8 @@ const mutations = {
   setLoading(state, payload) {
     state.loading = payload
   },
-  setLoggedIn(state) {
-    state.isLoggedIn = !!localStorage.getItem('user')
+  setIsTokenSet(state, payload) {
+    state.isTokenSet = payload
   }
 }
 
