@@ -1,9 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import landing from './landing'
-import auth from './auth'
-import home from './home'
-import about from './about'
+import routes from './routes'
 import store from '@/store'
 
 Vue.use(Router)
@@ -11,7 +8,7 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [...landing, ...auth, ...home, ...about]
+  routes: [...routes]
 })
 
 router.beforeEach((to, from, next) => {
