@@ -33,7 +33,7 @@
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
-              <v-btn color="primary" type="submit" :disabled="loading"
+              <v-btn color="primary" type="submit" :disabled="showLoading"
                 >Login</v-btn
               >
             </v-flex>
@@ -48,8 +48,8 @@
 export default {
   data() {
     return {
-      email: '',
-      password: '',
+      email: 'admin@admin.com',
+      password: '12345',
       alert: false
     }
   },
@@ -65,8 +65,8 @@ export default {
     error() {
       return this.$store.state.error
     },
-    loading() {
-      return this.$store.state.loading
+    showLoading() {
+      return this.$store.state.showLoading
     }
   },
   watch: {

@@ -14,7 +14,7 @@
             </v-list-tile-action>
             <v-list-tile-content>{{ item.title }}</v-list-tile-content>
           </v-list-tile>
-          <v-list-tile v-if="isAuthenticated" @click="userLogout">
+          <v-list-tile v-if="isTokenSet" @click="userLogout">
             <v-list-tile-action>
               <v-icon>exit_to_app</v-icon>
             </v-list-tile-action>
@@ -33,7 +33,7 @@
             :to="{ name: 'home' }"
             tag="span"
             style="cursor: pointer"
-            v-if="isAuthenticated"
+            v-if="isTokenSet"
             >{{ appTitle }}</router-link
           >
           <router-link
@@ -56,7 +56,7 @@
             <v-icon>{{ item.icon }}</v-icon>
             &nbsp;{{ item.title }}
           </v-btn>
-          <v-btn flat v-if="isAuthenticated" @click="userLogout">
+          <v-btn flat v-if="isTokenSet" @click="userLogout">
             <v-icon left>exit_to_app</v-icon>Logout
           </v-btn>
         </v-toolbar-items>
@@ -80,9 +80,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['appTitle', 'isAuthenticated']),
+    ...mapGetters(['appTitle', 'isTokenSet']),
     menuItems() {
-      if (this.isAuthenticated) {
+      if (this.isTokenSet) {
         return [
           { title: 'Home', link: 'home', icon: 'home' },
           { title: 'About', link: 'about', icon: 'help_outline' },

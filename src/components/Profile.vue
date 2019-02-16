@@ -7,3 +7,21 @@
     </v-layout>
   </v-container>
 </template>
+
+<script>
+export default {
+  data() {
+    return {}
+  },
+  created() {
+    // fetch the data when the view is created and the data is
+    // already being observed
+    this.getProfile()
+  },
+  methods: {
+    getProfile() {
+      this.$store.dispatch('getProfile')
+    }
+  }
+}
+</script>

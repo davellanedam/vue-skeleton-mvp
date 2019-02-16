@@ -15,7 +15,7 @@ new Vue({
     const isTokenSet = this.$store.getters.isTokenSet
     console.log('IS LOGGED IN ?:', isTokenSet)
     if (isTokenSet) {
-      store.dispatch('autoLogin', localStorage.getItem('user'))
+      store.dispatch('autoLogin')
     }
   }
 }).$mount('#app')

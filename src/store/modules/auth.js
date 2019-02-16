@@ -1,98 +1,89 @@
+import * as types from '../mutation-types'
 import router from '@/router'
 import axios from 'axios'
 
 const state = {
   user: null,
   token: JSON.parse(!!localStorage.getItem('token')) || null,
-  error: null,
-  loading: false,
   isTokenSet: !!localStorage.getItem('token')
 }
 
 const getters = {
   user: state => state.user,
   token: state => state.token,
-  error: state => state.error,
-  loading: state => state.loading,
-  isTokenSet: state => state.isTokenSet,
-  isAuthenticated: state => state.user !== null && state.user !== undefined
+  isTokenSet: state => state.isTokenSet
 }
 
 const actions = {
   userSignUp({ commit }, payload) {
-    commit('setLoading', true)
-    commit('setUser', {
-      email: payload.email,
-      password: payload.password
-    })
-    commit('setLoading', false)
-    commit('setError', null)
+    commit(types.SHOW_LOADING, true)
+    commit(types.SAVE_USER, payload)
+    commit(types.SHOW_LOADING, false)
+    commit(types.ERROR, null)
     router.push('/')
   },
   userLogin({ commit }, payload) {
-    commit('setLoading', true)
-    console.log('SIGNIN ->')
+    commit(types.SHOW_LOADING, true)
     const data = {
       email: payload.email,
       password: payload.password
     }
-    const authUser = {}
     axios
       .post('/login', data)
       .then(response => {
         console.log('SUCCESS! ->', response)
         if (response.status === 200) {
-          authUser.user = response.data.user
-          authUser.token = response.data.token
-          commit('setToken', authUser.token)
-          commit('setUser', authUser.user.email)
-          window.localStorage.setItem('token', JSON.stringify(authUser.token))
-          window.localStorage.setItem('user', JSON.stringify(authUser.user))
-          commit('setIsTokenSet', true)
-          commit('setLoading', false)
-          commit('setError', null)
+          window.localStorage.setItem(
+            'user',
+            JSON.stringify(response.data.user)
+          )
+          window.localStorage.setItem(
+            'token',
+            JSON.stringify(response.data.token)
+          )
+          commit(types.SAVE_USER, response.data.user)
+          commit(types.SAVE_TOKEN, response.data.token)
+          commit(types.SHOW_LOADING, false)
+          commit(types.ERROR, null)
           router.push('/home')
         } else {
-          commit('setLoading', false)
+          commit(types.SHOW_LOADING, false)
         }
       })
       .catch(error => {
         console.log('ERROR! ->', error.response.status)
         console.log('ERROR! ->', error.response.data.errors.msg)
-        commit('setError', error.response.data.errors.msg)
-        commit('setLoading', false)
+        commit(types.SHOW_LOADING, false)
+        commit(types.ERROR, error.response.data.errors.msg)
       })
   },
-  autoLogin({ commit }, payload) {
-    commit('setUser', JSON.parse(payload))
-    commit('setToken', localStorage.getItem('token'))
-    router.push('/home')
+  autoLogin({ commit }) {
+    commit(types.SAVE_USER, JSON.parse(localStorage.getItem('user')))
+    commit(types.SAVE_TOKEN, JSON.parse(localStorage.getItem('token')))
   },
   userLogout({ commit }) {
-    commit('setUser', null)
-    commit('setToken', null)
-    commit('setIsTokenSet', false)
     window.localStorage.removeItem('token')
     window.localStorage.removeItem('user')
+    commit(types.LOGOUT)
     router.push('/login')
   }
 }
 
 const mutations = {
-  setToken(state, payload) {
-    state.token = payload
+  [types.SAVE_TOKEN](state, token) {
+    console.log('MUTATION TOKEN', token)
+    state.token = token
+    state.isTokenSet = true
   },
-  setUser(state, payload) {
-    state.user = payload
+  [types.LOGOUT](state, token) {
+    console.log('MUTATION TOKEN', token)
+    state.user = null
+    state.token = null
+    state.isTokenSet = false
   },
-  setError(state, payload) {
-    state.error = payload
-  },
-  setLoading(state, payload) {
-    state.loading = payload
-  },
-  setIsTokenSet(state, payload) {
-    state.isTokenSet = payload
+  [types.SAVE_USER](state, user) {
+    console.log('MUTATION USER', user)
+    state.user = user
   }
 }
 
