@@ -60,6 +60,7 @@ const actions = {
   autoLogin({ commit }) {
     commit(types.SAVE_USER, JSON.parse(localStorage.getItem('user')))
     commit(types.SAVE_TOKEN, JSON.parse(localStorage.getItem('token')))
+    commit(types.SET_LOCALE, JSON.parse(localStorage.getItem('locale')))
   },
   userLogout({ commit }) {
     window.localStorage.removeItem('token')

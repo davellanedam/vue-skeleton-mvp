@@ -1,0 +1,33 @@
+{
+  "menuItems": {
+    "LANDING": "Página de Inicio",
+    "HOME": "Inicio",
+    "ABOUT": "Acerca",
+    "MY_PROFILE": "Mi Perfil",
+    "SIGNUP": "Registro",
+    "LOGIN": "Ingresar",
+    "LOGOUT": "Salir"
+  },
+  "landing": {
+    "TITLE": "Página de aterrizaje"
+  },
+  "home": {
+    "TITLE": "Inicio Protegido"
+  },
+  "about": {
+    "TITLE": "Acerca de..."
+  },
+  "login": {
+    "TITLE": "Ingresar",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Contraseña",
+    "LOGIN": "Ingresar"
+  },
+  "signup": {
+    "TITLE": "Registro",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Contraseña",
+    "CONFIRM_PASSWORD": "Confirmar Contraseña",
+    "SIGN_ME_UP": "Registrame"
+  }
+}

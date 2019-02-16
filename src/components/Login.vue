@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 class="text-xs-center" mt-5>
-        <h1 class="display-2 font-weight-bold mb-3">LOGIN</h1>
+        <h1 class="display-2 font-weight-bold mb-3">{{ $t('login.TITLE') }}</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 mt-3>
         <form @submit.prevent="userLogin">
@@ -15,7 +15,7 @@
             <v-flex>
               <v-text-field
                 name="email"
-                label="Email"
+                :label="$t('login.EMAIL')"
                 id="email"
                 type="email"
                 v-model="email"
@@ -25,7 +25,7 @@
             <v-flex>
               <v-text-field
                 name="password"
-                label="Password"
+                :label="$t('login.PASSWORD')"
                 id="password"
                 type="password"
                 v-model="password"
@@ -33,9 +33,9 @@
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
-              <v-btn color="primary" type="submit" :disabled="showLoading"
-                >Login</v-btn
-              >
+              <v-btn color="primary" type="submit" :disabled="showLoading">{{
+                $t('login.LOGIN')
+              }}</v-btn>
             </v-flex>
           </v-layout>
         </form>

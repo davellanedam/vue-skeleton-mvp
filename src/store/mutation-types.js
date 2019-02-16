@@ -1,3 +1,5 @@
+// locale
+export const SET_LOCALE = 'SET_LOCALE'
 // error
 export const ERROR = 'ERROR'
 // loading

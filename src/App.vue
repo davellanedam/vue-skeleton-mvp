@@ -18,7 +18,9 @@
             <v-list-tile-action>
               <v-icon>exit_to_app</v-icon>
             </v-list-tile-action>
-            <v-list-tile-content>Sign Out</v-list-tile-content>
+            <v-list-tile-content>{{
+              $t('menuItems.LOGOUT')
+            }}</v-list-tile-content>
           </v-list-tile>
         </v-list>
       </v-navigation-drawer>
@@ -57,8 +59,9 @@
             &nbsp;{{ item.title }}
           </v-btn>
           <v-btn flat v-if="isTokenSet" @click="userLogout">
-            <v-icon left>exit_to_app</v-icon>Logout
+            <v-icon left>exit_to_app</v-icon>{{ $t('menuItems.LOGOUT') }}
           </v-btn>
+          <LocaleChanger />
         </v-toolbar-items>
       </v-toolbar>
 
@@ -71,9 +74,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import LocaleChanger from './components/LocaleChanger'
 
 export default {
   name: 'App',
+  components: {
+    LocaleChanger
+  },
   data() {
     return {
       sidebar: false
@@ -84,16 +91,32 @@ export default {
     menuItems() {
       if (this.isTokenSet) {
         return [
-          { title: 'Home', link: 'home', icon: 'home' },
-          { title: 'About', link: 'about', icon: 'help_outline' },
-          { title: 'My Profile', link: 'profile', icon: 'face' }
+          { title: this.$t('menuItems.HOME'), link: 'home', icon: 'home' },
+          {
+            title: this.$t('menuItems.ABOUT'),
+            link: 'about',
+            icon: 'help_outline'
+          },
+          {
+            title: this.$t('menuItems.MY_PROFILE'),
+            link: 'profile',
+            icon: 'face'
+          }
         ]
       } else {
         return [
-          { title: 'Home', link: 'landing', icon: 'home' },
-          { title: 'About', link: 'about', icon: 'help_outline' },
-          { title: 'Login', link: 'login', icon: 'lock' },
-          { title: 'Sign Up', link: 'signup', icon: 'add_circle_outline' }
+          { title: this.$t('menuItems.HOME'), link: 'landing', icon: 'home' },
+          {
+            title: this.$t('menuItems.ABOUT'),
+            link: 'about',
+            icon: 'help_outline'
+          },
+          { title: this.$t('menuItems.LOGIN'), link: 'login', icon: 'lock' },
+          {
+            title: this.$t('menuItems.SIGNUP'),
+            link: 'signup',
+            icon: 'add_circle_outline'
+          }
         ]
       }
     }

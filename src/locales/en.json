@@ -1,0 +1,33 @@
+{
+  "menuItems": {
+    "LANDING": "Landing",
+    "HOME": "Home",
+    "ABOUT": "About",
+    "MY_PROFILE": "My Profile",
+    "SIGNUP": "Sign Up",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout"
+  },
+  "landing": {
+    "TITLE": "Landing"
+  },
+  "home": {
+    "TITLE": "Protected Home"
+  },
+  "about": {
+    "TITLE": "About"
+  },
+  "login": {
+    "TITLE": "Login",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Password",
+    "LOGIN": "Login"
+  },
+  "signup": {
+    "TITLE": "Signup",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "SIGN_ME_UP": "Sign me up"
+  }
+}
