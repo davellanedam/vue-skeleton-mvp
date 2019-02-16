@@ -38,7 +38,7 @@ const actions = {
     }
     const authUser = {}
     axios
-      .post(process.env.VUE_APP_API_URL + '/login', data)
+      .post('/login', data)
       .then(response => {
         console.log('SUCCESS! ->', response)
         if (response.status === 200) {
