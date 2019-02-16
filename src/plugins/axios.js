@@ -10,7 +10,7 @@ axios.interceptors.request.use(
     // Do something before request is sent
     // If request is different than login, then send Authorization header with token from localstorage
     if (config.url !== '/login') {
-      config.headers.Authorization = localStorage.getItem("token");
+      config.headers.Authorization = localStorage.getItem('token')
     }
     return config
   },
