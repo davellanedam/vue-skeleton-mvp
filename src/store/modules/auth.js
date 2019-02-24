@@ -31,7 +31,6 @@ const actions = {
     axios
       .post('/login', data)
       .then(response => {
-        console.log('SUCCESS! ->', response)
         if (response.status === 200) {
           window.localStorage.setItem(
             'user',
@@ -51,10 +50,12 @@ const actions = {
         }
       })
       .catch(error => {
-        console.log('ERROR! ->', error.response.status)
-        console.log('ERROR! ->', error.response.data.errors.msg)
+        // Catches error connection or any other error (checks if error.response exists)
+        let errMsg = error.response
+          ? error.response.data.errors.msg
+          : 'SERVER_TIMEOUT_CONNECTION_ERROR'
         commit(types.SHOW_LOADING, false)
-        commit(types.ERROR, error.response.data.errors.msg)
+        commit(types.ERROR, errMsg)
       })
   },
   autoLogin({ commit }) {
@@ -72,18 +73,15 @@ const actions = {
 
 const mutations = {
   [types.SAVE_TOKEN](state, token) {
-    console.log('MUTATION TOKEN', token)
     state.token = token
     state.isTokenSet = true
   },
-  [types.LOGOUT](state, token) {
-    console.log('MUTATION TOKEN', token)
+  [types.LOGOUT](state) {
     state.user = null
     state.token = null
     state.isTokenSet = false
   },
   [types.SAVE_USER](state, user) {
-    console.log('MUTATION USER', user)
     state.user = user
   }
 }
