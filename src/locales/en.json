@@ -1,4 +1,8 @@
 {
+  "common": {
+    "SERVER_TIMEOUT_CONNECTION_ERROR": "Server is not responding, connection error",
+    "404": "404 Page not found"
+  },
   "menuItems": {
     "LANDING": "Landing",
     "HOME": "Home",
@@ -21,13 +25,19 @@
     "TITLE": "Login",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
-    "LOGIN": "Login"
+    "LOGIN": "Login",
+    "WRONG_PASSWORD": "Wrong password",
+    "USER_DOES_NOT_EXISTS": "User does not exists"
   },
   "signup": {
     "TITLE": "Signup",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
     "CONFIRM_PASSWORD": "Confirm Password",
-    "SIGN_ME_UP": "Sign me up"
+    "SIGN_ME_UP": "Sign me up",
+    "PASSWORDS_DONT_MATCH": "Passwords don´t match"
+  },
+  "myProfile": {
+    "TITLE": "My profile"
   }
 }
