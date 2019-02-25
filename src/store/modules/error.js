@@ -1,16 +1,16 @@
 import * as types from '../mutation-types'
 
 const state = {
-  error: null
+  errorMessage: null
 }
 
 const getters = {
-  error: state => state.error
+  errorMessage: state => state.error
 }
 
 const mutations = {
   [types.ERROR](state, value) {
-    state.error = value
+    state.errorMessage = value
   }
 }
 
