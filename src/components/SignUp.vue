@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import * as types from '../store/mutation-types'
+
 export default {
   data() {
     return {
@@ -65,19 +67,6 @@ export default {
       password: '',
       passwordConfirm: '',
       alert: false
-    }
-  },
-  computed: {
-    comparePasswords() {
-      return this.password === this.passwordConfirm
-        ? true
-        : "Passwords don't match"
-    },
-    error() {
-      return this.$store.state.error
-    },
-    showLoading() {
-      return this.$store.state.showLoading
     }
   },
   methods: {
@@ -91,6 +80,19 @@ export default {
       })
     }
   },
+  computed: {
+    comparePasswords() {
+      return this.password === this.passwordConfirm
+        ? true
+        : this.$t('signup.PASSWORDS_DONT_MATCH')
+    },
+    error() {
+      return this.$store.state.error.errorMessage
+    },
+    showLoading() {
+      return this.$store.state.loading.showLoading
+    }
+  },
   watch: {
     error(value) {
       if (value) {
@@ -99,7 +101,7 @@ export default {
     },
     alert(value) {
       if (!value) {
-        this.$store.commit('setError', null)
+        this.$store.commit(types.ERROR, null)
       }
     }
   }
