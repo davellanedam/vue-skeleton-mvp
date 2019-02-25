@@ -8,9 +8,9 @@
         <form @submit.prevent="userLogin">
           <v-layout column>
             <v-flex>
-              <v-alert type="error" dismissible v-model="alert">
-                {{ error }}
-              </v-alert>
+              <v-alert type="error" dismissible v-model="alert">{{
+                error
+              }}</v-alert>
             </v-flex>
             <v-flex>
               <v-text-field
@@ -33,9 +33,9 @@
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
-              <v-btn color="primary" type="submit" :disabled="showLoading">{{
-                $t('login.LOGIN')
-              }}</v-btn>
+              <v-btn color="primary" type="submit" :disabled="showLoading">
+                {{ $t('login.LOGIN') }}
+              </v-btn>
             </v-flex>
           </v-layout>
         </form>
@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import * as types from '../store/mutation-types'
+
 export default {
   data() {
     return {
@@ -63,10 +65,10 @@ export default {
   },
   computed: {
     error() {
-      return this.$store.state.error
+      return this.$store.state.error.errorMessage
     },
     showLoading() {
-      return this.$store.state.showLoading
+      return this.$store.state.loading.showLoading
     }
   },
   watch: {
@@ -77,7 +79,7 @@ export default {
     },
     alert(value) {
       if (!value) {
-        this.$store.commit('setError', null)
+        this.$store.commit(types.ERROR, null)
       }
     }
   }
