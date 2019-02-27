@@ -1,7 +1,6 @@
 import * as types from '../mutation-types'
 import router from '@/router'
 import axios from 'axios'
-import i18n from '@/i18n.js'
 
 const state = {
   user: null,
@@ -53,8 +52,8 @@ const actions = {
       .catch(error => {
         // Catches error connection or any other error (checks if error.response exists)
         let errMsg = error.response
-          ? i18n.t(`login.${error.response.data.errors.message}`)
-          : i18n.t('common.SERVER_TIMEOUT_CONNECTION_ERROR')
+          ? error.response.data.errors.message
+          : 'SERVER_TIMEOUT_CONNECTION_ERROR'
         commit(types.SHOW_LOADING, false)
         commit(types.ERROR, errMsg)
       })
