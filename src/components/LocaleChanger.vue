@@ -45,6 +45,7 @@ export default {
   methods: {
     switchLocale(lang) {
       this.$store.dispatch('setLocale', lang)
+      // this.$router.go()
     }
   },
   computed: {
