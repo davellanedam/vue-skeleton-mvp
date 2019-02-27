@@ -1,7 +1,25 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import VeeValidate from 'vee-validate'
+import en from 'vee-validate/dist/locale/en'
+import es from 'vee-validate/dist/locale/es'
 
 Vue.use(VueI18n)
+
+const i18n = new VueI18n({
+  locale: JSON.parse(localStorage.getItem('locale')) || 'en'
+})
+
+const veeValidateConfig = {
+  i18nRootKey: 'validations',
+  i18n,
+  dictionary: {
+    en,
+    es
+  }
+}
+
+Vue.use(VeeValidate, veeValidateConfig)
 
 function loadLocaleMessages() {
   const locales = require.context(
