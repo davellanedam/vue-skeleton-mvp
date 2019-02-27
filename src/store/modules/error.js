@@ -5,7 +5,7 @@ const state = {
 }
 
 const getters = {
-  errorMessage: state => state.error
+  errorMessage: state => state.errorMessage
 }
 
 const mutations = {
