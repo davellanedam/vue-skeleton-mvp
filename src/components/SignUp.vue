@@ -11,7 +11,11 @@
           <v-layout column>
             <v-flex>
               <v-alert type="error" dismissible v-model="alert">
-                {{ error }}
+                <ul id="example-1">
+                  <li v-for="(item, index) in error" :key="index">
+                    {{ item }}
+                  </li>
+                </ul>
               </v-alert>
             </v-flex>
             <v-flex>
@@ -59,6 +63,7 @@
 
 <script>
 import * as types from '../store/mutation-types'
+import { formatErrorMessages } from '../utils/utils.js'
 
 export default {
   data() {
@@ -84,10 +89,10 @@ export default {
     comparePasswords() {
       return this.password === this.passwordConfirm
         ? true
-        : this.$t('signup.PASSWORDS_DONT_MATCH')
+        : this.$t('errors.PASSWORDS_DONT_MATCH')
     },
     error() {
-      return this.$store.state.error.errorMessage
+      return formatErrorMessages('errors', this.$store.state.error.errorMessage)
     },
     showLoading() {
       return this.$store.state.loading.showLoading

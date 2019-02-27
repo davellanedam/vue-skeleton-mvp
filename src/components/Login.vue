@@ -8,9 +8,13 @@
         <form @submit.prevent="userLogin">
           <v-layout column>
             <v-flex>
-              <v-alert type="error" dismissible v-model="alert">{{
-                error
-              }}</v-alert>
+              <v-alert type="error" dismissible v-model="alert">
+                <ul id="example-1">
+                  <li v-for="(item, index) in error" :key="index">
+                    {{ item }}
+                  </li>
+                </ul>
+              </v-alert>
             </v-flex>
             <v-flex>
               <v-text-field
@@ -33,9 +37,9 @@
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
-              <v-btn color="primary" type="submit" :disabled="showLoading">
-                {{ $t('login.LOGIN') }}
-              </v-btn>
+              <v-btn color="primary" type="submit" :disabled="showLoading">{{
+                $t('login.LOGIN')
+              }}</v-btn>
             </v-flex>
           </v-layout>
         </form>
@@ -46,6 +50,7 @@
 
 <script>
 import * as types from '../store/mutation-types'
+import { formatErrorMessages } from '../utils/utils.js'
 
 export default {
   data() {
@@ -65,7 +70,7 @@ export default {
   },
   computed: {
     error() {
-      return this.$store.state.error.errorMessage
+      return formatErrorMessages('errors', this.$store.state.error.errorMessage)
     },
     showLoading() {
       return this.$store.state.loading.showLoading
