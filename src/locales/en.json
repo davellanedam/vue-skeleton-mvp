@@ -1,5 +1,10 @@
 {
-  "common": {
+  "errors": {
+    "WRONG_PASSWORD": "Wrong password",
+    "USER_DOES_NOT_EXISTS": "User does not exists",
+    "PASSWORDS_DONT_MATCH": "Passwords don´t match",
+    "PASSWORD_TOO_SHORT_MIN_5": "Password too short, minimum 5 characters",
+    "BLOCKED_USER": "Too many failed login attempts, user blocked temporarely",
     "SERVER_TIMEOUT_CONNECTION_ERROR": "Server is not responding, connection error",
     "404": "404 Page not found"
   },
@@ -25,17 +30,14 @@
     "TITLE": "Login",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
-    "LOGIN": "Login",
-    "WRONG_PASSWORD": "Wrong password",
-    "USER_DOES_NOT_EXISTS": "User does not exists"
+    "LOGIN": "Login"
   },
   "signup": {
     "TITLE": "Signup",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
     "CONFIRM_PASSWORD": "Confirm Password",
-    "SIGN_ME_UP": "Sign me up",
-    "PASSWORDS_DONT_MATCH": "Passwords don´t match"
+    "SIGN_ME_UP": "Sign me up"
   },
   "myProfile": {
     "TITLE": "My profile"
