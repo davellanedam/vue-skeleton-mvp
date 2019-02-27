@@ -23,6 +23,10 @@
                 id="email"
                 type="email"
                 v-model="email"
+                :data-vv-as="$t('login.EMAIL')"
+                :error="errors.has('email')"
+                :error-messages="errors.collect('email')"
+                v-validate="'required|email'"
                 required
               ></v-text-field>
             </v-flex>
@@ -33,6 +37,10 @@
                 id="password"
                 type="password"
                 v-model="password"
+                :data-vv-as="$t('login.PASSWORD')"
+                :error="errors.has('password')"
+                :error-messages="errors.collect('password')"
+                v-validate="'required|min:5'"
                 required
               ></v-text-field>
             </v-flex>
