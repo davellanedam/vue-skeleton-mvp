@@ -1,12 +1,23 @@
 {
   "errors": {
     "WRONG_PASSWORD": "Contraseña errada",
-    "USER_DOES_NOT_EXISTS": "Usuario no existe",
+    "USER_DOES_NOT_EXIST": "Usuario no existe",
     "PASSWORDS_DONT_MATCH": "Las contraseñas no coinciden",
     "PASSWORD_TOO_SHORT_MIN_5": "Contraseña muy corta, mínimo 5 caracteres",
     "BLOCKED_USER": "Demasiados intentos fallidos, usuario bloqueado temporalmente",
     "SERVER_TIMEOUT_CONNECTION_ERROR": "El servidor no está respondiendo, error de conexión",
-    "404": "404 Página no encontrada"
+    "404": "404 Página no encontrada",
+    "EMAIL_IS_NOT_VALID": "Email no válido",
+    "IS_EMPTY": "Campos vacíos",
+    "ERROR": "Error",
+    "NOT_FOUND_OR_ALREADY_VERIFIED": "No encontrado o ya fue verificado",
+    "NOT_FOUND_OR_ALREADY_USED": "No encontrado o ya fue usado",
+    "NOT_FOUND": "No encontrado",
+    "UNAUTHORIZED": "No autorizado",
+    "EMAIL_ALREADY_EXISTS": "Email ya existe",
+    "ID_MALFORMED": "ID malformado",
+    "BAD_FORMAT_FOR_FILTER_USE_JSON_FORMAT": "Mal formato para el filtro, use format JSON",
+    "CITY_ALREADY_EXISTS": "Ciudad ya existe"
   },
   "menuItems": {
     "LANDING": "Página de Inicio",
