@@ -52,7 +52,7 @@ const actions = {
       .catch(error => {
         // Catches error connection or any other error (checks if error.response exists)
         let errMsg = error.response
-          ? error.response.data.errors.message
+          ? error.response.data.errors.msg
           : 'SERVER_TIMEOUT_CONNECTION_ERROR'
         commit(types.SHOW_LOADING, false)
         commit(types.ERROR, errMsg)
