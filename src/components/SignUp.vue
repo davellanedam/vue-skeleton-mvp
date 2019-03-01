@@ -7,7 +7,7 @@
         </h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 mt-3>
-        <form @submit.prevent="userSignUp">
+        <form @submit.prevent="validateBeforeSubmit">
           <v-layout column>
             <v-flex>
               <v-alert type="error" dismissible v-model="alert">
@@ -25,7 +25,10 @@
                 id="email"
                 type="email"
                 v-model="email"
-                required
+                :data-vv-as="$t('signup.EMAIL')"
+                :error="errors.has('email')"
+                :error-messages="errors.collect('email')"
+                v-validate="'required|email'"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -35,7 +38,10 @@
                 id="password"
                 type="password"
                 v-model="password"
-                required
+                :data-vv-as="$t('signup.PASSWORD')"
+                :error="errors.has('password')"
+                :error-messages="errors.collect('password')"
+                v-validate="'required|min:5'"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -44,9 +50,11 @@
                 :label="$t('signup.CONFIRM_PASSWORD')"
                 id="confirmPassword"
                 type="password"
-                v-model="passwordConfirm"
-                :rules="[comparePasswords]"
-                required
+                v-model="confirmPassword"
+                :data-vv-as="$t('signup.PASSWORD')"
+                :error="errors.has('confirmPassword')"
+                :error-messages="errors.collect('confirmPassword')"
+                v-validate="'required|min:5|confirmed:password'"
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
@@ -70,27 +78,24 @@ export default {
     return {
       email: '',
       password: '',
-      passwordConfirm: '',
+      confirmPassword: '',
       alert: false
     }
   },
   methods: {
-    userSignUp() {
-      if (this.comparePasswords !== true) {
-        return
-      }
-      this.$store.dispatch('userSignUp', {
-        email: this.email,
-        password: this.password
+    validateBeforeSubmit() {
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          this.$store.dispatch('userSignUp', {
+            email: this.email,
+            password: this.password
+          })
+          return
+        }
       })
     }
   },
   computed: {
-    comparePasswords() {
-      return this.password === this.passwordConfirm
-        ? true
-        : this.$t('errors.PASSWORDS_DONT_MATCH')
-    },
     error() {
       return formatErrorMessages('errors', this.$store.state.error.errorMessage)
     },
