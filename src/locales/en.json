@@ -45,6 +45,7 @@
   },
   "signup": {
     "TITLE": "Signup",
+    "NAME": "Name",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
     "CONFIRM_PASSWORD": "Confirm Password",

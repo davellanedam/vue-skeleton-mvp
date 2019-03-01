@@ -45,6 +45,7 @@
   },
   "signup": {
     "TITLE": "Registro",
+    "NAME": "Nombre",
     "EMAIL": "E-mail",
     "PASSWORD": "Contraseña",
     "CONFIRM_PASSWORD": "Confirmar Contraseña",
