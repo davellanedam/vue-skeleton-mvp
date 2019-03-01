@@ -5,7 +5,7 @@
         <h1 class="display-2 font-weight-bold mb-3">{{ $t('login.TITLE') }}</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3 mt-3>
-        <form @submit.prevent="userLogin">
+        <form @submit.prevent="validateBeforeSubmit">
           <v-layout column>
             <v-flex>
               <v-alert type="error" dismissible v-model="alert">
@@ -27,7 +27,6 @@
                 :error="errors.has('email')"
                 :error-messages="errors.collect('email')"
                 v-validate="'required|email'"
-                required
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -41,7 +40,6 @@
                 :error="errors.has('password')"
                 :error-messages="errors.collect('password')"
                 v-validate="'required|min:5'"
-                required
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
@@ -63,16 +61,21 @@ import { formatErrorMessages } from '../utils/utils.js'
 export default {
   data() {
     return {
-      email: 'admin@admin.com',
-      password: '12345',
+      email: '',
+      password: '',
       alert: false
     }
   },
   methods: {
-    userLogin() {
-      this.$store.dispatch('userLogin', {
-        email: this.email,
-        password: this.password
+    validateBeforeSubmit() {
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          this.$store.dispatch('userLogin', {
+            email: this.email,
+            password: this.password
+          })
+          return
+        }
       })
     }
   },
