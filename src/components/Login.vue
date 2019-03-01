@@ -18,10 +18,10 @@
             </v-flex>
             <v-flex>
               <v-text-field
-                name="email"
-                :label="$t('login.EMAIL')"
                 id="email"
+                name="email"
                 type="email"
+                :label="$t('login.EMAIL')"
                 v-model="email"
                 :data-vv-as="$t('login.EMAIL')"
                 :error="errors.has('email')"
@@ -31,10 +31,10 @@
             </v-flex>
             <v-flex>
               <v-text-field
-                name="password"
-                :label="$t('login.PASSWORD')"
                 id="password"
+                name="password"
                 type="password"
+                :label="$t('login.PASSWORD')"
                 v-model="password"
                 :data-vv-as="$t('login.PASSWORD')"
                 :error="errors.has('password')"
