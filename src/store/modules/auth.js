@@ -15,13 +15,6 @@ const getters = {
 }
 
 const actions = {
-  userSignUp({ commit }, payload) {
-    commit(types.SHOW_LOADING, true)
-    commit(types.SAVE_USER, payload)
-    commit(types.SHOW_LOADING, false)
-    commit(types.ERROR, null)
-    router.push('/')
-  },
   userLogin({ commit }, payload) {
     commit(types.SHOW_LOADING, true)
     const data = {
