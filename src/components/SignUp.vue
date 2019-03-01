@@ -20,10 +20,23 @@
             </v-flex>
             <v-flex>
               <v-text-field
-                name="email"
-                :label="$t('signup.EMAIL')"
+                id="name"
+                name="name"
+                type="text"
+                :label="$t('signup.NAME')"
+                v-model="name"
+                :data-vv-as="$t('signup.NAME')"
+                :error="errors.has('name')"
+                :error-messages="errors.collect('name')"
+                v-validate="'required'"
+              ></v-text-field>
+            </v-flex>
+            <v-flex>
+              <v-text-field
                 id="email"
+                name="email"
                 type="email"
+                :label="$t('signup.EMAIL')"
                 v-model="email"
                 :data-vv-as="$t('signup.EMAIL')"
                 :error="errors.has('email')"
@@ -33,23 +46,24 @@
             </v-flex>
             <v-flex>
               <v-text-field
-                name="password"
-                :label="$t('signup.PASSWORD')"
                 id="password"
+                name="password"
                 type="password"
+                :label="$t('signup.PASSWORD')"
                 v-model="password"
                 :data-vv-as="$t('signup.PASSWORD')"
                 :error="errors.has('password')"
                 :error-messages="errors.collect('password')"
                 v-validate="'required|min:5'"
+                ref="password"
               ></v-text-field>
             </v-flex>
             <v-flex>
               <v-text-field
-                name="confirmPassword"
-                :label="$t('signup.CONFIRM_PASSWORD')"
                 id="confirmPassword"
+                name="confirmPassword"
                 type="password"
+                :label="$t('signup.CONFIRM_PASSWORD')"
                 v-model="confirmPassword"
                 :data-vv-as="$t('signup.PASSWORD')"
                 :error="errors.has('confirmPassword')"
@@ -76,6 +90,7 @@ import { formatErrorMessages } from '../utils/utils.js'
 export default {
   data() {
     return {
+      name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -87,6 +102,7 @@ export default {
       this.$validator.validateAll().then(result => {
         if (result) {
           this.$store.dispatch('userSignUp', {
+            name: this.name,
             email: this.email,
             password: this.password
           })
