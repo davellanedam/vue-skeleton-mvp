@@ -7,14 +7,14 @@
     "BLOCKED_USER": "Demasiados intentos fallidos, usuario bloqueado temporalmente",
     "SERVER_TIMEOUT_CONNECTION_ERROR": "El servidor no está respondiendo, error de conexión",
     "404": "404 Página no encontrada",
-    "EMAIL_IS_NOT_VALID": "Email no válido",
+    "EMAIL_IS_NOT_VALID": "E-mail no válido",
     "IS_EMPTY": "Campos vacíos",
     "ERROR": "Error",
     "NOT_FOUND_OR_ALREADY_VERIFIED": "No encontrado o ya fue verificado",
     "NOT_FOUND_OR_ALREADY_USED": "No encontrado o ya fue usado",
     "NOT_FOUND": "No encontrado",
     "UNAUTHORIZED": "No autorizado",
-    "EMAIL_ALREADY_EXISTS": "Email ya existe",
+    "EMAIL_ALREADY_EXISTS": "E-mail ya existe",
     "ID_MALFORMED": "ID malformado",
     "BAD_FORMAT_FOR_FILTER_USE_JSON_FORMAT": "Mal formato para el filtro, use format JSON",
     "CITY_ALREADY_EXISTS": "Ciudad ya existe"
@@ -50,6 +50,9 @@
     "PASSWORD": "Contraseña",
     "CONFIRM_PASSWORD": "Confirmar Contraseña",
     "SIGN_ME_UP": "Registrame"
+  },
+  "verify": {
+    "TITLE": "Verificación de E-mail"
   },
   "myProfile": {
     "TITLE": "Mi Perfil"
