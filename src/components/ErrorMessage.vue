@@ -2,7 +2,7 @@
   <v-container>
     <v-layout>
       <v-flex>
-        <v-alert type="error" dismissible v-model="alert">
+        <v-alert v-model="showErrorMessage" type="error" dismissible>
           <ul>
             <li v-for="(item, index) in error" :key="index">
               {{ item }}
@@ -21,7 +21,7 @@ import { formatErrorMessages } from '../utils/utils.js'
 export default {
   data() {
     return {
-      alert: false
+      showErrorMessage: false
     }
   },
   computed: {
@@ -32,10 +32,10 @@ export default {
   watch: {
     error(value) {
       if (value) {
-        this.alert = true
+        this.showErrorMessage = true
       }
     },
-    alert(value) {
+    showErrorMessage(value) {
       if (!value) {
         this.$store.commit(types.ERROR, null)
       }
