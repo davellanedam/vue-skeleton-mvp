@@ -19,6 +19,10 @@
     "BAD_FORMAT_FOR_FILTER_USE_JSON_FORMAT": "Bad format for filter, use JSON format",
     "CITY_ALREADY_EXISTS": "City already exists"
   },
+  "loading": {
+    "PROCESSING": "Processing...",
+    "PLEASE_WAIT": "Please wait"
+  },
   "menuItems": {
     "LANDING": "Landing",
     "HOME": "Home",
