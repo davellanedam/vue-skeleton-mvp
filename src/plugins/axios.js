@@ -35,7 +35,7 @@ axios.interceptors.response.use(
   }
 )
 
-Plugin.install = function(Vue, options) {
+Plugin.install = function(Vue) {
   Vue.axios = axios
   window.axios = axios
   Object.defineProperties(Vue.prototype, {
