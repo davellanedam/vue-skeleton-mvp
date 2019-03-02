@@ -7,15 +7,7 @@
       <v-flex xs12 sm6 offset-sm3 mt-3>
         <form @submit.prevent="validateBeforeSubmit">
           <v-layout column>
-            <v-flex>
-              <v-alert type="error" dismissible v-model="alert">
-                <ul id="example-1">
-                  <li v-for="(item, index) in error" :key="index">
-                    {{ item }}
-                  </li>
-                </ul>
-              </v-alert>
-            </v-flex>
+            <error-message />
             <v-flex>
               <v-text-field
                 id="email"
@@ -55,16 +47,17 @@
 </template>
 
 <script>
-import * as types from '../store/mutation-types'
-import { formatErrorMessages } from '../utils/utils.js'
+import ErrorMessage from '@/components/ErrorMessage.vue'
 
 export default {
   data() {
     return {
       email: '',
-      password: '',
-      alert: false
+      password: ''
     }
+  },
+  components: {
+    ErrorMessage
   },
   methods: {
     validateBeforeSubmit() {
@@ -80,23 +73,8 @@ export default {
     }
   },
   computed: {
-    error() {
-      return formatErrorMessages('errors', this.$store.state.error.errorMessage)
-    },
     showLoading() {
       return this.$store.state.loading.showLoading
-    }
-  },
-  watch: {
-    error(value) {
-      if (value) {
-        this.alert = true
-      }
-    },
-    alert(value) {
-      if (!value) {
-        this.$store.commit(types.ERROR, null)
-      }
     }
   }
 }
