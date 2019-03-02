@@ -56,7 +56,8 @@
     "SIGN_ME_UP": "Registrame"
   },
   "verify": {
-    "TITLE": "Verificación de E-mail"
+    "TITLE": "Verificación de E-mail",
+    "EMAIL_VERIFIED": "E-mail verificado exitosamente"
   },
   "myProfile": {
     "TITLE": "Mi Perfil"

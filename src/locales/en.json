@@ -56,7 +56,8 @@
     "SIGN_ME_UP": "Sign me up"
   },
   "verify": {
-    "TITLE": "E-mail verification"
+    "TITLE": "E-mail verification",
+    "EMAIL_VERIFIED": "E-mail verified successfully"
   },
   "myProfile": {
     "TITLE": "My profile"
