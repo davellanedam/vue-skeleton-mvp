@@ -35,6 +35,7 @@ const actions = {
           )
           commit(types.SAVE_USER, response.data.user)
           commit(types.SAVE_TOKEN, response.data.token)
+          commit(types.EMAIL_VERIFIED, response.data.user.verified)
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, null)
           router.push('/home')
@@ -52,9 +53,11 @@ const actions = {
       })
   },
   autoLogin({ commit }) {
-    commit(types.SAVE_USER, JSON.parse(localStorage.getItem('user')))
+    const user = JSON.parse(localStorage.getItem('user'))
+    commit(types.SAVE_USER, user)
     commit(types.SAVE_TOKEN, JSON.parse(localStorage.getItem('token')))
     commit(types.SET_LOCALE, JSON.parse(localStorage.getItem('locale')))
+    commit(types.EMAIL_VERIFIED, user.verified)
   },
   userLogout({ commit }) {
     window.localStorage.removeItem('token')
