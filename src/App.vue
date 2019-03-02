@@ -66,6 +66,7 @@
       </v-toolbar>
 
       <v-content>
+        <loading />
         <router-view />
       </v-content>
     </v-app>
@@ -75,11 +76,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import LocaleChanger from './components/LocaleChanger'
+import Loading from '@/components/Loading.vue'
 
 export default {
   name: 'App',
   components: {
-    LocaleChanger
+    LocaleChanger,
+    Loading
   },
   data() {
     return {
