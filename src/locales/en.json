@@ -60,6 +60,13 @@
     "EMAIL_VERIFIED": "E-mail verified successfully"
   },
   "myProfile": {
-    "TITLE": "My profile"
+    "TITLE": "My profile",
+    "NAME": "Name",
+    "EMAIL": "E-mail",
+    "PHONE": "Phone",
+    "CITY": "City",
+    "COUNTRY": "Country",
+    "SAVE": "Save",
+    "PROFILE_SAVED_SUCCESSFULLY": "Profile saved successfuly"
   }
 }
