@@ -19,6 +19,7 @@
                 :error="errors.has('email')"
                 :error-messages="errors.collect('email')"
                 v-validate="'required|email'"
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -32,6 +33,7 @@
                 :error="errors.has('password')"
                 :error-messages="errors.collect('password')"
                 v-validate="'required|min:5'"
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
@@ -48,6 +50,7 @@
 
 <script>
 import ErrorMessage from '@/components/ErrorMessage.vue'
+import { mapActions } from 'vuex'
 
 export default {
   data() {
@@ -60,10 +63,11 @@ export default {
     ErrorMessage
   },
   methods: {
+    ...mapActions(['userLogin']),
     validateBeforeSubmit() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          this.$store.dispatch('userLogin', {
+          this.userLogin({
             email: this.email,
             password: this.password
           })

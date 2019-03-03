@@ -15,14 +15,18 @@
 <script>
 import ErrorMessage from '@/components/ErrorMessage.vue'
 import SuccessMessage from '@/components/SuccessMessage.vue'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     ErrorMessage,
     SuccessMessage
   },
+  methods: {
+    ...mapActions(['sendVerify'])
+  },
   created() {
-    this.$store.dispatch('sendVerify', this.$route.params.id)
+    this.sendVerify(this.$route.params.id)
   }
 }
 </script>

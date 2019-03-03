@@ -22,6 +22,7 @@
                 :error="errors.has('name')"
                 :error-messages="errors.collect('name')"
                 v-validate="'required'"
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -36,6 +37,7 @@
                 :error-messages="errors.collect('email')"
                 v-validate="'required|email'"
                 disabled
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -49,6 +51,7 @@
                 :error="errors.has('phone')"
                 :error-messages="errors.collect('phone')"
                 v-validate=""
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -62,6 +65,7 @@
                 :error="errors.has('city')"
                 :error-messages="errors.collect('city')"
                 v-validate=""
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -75,6 +79,7 @@
                 :error="errors.has('country')"
                 :error-messages="errors.collect('country')"
                 v-validate=""
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -88,6 +93,7 @@
                 :error="errors.has('urlTwitter')"
                 :error-messages="errors.collect('urlTwitter')"
                 v-validate="'url'"
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex>
@@ -101,6 +107,7 @@
                 :error="errors.has('urlGitHub')"
                 :error-messages="errors.collect('urlGitHub')"
                 v-validate="'url'"
+                autocomplete="off"
               ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
@@ -213,7 +220,7 @@ export default {
     validateBeforeSubmit() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          this.$store.dispatch('saveProfile', {
+          this.saveProfile({
             name: this.name,
             phone: this.phone,
             city: this.city,
