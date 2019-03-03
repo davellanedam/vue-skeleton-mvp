@@ -12,3 +12,7 @@ export const SAVE_TOKEN = 'SAVE_TOKEN'
 export const SAVE_USER = 'SAVE_USER'
 export const LOGOUT = 'LOGOUT'
 export const EMAIL_VERIFIED = 'EMAIL_VERIFIED'
+// profile
+export const FILL_PROFILE = 'FILL_PROFILE'
+export const FILL_CITIES = 'FILL_CITIES'
+export const ADD_PROFILE_DATA = 'ADD_PROFILE_DATA'
