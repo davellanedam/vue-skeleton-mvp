@@ -6,7 +6,7 @@
           {{ $t('signup.TITLE') }}
         </h1>
       </v-flex>
-      <v-flex xs12 sm6 offset-sm3 mt-3>
+      <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="validateBeforeSubmit">
           <v-layout column>
             <error-message />

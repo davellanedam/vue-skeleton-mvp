@@ -4,7 +4,7 @@
       <v-flex xs12 class="text-xs-center" mt-5>
         <h1 class="display-2 font-weight-bold mb-3">{{ $t('login.TITLE') }}</h1>
       </v-flex>
-      <v-flex xs12 sm6 offset-sm3 mt-3>
+      <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="validateBeforeSubmit">
           <v-layout column>
             <error-message />
