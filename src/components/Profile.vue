@@ -13,20 +13,6 @@
             <success-message />
             <v-flex>
               <v-text-field
-                id="name"
-                name="name"
-                type="text"
-                :label="$t('myProfile.NAME')"
-                v-model="name"
-                :data-vv-as="$t('myProfile.NAME')"
-                :error="errors.has('name')"
-                :error-messages="errors.collect('name')"
-                v-validate="'required'"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-text-field
                 id="email"
                 name="email"
                 type="email"
@@ -37,6 +23,20 @@
                 :error-messages="errors.collect('email')"
                 v-validate="'required|email'"
                 disabled
+                autocomplete="off"
+              ></v-text-field>
+            </v-flex>
+            <v-flex>
+              <v-text-field
+                id="name"
+                name="name"
+                type="text"
+                :label="$t('myProfile.NAME')"
+                v-model="name"
+                :data-vv-as="$t('myProfile.NAME')"
+                :error="errors.has('name')"
+                :error-messages="errors.collect('name')"
+                v-validate="'required'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
