@@ -6,6 +6,9 @@
           {{ $t('landing.TITLE') }}
         </h1>
       </v-flex>
+      <v-flex xs12 class="text-xs-center">
+        {{ $t('landing.DESCRIPTION') }}
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
