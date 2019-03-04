@@ -33,13 +33,16 @@
     "LOGOUT": "Salir"
   },
   "landing": {
-    "TITLE": "Página de aterrizaje"
+    "TITLE": "Página de aterrizaje",
+    "DESCRIPTION": "Esta página está disponible públicamente"
   },
   "home": {
-    "TITLE": "Inicio Protegido"
+    "TITLE": "Inicio Protegido",
+    "DESCRIPTION": "Esta página está disponible únicamente de forma privada cuando el usuario ingresa con sus credenciales"
   },
   "about": {
-    "TITLE": "Acerca de..."
+    "TITLE": "Acerca de...",
+    "DESCRIPTION": "Esta página está disponible públicamente"
   },
   "login": {
     "TITLE": "Ingresar",

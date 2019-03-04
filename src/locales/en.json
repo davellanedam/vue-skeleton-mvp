@@ -33,13 +33,16 @@
     "LOGOUT": "Logout"
   },
   "landing": {
-    "TITLE": "Landing"
+    "TITLE": "Landing",
+    "DESCRIPTION": "This page is publicly available"
   },
   "home": {
-    "TITLE": "Protected Home"
+    "TITLE": "Protected Home",
+    "DESCRIPTION": "This page is only available privately when the user logs in with its credentials"
   },
   "about": {
-    "TITLE": "About"
+    "TITLE": "About",
+    "DESCRIPTION": "This page is publicly available"
   },
   "login": {
     "TITLE": "Login",
