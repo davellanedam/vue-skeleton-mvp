@@ -12,8 +12,8 @@ const getters = {
 
 const actions = {
   setLocale({ commit }, payload) {
-    Validator.localize(payload)
     i18n.locale = payload
+    Validator.localize(payload)
     window.localStorage.setItem('locale', JSON.stringify(payload))
     commit(types.SET_LOCALE, payload)
   }
