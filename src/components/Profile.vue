@@ -50,24 +50,25 @@
                 :data-vv-as="$t('myProfile.PHONE')"
                 :error="errors.has('phone')"
                 :error-messages="errors.collect('phone')"
-                v-validate=""
+                v-validate="'required'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
-            <v-flex>
-              <v-text-field
+            <v-flex
+              ><v-autocomplete
                 id="city"
                 name="city"
-                type="text"
                 :label="$t('myProfile.CITY')"
+                :search-input.sync="searchInput"
                 v-model="city"
+                :items="cities"
+                clearable
                 :data-vv-as="$t('myProfile.CITY')"
                 :error="errors.has('city')"
                 :error-messages="errors.collect('city')"
-                v-validate=""
+                v-validate="'required'"
                 autocomplete="off"
-              ></v-text-field>
-            </v-flex>
+            /></v-flex>
             <v-flex>
               <v-text-field
                 id="country"
@@ -78,7 +79,7 @@
                 :data-vv-as="$t('myProfile.COUNTRY')"
                 :error="errors.has('country')"
                 :error-messages="errors.collect('country')"
-                v-validate=""
+                v-validate="'required'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -128,8 +129,14 @@ import SuccessMessage from '@/components/SuccessMessage.vue'
 import { mapActions } from 'vuex'
 
 export default {
+  data() {
+    return {
+      searchInput: ''
+    }
+  },
   created() {
     this.getProfile()
+    this.getCities()
   },
   components: {
     ErrorMessage,
@@ -162,6 +169,9 @@ export default {
         }
         this.addProfileData(data)
       }
+    },
+    cities() {
+      return this.$store.state.profile.cities
     },
     city: {
       get() {
@@ -216,7 +226,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getProfile', 'addProfileData', 'saveProfile']),
+    ...mapActions(['getProfile', 'getCities', 'addProfileData', 'saveProfile']),
     validateBeforeSubmit() {
       this.$validator.validateAll().then(result => {
         if (result) {
