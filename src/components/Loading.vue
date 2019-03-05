@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="showLoading" max-width="290" persistent>
+  <v-dialog v-model="showLoading" max-width="300" persistent>
     <v-card color="secondary white--text">
       <v-card-title class="headline justify-center">{{
         $t('loading.PROCESSING')
