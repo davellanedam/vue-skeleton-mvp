@@ -3,7 +3,6 @@ import axios from 'axios'
 
 const state = {
   profile: {
-    role: '',
     verified: false,
     name: '',
     email: '',
@@ -107,7 +106,6 @@ const mutations = {
     state.cities = cities
   },
   [types.FILL_PROFILE](state, data) {
-    state.profile.role = data.role
     state.profile.verified = data.verified
     state.profile.name = data.name
     state.profile.email = data.email
