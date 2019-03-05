@@ -6,6 +6,7 @@
     </v-btn>
     <v-list>
       <v-list-tile
+        active-class="white--text"
         v-for="(item, i) in langs"
         :key="`Lang${i}`"
         :value="item.lang"

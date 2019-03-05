@@ -1,6 +1,6 @@
 <template>
   <main>
-    <v-app>
+    <v-app dark>
       <v-navigation-drawer v-model="sidebar" app>
         <v-list>
           <v-list-tile
