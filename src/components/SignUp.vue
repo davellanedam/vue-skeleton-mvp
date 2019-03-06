@@ -121,7 +121,7 @@ export default {
   },
   created() {
     if (this.$store.state.auth.isTokenSet) {
-      router.push({ path: 'home' })
+      router.push({ name: 'home' })
     }
   }
 }
