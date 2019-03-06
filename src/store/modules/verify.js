@@ -30,7 +30,9 @@ const actions = {
             localStorage.setItem('user', JSON.stringify(_user))
             commit(types.SAVE_USER, _user)
           }
-          commit(types.SUCCESS, 'verify.EMAIL_VERIFIED')
+          commit(types.SUCCESS, {
+            msg: 'verify.EMAIL_VERIFIED'
+          })
           commit(types.SHOW_LOADING, false)
         }
       })
