@@ -87,7 +87,7 @@
               <v-text-field
                 id="urlTwitter"
                 name="urlTwitter"
-                type="text"
+                type="url"
                 label="Twitter"
                 v-model="urlTwitter"
                 data-vv-as="Twitter"
@@ -101,7 +101,7 @@
               <v-text-field
                 id="urlGitHub"
                 name="urlGitHub"
-                type="text"
+                type="url"
                 label="GitHub"
                 v-model="urlGitHub"
                 data-vv-as="GitHub"
