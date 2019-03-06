@@ -38,7 +38,9 @@ const actions = {
           commit(types.EMAIL_VERIFIED, response.data.user.verified)
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, null)
-          router.push('/home')
+          router.push({
+            path: 'home'
+          })
         } else {
           commit(types.SHOW_LOADING, false)
         }
@@ -63,7 +65,9 @@ const actions = {
     window.localStorage.removeItem('token')
     window.localStorage.removeItem('user')
     commit(types.LOGOUT)
-    router.push('/login')
+    router.push({
+      path: 'login'
+    })
   }
 }
 

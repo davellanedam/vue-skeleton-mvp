@@ -26,7 +26,9 @@ const actions = {
           commit(types.SAVE_TOKEN, response.data.token)
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, null)
-          router.push('/home')
+          router.push({
+            path: 'home'
+          })
         } else {
           commit(types.SHOW_LOADING, false)
         }
