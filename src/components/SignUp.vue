@@ -83,6 +83,7 @@
 </template>
 
 <script>
+import router from '@/router'
 import ErrorMessage from '@/components/ErrorMessage.vue'
 import { mapActions } from 'vuex'
 
@@ -116,6 +117,11 @@ export default {
   computed: {
     disabledButton() {
       return this.$store.state.loading.showLoading
+    }
+  },
+  created() {
+    if (this.$store.state.auth.isTokenSet) {
+      router.push({ path: 'home' })
     }
   }
 }
