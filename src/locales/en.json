@@ -48,7 +48,14 @@
     "TITLE": "Login",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
-    "LOGIN": "Login"
+    "LOGIN": "Login",
+    "FORGOT_PASSWORD": "Forgot password?"
+  },
+  "forgotPassword": {
+    "TITLE": "Forgot my password",
+    "EMAIL": "E-mail",
+    "DESCRIPTION": "Enter your E-mail address so we can send you a message with instructions to recover your password",
+    "RECOVER": "Recover"
   },
   "signup": {
     "TITLE": "Signup",
