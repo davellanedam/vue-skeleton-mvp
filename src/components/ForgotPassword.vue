@@ -52,7 +52,7 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
-      email: 'admin@admin.com'
+      email: ''
     }
   },
   components: {
