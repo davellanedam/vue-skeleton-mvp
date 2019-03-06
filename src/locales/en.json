@@ -55,7 +55,8 @@
     "TITLE": "Forgot my password",
     "EMAIL": "E-mail",
     "DESCRIPTION": "Enter your E-mail address so we can send you a message with instructions to recover your password",
-    "RECOVER": "Recover"
+    "RECOVER": "Recover",
+    "RESET_EMAIL_SENT": "We have sent a message to %{email} with instructions to recover your password"
   },
   "signup": {
     "TITLE": "Signup",
