@@ -56,7 +56,7 @@
     "EMAIL": "E-mail",
     "DESCRIPTION": "Ingresa tu E-mail para que podamos enviarte un mensaje con instrucciones para recuperar tu contraseña",
     "RECOVER": "Recuperar",
-    "RESET_EMAIL_SENT": "Hemos enviado un mensaje a %{email} con instrucciones para recuperar tu contraseña"
+    "RESET_EMAIL_SENT": "Hemos enviado un mensaje a %{0} con instrucciones para recuperar tu contraseña"
   },
   "signup": {
     "TITLE": "Registro",
