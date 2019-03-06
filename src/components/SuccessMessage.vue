@@ -26,7 +26,13 @@ export default {
   },
   computed: {
     successMessage() {
-      return this.$i18n.t(this.$store.state.success.successMessage)
+      if (this.$store.state.success.successMessageParams) {
+        return this.$i18n.t(this.$store.state.success.successMessage, [
+          ...this.$store.state.success.successMessageParams
+        ])
+      } else {
+        return this.$i18n.t(this.$store.state.success.successMessage)
+      }
     }
   },
   watch: {
