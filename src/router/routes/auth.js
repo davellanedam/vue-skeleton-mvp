@@ -10,5 +10,11 @@ export default [
     name: 'signup',
     component: () =>
       import(/* webpackChunkName: "signup" */ '@/components/SignUp.vue')
+  },
+  {
+    path: '/verify/:id',
+    name: 'verify',
+    component: () =>
+      import(/* webpackChunkName: "verify" */ '@/components/Verify.vue')
   }
 ]
