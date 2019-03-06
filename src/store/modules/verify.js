@@ -13,7 +13,7 @@ const actions = {
   sendVerify({ commit }, id) {
     commit(types.SHOW_LOADING, true)
     const data = {
-      id: id
+      id
     }
     axios
       .post('/verify', data)
