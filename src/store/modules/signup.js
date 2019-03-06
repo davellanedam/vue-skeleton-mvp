@@ -5,13 +5,8 @@ import axios from 'axios'
 const actions = {
   userSignUp({ commit }, payload) {
     commit(types.SHOW_LOADING, true)
-    const data = {
-      name: payload.name,
-      email: payload.email,
-      password: payload.password
-    }
     axios
-      .post('/register', data)
+      .post('/register', payload)
       .then(response => {
         if (response.status === 201) {
           window.localStorage.setItem(

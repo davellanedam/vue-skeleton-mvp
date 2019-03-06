@@ -17,12 +17,8 @@ const getters = {
 const actions = {
   userLogin({ commit }, payload) {
     commit(types.SHOW_LOADING, true)
-    const data = {
-      email: payload.email,
-      password: payload.password
-    }
     axios
-      .post('/login', data)
+      .post('/login', payload)
       .then(response => {
         if (response.status === 200) {
           window.localStorage.setItem(
