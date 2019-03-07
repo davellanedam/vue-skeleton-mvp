@@ -36,6 +36,25 @@
     "ADMIN": "Admin",
     "CITIES": "Cities"
   },
+  "dataTable": {
+    "NEW_ITEM": "New Item",
+    "EDIT_ITEM": "Edit Item",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "RESET": "Reset",
+    "ACTIONS": "Actions",
+    "ROWS_PER_PAGE": "Rows per page",
+    "NO_DATA": "No data",
+    "NO_RESULTS": "No results"
+  },
+  "cities": {
+    "TITLE": "Cities",
+    "headers": {
+      "NAME": "Name"
+    }
+  },
   "landing": {
     "TITLE": "Landing",
     "DESCRIPTION": "This page is publicly available"

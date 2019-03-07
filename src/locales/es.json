@@ -36,6 +36,25 @@
     "ADMIN": "Admin",
     "CITIES": "Ciudades"
   },
+  "dataTable": {
+    "NEW_ITEM": "Nuevo Item",
+    "EDIT_ITEM": "Editar Item",
+    "CANCEL": "Cancelar",
+    "SAVE": "Guardar",
+    "EDIT": "Editar",
+    "DELETE": "Eliminar",
+    "RESET": "Reiniciar",
+    "ACTIONS": "Acciones",
+    "ROWS_PER_PAGE": "Elementos por página",
+    "NO_DATA": "No hay datos",
+    "NO_RESULTS": "No hay resultados"
+  },
+  "cities": {
+    "TITLE": "Ciudades",
+    "headers": {
+      "NAME": "Nombre"
+    }
+  },
   "landing": {
     "TITLE": "Página de aterrizaje",
     "DESCRIPTION": "Esta página está disponible públicamente"
