@@ -13,6 +13,7 @@ export const SAVE_USER = 'SAVE_USER'
 export const LOGOUT = 'LOGOUT'
 export const EMAIL_VERIFIED = 'EMAIL_VERIFIED'
 export const RESET_EMAIL_SENT = 'RESET_EMAIL_SENT'
+export const SHOW_CHANGE_PASSWORD_INPUTS = 'SHOW_CHANGE_PASSWORD_INPUTS'
 // profile
 export const FILL_PROFILE = 'FILL_PROFILE'
 export const FILL_CITIES = 'FILL_CITIES'
