@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <div class="text-xs-center">
-        <v-dialog v-model="emailVerified" width="500" persistent>
+        <v-dialog v-model="showVerifyDialog" width="500" persistent>
           <v-card>
             <v-card-title
               class="headline grey lighten-2 black--text"
@@ -17,7 +17,7 @@
             <v-divider></v-divider>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="primary" flat @click="emailVerified = false">
+              <v-btn color="primary" flat @click="showVerifyDialog = false">
                 {{ $t('home.CLOSE') }}
               </v-btn>
             </v-card-actions>
@@ -38,7 +38,7 @@
 export default {
   data() {
     return {
-      emailVerified: !this.$store.state.emailVerified
+      showVerifyDialog: !this.$store.state.verify.emailVerified
     }
   }
 }
