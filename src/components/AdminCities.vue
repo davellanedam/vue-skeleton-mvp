@@ -18,8 +18,15 @@
               <v-layout wrap>
                 <v-flex xs12 md6>
                   <v-text-field
+                    id="name"
+                    name="name"
                     v-model="editedItem.name"
                     :label="$t('cities.headers.NAME')"
+                    :data-vv-as="$t('cities.headers.NAME')"
+                    :error="errors.has('name')"
+                    :error-messages="errors.collect('name')"
+                    v-validate="'required'"
+                    autocomplete="off"
                   ></v-text-field>
                 </v-flex>
               </v-layout>
@@ -188,12 +195,16 @@ export default {
       }, 300)
     },
     save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.items[this.editedIndex], this.editedItem)
-      } else {
-        this.items.push(this.editedItem)
-      }
-      this.close()
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          if (this.editedIndex > -1) {
+            Object.assign(this.items[this.editedIndex], this.editedItem)
+          } else {
+            this.items.push(this.editedItem)
+          }
+          this.close()
+        }
+      })
     }
   }
 }
