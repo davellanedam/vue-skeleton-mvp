@@ -32,6 +32,10 @@
     "LOGIN": "Ingresar",
     "LOGOUT": "Salir"
   },
+  "adminItems": {
+    "ADMIN": "Admin",
+    "CITIES": "Ciudades"
+  },
   "landing": {
     "TITLE": "Página de aterrizaje",
     "DESCRIPTION": "Esta página está disponible públicamente"
