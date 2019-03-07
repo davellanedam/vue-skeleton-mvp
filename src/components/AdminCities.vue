@@ -16,7 +16,7 @@
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
-                <v-flex xs12 sm6 md4>
+                <v-flex xs12 md6>
                   <v-text-field
                     v-model="editedItem.name"
                     :label="$t('cities.headers.NAME')"
