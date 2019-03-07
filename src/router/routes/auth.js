@@ -18,9 +18,15 @@ export default [
       import(/* webpackChunkName: "verify" */ '@/components/Verify.vue')
   },
   {
-    path: '/forgotPassword',
+    path: '/forgot',
     name: 'forgotPassword',
     component: () =>
       import(/* webpackChunkName: "forgotPassword" */ '@/components/ForgotPassword.vue')
+  },
+  {
+    path: '/reset/:id',
+    name: 'resetPassword',
+    component: () =>
+      import(/* webpackChunkName: "resetPassword" */ '@/components/ResetPassword.vue')
   }
 ]
