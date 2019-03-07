@@ -14,6 +14,23 @@
             </v-list-tile-action>
             <v-list-tile-content>{{ item.title }}</v-list-tile-content>
           </v-list-tile>
+
+          <v-list-group v-if="admin" prepend-icon="build" no-action>
+            <v-list-tile slot="activator">
+              <v-list-tile-title>{{
+                $t('adminItems.ADMIN')
+              }}</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile
+              v-for="(item, index) in adminItems"
+              :key="index"
+              :to="{ name: item.link }"
+              exact
+            >
+              <v-list-tile-content>{{ item.title }}</v-list-tile-content>
+            </v-list-tile>
+          </v-list-group>
+
           <v-list-tile v-if="isTokenSet" @click="userLogout">
             <v-list-tile-action>
               <v-icon>exit_to_app</v-icon>
@@ -58,6 +75,25 @@
             <v-icon>{{ item.icon }}</v-icon>
             &nbsp;{{ item.title }}
           </v-btn>
+
+          <v-menu v-if="admin" offset-y>
+            <v-btn slot="activator" flat>
+              <v-icon>build</v-icon>
+              &nbsp;{{ $t('adminItems.ADMIN') }}
+            </v-btn>
+            <v-list>
+              <v-list-tile
+                active-class="white--text"
+                v-for="(item, index) in adminItems"
+                :key="index"
+                :to="{ name: item.link }"
+                exact
+              >
+                <v-list-tile-title> {{ item.title }}</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+
           <v-btn flat v-if="isTokenSet" @click="userLogout">
             <v-icon left>exit_to_app</v-icon>{{ $t('menuItems.LOGOUT') }}
           </v-btn>
@@ -90,7 +126,22 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['appTitle', 'isTokenSet']),
+    ...mapGetters(['appTitle', 'isTokenSet', 'user']),
+    admin() {
+      return this.user !== null
+        ? this.user.role === 'admin'
+          ? true
+          : false
+        : false
+    },
+    adminItems() {
+      return [
+        {
+          title: this.$t('adminItems.CITIES'),
+          link: 'admin-cities'
+        }
+      ]
+    },
     menuItems() {
       if (this.isTokenSet) {
         return [
