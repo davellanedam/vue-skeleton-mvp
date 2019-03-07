@@ -58,6 +58,13 @@
     "RECOVER": "Recuperar",
     "RESET_EMAIL_SENT": "Hemos enviado un mensaje a %{0} con instrucciones para recuperar tu contraseña"
   },
+  "resetPassword": {
+    "TITLE": "Cambiar Contraseña",
+    "PASSWORD": "Contraseña",
+    "CONFIRM_PASSWORD": "Confirmar Contraseña",
+    "CHANGE_PASSWORD": "Cambiar Contraseña",
+    "PASSWORD_CHANGED": "Contraseña cambiada exitosamente"
+  },
   "signup": {
     "TITLE": "Registro",
     "NAME": "Nombre",

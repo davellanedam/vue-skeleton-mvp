@@ -58,6 +58,13 @@
     "RECOVER": "Recover",
     "RESET_EMAIL_SENT": "We have sent a message to %{0} with instructions to recover your password"
   },
+  "resetPassword": {
+    "TITLE": "Change Password",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "CHANGE_PASSWORD": "Change Password",
+    "PASSWORD_CHANGED": "Password changed successfully"
+  },
   "signup": {
     "TITLE": "Signup",
     "NAME": "Name",
