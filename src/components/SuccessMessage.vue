@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-show="showSuccessMessage">
     <v-layout>
       <v-flex>
         <v-alert

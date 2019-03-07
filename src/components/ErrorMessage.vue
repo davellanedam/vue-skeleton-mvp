@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container v-show="showErrorMessage">
     <v-layout>
       <v-flex>
         <v-alert v-model="showErrorMessage" type="error" dismissible>
