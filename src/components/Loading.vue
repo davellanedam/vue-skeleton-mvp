@@ -1,21 +1,13 @@
 <template>
-  <v-dialog v-model="showLoading" max-width="300" persistent>
+  <v-dialog v-model="showLoading" persistent width="300">
     <v-card color="secondary white--text">
-      <v-card-title class="headline justify-center">{{
-        $t('loading.PROCESSING')
-      }}</v-card-title>
-      <v-spacer></v-spacer>
-      <div class="text-xs-center">
-        <v-progress-circular
-          indeterminate
-          v-bind:size="70"
-          v-bind:width="7"
-          color="white"
-        >
-        </v-progress-circular>
-      </div>
-      <v-card-text class="text-xs-center">
+      <v-card-text>
         {{ $t('loading.PLEASE_WAIT') }}
+        <v-progress-linear
+          indeterminate
+          color="white"
+          class="mb-0"
+        ></v-progress-linear>
       </v-card-text>
     </v-card>
   </v-dialog>
