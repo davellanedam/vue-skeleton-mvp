@@ -27,7 +27,6 @@ const actions = {
         }
       })
       .catch(error => {
-        console.log(error)
         // Catches error connection or any other error (checks if error.response exists)
         let errMsg = error.response
           ? error.response.data.errors.msg
