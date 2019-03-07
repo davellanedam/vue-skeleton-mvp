@@ -47,7 +47,8 @@
     "ACTIONS": "Actions",
     "ROWS_PER_PAGE": "Rows per page",
     "NO_DATA": "No data",
-    "NO_RESULTS": "No results"
+    "NO_RESULTS": "No results",
+    "OF": "of"
   },
   "cities": {
     "TITLE": "Cities",

@@ -47,7 +47,8 @@
     "ACTIONS": "Acciones",
     "ROWS_PER_PAGE": "Elementos por página",
     "NO_DATA": "No hay datos",
-    "NO_RESULTS": "No hay resultados"
+    "NO_RESULTS": "No hay resultados",
+    "OF": "de"
   },
   "cities": {
     "TITLE": "Ciudades",
