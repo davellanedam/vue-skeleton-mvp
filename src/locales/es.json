@@ -20,8 +20,7 @@
     "CITY_ALREADY_EXISTS": "Ciudad ya existe"
   },
   "loading": {
-    "PROCESSING": "Procesando...",
-    "PLEASE_WAIT": "Por favor espere"
+    "PLEASE_WAIT": "Por favor espere..."
   },
   "menuItems": {
     "LANDING": "Página de Inicio",
