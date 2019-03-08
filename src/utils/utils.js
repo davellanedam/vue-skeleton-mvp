@@ -21,14 +21,13 @@ export const formatErrorMessages = (translationParent, msg) => {
   }
 }
 
-export const buildPayload = pagination => {
+export const buildPayloadPagination = pagination => {
   let { sortBy, descending, page, rowsPerPage } = pagination
   descending = descending ? -1 : 1
-  const payload = {
+  return {
     sort: sortBy,
     order: descending,
     page,
     limit: rowsPerPage
   }
-  return payload
 }

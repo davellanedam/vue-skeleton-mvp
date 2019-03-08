@@ -100,7 +100,7 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { buildPayload } from '../utils/utils.js'
+import { buildPayloadPagination } from '../utils/utils.js'
 
 export default {
   data() {
@@ -164,7 +164,7 @@ export default {
     getDataFromApi() {
       this.dataTableLoading = true
       return new Promise(resolve => {
-        resolve(this.getCities(buildPayload(this.pagination)))
+        resolve(this.getCities(buildPayloadPagination(this.pagination)))
       })
     },
     editItem(item) {
