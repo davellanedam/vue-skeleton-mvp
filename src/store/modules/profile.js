@@ -12,16 +12,16 @@ const state = {
     urlTwitter: '',
     urlGitHub: ''
   },
-  cities: []
+  allCities: []
 }
 
 const getters = {
   profile: state => state.profile,
-  cities: state => state.cities
+  allCities: state => state.allCities
 }
 
 const actions = {
-  getCities({ commit }) {
+  getAllCities({ commit }) {
     axios
       .get('/cities/all')
       .then(response => {
@@ -31,7 +31,7 @@ const actions = {
           array.forEach(element => {
             cities.push(element.name)
           })
-          commit(types.FILL_CITIES, cities)
+          commit(types.FILL_ALL_CITIES, cities)
         }
       })
       .catch(error => {
@@ -102,8 +102,8 @@ const actions = {
 }
 
 const mutations = {
-  [types.FILL_CITIES](state, cities) {
-    state.cities = cities
+  [types.FILL_ALL_CITIES](state, cities) {
+    state.allCities = cities
   },
   [types.FILL_PROFILE](state, data) {
     state.profile.verified = data.verified

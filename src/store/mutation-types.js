@@ -16,5 +16,8 @@ export const RESET_EMAIL_SENT = 'RESET_EMAIL_SENT'
 export const SHOW_CHANGE_PASSWORD_INPUTS = 'SHOW_CHANGE_PASSWORD_INPUTS'
 // profile
 export const FILL_PROFILE = 'FILL_PROFILE'
-export const FILL_CITIES = 'FILL_CITIES'
+export const FILL_ALL_CITIES = 'FILL_ALL_CITIES'
 export const ADD_PROFILE_DATA = 'ADD_PROFILE_DATA'
+// Admin - Cities
+export const CITIES = 'CITIES'
+export const TOTAL_CITIES = 'TOTAL_CITIES'

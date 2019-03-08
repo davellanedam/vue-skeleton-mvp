@@ -61,7 +61,7 @@
                 :label="$t('myProfile.CITY')"
                 :search-input.sync="searchInput"
                 v-model="city"
-                :items="cities"
+                :items="allCities"
                 clearable
                 :data-vv-as="$t('myProfile.CITY')"
                 :error="errors.has('city')"
@@ -139,7 +139,7 @@ export default {
   },
   created() {
     this.getProfile()
-    this.getCities()
+    this.getAllCities()
   },
   components: {
     ErrorMessage,
@@ -173,8 +173,8 @@ export default {
         this.addProfileData(data)
       }
     },
-    cities() {
-      return this.$store.state.profile.cities
+    allCities() {
+      return this.$store.state.profile.allCities
     },
     city: {
       get() {
@@ -229,7 +229,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getProfile', 'getCities', 'addProfileData', 'saveProfile']),
+    ...mapActions([
+      'getProfile',
+      'getAllCities',
+      'addProfileData',
+      'saveProfile'
+    ]),
     validateBeforeSubmit() {
       this.$validator.validateAll().then(result => {
         if (result) {
