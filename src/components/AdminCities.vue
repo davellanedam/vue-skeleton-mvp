@@ -53,6 +53,8 @@
       :rows-per-page-items="[5, 10, 25]"
       :headers="headers"
       :items="items"
+      :pagination.sync="pagination"
+      :total-items="totalItems"
       class="elevation-1"
     >
       <template v-slot:items="props">
@@ -87,21 +89,25 @@
         {{ props.itemsLength }}
       </template>
       <template v-slot:no-data>
-        <v-btn color="secondary" @click="initialize">{{
-          $t('dataTable.RESET')
-        }}</v-btn>
+        {{ $t('dataTable.NO_DATA') }}
+      </template>
+      <template v-slot:no-results>
+        {{ $t('dataTable.NO_RESULTS') }}
       </template>
     </v-data-table>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import { buildPayload } from '../utils/utils.js'
+
 export default {
   data() {
     return {
       dataTableLoading: true,
       dialog: false,
-      items: [],
+      pagination: {},
       editedIndex: -1,
       editedItem: {
         name: ''
@@ -128,54 +134,38 @@ export default {
         {
           text: this.$i18n.t('cities.headers.NAME'),
           align: 'left',
-          sortable: false,
+          sortable: true,
           value: 'name'
         }
       ]
+    },
+    items() {
+      return this.$store.state.adminCities.cities
+    },
+    totalItems() {
+      return this.$store.state.adminCities.totalCities
     }
   },
   watch: {
-    dialog(val) {
-      val || this.close()
+    dialog(value) {
+      value || this.close()
+    },
+    pagination: {
+      handler() {
+        this.getDataFromApi().then(() => {
+          this.dataTableLoading = false
+        })
+      },
+      deep: true
     }
   },
-  created() {
-    this.initialize()
-  },
   methods: {
-    initialize() {
-      this.items = [
-        {
-          name: 'Bogotá'
-        },
-        {
-          name: 'Bucaramanga'
-        },
-        {
-          name: 'New York'
-        },
-        {
-          name: 'San Francisco'
-        },
-        {
-          name: 'Oakland'
-        },
-        {
-          name: 'San Leandro'
-        },
-        {
-          name: 'Medellín'
-        },
-        {
-          name: 'Cali'
-        },
-        {
-          name: 'Barranquilla'
-        },
-        {
-          name: 'Miami'
-        }
-      ]
+    ...mapActions(['getCities']),
+    getDataFromApi() {
+      this.dataTableLoading = true
+      return new Promise(resolve => {
+        resolve(this.getCities(buildPayload(this.pagination)))
+      })
     },
     editItem(item) {
       this.editedIndex = this.items.indexOf(item)
