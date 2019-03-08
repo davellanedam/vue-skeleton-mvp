@@ -13,8 +13,6 @@ const getters = {
 
 const actions = {
   getCities({ commit }, payload) {
-    console.log('entro')
-    console.log(payload)
     axios
       .get('/cities', {
         params: payload
