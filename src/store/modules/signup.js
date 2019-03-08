@@ -22,7 +22,7 @@ const actions = {
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, null)
           router.push({
-            path: 'home'
+            name: 'home'
           })
         } else {
           commit(types.SHOW_LOADING, false)
