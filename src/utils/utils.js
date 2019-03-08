@@ -20,3 +20,15 @@ export const formatErrorMessages = (translationParent, msg) => {
     return null
   }
 }
+
+export const buildPayload = pagination => {
+  let { sortBy, descending, page, rowsPerPage } = pagination
+  descending = descending ? -1 : 1
+  const payload = {
+    sort: sortBy,
+    order: descending,
+    page,
+    limit: rowsPerPage
+  }
+  return payload
+}
