@@ -16,7 +16,7 @@
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
-                <v-flex xs12 md6>
+                <v-flex xs12>
                   <v-text-field
                     id="name"
                     name="name"
