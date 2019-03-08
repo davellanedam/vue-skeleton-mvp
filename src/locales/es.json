@@ -52,7 +52,9 @@
   "cities": {
     "TITLE": "Ciudades",
     "headers": {
-      "NAME": "Nombre"
+      "NAME": "Nombre",
+      "CREATED": "Creado",
+      "UPDATED": "Actualizado"
     }
   },
   "landing": {
