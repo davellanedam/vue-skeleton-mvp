@@ -80,7 +80,9 @@ const actions = {
       .then(response => {
         if (response.status === 200) {
           commit(types.FILL_PROFILE, response.data)
-          commit(types.SUCCESS, 'myProfile.PROFILE_SAVED_SUCCESSFULLY')
+          commit(types.SUCCESS, {
+            msg: 'myProfile.PROFILE_SAVED_SUCCESSFULLY'
+          })
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, null)
         } else {
