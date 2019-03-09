@@ -45,7 +45,10 @@
         </v-card>
       </v-dialog>
     </v-toolbar>
+    <error-message />
+    <success-message />
     <v-data-table
+      must-sort
       :loading="dataTableLoading"
       :rows-per-page-text="$t('dataTable.ROWS_PER_PAGE')"
       :no-data-text="$t('dataTable.NO_DATA')"
@@ -83,6 +86,12 @@
           </v-tooltip>
         </td>
         <td>{{ props.item.name }}</td>
+        <td>
+          {{ props.item.createdAt | moment('dddd, MMMM D YYYY, h:mm a') }}
+        </td>
+        <td>
+          {{ props.item.updatedAt | moment('dddd, MMMM D YYYY, h:mm a') }}
+        </td>
       </template>
       <template v-slot:pageText="props">
         {{ props.pageStart }} - {{ props.pageStop }} {{ $t('dataTable.OF') }}
@@ -100,16 +109,22 @@
 
 <script>
 import { mapActions } from 'vuex'
+import ErrorMessage from '@/components/ErrorMessage.vue'
+import SuccessMessage from '@/components/SuccessMessage.vue'
 import { buildPayloadPagination } from '../utils/utils.js'
 
 export default {
+  components: {
+    ErrorMessage,
+    SuccessMessage
+  },
   data() {
     return {
       dataTableLoading: true,
       dialog: false,
       pagination: {},
-      editedIndex: -1,
       editedItem: {
+        _id: '',
         name: ''
       },
       defaultItem: {
@@ -127,7 +142,7 @@ export default {
       return [
         {
           text: this.$i18n.t('dataTable.ACTIONS'),
-          value: 'name',
+          value: '_id',
           sortable: false,
           width: 100
         },
@@ -136,6 +151,18 @@ export default {
           align: 'left',
           sortable: true,
           value: 'name'
+        },
+        {
+          text: this.$i18n.t('cities.headers.CREATED'),
+          align: 'left',
+          sortable: true,
+          value: 'createdAt'
+        },
+        {
+          text: this.$i18n.t('cities.headers.UPDATED'),
+          align: 'left',
+          sortable: true,
+          value: 'updatedAt'
         }
       ]
     },
@@ -160,37 +187,63 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getCities']),
+    ...mapActions(['getCities', 'editCity', 'saveCity', 'deleteCity']),
+    refresh() {
+      // this.pagination.page = 27843
+      this.$emit('update:pagination', this.pagination)
+    },
     getDataFromApi() {
       this.dataTableLoading = true
       return new Promise(resolve => {
         resolve(this.getCities(buildPayloadPagination(this.pagination)))
       })
     },
+    editDataFromApi(item) {
+      return new Promise(resolve => {
+        resolve(this.editCity(item))
+      })
+    },
+    saveDataFromApi(item) {
+      return new Promise(resolve => {
+        resolve(this.saveCity(item))
+      })
+    },
+    deleteDataFromApi(id) {
+      return new Promise(resolve => {
+        resolve(this.deleteCity(id))
+      })
+    },
     editItem(item) {
-      this.editedIndex = this.items.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
     deleteItem(item) {
-      const index = this.items.indexOf(item)
-      confirm('Are you sure you want to delete this item?') &&
-        this.items.splice(index, 1)
+      this.dataTableLoading = true
+      this.deleteDataFromApi(item._id).then(() => {
+        this.dataTableLoading = false
+      })
     },
     close() {
       this.dialog = false
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
       }, 300)
     },
     save() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          if (this.editedIndex > -1) {
-            Object.assign(this.items[this.editedIndex], this.editedItem)
+          this.dataTableLoading = true
+          // Updating item
+          if (this.editedItem._id) {
+            this.editDataFromApi(this.editedItem).then(() => {
+              this.dataTableLoading = false
+              this.refresh(this.pagination)
+            })
           } else {
-            this.items.push(this.editedItem)
+            // Creating new item
+            this.saveDataFromApi(this.editedItem).then(() => {
+              this.dataTableLoading = false
+            })
           }
           this.close()
         }
