@@ -16,6 +16,26 @@
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
+                <v-flex xs12 md6 v-if="editedItem.name">
+                  <label for="createdAt">{{
+                    $t('cities.headers.CREATED')
+                  }}</label>
+                  <div name="createdAt">
+                    {{
+                      editedItem.createdAt | moment('ddd, MMMM D YYYY, h:mm a')
+                    }}
+                  </div>
+                </v-flex>
+                <v-flex xs12 md6 v-if="editedItem.name">
+                  <label for="updatedAt">{{
+                    $t('cities.headers.UPDATED')
+                  }}</label>
+                  <div name="updatedAt">
+                    {{
+                      editedItem.updatedAt | moment('ddd, MMMM D YYYY, h:mm a')
+                    }}
+                  </div>
+                </v-flex>
                 <v-flex xs12>
                   <v-text-field
                     id="name"
@@ -128,6 +148,7 @@ export default {
         name: ''
       },
       defaultItem: {
+        _id: '',
         name: ''
       }
     }
