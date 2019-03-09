@@ -134,9 +134,9 @@ export default {
   },
   computed: {
     formTitle() {
-      return this.editedIndex === -1
-        ? this.$t('dataTable.NEW_ITEM')
-        : this.$t('dataTable.EDIT_ITEM')
+      return this.editedItem._id
+        ? this.$t('dataTable.EDIT_ITEM')
+        : this.$t('dataTable.NEW_ITEM')
     },
     headers() {
       return [
