@@ -21,13 +21,31 @@ export const formatErrorMessages = (translationParent, msg) => {
   }
 }
 
-export const buildPayloadPagination = pagination => {
+export const buildPayloadPagination = (pagination, search) => {
   let { sortBy, descending, page, rowsPerPage } = pagination
+  // Gets order
   descending = descending ? -1 : 1
-  return {
-    sort: sortBy,
-    order: descending,
-    page,
-    limit: rowsPerPage
+
+  let query = {}
+
+  // If search and fields are defined
+  if (search) {
+    query = {
+      sort: sortBy,
+      order: descending,
+      page,
+      limit: rowsPerPage,
+      filter: search.query,
+      fields: search.fields
+    }
+  } else {
+    // Pagination with no filters
+    query = {
+      sort: sortBy,
+      order: descending,
+      page,
+      limit: rowsPerPage
+    }
   }
+  return query
 }
