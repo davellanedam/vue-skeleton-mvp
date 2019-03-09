@@ -16,7 +16,7 @@
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
-                <v-flex xs12 md6 v-if="editedItem.name">
+                <v-flex xs12 md6 v-if="editedItem._id">
                   <label for="createdAt">{{
                     $t('cities.headers.CREATED')
                   }}</label>
@@ -26,7 +26,7 @@
                     }}
                   </div>
                 </v-flex>
-                <v-flex xs12 md6 v-if="editedItem.name">
+                <v-flex xs12 md6 v-if="editedItem._id">
                   <label for="updatedAt">{{
                     $t('cities.headers.UPDATED')
                   }}</label>
@@ -143,14 +143,8 @@ export default {
       dataTableLoading: true,
       dialog: false,
       pagination: {},
-      editedItem: {
-        _id: '',
-        name: ''
-      },
-      defaultItem: {
-        _id: '',
-        name: ''
-      }
+      editedItem: {},
+      defaultItem: {}
     }
   },
   computed: {
