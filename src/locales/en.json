@@ -20,6 +20,10 @@
     "CITY_ALREADY_EXISTS": "City already exists"
   },
   "common": {
+    "YES": "Yes",
+    "NO": "No",
+    "WARNING": "Warning",
+    "DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM": "Do you really want to delete this item?",
     "CLOSE": "Close",
     "SAVED_SUCCESSFULLY": "Saved successfully",
     "DELETED_SUCCESSFULLY": "Deleted successfully"
