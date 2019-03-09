@@ -13,7 +13,6 @@
         <form @submit.prevent="validateBeforeSubmit">
           <v-layout column>
             <error-message />
-            <success-message />
             <v-flex>
               <v-text-field
                 id="email"
@@ -39,6 +38,7 @@
           </v-layout>
         </form>
       </v-flex>
+      <success-message />
     </v-layout>
   </v-container>
 </template>

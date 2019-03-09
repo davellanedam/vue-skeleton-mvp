@@ -2,14 +2,18 @@
   <v-container v-show="showSuccessMessage">
     <v-layout>
       <v-flex>
-        <v-alert
+        <v-snackbar
           v-model="showSuccessMessage"
-          type="success"
-          dismissible
-          transition="scale-transition"
+          color="success"
+          multi-line
+          bottom
+          :timeout="6000"
         >
           {{ successMessage }}
-        </v-alert>
+          <v-btn dark flat @click="showSuccessMessage = false">
+            Close
+          </v-btn>
+        </v-snackbar>
       </v-flex>
     </v-layout>
   </v-container>

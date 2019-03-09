@@ -46,7 +46,6 @@
       </v-dialog>
     </v-toolbar>
     <error-message />
-    <success-message />
     <v-data-table
       must-sort
       :loading="dataTableLoading"
@@ -104,6 +103,7 @@
         {{ $t('dataTable.NO_RESULTS') }}
       </template>
     </v-data-table>
+    <success-message />
   </div>
 </template>
 
