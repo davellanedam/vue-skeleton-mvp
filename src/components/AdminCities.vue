@@ -193,10 +193,20 @@ export default {
       this.dialog = true
     },
     async deleteItem(item) {
-      this.dataTableLoading = true
-      await this.deleteCity(item._id)
-      await this.getCities(buildPayloadPagination(this.pagination))
-      this.dataTableLoading = false
+      const response = await this.$confirm(
+        this.$t('common.DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM'),
+        {
+          title: this.$t('common.WARNING'),
+          buttonTrueText: this.$t('common.YES'),
+          buttonFalseText: this.$t('common.NO')
+        }
+      )
+      if (response) {
+        this.dataTableLoading = true
+        await this.deleteCity(item._id)
+        await this.getCities(buildPayloadPagination(this.pagination))
+        this.dataTableLoading = false
+      }
     },
     close() {
       this.dialog = false
