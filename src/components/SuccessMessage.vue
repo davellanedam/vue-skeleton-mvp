@@ -11,7 +11,7 @@
         >
           {{ successMessage }}
           <v-btn dark flat @click="showSuccessMessage = false">
-            Close
+            {{ $t('common.CLOSE') }}
           </v-btn>
         </v-snackbar>
       </v-flex>

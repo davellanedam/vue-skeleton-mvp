@@ -46,7 +46,7 @@ const actions = {
         .then(response => {
           if (response.status === 200) {
             commit(types.SUCCESS, {
-              msg: 'cities.CITY_SAVED_SUCCESSFULLY'
+              msg: 'common.SAVED_SUCCESSFULLY'
             })
             commit(types.ERROR, null)
             resolve()
@@ -73,7 +73,7 @@ const actions = {
         .then(response => {
           if (response.status === 201) {
             commit(types.SUCCESS, {
-              msg: 'cities.CITY_SAVED_SUCCESSFULLY'
+              msg: 'common.SAVED_SUCCESSFULLY'
             })
             commit(types.ERROR, null)
             resolve()
@@ -97,7 +97,7 @@ const actions = {
         .then(response => {
           if (response.status === 200) {
             commit(types.SUCCESS, {
-              msg: 'cities.CITY_DELETED_SUCCESSFULLY'
+              msg: 'common.DELETED_SUCCESSFULLY'
             })
             commit(types.ERROR, null)
             resolve()

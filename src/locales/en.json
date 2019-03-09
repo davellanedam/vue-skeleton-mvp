@@ -19,6 +19,11 @@
     "BAD_FORMAT_FOR_FILTER_USE_JSON_FORMAT": "Bad format for filter, use JSON format",
     "CITY_ALREADY_EXISTS": "City already exists"
   },
+  "common": {
+    "CLOSE": "Close",
+    "SAVED_SUCCESSFULLY": "Saved successfully",
+    "DELETED_SUCCESSFULLY": "Deleted successfully"
+  },
   "loading": {
     "PLEASE_WAIT": "Please wait..."
   },
@@ -55,9 +60,7 @@
       "NAME": "Name",
       "CREATED": "Created",
       "UPDATED": "Updated"
-    },
-    "CITY_SAVED_SUCCESSFULLY": "City saved successfully",
-    "CITY_DELETED_SUCCESSFULLY": "City deleted successfully"
+    }
   },
   "landing": {
     "TITLE": "Landing",

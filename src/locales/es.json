@@ -19,6 +19,11 @@
     "BAD_FORMAT_FOR_FILTER_USE_JSON_FORMAT": "Mal formato para el filtro, use format JSON",
     "CITY_ALREADY_EXISTS": "Ciudad ya existe"
   },
+  "common": {
+    "CLOSE": "Cerrar",
+    "SAVED_SUCCESSFULLY": "Guardado exitosamente",
+    "DELETED_SUCCESSFULLY": "Eliminado exitosamente"
+  },
   "loading": {
     "PLEASE_WAIT": "Por favor espere..."
   },
@@ -55,9 +60,7 @@
       "NAME": "Nombre",
       "CREATED": "Creado",
       "UPDATED": "Actualizado"
-    },
-    "CITY_SAVED_SUCCESSFULLY": "Ciudad guardada exitosamente",
-    "CITY_DELETED_SUCCESSFULLY": "Ciudad eliminada exitosamente"
+    }
   },
   "landing": {
     "TITLE": "Página de aterrizaje",
