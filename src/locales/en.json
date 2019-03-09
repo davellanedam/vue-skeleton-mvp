@@ -55,7 +55,9 @@
       "NAME": "Name",
       "CREATED": "Created",
       "UPDATED": "Updated"
-    }
+    },
+    "CITY_SAVED_SUCCESSFULLY": "City saved successfully",
+    "CITY_DELETED_SUCCESSFULLY": "City deleted successfully"
   },
   "landing": {
     "TITLE": "Landing",

@@ -55,7 +55,9 @@
       "NAME": "Nombre",
       "CREATED": "Creado",
       "UPDATED": "Actualizado"
-    }
+    },
+    "CITY_SAVED_SUCCESSFULLY": "Ciudad guardada exitosamente",
+    "CITY_DELETED_SUCCESSFULLY": "Ciudad eliminada exitosamente"
   },
   "landing": {
     "TITLE": "Página de aterrizaje",
