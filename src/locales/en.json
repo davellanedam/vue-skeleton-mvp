@@ -20,8 +20,8 @@
     "CITY_ALREADY_EXISTS": "City already exists"
   },
   "common": {
-    "YES": "Yes",
-    "NO": "No",
+    "DELETE": "Delete",
+    "CANCEL": "Cancel",
     "WARNING": "Warning",
     "DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM": "Do you really want to delete this item?",
     "CLOSE": "Close",

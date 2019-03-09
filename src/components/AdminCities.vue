@@ -197,8 +197,8 @@ export default {
         this.$t('common.DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM'),
         {
           title: this.$t('common.WARNING'),
-          buttonTrueText: this.$t('common.YES'),
-          buttonFalseText: this.$t('common.NO'),
+          buttonTrueText: this.$t('common.DELETE'),
+          buttonFalseText: this.$t('common.CANCEL'),
           buttonTrueColor: 'red lighten3',
           buttonFalseColor: 'yellow lighten3'
         }
