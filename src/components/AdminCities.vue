@@ -1,70 +1,84 @@
 <template>
   <div>
-    <v-toolbar flat>
-      <v-toolbar-title>{{ $t('cities.TITLE') }}</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-dialog v-model="dialog" max-width="500px">
-        <template v-slot:activator="{ on }">
-          <v-btn color="secondary" class="mb-2" v-on="on">{{
-            $t('dataTable.NEW_ITEM')
-          }}</v-btn>
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="headline">{{ formTitle }}</span>
-          </v-card-title>
-          <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex xs12 md6 v-if="editedItem._id">
-                  <label for="createdAt">{{
-                    $t('cities.headers.CREATED')
-                  }}</label>
-                  <div name="createdAt">
-                    {{
-                      editedItem.createdAt | moment('ddd, MMMM D YYYY, h:mm a')
-                    }}
-                  </div>
-                </v-flex>
-                <v-flex xs12 md6 v-if="editedItem._id">
-                  <label for="updatedAt">{{
-                    $t('cities.headers.UPDATED')
-                  }}</label>
-                  <div name="updatedAt">
-                    {{
-                      editedItem.updatedAt | moment('ddd, MMMM D YYYY, h:mm a')
-                    }}
-                  </div>
-                </v-flex>
-                <v-flex xs12>
-                  <v-text-field
-                    id="name"
-                    name="name"
-                    v-model="editedItem.name"
-                    :label="$t('cities.headers.NAME')"
-                    :data-vv-as="$t('cities.headers.NAME')"
-                    :error="errors.has('name')"
-                    :error-messages="errors.collect('name')"
-                    v-validate="'required'"
-                    autocomplete="off"
-                  ></v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-container>
-          </v-card-text>
+    <v-layout wrap>
+      <v-flex xs12 sm12 md4 mt-3 pl-3>
+        <v-toolbar-title>{{ $t('cities.TITLE') }}</v-toolbar-title>
+      </v-flex>
+      <v-flex xs12 sm6 md4 px-3>
+        <v-text-field
+          v-model="search"
+          append-icon="search"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
+        <v-dialog v-model="dialog" max-width="500px">
+          <template v-slot:activator="{ on }">
+            <v-btn color="secondary" v-on="on">
+              {{ $t('dataTable.NEW_ITEM') }}
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="headline">{{ formTitle }}</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 md6 v-if="editedItem._id">
+                    <label for="createdAt">
+                      {{ $t('cities.headers.CREATED') }}
+                    </label>
+                    <div name="createdAt">
+                      {{
+                        editedItem.createdAt
+                          | moment('ddd, MMMM D YYYY, h:mm a')
+                      }}
+                    </div>
+                  </v-flex>
+                  <v-flex xs12 md6 v-if="editedItem._id">
+                    <label for="updatedAt">
+                      {{ $t('cities.headers.UPDATED') }}
+                    </label>
+                    <div name="updatedAt">
+                      {{
+                        editedItem.updatedAt
+                          | moment('ddd, MMMM D YYYY, h:mm a')
+                      }}
+                    </div>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-text-field
+                      id="name"
+                      name="name"
+                      v-model="editedItem.name"
+                      :label="$t('cities.headers.NAME')"
+                      :data-vv-as="$t('cities.headers.NAME')"
+                      :error="errors.has('name')"
+                      :error-messages="errors.collect('name')"
+                      v-validate="'required'"
+                      autocomplete="off"
+                    ></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
 
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="red lighten3" flat @click="close">{{
-              $t('dataTable.CANCEL')
-            }}</v-btn>
-            <v-btn color="yellow lighten3" flat @click="save">{{
-              $t('dataTable.SAVE')
-            }}</v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
-    </v-toolbar>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="red lighten3" flat @click="close">
+                {{ $t('dataTable.CANCEL') }}
+              </v-btn>
+              <v-btn color="yellow lighten3" flat @click="save">
+                {{ $t('dataTable.SAVE') }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-flex>
+    </v-layout>
     <error-message />
     <v-data-table
       must-sort
@@ -87,9 +101,8 @@
               class="mt-3 mr-2"
               small
               @click="editItem(props.item)"
+              >edit</v-icon
             >
-              edit
-            </v-icon>
             <span>{{ $t('dataTable.EDIT') }}</span>
           </v-tooltip>
           <v-tooltip bottom>
@@ -98,9 +111,8 @@
               class="mt-3"
               small
               @click="deleteItem(props.item)"
+              >delete</v-icon
             >
-              delete
-            </v-icon>
             <span>{{ $t('dataTable.DELETE') }}</span>
           </v-tooltip>
         </td>
@@ -116,12 +128,8 @@
         {{ props.pageStart }} - {{ props.pageStop }} {{ $t('dataTable.OF') }}
         {{ props.itemsLength }}
       </template>
-      <template v-slot:no-data>
-        {{ $t('dataTable.NO_DATA') }}
-      </template>
-      <template v-slot:no-results>
-        {{ $t('dataTable.NO_RESULTS') }}
-      </template>
+      <template v-slot:no-data>{{ $t('dataTable.NO_DATA') }}</template>
+      <template v-slot:no-results>{{ $t('dataTable.NO_RESULTS') }}</template>
     </v-data-table>
     <success-message />
   </div>
@@ -142,6 +150,7 @@ export default {
     return {
       dataTableLoading: true,
       dialog: false,
+      search: '',
       pagination: {},
       editedItem: {},
       defaultItem: {}
@@ -194,8 +203,15 @@ export default {
     },
     pagination: {
       async handler() {
+        // if (this.search) {
+        //   setTimeout(() => {
+        //     console.log('locooo: ' + this.search)
+        //   }, 1000)
+        // }
         this.dataTableLoading = true
-        await this.getCities(buildPayloadPagination(this.pagination))
+        await this.getCities(
+          buildPayloadPagination(this.pagination, this.buildSearch())
+        )
         this.dataTableLoading = false
       },
       deep: true
@@ -203,6 +219,11 @@ export default {
   },
   methods: {
     ...mapActions(['getCities', 'editCity', 'saveCity', 'deleteCity']),
+    buildSearch() {
+      console.log(this.search)
+      // Send fields separated by commas (,)
+      return this.search ? { query: this.search, fields: 'name' } : {}
+    },
     editItem(item) {
       this.editedItem = Object.assign({}, item)
       this.dialog = true
@@ -221,7 +242,9 @@ export default {
       if (response) {
         this.dataTableLoading = true
         await this.deleteCity(item._id)
-        await this.getCities(buildPayloadPagination(this.pagination))
+        await this.getCities(
+          buildPayloadPagination(this.pagination, this.buildSearch())
+        )
         this.dataTableLoading = false
       }
     },
@@ -238,12 +261,16 @@ export default {
         // Updating item
         if (this.editedItem._id) {
           await this.editCity(this.editedItem)
-          await this.getCities(buildPayloadPagination(this.pagination))
+          await this.getCities(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
           this.dataTableLoading = false
         } else {
           // Creating new item
           await this.saveCity(this.editedItem)
-          await this.getCities(buildPayloadPagination(this.pagination))
+          await this.getCities(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
           this.dataTableLoading = false
         }
         this.close()
