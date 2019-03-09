@@ -198,7 +198,9 @@ export default {
         {
           title: this.$t('common.WARNING'),
           buttonTrueText: this.$t('common.YES'),
-          buttonFalseText: this.$t('common.NO')
+          buttonFalseText: this.$t('common.NO'),
+          buttonTrueColor: 'red lighten3',
+          buttonFalseColor: 'yellow lighten3'
         }
       )
       if (response) {
