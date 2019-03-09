@@ -11,39 +11,43 @@ const getters = {
 
 const actions = {
   sendVerify({ commit }, id) {
-    commit(types.SHOW_LOADING, true)
-    const data = {
-      id
-    }
-    axios
-      .post('/verify', data)
-      .then(response => {
-        if (response.status === 200) {
-          const verified = response.data.verified
-          commit(types.EMAIL_VERIFIED, verified)
+    return new Promise((resolve, reject) => {
+      commit(types.SHOW_LOADING, true)
+      const data = {
+        id
+      }
+      axios
+        .post('/verify', data)
+        .then(response => {
+          if (response.status === 200) {
+            const verified = response.data.verified
+            commit(types.EMAIL_VERIFIED, verified)
 
-          // If user is logged in then update localstorage
-          if (localStorage.getItem('user')) {
-            console.log('logueado')
-            const _user = JSON.parse(localStorage.getItem('user'))
-            _user.verified = verified
-            localStorage.setItem('user', JSON.stringify(_user))
-            commit(types.SAVE_USER, _user)
+            // If user is logged in then update localstorage
+            if (localStorage.getItem('user')) {
+              console.log('logueado')
+              const _user = JSON.parse(localStorage.getItem('user'))
+              _user.verified = verified
+              localStorage.setItem('user', JSON.stringify(_user))
+              commit(types.SAVE_USER, _user)
+            }
+            commit(types.SUCCESS, {
+              msg: 'verify.EMAIL_VERIFIED'
+            })
+            commit(types.SHOW_LOADING, false)
+            resolve()
           }
-          commit(types.SUCCESS, {
-            msg: 'verify.EMAIL_VERIFIED'
-          })
+        })
+        .catch(error => {
+          // Catches error connection or any other error (checks if error.response exists)
+          let errMsg = error.response
+            ? error.response.data.errors.msg
+            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
-        }
-      })
-      .catch(error => {
-        // Catches error connection or any other error (checks if error.response exists)
-        let errMsg = error.response
-          ? error.response.data.errors.msg
-          : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-        commit(types.SHOW_LOADING, false)
-        commit(types.ERROR, errMsg)
-      })
+          commit(types.ERROR, errMsg)
+          reject(error)
+        })
+    })
   }
 }
 

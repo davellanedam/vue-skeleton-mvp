@@ -137,10 +137,6 @@ export default {
       searchInput: ''
     }
   },
-  created() {
-    this.getProfile()
-    this.getAllCities()
-  },
   components: {
     ErrorMessage,
     SuccessMessage
@@ -235,21 +231,24 @@ export default {
       'addProfileData',
       'saveProfile'
     ]),
-    validateBeforeSubmit() {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          this.saveProfile({
-            name: this.name,
-            phone: this.phone,
-            city: this.city,
-            country: this.country,
-            urlTwitter: this.urlTwitter,
-            urlGitHub: this.urlGitHub
-          })
-          return
-        }
-      })
+    async validateBeforeSubmit() {
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.saveProfile({
+          name: this.name,
+          phone: this.phone,
+          city: this.city,
+          country: this.country,
+          urlTwitter: this.urlTwitter,
+          urlGitHub: this.urlGitHub
+        })
+        return
+      }
     }
+  },
+  async created() {
+    await this.getProfile()
+    await this.getAllCities()
   }
 }
 </script>

@@ -101,17 +101,16 @@ export default {
   },
   methods: {
     ...mapActions(['userSignUp']),
-    validateBeforeSubmit() {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          this.userSignUp({
-            name: this.name,
-            email: this.email,
-            password: this.password
-          })
-          return
-        }
-      })
+    async validateBeforeSubmit() {
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.userSignUp({
+          name: this.name,
+          email: this.email,
+          password: this.password
+        })
+        return
+      }
     }
   },
   computed: {

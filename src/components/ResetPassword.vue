@@ -75,16 +75,15 @@ export default {
   },
   methods: {
     ...mapActions(['resetPassword']),
-    validateBeforeSubmit() {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          this.resetPassword({
-            id: this.id,
-            password: this.password
-          })
-          return
-        }
-      })
+    async validateBeforeSubmit() {
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.resetPassword({
+          id: this.id,
+          password: this.password
+        })
+        return
+      }
     }
   },
   computed: {

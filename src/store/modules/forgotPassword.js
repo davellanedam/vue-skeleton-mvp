@@ -11,29 +11,31 @@ const getters = {
 
 const actions = {
   forgotPassword({ commit }, payload) {
-    commit(types.SHOW_LOADING, true)
-    axios
-      .post('/forgot', payload)
-      .then(response => {
-        if (response.status === 200) {
-          commit(types.RESET_EMAIL_SENT, true)
-          commit(types.SUCCESS, {
-            msg: 'forgotPassword.RESET_EMAIL_SENT',
-            params: [payload.email]
-          })
+    return new Promise((resolve, reject) => {
+      commit(types.SHOW_LOADING, true)
+      axios
+        .post('/forgot', payload)
+        .then(response => {
+          if (response.status === 200) {
+            commit(types.RESET_EMAIL_SENT, true)
+            commit(types.SUCCESS, {
+              msg: 'forgotPassword.RESET_EMAIL_SENT',
+              params: [payload.email]
+            })
+            commit(types.SHOW_LOADING, false)
+            resolve()
+          }
+        })
+        .catch(error => {
+          // Catches error connection or any other error (checks if error.response exists)
+          let errMsg = error.response
+            ? error.response.data.errors.msg
+            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
-        } else {
-          commit(types.SHOW_LOADING, false)
-        }
-      })
-      .catch(error => {
-        // Catches error connection or any other error (checks if error.response exists)
-        let errMsg = error.response
-          ? error.response.data.errors.msg
-          : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-        commit(types.SHOW_LOADING, false)
-        commit(types.ERROR, errMsg)
-      })
+          commit(types.ERROR, errMsg)
+          reject(error)
+        })
+    })
   }
 }
 

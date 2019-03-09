@@ -178,50 +178,25 @@ export default {
       value || this.close()
     },
     pagination: {
-      handler() {
-        this.getDataFromApi().then(() => {
-          this.dataTableLoading = false
-        })
+      async handler() {
+        this.dataTableLoading = true
+        await this.getCities(buildPayloadPagination(this.pagination))
+        this.dataTableLoading = false
       },
       deep: true
     }
   },
   methods: {
     ...mapActions(['getCities', 'editCity', 'saveCity', 'deleteCity']),
-    refresh() {
-      // this.pagination.page = 27843
-      this.$emit('update:pagination', this.pagination)
-    },
-    getDataFromApi() {
-      this.dataTableLoading = true
-      return new Promise(resolve => {
-        resolve(this.getCities(buildPayloadPagination(this.pagination)))
-      })
-    },
-    editDataFromApi(item) {
-      return new Promise(resolve => {
-        resolve(this.editCity(item))
-      })
-    },
-    saveDataFromApi(item) {
-      return new Promise(resolve => {
-        resolve(this.saveCity(item))
-      })
-    },
-    deleteDataFromApi(id) {
-      return new Promise(resolve => {
-        resolve(this.deleteCity(id))
-      })
-    },
     editItem(item) {
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
-    deleteItem(item) {
+    async deleteItem(item) {
       this.dataTableLoading = true
-      this.deleteDataFromApi(item._id).then(() => {
-        this.dataTableLoading = false
-      })
+      await this.deleteCity(item._id)
+      await this.getCities(buildPayloadPagination(this.pagination))
+      this.dataTableLoading = false
     },
     close() {
       this.dialog = false
@@ -229,25 +204,23 @@ export default {
         this.editedItem = Object.assign({}, this.defaultItem)
       }, 300)
     },
-    save() {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          this.dataTableLoading = true
-          // Updating item
-          if (this.editedItem._id) {
-            this.editDataFromApi(this.editedItem).then(() => {
-              this.dataTableLoading = false
-              this.refresh(this.pagination)
-            })
-          } else {
-            // Creating new item
-            this.saveDataFromApi(this.editedItem).then(() => {
-              this.dataTableLoading = false
-            })
-          }
-          this.close()
+    async save() {
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        this.dataTableLoading = true
+        // Updating item
+        if (this.editedItem._id) {
+          await this.editCity(this.editedItem)
+          await this.getCities(buildPayloadPagination(this.pagination))
+          this.dataTableLoading = false
+        } else {
+          // Creating new item
+          await this.saveCity(this.editedItem)
+          await this.getCities(buildPayloadPagination(this.pagination))
+          this.dataTableLoading = false
         }
-      })
+        this.close()
+      }
     }
   }
 }

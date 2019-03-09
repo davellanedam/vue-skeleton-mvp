@@ -26,11 +26,11 @@ export default {
   methods: {
     ...mapActions(['sendVerify'])
   },
-  created() {
+  async created() {
     if (this.$store.state.auth.isTokenSet) {
       router.push({ name: 'home' })
     }
-    this.sendVerify(this.$route.params.id)
+    await this.sendVerify(this.$route.params.id)
   }
 }
 </script>

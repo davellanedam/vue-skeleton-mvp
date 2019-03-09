@@ -61,15 +61,14 @@ export default {
   },
   methods: {
     ...mapActions(['forgotPassword']),
-    validateBeforeSubmit() {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          this.forgotPassword({
-            email: this.email
-          })
-          return
-        }
-      })
+    async validateBeforeSubmit() {
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.forgotPassword({
+          email: this.email
+        })
+        return
+      }
     }
   },
   computed: {

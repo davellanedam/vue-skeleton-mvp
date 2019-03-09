@@ -22,81 +22,89 @@ const getters = {
 
 const actions = {
   getAllCities({ commit }) {
-    axios
-      .get('/cities/all')
-      .then(response => {
-        if (response.status === 200) {
-          const cities = []
-          const array = response.data
-          array.forEach(element => {
-            cities.push(element.name)
-          })
-          commit(types.FILL_ALL_CITIES, cities)
-        }
-      })
-      .catch(error => {
-        // Catches error connection or any other error (checks if error.response exists)
-        let errMsg = error.response
-          ? error.response.data.errors.msg
-          : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-        commit(types.SHOW_LOADING, false)
-        commit(types.ERROR, errMsg)
-      })
+    return new Promise((resolve, reject) => {
+      axios
+        .get('/cities/all')
+        .then(response => {
+          if (response.status === 200) {
+            const cities = []
+            const array = response.data
+            array.forEach(element => {
+              cities.push(element.name)
+            })
+            commit(types.FILL_ALL_CITIES, cities)
+            resolve()
+          }
+        })
+        .catch(error => {
+          // Catches error connection or any other error (checks if error.response exists)
+          let errMsg = error.response
+            ? error.response.data.errors.msg
+            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
+          commit(types.SHOW_LOADING, false)
+          commit(types.ERROR, errMsg)
+          reject(error)
+        })
+    })
   },
   getProfile({ commit }) {
-    commit(types.SHOW_LOADING, true)
-    axios
-      .get('/profile')
-      .then(response => {
-        if (response.status === 200) {
-          commit(types.FILL_PROFILE, response.data)
+    return new Promise((resolve, reject) => {
+      commit(types.SHOW_LOADING, true)
+      axios
+        .get('/profile')
+        .then(response => {
+          if (response.status === 200) {
+            commit(types.FILL_PROFILE, response.data)
+            commit(types.SHOW_LOADING, false)
+            commit(types.ERROR, null)
+            resolve()
+          }
+        })
+        .catch(error => {
+          // Catches error connection or any other error (checks if error.response exists)
+          let errMsg = error.response
+            ? error.response.data.errors.msg
+            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
-          commit(types.ERROR, null)
-        } else {
-          commit(types.SHOW_LOADING, false)
-        }
-      })
-      .catch(error => {
-        // Catches error connection or any other error (checks if error.response exists)
-        let errMsg = error.response
-          ? error.response.data.errors.msg
-          : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-        commit(types.SHOW_LOADING, false)
-        commit(types.ERROR, errMsg)
-      })
+          commit(types.ERROR, errMsg)
+          reject(error)
+        })
+    })
   },
   saveProfile({ commit }, payload) {
-    commit(types.SHOW_LOADING, true)
-    const data = {
-      name: payload.name,
-      phone: payload.phone,
-      city: payload.city,
-      country: payload.country,
-      urlTwitter: payload.urlTwitter,
-      urlGitHub: payload.urlGitHub
-    }
-    axios
-      .patch('/profile', data)
-      .then(response => {
-        if (response.status === 200) {
-          commit(types.FILL_PROFILE, response.data)
-          commit(types.SUCCESS, {
-            msg: 'myProfile.PROFILE_SAVED_SUCCESSFULLY'
-          })
+    return new Promise((resolve, reject) => {
+      commit(types.SHOW_LOADING, true)
+      const data = {
+        name: payload.name,
+        phone: payload.phone,
+        city: payload.city,
+        country: payload.country,
+        urlTwitter: payload.urlTwitter,
+        urlGitHub: payload.urlGitHub
+      }
+      axios
+        .patch('/profile', data)
+        .then(response => {
+          if (response.status === 200) {
+            commit(types.FILL_PROFILE, response.data)
+            commit(types.SUCCESS, {
+              msg: 'myProfile.PROFILE_SAVED_SUCCESSFULLY'
+            })
+            commit(types.SHOW_LOADING, false)
+            commit(types.ERROR, null)
+            resolve()
+          }
+        })
+        .catch(error => {
+          // Catches error connection or any other error (checks if error.response exists)
+          let errMsg = error.response
+            ? error.response.data.errors.msg
+            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
-          commit(types.ERROR, null)
-        } else {
-          commit(types.SHOW_LOADING, false)
-        }
-      })
-      .catch(error => {
-        // Catches error connection or any other error (checks if error.response exists)
-        let errMsg = error.response
-          ? error.response.data.errors.msg
-          : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-        commit(types.SHOW_LOADING, false)
-        commit(types.ERROR, errMsg)
-      })
+          commit(types.ERROR, errMsg)
+          reject(error)
+        })
+    })
   },
   addProfileData({ commit }, data) {
     commit(types.ADD_PROFILE_DATA, data)
