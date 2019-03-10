@@ -137,9 +137,9 @@
   "myProfile": {
     "TITLE": "My profile",
     "CHANGE_MY_PASSWORD": "Change My Password",
-    "OLD_PASSWORD": "Old Password",
-    "PASSWORD": "Password",
-    "CONFIRM_PASSWORD": "Confirm Password",
+    "CURRENT_PASSWORD": "Current Password",
+    "NEW_PASSWORD": "New Password",
+    "CONFIRM_NEW_PASSWORD": "Confirm New Password",
     "PASSWORD_CHANGED": "Password changed successfully",
     "NAME": "Name",
     "EMAIL": "E-mail",
