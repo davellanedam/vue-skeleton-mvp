@@ -456,7 +456,15 @@ export default {
           this.dataTableLoading = false
         } else {
           // Creating new item
-          await this.saveUser(this.editedItem)
+          await this.saveUser({
+            name: this.editedItem.name,
+            email: this.editedItem.email,
+            password: this.editedItem.password,
+            role: this.editedItem.role,
+            phone: this.editedItem.phone,
+            city: this.editedItem.city,
+            country: this.editedItem.country
+          })
           await this.getUsers(
             buildPayloadPagination(this.pagination, this.buildSearch())
           )

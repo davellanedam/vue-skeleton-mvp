@@ -68,17 +68,8 @@ const actions = {
   },
   saveUser({ commit }, payload) {
     return new Promise(resolve => {
-      const data = {
-        name: payload.name,
-        email: payload.email,
-        password: payload.password,
-        role: payload.role,
-        phone: payload.phone,
-        city: payload.city,
-        country: payload.country
-      }
       axios
-        .post('/users/', data)
+        .post('/users/', payload)
         .then(response => {
           if (response.status === 201) {
             commit(types.SUCCESS, {
