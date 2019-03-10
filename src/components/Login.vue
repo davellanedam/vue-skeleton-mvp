@@ -45,9 +45,13 @@
               >
             </v-flex>
             <v-flex text-xs-center>
-              <v-btn :to="{ name: 'forgotPassword' }" color="white" small flat>
-                {{ $t('login.FORGOT_PASSWORD') }}
-              </v-btn>
+              <v-btn
+                :to="{ name: 'forgotPassword' }"
+                color="white"
+                small
+                flat
+                >{{ $t('login.FORGOT_PASSWORD') }}</v-btn
+              >
             </v-flex>
           </v-layout>
         </form>

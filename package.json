@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "format": "prettier --write --config .prettierrc \"**/*.js\"",
     "lint": "vue-cli-service lint --fix",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
@@ -35,6 +36,7 @@
     "eslint": "^5.15.1",
     "eslint-plugin-vue": "^5.2.2",
     "fibers": "^3.1.1",
+    "prettier": "^1.16.4",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",

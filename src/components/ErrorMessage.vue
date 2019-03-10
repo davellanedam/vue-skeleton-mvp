@@ -4,9 +4,7 @@
       <v-flex>
         <v-alert v-model="showErrorMessage" type="error" dismissible>
           <ul>
-            <li v-for="(item, index) in error" :key="index">
-              {{ item }}
-            </li>
+            <li v-for="(item, index) in error" :key="index">{{ item }}</li>
           </ul>
         </v-alert>
       </v-flex>

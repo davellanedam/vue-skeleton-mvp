@@ -13,9 +13,9 @@
         @click="switchLocale(item.lang)"
       >
         <country-flag :country="item.flag" size="small" class="pl-5" />
-        <v-list-tile-title class="ml-3">
-          {{ item.lang.toUpperCase() }}</v-list-tile-title
-        >
+        <v-list-tile-title class="ml-3">{{
+          item.lang.toUpperCase()
+        }}</v-list-tile-title>
       </v-list-tile>
     </v-list>
   </v-menu>

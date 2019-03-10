@@ -2,9 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 text-xs-center mt-5 mb-3>
-        <h1 class="display-2 font-weight-bold">
-          {{ $t('myProfile.TITLE') }}
-        </h1>
+        <h1 class="display-2 font-weight-bold">{{ $t('myProfile.TITLE') }}</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="validateBeforeSubmit">
@@ -53,8 +51,8 @@
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
-            <v-flex
-              ><v-autocomplete
+            <v-flex>
+              <v-autocomplete
                 id="city"
                 name="city"
                 :label="$t('myProfile.CITY')"
@@ -67,7 +65,8 @@
                 :error-messages="errors.collect('city')"
                 v-validate="'required'"
                 autocomplete="off"
-            /></v-flex>
+              />
+            </v-flex>
             <v-flex>
               <v-text-field
                 id="country"
