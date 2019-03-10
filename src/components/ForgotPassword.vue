@@ -71,7 +71,7 @@ export default {
           return
         }
       } catch (error) {
-        // Error
+        return
       }
     }
   },
