@@ -16,7 +16,7 @@ const getters = {
 
 const actions = {
   userLogin({ commit }, payload) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
       axios
         .post('/login', payload)
@@ -49,6 +49,7 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
+          reject(error)
         })
     })
   },
