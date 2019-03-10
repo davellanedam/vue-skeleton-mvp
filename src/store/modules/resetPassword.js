@@ -11,7 +11,7 @@ const getters = {
 
 const actions = {
   resetPassword({ commit }, payload) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
       axios
         .post('/reset', payload)
@@ -35,6 +35,7 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
+          reject(error)
         })
     })
   }
