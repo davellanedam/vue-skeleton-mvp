@@ -13,7 +13,7 @@ const getters = {
 
 const actions = {
   getCities({ commit }, payload) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       axios
         .get('/cities', {
           params: payload
@@ -32,11 +32,12 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
+          reject(error)
         })
     })
   },
   editCity({ commit }, payload) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       const data = {
         name: payload.name
       }
@@ -58,11 +59,12 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
+          reject(error)
         })
     })
   },
   saveCity({ commit }, payload) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       axios
         .post('/cities/', payload)
         .then(response => {
@@ -81,11 +83,12 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
+          reject(error)
         })
     })
   },
   deleteCity({ commit }, payload) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       axios
         .delete(`/cities/${payload}`)
         .then(response => {
@@ -104,6 +107,7 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
+          reject(error)
         })
     })
   }

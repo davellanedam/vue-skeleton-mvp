@@ -201,11 +201,15 @@ export default {
     },
     pagination: {
       async handler() {
-        this.dataTableLoading = true
-        await this.getCities(
-          buildPayloadPagination(this.pagination, this.buildSearch())
-        )
-        this.dataTableLoading = false
+        try {
+          this.dataTableLoading = true
+          await this.getCities(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
+          this.dataTableLoading = false
+        } catch (error) {
+          this.dataTableLoading = false
+        }
       },
       deep: true
     },
@@ -219,11 +223,15 @@ export default {
   methods: {
     ...mapActions(['getCities', 'editCity', 'saveCity', 'deleteCity']),
     async doSearch() {
-      this.dataTableLoading = true
-      await this.getCities(
-        buildPayloadPagination(this.pagination, this.buildSearch())
-      )
-      this.dataTableLoading = false
+      try {
+        this.dataTableLoading = true
+        await this.getCities(
+          buildPayloadPagination(this.pagination, this.buildSearch())
+        )
+        this.dataTableLoading = false
+      } catch (error) {
+        this.dataTableLoading = false
+      }
     },
     buildSearch() {
       return this.search
@@ -235,22 +243,26 @@ export default {
       this.dialog = true
     },
     async deleteItem(item) {
-      const response = await this.$confirm(
-        this.$t('common.DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM'),
-        {
-          title: this.$t('common.WARNING'),
-          buttonTrueText: this.$t('common.DELETE'),
-          buttonFalseText: this.$t('common.CANCEL'),
-          buttonTrueColor: 'red lighten3',
-          buttonFalseColor: 'yellow lighten3'
-        }
-      )
-      if (response) {
-        this.dataTableLoading = true
-        await this.deleteCity(item._id)
-        await this.getCities(
-          buildPayloadPagination(this.pagination, this.buildSearch())
+      try {
+        const response = await this.$confirm(
+          this.$t('common.DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM'),
+          {
+            title: this.$t('common.WARNING'),
+            buttonTrueText: this.$t('common.DELETE'),
+            buttonFalseText: this.$t('common.CANCEL'),
+            buttonTrueColor: 'red lighten3',
+            buttonFalseColor: 'yellow lighten3'
+          }
         )
+        if (response) {
+          this.dataTableLoading = true
+          await this.deleteCity(item._id)
+          await this.getCities(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
+          this.dataTableLoading = false
+        }
+      } catch (error) {
         this.dataTableLoading = false
       }
     },
@@ -261,24 +273,29 @@ export default {
       }, 300)
     },
     async save() {
-      const valid = await this.$validator.validateAll()
-      if (valid) {
-        this.dataTableLoading = true
-        // Updating item
-        if (this.editedItem._id) {
-          await this.editCity(this.editedItem)
-          await this.getCities(
-            buildPayloadPagination(this.pagination, this.buildSearch())
-          )
-          this.dataTableLoading = false
-        } else {
-          // Creating new item
-          await this.saveCity({ name: this.editedItem.name })
-          await this.getCities(
-            buildPayloadPagination(this.pagination, this.buildSearch())
-          )
-          this.dataTableLoading = false
+      try {
+        const valid = await this.$validator.validateAll()
+        if (valid) {
+          this.dataTableLoading = true
+          // Updating item
+          if (this.editedItem._id) {
+            await this.editCity(this.editedItem)
+            await this.getCities(
+              buildPayloadPagination(this.pagination, this.buildSearch())
+            )
+            this.dataTableLoading = false
+          } else {
+            // Creating new item
+            await this.saveCity({ name: this.editedItem.name })
+            await this.getCities(
+              buildPayloadPagination(this.pagination, this.buildSearch())
+            )
+            this.dataTableLoading = false
+          }
+          this.close()
         }
+      } catch (error) {
+        this.dataTableLoading = false
         this.close()
       }
     }
