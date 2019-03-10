@@ -10,6 +10,7 @@
     "EMAIL_IS_NOT_VALID": "E-mail no válido",
     "IS_EMPTY": "Campos vacíos",
     "ERROR": "Error",
+    "MISSING": "Campos faltantes",
     "NOT_FOUND_OR_ALREADY_VERIFIED": "No encontrado o ya fue verificado",
     "NOT_FOUND_OR_ALREADY_USED": "No encontrado o ya fue usado",
     "NOT_FOUND": "No encontrado",
