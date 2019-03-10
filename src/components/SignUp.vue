@@ -12,7 +12,6 @@
               <v-text-field
                 id="name"
                 name="name"
-                type="text"
                 :label="$t('signup.NAME')"
                 v-model="name"
                 :data-vv-as="$t('signup.NAME')"
