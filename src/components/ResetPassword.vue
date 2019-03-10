@@ -20,7 +20,7 @@
                 :data-vv-as="$t('resetPassword.PASSWORD')"
                 :error="errors.has('password')"
                 :error-messages="errors.collect('password')"
-                v-validate="'required|min:5'"
+                v-validate.disable="'required|min:5'"
                 ref="password"
                 autocomplete="off"
               ></v-text-field>
@@ -35,7 +35,7 @@
                 :data-vv-as="$t('resetPassword.PASSWORD')"
                 :error="errors.has('confirmPassword')"
                 :error-messages="errors.collect('confirmPassword')"
-                v-validate="'required|min:5|confirmed:password'"
+                v-validate.disable="'required|min:5|confirmed:password'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>

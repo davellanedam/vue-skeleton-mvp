@@ -63,7 +63,7 @@
                       :data-vv-as="$t('users.headers.NAME')"
                       :error="errors.has('name')"
                       :error-messages="errors.collect('name')"
-                      v-validate="'required'"
+                      v-validate.disable="'required'"
                       autocomplete="off"
                     ></v-text-field>
                   </v-flex>
@@ -77,7 +77,7 @@
                       :data-vv-as="$t('users.headers.EMAIL')"
                       :error="errors.has('email')"
                       :error-messages="errors.collect('email')"
-                      v-validate="'required|email'"
+                      v-validate.disable="'required|email'"
                       autocomplete="off"
                     ></v-text-field>
                   </v-flex>
@@ -92,7 +92,7 @@
                       :error="errors.has('password')"
                       :error-messages="errors.collect('password')"
                       key="password"
-                      v-validate="'required|min:5'"
+                      v-validate.disable="'required|min:5'"
                       ref="password"
                       autocomplete="off"
                     ></v-text-field>
@@ -108,7 +108,7 @@
                       :error="errors.has('confirmPassword')"
                       :error-messages="errors.collect('confirmPassword')"
                       key="confirmPassword"
-                      v-validate="'required|min:5|confirmed:password'"
+                      v-validate.disable="'required|min:5|confirmed:password'"
                       autocomplete="off"
                     ></v-text-field>
                   </v-flex>
@@ -125,7 +125,7 @@
                       :data-vv-as="$t('users.headers.ROLE')"
                       :error="errors.has('role')"
                       :error-messages="errors.collect('role')"
-                      v-validate="'required'"
+                      v-validate.disable="'required'"
                     ></v-select>
                   </v-flex>
                   <v-flex xs12 md6>
@@ -140,7 +140,7 @@
                       :data-vv-as="$t('users.headers.CITY')"
                       :error="errors.has('city')"
                       :error-messages="errors.collect('city')"
-                      v-validate="'required'"
+                      v-validate.disable="'required'"
                       autocomplete="off"
                     />
                   </v-flex>
@@ -153,7 +153,7 @@
                       :data-vv-as="$t('users.headers.COUNTRY')"
                       :error="errors.has('country')"
                       :error-messages="errors.collect('country')"
-                      v-validate="'required'"
+                      v-validate.disable="'required'"
                       autocomplete="off"
                     ></v-text-field>
                   </v-flex>
@@ -167,7 +167,7 @@
                       :data-vv-as="$t('users.headers.PHONE')"
                       :error="errors.has('phone')"
                       :error-messages="errors.collect('phone')"
-                      v-validate="'required'"
+                      v-validate.disable="'required'"
                       autocomplete="off"
                     ></v-text-field>
                   </v-flex>

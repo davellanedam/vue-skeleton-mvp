@@ -18,7 +18,7 @@
                 :data-vv-as="$t('myProfile.EMAIL')"
                 :error="errors.has('email')"
                 :error-messages="errors.collect('email')"
-                v-validate="'required|email'"
+                v-validate.disable="'required|email'"
                 disabled
                 autocomplete="off"
               ></v-text-field>
@@ -33,7 +33,7 @@
                 :data-vv-as="$t('myProfile.NAME')"
                 :error="errors.has('name')"
                 :error-messages="errors.collect('name')"
-                v-validate="'required'"
+                v-validate.disable="'required'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -47,7 +47,7 @@
                 :data-vv-as="$t('myProfile.PHONE')"
                 :error="errors.has('phone')"
                 :error-messages="errors.collect('phone')"
-                v-validate="'required'"
+                v-validate.disable="'required'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -63,7 +63,7 @@
                 :data-vv-as="$t('myProfile.CITY')"
                 :error="errors.has('city')"
                 :error-messages="errors.collect('city')"
-                v-validate="'required'"
+                v-validate.disable="'required'"
                 autocomplete="off"
               />
             </v-flex>
@@ -77,7 +77,7 @@
                 :data-vv-as="$t('myProfile.COUNTRY')"
                 :error="errors.has('country')"
                 :error-messages="errors.collect('country')"
-                v-validate="'required'"
+                v-validate.disable="'required'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -91,7 +91,7 @@
                 data-vv-as="Twitter"
                 :error="errors.has('urlTwitter')"
                 :error-messages="errors.collect('urlTwitter')"
-                v-validate="'url'"
+                v-validate.disable="'url'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -105,7 +105,7 @@
                 data-vv-as="GitHub"
                 :error="errors.has('urlGitHub')"
                 :error-messages="errors.collect('urlGitHub')"
-                v-validate="'url'"
+                v-validate.disable="'url'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>

@@ -23,7 +23,7 @@
                 :data-vv-as="$t('forgotPassword.EMAIL')"
                 :error="errors.has('email')"
                 :error-messages="errors.collect('email')"
-                v-validate="'required|email'"
+                v-validate.disable="'required|email'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>

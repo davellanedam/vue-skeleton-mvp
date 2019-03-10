@@ -18,7 +18,7 @@
                 :data-vv-as="$t('login.EMAIL')"
                 :error="errors.has('email')"
                 :error-messages="errors.collect('email')"
-                v-validate="'required|email'"
+                v-validate.disable="'required|email'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
@@ -32,7 +32,7 @@
                 :data-vv-as="$t('login.PASSWORD')"
                 :error="errors.has('password')"
                 :error-messages="errors.collect('password')"
-                v-validate="'required|min:5'"
+                v-validate.disable="'required|min:5'"
                 autocomplete="off"
               ></v-text-field>
             </v-flex>

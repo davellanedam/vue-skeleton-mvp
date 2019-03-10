@@ -54,7 +54,7 @@
                       :data-vv-as="$t('cities.headers.NAME')"
                       :error="errors.has('name')"
                       :error-messages="errors.collect('name')"
-                      v-validate="'required'"
+                      v-validate.disable="'required'"
                       autocomplete="off"
                     ></v-text-field>
                   </v-flex>
