@@ -27,33 +27,35 @@
             <v-card-text>
               <v-container grid-list-md>
                 <v-layout wrap>
-                  <v-flex xs12 md4 v-if="editedItem._id">
-                    <label for="createdAt">{{ $t('common.CREATED') }}</label>
-                    <div name="createdAt">
-                      {{
-                        editedItem.createdAt
-                          | moment('ddd, MMMM D YYYY, h:mm a')
-                      }}
-                    </div>
-                  </v-flex>
-                  <v-flex xs12 md4 v-if="editedItem._id">
-                    <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
-                    <div name="updatedAt">
-                      {{
-                        editedItem.updatedAt
-                          | moment('ddd, MMMM D YYYY, h:mm a')
-                      }}
-                    </div>
-                  </v-flex>
-                  <v-flex xs12 md4 v-if="editedItem._id">
-                    <label for="verified">
-                      {{ $t('users.headers.VERIFIED') }}
-                    </label>
-                    <div
-                      name="verified"
-                      v-html="trueFalse(editedItem.verified)"
-                    ></div>
-                  </v-flex>
+                  <template v-if="editedItem._id">
+                    <v-flex xs12 md4>
+                      <label for="createdAt">{{ $t('common.CREATED') }}</label>
+                      <div name="createdAt">
+                        {{
+                          editedItem.createdAt
+                            | moment('ddd, MMMM D YYYY, h:mm a')
+                        }}
+                      </div>
+                    </v-flex>
+                    <v-flex xs12 md4>
+                      <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
+                      <div name="updatedAt">
+                        {{
+                          editedItem.updatedAt
+                            | moment('ddd, MMMM D YYYY, h:mm a')
+                        }}
+                      </div>
+                    </v-flex>
+                    <v-flex xs12 md4>
+                      <label for="verified">
+                        {{ $t('users.headers.VERIFIED') }}
+                      </label>
+                      <div
+                        name="verified"
+                        v-html="trueFalse(editedItem.verified)"
+                      ></div>
+                    </v-flex>
+                  </template>
                   <v-flex xs12 md6>
                     <v-text-field
                       id="name"
@@ -81,37 +83,39 @@
                       autocomplete="off"
                     ></v-text-field>
                   </v-flex>
-                  <v-flex xs12 md6 v-if="!editedItem._id">
-                    <v-text-field
-                      id="password"
-                      name="password"
-                      type="password"
-                      :label="$t('signup.PASSWORD')"
-                      v-model="password"
-                      :data-vv-as="$t('signup.PASSWORD')"
-                      :error="errors.has('password')"
-                      :error-messages="errors.collect('password')"
-                      key="password"
-                      v-validate.disable="'required|min:5'"
-                      ref="password"
-                      autocomplete="off"
-                    ></v-text-field>
-                  </v-flex>
-                  <v-flex xs12 md6 v-if="!editedItem._id">
-                    <v-text-field
-                      id="confirmPassword"
-                      name="confirmPassword"
-                      type="password"
-                      :label="$t('signup.CONFIRM_PASSWORD')"
-                      v-model="confirmPassword"
-                      :data-vv-as="$t('signup.PASSWORD')"
-                      :error="errors.has('confirmPassword')"
-                      :error-messages="errors.collect('confirmPassword')"
-                      key="confirmPassword"
-                      v-validate.disable="'required|min:5|confirmed:password'"
-                      autocomplete="off"
-                    ></v-text-field>
-                  </v-flex>
+                  <template v-if="!editedItem._id">
+                    <v-flex xs12 md6>
+                      <v-text-field
+                        id="password"
+                        name="password"
+                        type="password"
+                        :label="$t('signup.PASSWORD')"
+                        v-model="editedItem.password"
+                        :data-vv-as="$t('signup.PASSWORD')"
+                        :error="errors.has('password')"
+                        :error-messages="errors.collect('password')"
+                        key="password"
+                        v-validate.disable="'required|min:5'"
+                        ref="password"
+                        autocomplete="off"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex xs12 md6>
+                      <v-text-field
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type="password"
+                        :label="$t('signup.CONFIRM_PASSWORD')"
+                        v-model="editedItem.confirmPassword"
+                        :data-vv-as="$t('signup.PASSWORD')"
+                        :error="errors.has('confirmPassword')"
+                        :error-messages="errors.collect('confirmPassword')"
+                        key="confirmPassword"
+                        v-validate.disable="'required|min:5|confirmed:password'"
+                        autocomplete="off"
+                      ></v-text-field>
+                    </v-flex>
+                  </template>
                   <v-flex xs12 md6>
                     <v-select
                       clearable
@@ -263,8 +267,6 @@ export default {
   },
   data() {
     return {
-      password: '',
-      confirmPassword: '',
       searchInput: '',
       dataTableLoading: true,
       delayTimer: null,
