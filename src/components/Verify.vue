@@ -25,10 +25,14 @@ export default {
     ...mapActions(['sendVerify'])
   },
   async created() {
-    if (this.$store.state.auth.isTokenSet) {
-      router.push({ name: 'home' })
+    try {
+      if (this.$store.state.auth.isTokenSet) {
+        router.push({ name: 'home' })
+      }
+      await this.sendVerify(this.$route.params.id)
+    } catch (error) {
+      return
     }
-    await this.sendVerify(this.$route.params.id)
   }
 }
 </script>
