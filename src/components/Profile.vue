@@ -5,7 +5,87 @@
         <h1 class="display-2 font-weight-bold">{{ $t('myProfile.TITLE') }}</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3>
-        <form @submit.prevent="validateBeforeSubmit">
+        <v-dialog v-model="dialog" max-width="400px">
+          <template v-slot:activator="{ on }">
+            <v-flex text-xs-center>
+              <v-btn color="white" small flat v-on="on">{{
+                $t('myProfile.CHANGE_MY_PASSWORD')
+              }}</v-btn>
+            </v-flex>
+          </template>
+          <v-card>
+            <form @submit.prevent="save">
+              <v-card-title>
+                <span class="headline">
+                  {{ $t('myProfile.CHANGE_MY_PASSWORD') }}
+                </span>
+              </v-card-title>
+              <v-card-text>
+                <v-container grid-list-md>
+                  <v-layout wrap>
+                    <v-flex xs12>
+                      <v-text-field
+                        id="oldPassword"
+                        name="oldPassword"
+                        type="password"
+                        :label="$t('myProfile.CURRENT_PASSWORD')"
+                        v-model="oldPassword"
+                        :data-vv-as="$t('myProfile.CURRENT_PASSWORD')"
+                        :error="errors.has('oldPassword')"
+                        :error-messages="errors.collect('oldPassword')"
+                        v-validate.disable="'required|min:5'"
+                        autocomplete="off"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field
+                        id="newPassword"
+                        name="newPassword"
+                        type="password"
+                        :label="$t('myProfile.NEW_PASSWORD')"
+                        v-model="newPassword"
+                        :data-vv-as="$t('myProfile.NEW_PASSWORD')"
+                        :error="errors.has('newPassword')"
+                        :error-messages="errors.collect('newPassword')"
+                        v-validate.disable="'required|min:5'"
+                        ref="password"
+                        autocomplete="off"
+                      ></v-text-field>
+                    </v-flex>
+                    <v-flex xs12>
+                      <v-text-field
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        type="password"
+                        :label="$t('myProfile.CONFIRM_NEW_PASSWORD')"
+                        v-model="confirmPassword"
+                        :data-vv-as="$t('myProfile.NEW_PASSWORD')"
+                        :error="errors.has('confirmPassword')"
+                        :error-messages="errors.collect('confirmPassword')"
+                        v-validate.disable="'required|min:5|confirmed:password'"
+                        autocomplete="off"
+                      ></v-text-field>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="red lighten3" flat @click="close">
+                  {{ $t('dataTable.CANCEL') }}
+                </v-btn>
+                <v-btn
+                  color="yellow lighten3"
+                  flat
+                  type="submit"
+                  :disabled="disabledButton"
+                  >{{ $t('dataTable.SAVE') }}</v-btn
+                >
+              </v-card-actions>
+            </form>
+          </v-card>
+        </v-dialog>
+        <form @submit.prevent="submit">
           <v-layout column>
             <error-message />
             <v-flex>
@@ -133,6 +213,10 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
+      dialog: false,
+      oldPassword: '',
+      newPassword: '',
+      confirmPassword: '',
       searchInput: ''
     }
   },
@@ -225,29 +309,57 @@ export default {
   },
   methods: {
     ...mapActions([
+      'changeMyPassword',
       'getProfile',
       'getAllCities',
       'addProfileData',
       'saveProfile'
     ]),
-    async validateBeforeSubmit() {
-      const valid = await this.$validator.validateAll()
-      if (valid) {
-        await this.saveProfile({
-          name: this.name,
-          phone: this.phone,
-          city: this.city,
-          country: this.country,
-          urlTwitter: this.urlTwitter,
-          urlGitHub: this.urlGitHub
-        })
+    async submit() {
+      try {
+        const valid = await this.$validator.validateAll()
+        if (valid) {
+          await this.saveProfile({
+            name: this.name,
+            phone: this.phone,
+            city: this.city,
+            country: this.country,
+            urlTwitter: this.urlTwitter,
+            urlGitHub: this.urlGitHub
+          })
+          return
+        }
+      } catch (error) {
+        return
+      }
+    },
+    close() {
+      this.dialog = false
+    },
+    async save() {
+      try {
+        const valid = await this.$validator.validateAll()
+        if (valid) {
+          await this.changeMyPassword({
+            oldPassword: this.oldPassword,
+            newPassword: this.newPassword
+          })
+          this.close()
+          return
+        }
+      } catch (error) {
+        this.close()
         return
       }
     }
   },
   async created() {
-    await this.getProfile()
-    await this.getAllCities()
+    try {
+      await this.getProfile()
+      await this.getAllCities()
+    } catch (error) {
+      return
+    }
   }
 }
 </script>

@@ -19,6 +19,32 @@ const getters = {
 }
 
 const actions = {
+  changeMyPassword({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      commit(types.SHOW_LOADING, true)
+      axios
+        .post('/profile/changePassword', payload)
+        .then(response => {
+          if (response.status === 200) {
+            commit(types.SUCCESS, {
+              msg: 'myProfile.PASSWORD_CHANGED'
+            })
+            commit(types.SHOW_LOADING, false)
+            commit(types.ERROR, null)
+            resolve()
+          }
+        })
+        .catch(error => {
+          // Catches error connection or any other error (checks if error.response exists)
+          let errMsg = error.response
+            ? error.response.data.errors.msg
+            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
+          commit(types.SHOW_LOADING, false)
+          commit(types.ERROR, errMsg)
+          reject(error)
+        })
+    })
+  },
   getProfile({ commit }) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
@@ -46,16 +72,8 @@ const actions = {
   saveProfile({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      const data = {
-        name: payload.name,
-        phone: payload.phone,
-        city: payload.city,
-        country: payload.country,
-        urlTwitter: payload.urlTwitter,
-        urlGitHub: payload.urlGitHub
-      }
       axios
-        .patch('/profile', data)
+        .patch('/profile', payload)
         .then(response => {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
