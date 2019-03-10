@@ -28,9 +28,7 @@
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs12 md6 v-if="editedItem._id">
-                    <label for="createdAt">
-                      {{ $t('cities.headers.CREATED') }}
-                    </label>
+                    <label for="createdAt">{{ $t('common.CREATED') }}</label>
                     <div name="createdAt">
                       {{
                         editedItem.createdAt
@@ -39,9 +37,7 @@
                     </div>
                   </v-flex>
                   <v-flex xs12 md6 v-if="editedItem._id">
-                    <label for="updatedAt">
-                      {{ $t('cities.headers.UPDATED') }}
-                    </label>
+                    <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
                     <div name="updatedAt">
                       {{
                         editedItem.updatedAt
@@ -179,13 +175,13 @@ export default {
           value: 'name'
         },
         {
-          text: this.$i18n.t('cities.headers.CREATED'),
+          text: this.$i18n.t('common.CREATED'),
           align: 'left',
           sortable: true,
           value: 'createdAt'
         },
         {
-          text: this.$i18n.t('cities.headers.UPDATED'),
+          text: this.$i18n.t('common.UPDATED'),
           align: 'left',
           sortable: true,
           value: 'updatedAt'
