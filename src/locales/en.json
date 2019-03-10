@@ -26,7 +26,9 @@
     "DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM": "Do you really want to delete this item?",
     "CLOSE": "Close",
     "SAVED_SUCCESSFULLY": "Saved successfully",
-    "DELETED_SUCCESSFULLY": "Deleted successfully"
+    "DELETED_SUCCESSFULLY": "Deleted successfully",
+    "CREATED": "Created",
+    "UPDATED": "Updated"
   },
   "loading": {
     "PLEASE_WAIT": "Please wait..."
@@ -42,7 +44,8 @@
   },
   "adminItems": {
     "ADMIN": "Admin",
-    "CITIES": "Cities"
+    "CITIES": "Cities",
+    "USERS": "Users"
   },
   "dataTable": {
     "NEW_ITEM": "New Item",
@@ -61,9 +64,19 @@
   "cities": {
     "TITLE": "Cities",
     "headers": {
+      "NAME": "Name"
+    }
+  },
+  "users": {
+    "TITLE": "Users",
+    "headers": {
       "NAME": "Name",
-      "CREATED": "Created",
-      "UPDATED": "Updated"
+      "EMAIL": "E-mail",
+      "ROLE": "Role",
+      "VERIFIED": "Verified",
+      "CITY": "City",
+      "COUNTRY": "Country",
+      "PHONE": "Phone"
     }
   },
   "landing": {

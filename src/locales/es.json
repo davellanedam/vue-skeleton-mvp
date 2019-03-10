@@ -26,7 +26,9 @@
     "DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM": "¿Realmente deseas eliminar este registro?",
     "CLOSE": "Cerrar",
     "SAVED_SUCCESSFULLY": "Guardado exitosamente",
-    "DELETED_SUCCESSFULLY": "Eliminado exitosamente"
+    "DELETED_SUCCESSFULLY": "Eliminado exitosamente",
+    "CREATED": "Creado",
+    "UPDATED": "Actualizado"
   },
   "loading": {
     "PLEASE_WAIT": "Por favor espere..."
@@ -42,7 +44,8 @@
   },
   "adminItems": {
     "ADMIN": "Admin",
-    "CITIES": "Ciudades"
+    "CITIES": "Ciudades",
+    "USERS": "Usuarios"
   },
   "dataTable": {
     "NEW_ITEM": "Nuevo Item",
@@ -61,9 +64,19 @@
   "cities": {
     "TITLE": "Ciudades",
     "headers": {
+      "NAME": "Nombre"
+    }
+  },
+  "users": {
+    "TITLE": "Usuarios",
+    "headers": {
       "NAME": "Nombre",
-      "CREATED": "Creado",
-      "UPDATED": "Actualizado"
+      "EMAIL": "E-mail",
+      "ROLE": "Rol",
+      "VERIFIED": "Verificado",
+      "CITY": "Ciudad",
+      "COUNTRY": "País",
+      "PHONE": "Teléfono"
     }
   },
   "landing": {
