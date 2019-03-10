@@ -27,24 +27,26 @@
             <v-card-text>
               <v-container grid-list-md>
                 <v-layout wrap>
-                  <v-flex xs12 md6 v-if="editedItem._id">
-                    <label for="createdAt">{{ $t('common.CREATED') }}</label>
-                    <div name="createdAt">
-                      {{
-                        editedItem.createdAt
-                          | moment('ddd, MMMM D YYYY, h:mm a')
-                      }}
-                    </div>
-                  </v-flex>
-                  <v-flex xs12 md6 v-if="editedItem._id">
-                    <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
-                    <div name="updatedAt">
-                      {{
-                        editedItem.updatedAt
-                          | moment('ddd, MMMM D YYYY, h:mm a')
-                      }}
-                    </div>
-                  </v-flex>
+                  <template v-if="editedItem._id">
+                    <v-flex xs12 md6>
+                      <label for="createdAt">{{ $t('common.CREATED') }}</label>
+                      <div name="createdAt">
+                        {{
+                          editedItem.createdAt
+                            | moment('ddd, MMMM D YYYY, h:mm a')
+                        }}
+                      </div>
+                    </v-flex>
+                    <v-flex xs12 md6>
+                      <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
+                      <div name="updatedAt">
+                        {{
+                          editedItem.updatedAt
+                            | moment('ddd, MMMM D YYYY, h:mm a')
+                        }}
+                      </div>
+                    </v-flex>
+                  </template>
                   <v-flex xs12>
                     <v-text-field
                       id="name"
