@@ -149,11 +149,13 @@ export default {
   data() {
     return {
       dataTableLoading: true,
+      delayTimer: null,
       dialog: false,
       search: '',
       pagination: {},
       editedItem: {},
-      defaultItem: {}
+      defaultItem: {},
+      fieldsToSearch: ['name']
     }
   },
   computed: {
@@ -203,11 +205,6 @@ export default {
     },
     pagination: {
       async handler() {
-        // if (this.search) {
-        //   setTimeout(() => {
-        //     console.log('locooo: ' + this.search)
-        //   }, 1000)
-        // }
         this.dataTableLoading = true
         await this.getCities(
           buildPayloadPagination(this.pagination, this.buildSearch())
@@ -215,14 +212,27 @@ export default {
         this.dataTableLoading = false
       },
       deep: true
+    },
+    async search() {
+      clearTimeout(this.delayTimer)
+      this.delayTimer = setTimeout(() => {
+        this.doSearch()
+      }, 400)
     }
   },
   methods: {
     ...mapActions(['getCities', 'editCity', 'saveCity', 'deleteCity']),
+    async doSearch() {
+      this.dataTableLoading = true
+      await this.getCities(
+        buildPayloadPagination(this.pagination, this.buildSearch())
+      )
+      this.dataTableLoading = false
+    },
     buildSearch() {
-      console.log(this.search)
-      // Send fields separated by commas (,)
-      return this.search ? { query: this.search, fields: 'name' } : {}
+      return this.search
+        ? { query: this.search, fields: this.fieldsToSearch.join(',') }
+        : {}
     },
     editItem(item) {
       this.editedItem = Object.assign({}, item)
