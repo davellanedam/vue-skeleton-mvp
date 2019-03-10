@@ -7,7 +7,7 @@
         </h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3>
-        <form @submit.prevent="validateBeforeSubmit">
+        <form @submit.prevent="submit">
           <v-layout column>
             <error-message />
             <v-flex v-show="showChangePasswordInputs">
@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     ...mapActions(['resetPassword']),
-    async validateBeforeSubmit() {
+    async submit() {
       const valid = await this.$validator.validateAll()
       if (valid) {
         await this.resetPassword({

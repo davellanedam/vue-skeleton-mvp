@@ -5,7 +5,7 @@
         <h1 class="display-2 font-weight-bold">{{ $t('login.TITLE') }}</h1>
       </v-flex>
       <v-flex xs12 sm6 offset-sm3>
-        <form @submit.prevent="validateBeforeSubmit">
+        <form @submit.prevent="submit">
           <v-layout column>
             <error-message />
             <v-flex>
@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     ...mapActions(['userLogin']),
-    async validateBeforeSubmit() {
+    async submit() {
       const valid = await this.$validator.validateAll()
       if (valid) {
         await this.userLogin({
