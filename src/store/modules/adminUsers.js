@@ -41,7 +41,6 @@ const actions = {
       const data = {
         name: payload.name,
         email: payload.email,
-        password: payload.password,
         role: payload.role,
         phone: payload.phone,
         city: payload.city,
