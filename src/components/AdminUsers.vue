@@ -370,15 +370,19 @@ export default {
     },
     pagination: {
       async handler() {
-        this.dataTableLoading = true
-        await this.getUsers(
-          buildPayloadPagination(this.pagination, this.buildSearch())
-        )
-        this.dataTableLoading = false
+        try {
+          this.dataTableLoading = true
+          await this.getUsers(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
+          this.dataTableLoading = false
+        } catch (error) {
+          this.dataTableLoading = false
+        }
       },
       deep: true
     },
-    async search() {
+    search() {
       clearTimeout(this.delayTimer)
       this.delayTimer = setTimeout(() => {
         this.doSearch()
@@ -402,11 +406,15 @@ export default {
         : '<i aria-hidden="true" class="v-icon material-icons red--text" style="font-size: 16px;">clear</i>'
     },
     async doSearch() {
-      this.dataTableLoading = true
-      await this.getUsers(
-        buildPayloadPagination(this.pagination, this.buildSearch())
-      )
-      this.dataTableLoading = false
+      try {
+        this.dataTableLoading = true
+        await this.getUsers(
+          buildPayloadPagination(this.pagination, this.buildSearch())
+        )
+        this.dataTableLoading = false
+      } catch (error) {
+        this.dataTableLoading = false
+      }
     },
     buildSearch() {
       return this.search
@@ -418,22 +426,26 @@ export default {
       this.dialog = true
     },
     async deleteItem(item) {
-      const response = await this.$confirm(
-        this.$t('common.DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM'),
-        {
-          title: this.$t('common.WARNING'),
-          buttonTrueText: this.$t('common.DELETE'),
-          buttonFalseText: this.$t('common.CANCEL'),
-          buttonTrueColor: 'red lighten3',
-          buttonFalseColor: 'yellow lighten3'
-        }
-      )
-      if (response) {
-        this.dataTableLoading = true
-        await this.deleteUser(item._id)
-        await this.getUsers(
-          buildPayloadPagination(this.pagination, this.buildSearch())
+      try {
+        const response = await this.$confirm(
+          this.$t('common.DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM'),
+          {
+            title: this.$t('common.WARNING'),
+            buttonTrueText: this.$t('common.DELETE'),
+            buttonFalseText: this.$t('common.CANCEL'),
+            buttonTrueColor: 'red lighten3',
+            buttonFalseColor: 'yellow lighten3'
+          }
         )
+        if (response) {
+          this.dataTableLoading = true
+          await this.deleteUser(item._id)
+          await this.getUsers(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
+          this.dataTableLoading = false
+        }
+      } catch (error) {
         this.dataTableLoading = false
       }
     },
@@ -444,38 +456,47 @@ export default {
       }, 300)
     },
     async save() {
-      const valid = await this.$validator.validateAll()
-      if (valid) {
-        this.dataTableLoading = true
-        // Updating item
-        if (this.editedItem._id) {
-          await this.editUser(this.editedItem)
-          await this.getUsers(
-            buildPayloadPagination(this.pagination, this.buildSearch())
-          )
-          this.dataTableLoading = false
-        } else {
-          // Creating new item
-          await this.saveUser({
-            name: this.editedItem.name,
-            email: this.editedItem.email,
-            password: this.editedItem.password,
-            role: this.editedItem.role,
-            phone: this.editedItem.phone,
-            city: this.editedItem.city,
-            country: this.editedItem.country
-          })
-          await this.getUsers(
-            buildPayloadPagination(this.pagination, this.buildSearch())
-          )
-          this.dataTableLoading = false
+      try {
+        const valid = await this.$validator.validateAll()
+        if (valid) {
+          this.dataTableLoading = true
+          // Updating item
+          if (this.editedItem._id) {
+            await this.editUser(this.editedItem)
+            await this.getUsers(
+              buildPayloadPagination(this.pagination, this.buildSearch())
+            )
+            this.dataTableLoading = false
+          } else {
+            // Creating new item
+            await this.saveUser({
+              name: this.editedItem.name,
+              email: this.editedItem.email,
+              password: this.editedItem.password,
+              role: this.editedItem.role,
+              phone: this.editedItem.phone,
+              city: this.editedItem.city,
+              country: this.editedItem.country
+            })
+            await this.getUsers(
+              buildPayloadPagination(this.pagination, this.buildSearch())
+            )
+            this.dataTableLoading = false
+          }
+          this.close()
         }
+      } catch (error) {
+        this.dataTableLoading = false
         this.close()
       }
     }
   },
   async created() {
-    await this.getAllCities()
+    try {
+      await this.getAllCities()
+    } catch (error) {
+      // Error
+    }
   }
 }
 </script>
