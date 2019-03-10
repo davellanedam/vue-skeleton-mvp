@@ -11,42 +11,14 @@ const state = {
     country: '',
     urlTwitter: '',
     urlGitHub: ''
-  },
-  allCities: []
+  }
 }
 
 const getters = {
-  profile: state => state.profile,
-  allCities: state => state.allCities
+  profile: state => state.profile
 }
 
 const actions = {
-  getAllCities({ commit }) {
-    return new Promise((resolve, reject) => {
-      axios
-        .get('/cities/all')
-        .then(response => {
-          if (response.status === 200) {
-            const cities = []
-            const array = response.data
-            array.forEach(element => {
-              cities.push(element.name)
-            })
-            commit(types.FILL_ALL_CITIES, cities)
-            resolve()
-          }
-        })
-        .catch(error => {
-          // Catches error connection or any other error (checks if error.response exists)
-          let errMsg = error.response
-            ? error.response.data.errors.msg
-            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-          commit(types.SHOW_LOADING, false)
-          commit(types.ERROR, errMsg)
-          reject(error)
-        })
-    })
-  },
   getProfile({ commit }) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
@@ -112,9 +84,6 @@ const actions = {
 }
 
 const mutations = {
-  [types.FILL_ALL_CITIES](state, cities) {
-    state.allCities = cities
-  },
   [types.FILL_PROFILE](state, data) {
     state.profile.verified = data.verified
     state.profile.name = data.name
