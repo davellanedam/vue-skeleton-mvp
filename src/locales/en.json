@@ -47,6 +47,10 @@
     "CITIES": "Cities",
     "USERS": "Users"
   },
+  "roles": {
+    "ADMIN": "Administrator",
+    "USER": "User"
+  },
   "dataTable": {
     "NEW_ITEM": "New Item",
     "EDIT_ITEM": "Edit Item",
