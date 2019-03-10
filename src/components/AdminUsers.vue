@@ -484,10 +484,12 @@ export default {
             this.dataTableLoading = false
           }
           this.close()
+          return
         }
       } catch (error) {
         this.dataTableLoading = false
         this.close()
+        return
       }
     }
   },
@@ -495,7 +497,7 @@ export default {
     try {
       await this.getAllCities()
     } catch (error) {
-      // Error
+      return
     }
   }
 }
