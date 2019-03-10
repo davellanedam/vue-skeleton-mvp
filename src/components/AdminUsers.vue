@@ -49,7 +49,10 @@
                     <label for="verified">
                       {{ $t('users.headers.VERIFIED') }}
                     </label>
-                    <div name="verified">{{ editedItem.verified }}</div>
+                    <div
+                      name="verified"
+                      v-html="trueFalse(editedItem.verified)"
+                    ></div>
                   </v-flex>
                   <v-flex xs12 md6>
                     <v-text-field
@@ -110,17 +113,20 @@
                     ></v-text-field>
                   </v-flex>
                   <v-flex xs12 md6>
-                    <v-text-field
+                    <v-select
+                      clearable
                       id="role"
                       name="role"
                       v-model="editedItem.role"
+                      :items="roles"
+                      item-text="name"
+                      item-value="value"
                       :label="$t('users.headers.ROLE')"
                       :data-vv-as="$t('users.headers.ROLE')"
                       :error="errors.has('role')"
                       :error-messages="errors.collect('role')"
                       v-validate="'required'"
-                      autocomplete="off"
-                    ></v-text-field>
+                    ></v-select>
                   </v-flex>
                   <v-flex xs12 md6>
                     <v-autocomplete
@@ -221,8 +227,8 @@
         </td>
         <td>{{ props.item.name }}</td>
         <td>{{ props.item.email }}</td>
-        <td>{{ props.item.role }}</td>
-        <td>{{ props.item.verified }}</td>
+        <td>{{ roleName(props.item.role) }}</td>
+        <td v-html="trueFalse(props.item.verified)"></td>
         <td>{{ props.item.city }}</td>
         <td>{{ props.item.country }}</td>
         <td>{{ props.item.phone }}</td>
@@ -271,6 +277,12 @@ export default {
     }
   },
   computed: {
+    roles() {
+      return [
+        { name: this.$t('roles.ADMIN'), value: 'admin' },
+        { name: this.$t('roles.USER'), value: 'user' }
+      ]
+    },
     allCities() {
       return this.$store.state.cities.allCities
     },
@@ -379,6 +391,14 @@ export default {
       'saveUser',
       'deleteUser'
     ]),
+    roleName(value) {
+      return value === 'admin' ? this.$t('roles.ADMIN') : this.$t('roles.USER')
+    },
+    trueFalse(value) {
+      return value
+        ? '<i aria-hidden="true" class="v-icon material-icons green--text" style="font-size: 16px;">done</i>'
+        : '<i aria-hidden="true" class="v-icon material-icons red--text" style="font-size: 16px;">clear</i>'
+    },
     async doSearch() {
       this.dataTableLoading = true
       await this.getUsers(
