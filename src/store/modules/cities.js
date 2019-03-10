@@ -11,7 +11,7 @@ const getters = {
 
 const actions = {
   getAllCities({ commit }) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       axios
         .get('/cities/all')
         .then(response => {
@@ -32,7 +32,6 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
-          reject(error)
         })
     })
   }

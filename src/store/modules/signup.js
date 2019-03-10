@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const actions = {
   userSignUp({ commit }, payload) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       commit(types.SHOW_LOADING, true)
       axios
         .post('/register', payload)
@@ -36,7 +36,6 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
-          reject(error)
         })
     })
   }

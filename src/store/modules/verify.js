@@ -11,7 +11,7 @@ const getters = {
 
 const actions = {
   sendVerify({ commit }, id) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       commit(types.SHOW_LOADING, true)
       const data = {
         id
@@ -45,7 +45,6 @@ const actions = {
             : 'SERVER_TIMEOUT_CONNECTION_ERROR'
           commit(types.SHOW_LOADING, false)
           commit(types.ERROR, errMsg)
-          reject(error)
         })
     })
   }
