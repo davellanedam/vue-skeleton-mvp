@@ -4,13 +4,17 @@
       <v-flex xs12 text-xs-center mt-5 mb-3>
         <h1 class="display-2 font-weight-bold">{{ $t('myProfile.TITLE') }}</h1>
       </v-flex>
-      <v-flex xs12 sm6 offset-sm3>
+      <v-flex xs12 sm8 offset-sm2>
         <v-dialog v-model="dialog" max-width="400px">
           <template v-slot:activator="{ on }">
             <v-flex text-xs-center>
-              <v-btn color="white" small flat v-on="on">{{
-                $t('myProfile.CHANGE_MY_PASSWORD')
-              }}</v-btn>
+              <v-btn
+                small
+                flat
+                v-on="on"
+                @click="triggerChangePassword = true"
+                >{{ $t('myProfile.CHANGE_MY_PASSWORD') }}</v-btn
+              >
             </v-flex>
           </template>
           <v-card>
@@ -23,49 +27,56 @@
               <v-card-text>
                 <v-container grid-list-md>
                   <v-layout wrap>
-                    <v-flex xs12>
-                      <v-text-field
-                        id="oldPassword"
-                        name="oldPassword"
-                        type="password"
-                        :label="$t('myProfile.CURRENT_PASSWORD')"
-                        v-model="oldPassword"
-                        :data-vv-as="$t('myProfile.CURRENT_PASSWORD')"
-                        :error="errors.has('oldPassword')"
-                        :error-messages="errors.collect('oldPassword')"
-                        v-validate.disable="'required|min:5'"
-                        autocomplete="off"
-                      ></v-text-field>
-                    </v-flex>
-                    <v-flex xs12>
-                      <v-text-field
-                        id="newPassword"
-                        name="newPassword"
-                        type="password"
-                        :label="$t('myProfile.NEW_PASSWORD')"
-                        v-model="newPassword"
-                        :data-vv-as="$t('myProfile.NEW_PASSWORD')"
-                        :error="errors.has('newPassword')"
-                        :error-messages="errors.collect('newPassword')"
-                        v-validate.disable="'required|min:5'"
-                        ref="password"
-                        autocomplete="off"
-                      ></v-text-field>
-                    </v-flex>
-                    <v-flex xs12>
-                      <v-text-field
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        type="password"
-                        :label="$t('myProfile.CONFIRM_NEW_PASSWORD')"
-                        v-model="confirmPassword"
-                        :data-vv-as="$t('myProfile.NEW_PASSWORD')"
-                        :error="errors.has('confirmPassword')"
-                        :error-messages="errors.collect('confirmPassword')"
-                        v-validate.disable="'required|min:5|confirmed:password'"
-                        autocomplete="off"
-                      ></v-text-field>
-                    </v-flex>
+                    <template v-if="triggerChangePassword">
+                      <v-flex xs12>
+                        <v-text-field
+                          id="oldPassword"
+                          name="oldPassword"
+                          type="password"
+                          :label="$t('myProfile.CURRENT_PASSWORD')"
+                          v-model="oldPassword"
+                          :data-vv-as="$t('myProfile.CURRENT_PASSWORD')"
+                          :error="errors.has('oldPassword')"
+                          :error-messages="errors.collect('oldPassword')"
+                          v-validate.disable="'required|min:5'"
+                          key="oldPassword"
+                          autocomplete="off"
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-text-field
+                          id="newPassword"
+                          name="newPassword"
+                          type="password"
+                          :label="$t('myProfile.NEW_PASSWORD')"
+                          v-model="newPassword"
+                          :data-vv-as="$t('myProfile.NEW_PASSWORD')"
+                          :error="errors.has('newPassword')"
+                          :error-messages="errors.collect('newPassword')"
+                          v-validate.disable="'required|min:5'"
+                          key="newPassword"
+                          ref="password"
+                          autocomplete="off"
+                        ></v-text-field>
+                      </v-flex>
+                      <v-flex xs12>
+                        <v-text-field
+                          id="confirmPassword"
+                          name="confirmPassword"
+                          type="password"
+                          :label="$t('myProfile.CONFIRM_NEW_PASSWORD')"
+                          v-model="confirmPassword"
+                          :data-vv-as="$t('myProfile.NEW_PASSWORD')"
+                          :error="errors.has('confirmPassword')"
+                          :error-messages="errors.collect('confirmPassword')"
+                          v-validate.disable="
+                            'required|min:5|confirmed:password'
+                          "
+                          key="confirmPassword"
+                          autocomplete="off"
+                        ></v-text-field>
+                      </v-flex>
+                    </template>
                   </v-layout>
                 </v-container>
               </v-card-text>
@@ -86,118 +97,120 @@
           </v-card>
         </v-dialog>
         <form @submit.prevent="submit">
-          <v-layout column>
-            <error-message />
-            <v-flex>
-              <v-text-field
-                id="email"
-                name="email"
-                type="email"
-                :label="$t('myProfile.EMAIL')"
-                v-model="email"
-                :data-vv-as="$t('myProfile.EMAIL')"
-                :error="errors.has('email')"
-                :error-messages="errors.collect('email')"
-                v-validate.disable="'required|email'"
-                disabled
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                id="name"
-                name="name"
-                type="text"
-                :label="$t('myProfile.NAME')"
-                v-model="name"
-                :data-vv-as="$t('myProfile.NAME')"
-                :error="errors.has('name')"
-                :error-messages="errors.collect('name')"
-                v-validate.disable="'required'"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                id="phone"
-                name="phone"
-                type="tel"
-                :label="$t('myProfile.PHONE')"
-                v-model="phone"
-                :data-vv-as="$t('myProfile.PHONE')"
-                :error="errors.has('phone')"
-                :error-messages="errors.collect('phone')"
-                v-validate.disable="'required'"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-autocomplete
-                id="city"
-                name="city"
-                :label="$t('myProfile.CITY')"
-                :search-input.sync="searchInput"
-                v-model="city"
-                :items="allCities"
-                clearable
-                :data-vv-as="$t('myProfile.CITY')"
-                :error="errors.has('city')"
-                :error-messages="errors.collect('city')"
-                v-validate.disable="'required'"
-                autocomplete="off"
-              />
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                id="country"
-                name="country"
-                type="text"
-                :label="$t('myProfile.COUNTRY')"
-                v-model="country"
-                :data-vv-as="$t('myProfile.COUNTRY')"
-                :error="errors.has('country')"
-                :error-messages="errors.collect('country')"
-                v-validate.disable="'required'"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                id="urlTwitter"
-                name="urlTwitter"
-                type="url"
-                label="Twitter"
-                v-model="urlTwitter"
-                data-vv-as="Twitter"
-                :error="errors.has('urlTwitter')"
-                :error-messages="errors.collect('urlTwitter')"
-                v-validate.disable="'url'"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex>
-              <v-text-field
-                id="urlGitHub"
-                name="urlGitHub"
-                type="url"
-                label="GitHub"
-                v-model="urlGitHub"
-                data-vv-as="GitHub"
-                :error="errors.has('urlGitHub')"
-                :error-messages="errors.collect('urlGitHub')"
-                v-validate.disable="'url'"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex text-xs-center mt-5>
-              <v-btn
-                color="secondary"
-                type="submit"
-                :disabled="disabledButton"
-                >{{ $t('myProfile.SAVE') }}</v-btn
-              >
-            </v-flex>
-          </v-layout>
+          <v-container grid-list-md>
+            <v-layout wrap>
+              <error-message />
+              <v-flex xs12 md6>
+                <v-text-field
+                  id="email"
+                  name="email"
+                  type="email"
+                  :label="$t('myProfile.EMAIL')"
+                  v-model="email"
+                  :data-vv-as="$t('myProfile.EMAIL')"
+                  :error="errors.has('email')"
+                  :error-messages="errors.collect('email')"
+                  v-validate.disable="'required|email'"
+                  disabled
+                  autocomplete="off"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 md6>
+                <v-text-field
+                  id="name"
+                  name="name"
+                  type="text"
+                  :label="$t('myProfile.NAME')"
+                  v-model="name"
+                  :data-vv-as="$t('myProfile.NAME')"
+                  :error="errors.has('name')"
+                  :error-messages="errors.collect('name')"
+                  v-validate.disable="'required'"
+                  autocomplete="off"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 md4>
+                <v-text-field
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  :label="$t('myProfile.PHONE')"
+                  v-model="phone"
+                  :data-vv-as="$t('myProfile.PHONE')"
+                  :error="errors.has('phone')"
+                  :error-messages="errors.collect('phone')"
+                  v-validate.disable="'required'"
+                  autocomplete="off"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 md4>
+                <v-autocomplete
+                  id="city"
+                  name="city"
+                  :label="$t('myProfile.CITY')"
+                  :search-input.sync="searchInput"
+                  v-model="city"
+                  :items="allCities"
+                  clearable
+                  :data-vv-as="$t('myProfile.CITY')"
+                  :error="errors.has('city')"
+                  :error-messages="errors.collect('city')"
+                  v-validate.disable="'required'"
+                  autocomplete="off"
+                />
+              </v-flex>
+              <v-flex xs12 md4>
+                <v-text-field
+                  id="country"
+                  name="country"
+                  type="text"
+                  :label="$t('myProfile.COUNTRY')"
+                  v-model="country"
+                  :data-vv-as="$t('myProfile.COUNTRY')"
+                  :error="errors.has('country')"
+                  :error-messages="errors.collect('country')"
+                  v-validate.disable="'required'"
+                  autocomplete="off"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 md6>
+                <v-text-field
+                  id="urlTwitter"
+                  name="urlTwitter"
+                  type="url"
+                  label="Twitter"
+                  v-model="urlTwitter"
+                  data-vv-as="Twitter"
+                  :error="errors.has('urlTwitter')"
+                  :error-messages="errors.collect('urlTwitter')"
+                  v-validate.disable="'url'"
+                  autocomplete="off"
+                ></v-text-field>
+              </v-flex>
+              <v-flex xs12 md6>
+                <v-text-field
+                  id="urlGitHub"
+                  name="urlGitHub"
+                  type="url"
+                  label="GitHub"
+                  v-model="urlGitHub"
+                  data-vv-as="GitHub"
+                  :error="errors.has('urlGitHub')"
+                  :error-messages="errors.collect('urlGitHub')"
+                  v-validate.disable="'url'"
+                  autocomplete="off"
+                ></v-text-field>
+              </v-flex>
+              <v-flex text-xs-center mt-5>
+                <v-btn
+                  color="secondary"
+                  type="submit"
+                  :disabled="disabledButton"
+                  >{{ $t('myProfile.SAVE') }}</v-btn
+                >
+              </v-flex>
+            </v-layout>
+          </v-container>
         </form>
       </v-flex>
       <success-message />
@@ -214,6 +227,7 @@ export default {
   data() {
     return {
       dialog: false,
+      triggerChangePassword: false,
       oldPassword: '',
       newPassword: '',
       confirmPassword: '',
@@ -334,6 +348,7 @@ export default {
       }
     },
     close() {
+      this.triggerChangePassword = false
       this.dialog = false
     },
     async save() {
@@ -347,10 +362,15 @@ export default {
           this.oldPassword = ''
           this.newPassword = ''
           this.confirmPassword = ''
+          this.triggerChangePassword = false
           this.close()
           return
         }
       } catch (error) {
+        this.oldPassword = ''
+        this.newPassword = ''
+        this.confirmPassword = ''
+        this.triggerChangePassword = false
         this.close()
         return
       }
