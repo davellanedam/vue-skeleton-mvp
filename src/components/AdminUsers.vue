@@ -88,10 +88,10 @@
                       :data-vv-as="$t('signup.PASSWORD')"
                       :error="errors.has('password')"
                       :error-messages="errors.collect('password')"
+                      key="password"
                       v-validate="'required|min:5'"
                       ref="password"
                       autocomplete="off"
-                      :disabled="true"
                     ></v-text-field>
                   </v-flex>
                   <v-flex xs12 md6 v-if="!editedItem._id">
@@ -104,9 +104,9 @@
                       :data-vv-as="$t('signup.PASSWORD')"
                       :error="errors.has('confirmPassword')"
                       :error-messages="errors.collect('confirmPassword')"
+                      key="confirmPassword"
                       v-validate="'required|min:5|confirmed:password'"
                       autocomplete="off"
-                      :disabled="true"
                     ></v-text-field>
                   </v-flex>
                   <v-flex xs12 md6>
@@ -423,7 +423,6 @@ export default {
     },
     async save() {
       const valid = await this.$validator.validateAll()
-      console.log(valid)
       if (valid) {
         this.dataTableLoading = true
         // Updating item
