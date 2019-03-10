@@ -89,13 +89,14 @@
                 :to="{ name: item.link }"
                 exact
               >
-                <v-list-tile-title> {{ item.title }}</v-list-tile-title>
+                <v-list-tile-title>{{ item.title }}</v-list-tile-title>
               </v-list-tile>
             </v-list>
           </v-menu>
 
           <v-btn flat v-if="isTokenSet" @click="userLogout">
-            <v-icon left>exit_to_app</v-icon>{{ $t('menuItems.LOGOUT') }}
+            <v-icon left>exit_to_app</v-icon>
+            {{ $t('menuItems.LOGOUT') }}
           </v-btn>
           <LocaleChanger />
         </v-toolbar-items>
@@ -139,6 +140,10 @@ export default {
         {
           title: this.$t('adminItems.CITIES'),
           link: 'admin-cities'
+        },
+        {
+          title: this.$t('adminItems.USERS'),
+          link: 'admin-users'
         }
       ]
     },
