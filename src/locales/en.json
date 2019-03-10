@@ -82,7 +82,9 @@
       "CITY": "City",
       "COUNTRY": "Country",
       "PHONE": "Phone"
-    }
+    },
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password"
   },
   "landing": {
     "TITLE": "Landing",
@@ -134,6 +136,11 @@
   },
   "myProfile": {
     "TITLE": "My profile",
+    "CHANGE_MY_PASSWORD": "Change My Password",
+    "OLD_PASSWORD": "Old Password",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "PASSWORD_CHANGED": "Password changed successfully",
     "NAME": "Name",
     "EMAIL": "E-mail",
     "PHONE": "Phone",

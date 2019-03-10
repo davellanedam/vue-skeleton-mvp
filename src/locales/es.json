@@ -82,7 +82,9 @@
       "CITY": "Ciudad",
       "COUNTRY": "País",
       "PHONE": "Teléfono"
-    }
+    },
+    "PASSWORD": "Contraseña",
+    "CONFIRM_PASSWORD": "Confirmar Contraseña"
   },
   "landing": {
     "TITLE": "Página de aterrizaje",
@@ -134,6 +136,11 @@
   },
   "myProfile": {
     "TITLE": "Mi Perfil",
+    "CHANGE_MY_PASSWORD": "Cambiar Mi Contraseña",
+    "OLD_PASSWORD": "Old Password",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "PASSWORD_CHANGED": "Password changed successfully",
     "NAME": "Nombre",
     "EMAIL": "E-mail",
     "PHONE": "Teléfono",
