@@ -344,6 +344,9 @@ export default {
             oldPassword: this.oldPassword,
             newPassword: this.newPassword
           })
+          this.oldPassword = ''
+          this.newPassword = ''
+          this.confirmPassword = ''
           this.close()
           return
         }
