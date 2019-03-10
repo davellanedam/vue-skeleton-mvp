@@ -1,0 +1,452 @@
+<template>
+  <div>
+    <v-layout wrap>
+      <v-flex xs12 sm12 md4 mt-3 pl-3>
+        <v-toolbar-title>{{ $t('users.TITLE') }}</v-toolbar-title>
+      </v-flex>
+      <v-flex xs12 sm6 md4 px-3>
+        <v-text-field
+          v-model="search"
+          append-icon="search"
+          label="Search"
+          single-line
+          hide-details
+        ></v-text-field>
+      </v-flex>
+      <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
+        <v-dialog v-model="dialog" max-width="800px">
+          <template v-slot:activator="{ on }">
+            <v-btn color="secondary" v-on="on">
+              {{ $t('dataTable.NEW_ITEM') }}
+            </v-btn>
+          </template>
+          <v-card>
+            <v-card-title>
+              <span class="headline">{{ formTitle }}</span>
+            </v-card-title>
+            <v-card-text>
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12 md4 v-if="editedItem._id">
+                    <label for="createdAt">{{ $t('common.CREATED') }}</label>
+                    <div name="createdAt">
+                      {{
+                        editedItem.createdAt
+                          | moment('ddd, MMMM D YYYY, h:mm a')
+                      }}
+                    </div>
+                  </v-flex>
+                  <v-flex xs12 md4 v-if="editedItem._id">
+                    <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
+                    <div name="updatedAt">
+                      {{
+                        editedItem.updatedAt
+                          | moment('ddd, MMMM D YYYY, h:mm a')
+                      }}
+                    </div>
+                  </v-flex>
+                  <v-flex xs12 md4 v-if="editedItem._id">
+                    <label for="verified">
+                      {{ $t('users.headers.VERIFIED') }}
+                    </label>
+                    <div name="verified">{{ editedItem.verified }}</div>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <v-text-field
+                      id="name"
+                      name="name"
+                      v-model="editedItem.name"
+                      :label="$t('users.headers.NAME')"
+                      :data-vv-as="$t('users.headers.NAME')"
+                      :error="errors.has('name')"
+                      :error-messages="errors.collect('name')"
+                      v-validate="'required'"
+                      autocomplete="off"
+                    ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <v-text-field
+                      id="email"
+                      name="email"
+                      type="email"
+                      v-model="editedItem.email"
+                      :label="$t('users.headers.EMAIL')"
+                      :data-vv-as="$t('users.headers.EMAIL')"
+                      :error="errors.has('email')"
+                      :error-messages="errors.collect('email')"
+                      v-validate="'required|email'"
+                      autocomplete="off"
+                    ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 md6 v-if="!editedItem._id">
+                    <v-text-field
+                      id="password"
+                      name="password"
+                      type="password"
+                      :label="$t('signup.PASSWORD')"
+                      v-model="password"
+                      :data-vv-as="$t('signup.PASSWORD')"
+                      :error="errors.has('password')"
+                      :error-messages="errors.collect('password')"
+                      v-validate="'required|min:5'"
+                      ref="password"
+                      autocomplete="off"
+                      :disabled="true"
+                    ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 md6 v-if="!editedItem._id">
+                    <v-text-field
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      type="password"
+                      :label="$t('signup.CONFIRM_PASSWORD')"
+                      v-model="confirmPassword"
+                      :data-vv-as="$t('signup.PASSWORD')"
+                      :error="errors.has('confirmPassword')"
+                      :error-messages="errors.collect('confirmPassword')"
+                      v-validate="'required|min:5|confirmed:password'"
+                      autocomplete="off"
+                      :disabled="true"
+                    ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <v-text-field
+                      id="role"
+                      name="role"
+                      v-model="editedItem.role"
+                      :label="$t('users.headers.ROLE')"
+                      :data-vv-as="$t('users.headers.ROLE')"
+                      :error="errors.has('role')"
+                      :error-messages="errors.collect('role')"
+                      v-validate="'required'"
+                      autocomplete="off"
+                    ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <v-autocomplete
+                      id="city"
+                      name="city"
+                      :label="$t('users.headers.CITY')"
+                      :search-input.sync="searchInput"
+                      v-model="editedItem.city"
+                      :items="allCities"
+                      clearable
+                      :data-vv-as="$t('users.headers.CITY')"
+                      :error="errors.has('city')"
+                      :error-messages="errors.collect('city')"
+                      v-validate="'required'"
+                      autocomplete="off"
+                    />
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <v-text-field
+                      id="country"
+                      name="country"
+                      v-model="editedItem.country"
+                      :label="$t('users.headers.COUNTRY')"
+                      :data-vv-as="$t('users.headers.COUNTRY')"
+                      :error="errors.has('country')"
+                      :error-messages="errors.collect('country')"
+                      v-validate="'required'"
+                      autocomplete="off"
+                    ></v-text-field>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <v-text-field
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      v-model="editedItem.phone"
+                      :label="$t('users.headers.PHONE')"
+                      :data-vv-as="$t('users.headers.PHONE')"
+                      :error="errors.has('phone')"
+                      :error-messages="errors.collect('phone')"
+                      v-validate="'required'"
+                      autocomplete="off"
+                    ></v-text-field>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-text>
+
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn color="red lighten3" flat @click="close">
+                {{ $t('dataTable.CANCEL') }}
+              </v-btn>
+              <v-btn color="yellow lighten3" flat @click="save">
+                {{ $t('dataTable.SAVE') }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-flex>
+    </v-layout>
+    <error-message />
+    <v-data-table
+      must-sort
+      :loading="dataTableLoading"
+      :rows-per-page-text="$t('dataTable.ROWS_PER_PAGE')"
+      :no-data-text="$t('dataTable.NO_DATA')"
+      :no-results-text="$t('dataTable.NO_RESULTS')"
+      :rows-per-page-items="[5, 10, 25]"
+      :headers="headers"
+      :items="items"
+      :pagination.sync="pagination"
+      :total-items="totalItems"
+      class="elevation-1"
+    >
+      <template v-slot:items="props">
+        <td class="justify-center layout px-0">
+          <v-tooltip bottom>
+            <v-icon
+              slot="activator"
+              class="mt-3 mr-2"
+              small
+              @click="editItem(props.item)"
+              >edit</v-icon
+            >
+            <span>{{ $t('dataTable.EDIT') }}</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <v-icon
+              slot="activator"
+              class="mt-3"
+              small
+              @click="deleteItem(props.item)"
+              >delete</v-icon
+            >
+            <span>{{ $t('dataTable.DELETE') }}</span>
+          </v-tooltip>
+        </td>
+        <td>{{ props.item.name }}</td>
+        <td>{{ props.item.email }}</td>
+        <td>{{ props.item.role }}</td>
+        <td>{{ props.item.verified }}</td>
+        <td>{{ props.item.city }}</td>
+        <td>{{ props.item.country }}</td>
+        <td>{{ props.item.phone }}</td>
+        <td>
+          {{ props.item.createdAt | moment('dddd, MMMM D YYYY, h:mm a') }}
+        </td>
+        <td>
+          {{ props.item.updatedAt | moment('dddd, MMMM D YYYY, h:mm a') }}
+        </td>
+      </template>
+      <template v-slot:pageText="props">
+        {{ props.pageStart }} - {{ props.pageStop }} {{ $t('dataTable.OF') }}
+        {{ props.itemsLength }}
+      </template>
+      <template v-slot:no-data>{{ $t('dataTable.NO_DATA') }}</template>
+      <template v-slot:no-results>{{ $t('dataTable.NO_RESULTS') }}</template>
+    </v-data-table>
+    <success-message />
+  </div>
+</template>
+
+<script>
+import { mapActions } from 'vuex'
+import ErrorMessage from '@/components/ErrorMessage.vue'
+import SuccessMessage from '@/components/SuccessMessage.vue'
+import { buildPayloadPagination } from '../utils/utils.js'
+
+export default {
+  components: {
+    ErrorMessage,
+    SuccessMessage
+  },
+  data() {
+    return {
+      password: '',
+      confirmPassword: '',
+      searchInput: '',
+      dataTableLoading: true,
+      delayTimer: null,
+      dialog: false,
+      search: '',
+      pagination: {},
+      editedItem: {},
+      defaultItem: {},
+      fieldsToSearch: ['name', 'email', 'role', 'city', 'country', 'phone']
+    }
+  },
+  computed: {
+    allCities() {
+      return this.$store.state.cities.allCities
+    },
+    formTitle() {
+      return this.editedItem._id
+        ? this.$t('dataTable.EDIT_ITEM')
+        : this.$t('dataTable.NEW_ITEM')
+    },
+    headers() {
+      return [
+        {
+          text: this.$i18n.t('dataTable.ACTIONS'),
+          value: '_id',
+          sortable: false,
+          width: 100
+        },
+        {
+          text: this.$i18n.t('users.headers.NAME'),
+          align: 'left',
+          sortable: true,
+          value: 'name'
+        },
+        {
+          text: this.$i18n.t('users.headers.EMAIL'),
+          align: 'left',
+          sortable: true,
+          value: 'email'
+        },
+        {
+          text: this.$i18n.t('users.headers.ROLE'),
+          align: 'left',
+          sortable: true,
+          value: 'role'
+        },
+        {
+          text: this.$i18n.t('users.headers.VERIFIED'),
+          align: 'left',
+          sortable: true,
+          value: 'verified'
+        },
+        {
+          text: this.$i18n.t('users.headers.CITY'),
+          align: 'left',
+          sortable: true,
+          value: 'city'
+        },
+        {
+          text: this.$i18n.t('users.headers.COUNTRY'),
+          align: 'left',
+          sortable: true,
+          value: 'country'
+        },
+        {
+          text: this.$i18n.t('users.headers.PHONE'),
+          align: 'left',
+          sortable: true,
+          value: 'phone'
+        },
+        {
+          text: this.$i18n.t('common.CREATED'),
+          align: 'left',
+          sortable: true,
+          value: 'createdAt'
+        },
+        {
+          text: this.$i18n.t('common.UPDATED'),
+          align: 'left',
+          sortable: true,
+          value: 'updatedAt'
+        }
+      ]
+    },
+    items() {
+      return this.$store.state.adminUsers.users
+    },
+    totalItems() {
+      return this.$store.state.adminUsers.totalUsers
+    }
+  },
+  watch: {
+    dialog(value) {
+      value || this.close()
+    },
+    pagination: {
+      async handler() {
+        this.dataTableLoading = true
+        await this.getUsers(
+          buildPayloadPagination(this.pagination, this.buildSearch())
+        )
+        this.dataTableLoading = false
+      },
+      deep: true
+    },
+    async search() {
+      clearTimeout(this.delayTimer)
+      this.delayTimer = setTimeout(() => {
+        this.doSearch()
+      }, 400)
+    }
+  },
+  methods: {
+    ...mapActions([
+      'getAllCities',
+      'getUsers',
+      'editUser',
+      'saveUser',
+      'deleteUser'
+    ]),
+    async doSearch() {
+      this.dataTableLoading = true
+      await this.getUsers(
+        buildPayloadPagination(this.pagination, this.buildSearch())
+      )
+      this.dataTableLoading = false
+    },
+    buildSearch() {
+      return this.search
+        ? { query: this.search, fields: this.fieldsToSearch.join(',') }
+        : {}
+    },
+    editItem(item) {
+      this.editedItem = Object.assign({}, item)
+      this.dialog = true
+    },
+    async deleteItem(item) {
+      const response = await this.$confirm(
+        this.$t('common.DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM'),
+        {
+          title: this.$t('common.WARNING'),
+          buttonTrueText: this.$t('common.DELETE'),
+          buttonFalseText: this.$t('common.CANCEL'),
+          buttonTrueColor: 'red lighten3',
+          buttonFalseColor: 'yellow lighten3'
+        }
+      )
+      if (response) {
+        this.dataTableLoading = true
+        await this.deleteUser(item._id)
+        await this.getUsers(
+          buildPayloadPagination(this.pagination, this.buildSearch())
+        )
+        this.dataTableLoading = false
+      }
+    },
+    close() {
+      this.dialog = false
+      setTimeout(() => {
+        this.editedItem = Object.assign({}, this.defaultItem)
+      }, 300)
+    },
+    async save() {
+      const valid = await this.$validator.validateAll()
+      console.log(valid)
+      if (valid) {
+        this.dataTableLoading = true
+        // Updating item
+        if (this.editedItem._id) {
+          await this.editUser(this.editedItem)
+          await this.getUsers(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
+          this.dataTableLoading = false
+        } else {
+          // Creating new item
+          await this.saveUser(this.editedItem)
+          await this.getUsers(
+            buildPayloadPagination(this.pagination, this.buildSearch())
+          )
+          this.dataTableLoading = false
+        }
+        this.close()
+      }
+    }
+  },
+  async created() {
+    await this.getAllCities()
+  }
+}
+</script>
