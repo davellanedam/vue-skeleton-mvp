@@ -169,7 +169,7 @@ export default {
       }
     },
     allCities() {
-      return this.$store.state.profile.allCities
+      return this.$store.state.cities.allCities
     },
     city: {
       get() {
