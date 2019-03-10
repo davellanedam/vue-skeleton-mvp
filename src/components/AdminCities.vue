@@ -273,7 +273,7 @@ export default {
           this.dataTableLoading = false
         } else {
           // Creating new item
-          await this.saveCity(this.editedItem)
+          await this.saveCity({ name: this.editedItem.name })
           await this.getCities(
             buildPayloadPagination(this.pagination, this.buildSearch())
           )

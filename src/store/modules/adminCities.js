@@ -63,11 +63,8 @@ const actions = {
   },
   saveCity({ commit }, payload) {
     return new Promise(resolve => {
-      const data = {
-        name: payload.name
-      }
       axios
-        .post('/cities/', data)
+        .post('/cities/', payload)
         .then(response => {
           if (response.status === 201) {
             commit(types.SUCCESS, {
