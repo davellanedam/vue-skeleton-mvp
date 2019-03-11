@@ -1,4 +1,5 @@
 import { setLocaleToEN } from '../support/utils'
+import faker from 'faker'
 
 describe('Login', () => {
   it('Visits the login url', () => {
@@ -11,7 +12,7 @@ describe('Login', () => {
   it('Displays errors when user does not exist', () => {
     cy.get('input[name=email]')
       .clear()
-      .type('asdasd@asdasd.com')
+      .type(faker.internet.email())
     cy.get('input[name=password]')
       .clear()
       .type('password123{enter}')
@@ -38,7 +39,7 @@ describe('Login', () => {
     // and still be on the same URL
     cy.url().should('include', '/login')
   })
-  it('Should login', () => {
+  it('Login', () => {
     cy.get('input[name=email]')
       .clear()
       .type('admin@admin.com')
@@ -53,8 +54,8 @@ describe('Login', () => {
       .should('have.class', 'display-2')
       .and('contain', 'Protected Home')
   })
-  it('Should logout', () => {
-    cy.get('button.logoutBtn')
+  it('Logout', () => {
+    cy.get('button.btnLogout')
       .should('be.visible')
       .click()
 
