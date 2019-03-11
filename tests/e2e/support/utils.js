@@ -1,5 +1,5 @@
 export const setLocaleToEN = () => {
-  cy.get('button.localeActivationButton')
+  cy.get('button.btnLocaleActivation')
     .should('be.visible')
     .click()
   cy.get('div.localeOption')
