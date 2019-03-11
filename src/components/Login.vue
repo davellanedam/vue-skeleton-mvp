@@ -7,7 +7,6 @@
       <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="submit">
           <v-layout column>
-            <error-message />
             <v-flex>
               <v-text-field
                 id="email"
@@ -56,6 +55,7 @@
           </v-layout>
         </form>
       </v-flex>
+      <error-message />
     </v-layout>
   </v-container>
 </template>
