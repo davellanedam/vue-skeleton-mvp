@@ -9,7 +9,6 @@
       <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="submit">
           <v-layout column>
-            <error-message />
             <v-flex v-show="showChangePasswordInputs">
               <v-text-field
                 id="password"
@@ -50,6 +49,7 @@
           </v-layout>
         </form>
       </v-flex>
+      <error-message />
       <success-message />
     </v-layout>
   </v-container>
