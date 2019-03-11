@@ -1,6 +1,6 @@
 <template>
   <v-menu v-model="showMenu" offset-y>
-    <v-btn class="localeActivationButton" slot="activator" flat>
+    <v-btn class="btnLocaleActivation" slot="activator" flat>
       <v-icon>language</v-icon>
       &nbsp;{{ displayLocale }}
     </v-btn>
