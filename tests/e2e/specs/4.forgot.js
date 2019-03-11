@@ -1,4 +1,5 @@
 import { setLocaleToEN } from '../support/utils'
+import faker from 'faker'
 
 describe('Forgot Password', () => {
   it('Visits the forgot password url', () => {
@@ -11,7 +12,7 @@ describe('Forgot Password', () => {
   it('Displays errors when user does not exist', () => {
     cy.get('input[name=email]')
       .clear()
-      .type('asdasd@asdasd.com{enter}')
+      .type(`${faker.internet.email()}{enter}`)
 
     cy.get('div.error')
       .should('be.visible')
