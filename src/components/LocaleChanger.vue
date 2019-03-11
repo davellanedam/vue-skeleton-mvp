@@ -1,11 +1,12 @@
 <template>
   <v-menu v-model="showMenu" offset-y>
-    <v-btn slot="activator" flat>
-      <v-icon>{{ 'language' }}</v-icon>
+    <v-btn class="localeActivationButton" slot="activator" flat>
+      <v-icon>language</v-icon>
       &nbsp;{{ displayLocale }}
     </v-btn>
     <v-list>
       <v-list-tile
+        class="localeOption"
         active-class="white--text"
         v-for="(item, i) in langs"
         :key="`Lang${i}`"
