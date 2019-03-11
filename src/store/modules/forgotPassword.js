@@ -20,7 +20,8 @@ const actions = {
             commit(types.RESET_EMAIL_SENT, true)
             commit(types.SUCCESS, {
               msg: 'forgotPassword.RESET_EMAIL_SENT',
-              params: [payload.email]
+              params: [payload.email],
+              timeout: 0
             })
             commit(types.SHOW_LOADING, false)
             resolve()

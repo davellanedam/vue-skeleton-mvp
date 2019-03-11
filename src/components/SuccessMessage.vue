@@ -7,7 +7,7 @@
           color="success"
           multi-line
           bottom
-          :timeout="6000"
+          :timeout="successMessageTimeout"
         >
           {{ successMessage }}
           <v-btn dark flat @click="showSuccessMessage = false">
@@ -37,6 +37,9 @@ export default {
       } else {
         return this.$i18n.t(this.$store.state.success.successMessage)
       }
+    },
+    successMessageTimeout() {
+      return this.$store.state.success.successMessageTimeout
     }
   },
   watch: {
