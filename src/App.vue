@@ -1,7 +1,7 @@
 <template>
   <main>
     <v-app dark>
-      <v-navigation-drawer v-model="sidebar" app>
+      <v-navigation-drawer v-model="sidebar" app disable-resize-watcher>
         <v-list>
           <v-list-tile
             v-for="(item, index) in menuItems"
@@ -42,7 +42,7 @@
         </v-list>
       </v-navigation-drawer>
       <v-toolbar app>
-        <span class="hidden-sm-and-up">
+        <span class="hidden-md-and-up">
           <v-toolbar-side-icon
             @click="sidebar = !sidebar"
           ></v-toolbar-side-icon>
@@ -71,13 +71,13 @@
             :key="index"
             :to="{ name: item.link }"
             exact
-            class="hidden-xs-only"
+            class="hidden-sm-and-down"
           >
             <v-icon>{{ item.icon }}</v-icon>
             &nbsp;{{ item.title }}
           </v-btn>
 
-          <v-menu v-if="admin" offset-y>
+          <v-menu v-if="admin" offset-y class="hidden-sm-and-down">
             <v-btn slot="activator" flat>
               <v-icon>build</v-icon>
               &nbsp;{{ $t('adminItems.ADMIN') }}
@@ -95,7 +95,12 @@
             </v-list>
           </v-menu>
 
-          <v-btn flat v-if="isTokenSet" @click="userLogout">
+          <v-btn
+            flat
+            v-if="isTokenSet"
+            @click="userLogout"
+            class="hidden-sm-and-down"
+          >
             <v-icon left>exit_to_app</v-icon>
             {{ $t('menuItems.LOGOUT') }}
           </v-btn>
