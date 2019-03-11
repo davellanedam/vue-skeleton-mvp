@@ -49,6 +49,7 @@
                 color="white"
                 small
                 flat
+                class="btnForgotPassword"
                 >{{ $t('login.FORGOT_PASSWORD') }}</v-btn
               >
             </v-flex>
