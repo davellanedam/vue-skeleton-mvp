@@ -192,7 +192,6 @@
         </v-dialog>
       </v-flex>
     </v-layout>
-    <error-message />
     <v-data-table
       must-sort
       :loading="dataTableLoading"
@@ -236,12 +235,8 @@
         <td>{{ props.item.city }}</td>
         <td>{{ props.item.country }}</td>
         <td>{{ props.item.phone }}</td>
-        <td>
-          {{ props.item.createdAt | moment('dddd, MMMM D YYYY, h:mm a') }}
-        </td>
-        <td>
-          {{ props.item.updatedAt | moment('dddd, MMMM D YYYY, h:mm a') }}
-        </td>
+        <td>{{ props.item.createdAt | moment('ddd, MMMM D YYYY, h:mm a') }}</td>
+        <td>{{ props.item.updatedAt | moment('ddd, MMMM D YYYY, h:mm a') }}</td>
       </template>
       <template v-slot:pageText="props">
         {{ props.pageStart }} - {{ props.pageStop }} {{ $t('dataTable.OF') }}
@@ -250,6 +245,7 @@
       <template v-slot:no-data>{{ $t('dataTable.NO_DATA') }}</template>
       <template v-slot:no-results>{{ $t('dataTable.NO_RESULTS') }}</template>
     </v-data-table>
+    <error-message />
     <success-message />
   </div>
 </template>
