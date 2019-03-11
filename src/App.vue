@@ -99,7 +99,7 @@
             flat
             v-if="isTokenSet"
             @click="userLogout"
-            class="hidden-sm-and-down logoutBtn"
+            class="hidden-sm-and-down btnLogout"
           >
             <v-icon left>exit_to_app</v-icon>
             {{ $t('menuItems.LOGOUT') }}
