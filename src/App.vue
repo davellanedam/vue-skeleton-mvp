@@ -64,13 +64,14 @@
           >
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-toolbar-items class="hidden-xs-only">
+        <v-toolbar-items>
           <v-btn
             flat
             v-for="(item, index) in menuItems"
             :key="index"
             :to="{ name: item.link }"
             exact
+            class="hidden-xs-only"
           >
             <v-icon>{{ item.icon }}</v-icon>
             &nbsp;{{ item.title }}
