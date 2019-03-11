@@ -2,11 +2,20 @@
   <v-container v-show="showErrorMessage">
     <v-layout>
       <v-flex>
-        <v-alert v-model="showErrorMessage" type="error" dismissible>
+        <v-snackbar
+          v-model="showErrorMessage"
+          color="error"
+          multi-line
+          bottom
+          :timeout="0"
+        >
           <ul>
             <li v-for="(item, index) in error" :key="index">{{ item }}</li>
           </ul>
-        </v-alert>
+          <v-btn dark flat @click="showErrorMessage = false">{{
+            $t('common.CLOSE')
+          }}</v-btn>
+        </v-snackbar>
       </v-flex>
     </v-layout>
   </v-container>
