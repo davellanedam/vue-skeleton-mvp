@@ -99,7 +99,6 @@
         <form @submit.prevent="submit">
           <v-container grid-list-md>
             <v-layout wrap>
-              <error-message />
               <v-flex xs12 md6>
                 <v-text-field
                   id="email"
@@ -213,6 +212,7 @@
           </v-container>
         </form>
       </v-flex>
+      <error-message />
       <success-message />
     </v-layout>
   </v-container>
