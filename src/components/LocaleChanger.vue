@@ -6,12 +6,12 @@
     </v-btn>
     <v-list>
       <v-list-tile
-        class="localeOption"
         active-class="white--text"
         v-for="(item, i) in langs"
         :key="`Lang${i}`"
         :value="item.lang"
         @click="switchLocale(item.lang)"
+        :class="[item.class]"
       >
         <country-flag :country="item.flag" size="small" class="pl-5" />
         <v-list-tile-title class="ml-3">{{
@@ -32,11 +32,13 @@ export default {
       langs: [
         {
           lang: 'en',
-          flag: 'gb'
+          flag: 'gb',
+          class: 'btnEN'
         },
         {
           lang: 'es',
-          flag: 'es'
+          flag: 'es',
+          class: 'btnES'
         }
       ]
     }
