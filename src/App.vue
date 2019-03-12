@@ -78,12 +78,13 @@
           </v-btn>
 
           <v-menu v-if="admin" offset-y class="hidden-sm-and-down">
-            <v-btn slot="activator" flat>
+            <v-btn slot="activator" flat class="btnAdmin">
               <v-icon>build</v-icon>
               &nbsp;{{ $t('adminItems.ADMIN') }}
             </v-btn>
             <v-list>
               <v-list-tile
+                class="adminOption"
                 active-class="white--text"
                 v-for="(item, index) in adminItems"
                 :key="index"
