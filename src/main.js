@@ -8,7 +8,7 @@ import i18n from './i18n'
 
 Vue.config.productionTip = false
 
-new Vue({
+const app = new Vue({
   router,
   store,
   i18n,
@@ -20,3 +20,9 @@ new Vue({
     }
   }
 }).$mount('#app')
+
+if (window.Cypress) {
+  // Only available during E2E tests
+  window.appReady = true
+  window.app = app
+}
