@@ -4,8 +4,13 @@ import modules from './modules'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
   modules: {
     ...modules
   }
 })
+
+if (window.Cypress) {
+  // Only available during E2E tests
+  window.__store__ = store
+}
