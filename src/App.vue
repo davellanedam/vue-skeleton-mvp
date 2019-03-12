@@ -71,7 +71,7 @@
             :key="index"
             :to="{ name: item.link }"
             exact
-            class="hidden-sm-and-down"
+            :class="['hidden-sm-and-down', item.class]"
           >
             <v-icon>{{ item.icon }}</v-icon>
             &nbsp;{{ item.title }}
@@ -84,12 +84,12 @@
             </v-btn>
             <v-list>
               <v-list-tile
-                class="adminOption"
                 active-class="white--text"
                 v-for="(item, index) in adminItems"
                 :key="index"
                 :to="{ name: item.link }"
                 exact
+                :class="[item.class]"
               >
                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
               </v-list-tile>
@@ -146,27 +146,36 @@ export default {
       return [
         {
           title: this.$t('adminItems.CITIES'),
-          link: 'admin-cities'
+          link: 'admin-cities',
+          class: 'btnAdminCities'
         },
         {
           title: this.$t('adminItems.USERS'),
-          link: 'admin-users'
+          link: 'admin-users',
+          class: 'btnAdminUsers'
         }
       ]
     },
     menuItems() {
       if (this.isTokenSet) {
         return [
-          { title: this.$t('menuItems.HOME'), link: 'home', icon: 'home' },
+          {
+            title: this.$t('menuItems.HOME'),
+            link: 'home',
+            icon: 'home',
+            class: 'btnHome'
+          },
           {
             title: this.$t('menuItems.ABOUT'),
             link: 'about',
-            icon: 'help_outline'
+            icon: 'help_outline',
+            class: 'btnAbout'
           },
           {
             title: this.$t('menuItems.MY_PROFILE'),
             link: 'profile',
-            icon: 'face'
+            icon: 'face',
+            class: 'btnProfile'
           }
         ]
       } else {
@@ -175,13 +184,20 @@ export default {
           {
             title: this.$t('menuItems.ABOUT'),
             link: 'about',
-            icon: 'help_outline'
+            icon: 'help_outline',
+            class: 'btnAbout'
           },
-          { title: this.$t('menuItems.LOGIN'), link: 'login', icon: 'lock' },
+          {
+            title: this.$t('menuItems.LOGIN'),
+            link: 'login',
+            icon: 'lock',
+            class: 'btnLogin'
+          },
           {
             title: this.$t('menuItems.SIGNUP'),
             link: 'signup',
-            icon: 'add_circle_outline'
+            icon: 'add_circle_outline',
+            class: 'btnLogin'
           }
         ]
       }
