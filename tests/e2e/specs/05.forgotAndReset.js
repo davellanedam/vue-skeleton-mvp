@@ -74,7 +74,7 @@ describe('Forgot Password / Reset Password', () => {
     cy.wait('@forgot')
 
     //Assert on XHR
-    cy.get('@forgot').then(function (xhr) {
+    cy.get('@forgot').then(function(xhr) {
       expect(xhr.status).to.eq(200)
       expect(xhr.responseBody).to.have.property('verification')
       verification = xhr.responseBody.verification
