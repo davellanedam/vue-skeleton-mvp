@@ -134,6 +134,7 @@
                       :error="errors.has('role')"
                       :error-messages="errors.collect('role')"
                       v-validate.disable="'required'"
+                      class="inputRole"
                     ></v-select>
                   </v-flex>
                   <v-flex xs12 md6>
@@ -150,6 +151,7 @@
                       :error-messages="errors.collect('city')"
                       v-validate.disable="'required'"
                       autocomplete="off"
+                      class="inputCity"
                     />
                   </v-flex>
                   <v-flex xs12 md6>
