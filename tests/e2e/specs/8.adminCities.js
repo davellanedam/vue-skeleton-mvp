@@ -1,13 +1,13 @@
 describe('Admin Cities', () => {
-  it('List cities', () => {
+  it('Visits the admin cities url and list cities', () => {
     cy.login()
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
-
     // url should be admin/cities
     cy.url().should('include', '/admin/cities')
-
     cy.get('div.v-toolbar__title').contains('Cities')
+    // Ensure there´s 5 results
+    cy.get('table.v-datatable.v-table > tbody > tr').should('have.length', 5)
   })
   it('Create new city', () => {
     cy.login()
