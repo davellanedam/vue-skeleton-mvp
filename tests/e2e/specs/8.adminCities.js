@@ -55,8 +55,11 @@ describe('Admin Cities', () => {
     cy.get('input[aria-label=Search]')
       .clear()
       .type('A New City Edited')
+    // Wait for api to reply
     cy.wait(1000)
+    // Ensure there´s only one result
     cy.get('table.v-datatable.v-table > tbody > tr').should('have.length', 1)
+    // Check if result is the same as entered in edit
     cy.get('table.v-datatable.v-table > tbody > tr > td')
       .eq(1)
       .contains('A New City Edited')
