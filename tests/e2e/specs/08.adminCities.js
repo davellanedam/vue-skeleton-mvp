@@ -3,7 +3,7 @@ describe('Admin Cities', () => {
     cy.login()
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
-    // url should be admin/cities
+    // url should be /admin/cities
     cy.url().should('include', '/admin/cities')
     cy.get('div.v-toolbar__title').contains('Cities')
     // Ensure there´s 5 results
