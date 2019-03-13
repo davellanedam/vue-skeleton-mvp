@@ -1,10 +1,9 @@
-import { setLocaleToEN } from '../support/utils'
 import faker from 'faker'
 
 describe('Forgot Password', () => {
   it('Visits the forgot password url', () => {
     cy.visit('/forgot')
-    setLocaleToEN()
+    cy.setLocaleToEN()
     cy.get('h1')
       .should('have.class', 'display-2')
       .and('contain', 'Forgot my password')

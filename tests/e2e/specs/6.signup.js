@@ -1,10 +1,9 @@
-import { setLocaleToEN } from '../support/utils'
 import faker from 'faker'
 
 describe('Signup', () => {
   it('Visits the signup url', () => {
     cy.visit('/signup')
-    setLocaleToEN()
+    cy.setLocaleToEN()
     cy.get('h1')
       .should('have.class', 'display-2')
       .and('contain', 'Signup')
@@ -61,8 +60,8 @@ describe('Signup', () => {
     cy.get('button.btnClose')
       .should('be.visible')
       .click()
-  })
-  it('Logout', () => {
+
+    // Logout
     cy.get('button.btnLogout')
       .should('be.visible')
       .click()

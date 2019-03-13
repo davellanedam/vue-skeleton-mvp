@@ -10,7 +10,37 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add("login", (email, password) => { ... })
+Cypress.Commands.add('login', () => {
+  cy.visit('/login')
+  cy.get('input[name=email]')
+    .clear()
+    .type('admin@admin.com')
+  cy.get('input[name=password]')
+    .clear()
+    .type('12345{enter}')
+
+  // url should be home
+  cy.url().should('include', '/home')
+})
+
+Cypress.Commands.add('setLocaleToEN', () => {
+  cy.get('button.btnLocaleActivation')
+    .should('be.visible')
+    .click()
+  cy.get('div.btnEN')
+    .should('be.visible')
+    .click()
+})
+
+Cypress.Commands.add('setLocaleToES', () => {
+  cy.get('button.btnLocaleActivation')
+    .should('be.visible')
+    .click()
+  cy.get('div.btnES')
+    .should('be.visible')
+    .click()
+})
+
 //
 //
 // -- This is a child command --
