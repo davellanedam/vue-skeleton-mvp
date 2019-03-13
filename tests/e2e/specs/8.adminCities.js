@@ -77,5 +77,8 @@ describe('Admin Cities', () => {
     cy.get('button > div.v-btn__content')
       .contains('Delete')
       .click()
+    cy.get('div.success')
+      .should('be.visible')
+      .contains('Deleted successfully')
   })
 })
