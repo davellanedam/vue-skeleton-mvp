@@ -2,7 +2,7 @@ import faker from 'faker'
 
 describe('Profile', () => {
   it('Visits the profile url', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/profile')
     cy.get('h1')
@@ -13,7 +13,7 @@ describe('Profile', () => {
     cy.get('input[name=email]').should('have.value', 'admin@admin.com')
   })
   it('Checks input types', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/profile')
     // Checks input type is email
@@ -47,7 +47,7 @@ describe('Profile', () => {
       .should('contain', 'tel')
   })
   it('Edits profile', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/profile')
 
@@ -109,7 +109,7 @@ describe('Profile', () => {
     cy.get('input[name=urlGitHub]').should('have.value', urlGitHub)
   })
   it('Displays errors when current password is wrong', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/profile')
     cy.get('button.btnChangePassword').click()
@@ -131,7 +131,7 @@ describe('Profile', () => {
       .contains('Wrong password')
   })
   it('Checks input types for change password', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/profile')
     cy.get('button.btnChangePassword').click()
@@ -148,7 +148,7 @@ describe('Profile', () => {
       .should('contain', 'password')
   })
   it('Change password', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/profile')
     cy.get('button.btnChangePassword').click()

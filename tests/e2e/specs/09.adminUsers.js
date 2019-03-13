@@ -2,7 +2,7 @@ import faker from 'faker'
 
 describe('Admin Users', () => {
   it('Visits the admin users url and list users', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/users')
     // url should be /admin/users
@@ -10,7 +10,7 @@ describe('Admin Users', () => {
     cy.get('div.v-toolbar__title').contains('Users')
   })
   it('Checks input types for create/edit new user', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/users')
 
@@ -46,7 +46,7 @@ describe('Admin Users', () => {
       .should('contain', 'password')
   })
   it('Create new user', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/users')
 
@@ -119,7 +119,7 @@ describe('Admin Users', () => {
       .contains('Saved successfully')
   })
   it('Edit user', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/users')
 
@@ -170,7 +170,7 @@ describe('Admin Users', () => {
       .contains('Saved successfully')
   })
   it('Search user', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/users')
 
@@ -188,7 +188,7 @@ describe('Admin Users', () => {
       .contains('A New User Edited')
   })
   it('Delete user', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/users')
 

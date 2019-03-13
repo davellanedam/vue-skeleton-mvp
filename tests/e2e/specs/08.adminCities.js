@@ -1,6 +1,6 @@
 describe('Admin Cities', () => {
   it('Visits the admin cities url and list cities', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
     // url should be /admin/cities
@@ -8,7 +8,7 @@ describe('Admin Cities', () => {
     cy.get('div.v-toolbar__title').contains('Cities')
   })
   it('Checks input types for create/edit new city', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
 
@@ -24,7 +24,7 @@ describe('Admin Cities', () => {
       .should('contain', 'text')
   })
   it('Create new city', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
 
@@ -44,7 +44,7 @@ describe('Admin Cities', () => {
       .contains('Saved successfully')
   })
   it('Edit city', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
 
@@ -61,7 +61,7 @@ describe('Admin Cities', () => {
       .contains('Saved successfully')
   })
   it('Search city', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
 
@@ -79,7 +79,7 @@ describe('Admin Cities', () => {
       .contains('A New City Edited')
   })
   it('Delete city', () => {
-    cy.login()
+    cy.login('admin@admin.com')
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
 
