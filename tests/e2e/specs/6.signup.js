@@ -10,6 +10,22 @@ describe('Signup', () => {
     // url should be /signup
     cy.url().should('include', '/signup')
   })
+  it('Checks input types', () => {
+    cy.visit('/signup')
+    cy.setLocaleToEN()
+    // Checks input type is email
+    cy.get('input[name=email]')
+      .invoke('attr', 'type')
+      .should('contain', 'email')
+    // Checks input type is password
+    cy.get('input[name=password]')
+      .invoke('attr', 'type')
+      .should('contain', 'password')
+    // Checks input type is password for confirm password
+    cy.get('input[name=confirmPassword]')
+      .invoke('attr', 'type')
+      .should('contain', 'password')
+  })
   it('Displays errors when user already exists', () => {
     cy.setLocaleToEN()
     cy.get('input[name=name]')
