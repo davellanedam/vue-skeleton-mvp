@@ -25,7 +25,6 @@ const actions = {
 
             // If user is logged in then update localstorage
             if (localStorage.getItem('user')) {
-              console.log('logueado')
               const _user = JSON.parse(localStorage.getItem('user'))
               _user.verified = verified
               localStorage.setItem('user', JSON.stringify(_user))
