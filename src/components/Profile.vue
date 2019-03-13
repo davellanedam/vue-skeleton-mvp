@@ -13,6 +13,7 @@
                 flat
                 v-on="on"
                 @click="triggerChangePassword = true"
+                class="btnChangePassword"
                 >{{ $t('myProfile.CHANGE_MY_PASSWORD') }}</v-btn
               >
             </v-flex>
@@ -205,6 +206,7 @@
                   color="secondary"
                   type="submit"
                   :disabled="disabledButton"
+                  class="btnSave"
                   >{{ $t('myProfile.SAVE') }}</v-btn
                 >
               </v-flex>
