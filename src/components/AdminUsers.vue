@@ -8,10 +8,9 @@
         <v-text-field
           v-model="search"
           append-icon="search"
-          label="Search"
+          :label="$t('dataTable.SEARCH')"
           single-line
           hide-details
-          class="inputSearch"
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>

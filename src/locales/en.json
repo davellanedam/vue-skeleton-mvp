@@ -64,7 +64,8 @@
     "ROWS_PER_PAGE": "Rows per page",
     "NO_DATA": "No data",
     "NO_RESULTS": "No results",
-    "OF": "of"
+    "OF": "of",
+    "SEARCH": "Search"
   },
   "cities": {
     "TITLE": "Cities",

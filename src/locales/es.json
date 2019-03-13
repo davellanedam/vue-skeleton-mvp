@@ -64,7 +64,8 @@
     "ROWS_PER_PAGE": "Elementos por página",
     "NO_DATA": "No hay datos",
     "NO_RESULTS": "No hay resultados",
-    "OF": "de"
+    "OF": "de",
+    "SEARCH": "Buscar"
   },
   "cities": {
     "TITLE": "Ciudades",
