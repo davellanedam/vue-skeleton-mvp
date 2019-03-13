@@ -1,4 +1,5 @@
 import faker from 'faker'
+const email = faker.internet.email()
 
 describe('Signup', () => {
   it('Visits the signup url', () => {
@@ -57,7 +58,7 @@ describe('Signup', () => {
       .type('Another User')
     cy.get('input[name=email]')
       .clear()
-      .type(faker.internet.email())
+      .type(email)
     cy.get('input[name=password]')
       .clear()
       .type('12345')
@@ -94,5 +95,55 @@ describe('Signup', () => {
     cy.get('h1')
       .should('have.class', 'display-2')
       .contains('Login')
+  })
+  it('Verify account', () => {
+    cy.visit('/login')
+    cy.setLocaleToEN()
+    cy.login(email)
+
+    // url should be home
+    cy.url().should('include', '/home')
+
+    cy.get('h1')
+      .should('have.class', 'display-2')
+      .contains('Protected Home')
+
+    // Accept to verify account
+    cy.get('div.dlgVerifyAccount').and(
+      'contain',
+      'IMPORTANT: Verify your account'
+    )
+
+    // Close dialog
+    cy.get('button.btnClose')
+      .should('be.visible')
+      .click()
+
+    // get verification and visit verification url
+    let verification = ''
+    cy.window().then(window => {
+      const user = JSON.parse(window.localStorage.getItem('user'))
+      verification = user.verification
+
+      cy.visit(`/verify/${verification}`)
+      // url should be verify
+      cy.url().should('include', `/verify/${verification}`)
+
+      cy.get('div.success')
+        .should('be.visible')
+        .contains('E-mail verified successfully')
+
+      // Logout
+      cy.get('button.btnLogout')
+        .should('be.visible')
+        .click()
+
+      // url should be login
+      cy.url().should('include', '/login')
+
+      cy.get('h1')
+        .should('have.class', 'display-2')
+        .contains('Login')
+    })
   })
 })
