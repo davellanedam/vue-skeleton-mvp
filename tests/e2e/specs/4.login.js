@@ -23,6 +23,7 @@ describe('Login', () => {
       .should('contain', 'password')
   })
   it('Displays errors when user does not exist', () => {
+    cy.visit('/login')
     cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
@@ -39,6 +40,7 @@ describe('Login', () => {
     cy.url().should('include', '/login')
   })
   it('Displays errors when password is wrong', () => {
+    cy.visit('/login')
     cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
@@ -55,6 +57,7 @@ describe('Login', () => {
     cy.url().should('include', '/login')
   })
   it('Login', () => {
+    cy.visit('/login')
     cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
@@ -83,6 +86,7 @@ describe('Login', () => {
       .contains('Login')
   })
   it('Go to forgot password', () => {
+    cy.visit('/login')
     cy.setLocaleToEN()
     cy.get('a.btnForgotPassword')
       .should('be.visible')
