@@ -9,6 +9,22 @@ describe('Admin Cities', () => {
     // Ensure there´s 5 results
     cy.get('table.v-datatable.v-table > tbody > tr').should('have.length', 5)
   })
+  it('Checks input types for create/edit new city', () => {
+    cy.login()
+    cy.setLocaleToEN()
+    cy.visit('/admin/cities')
+
+    // Click create new city
+    cy.get('button.btnNewItem')
+      .contains('New Item')
+      .click()
+    cy.get('div.dlgNewEditItem.v-dialog--active').should('be.visible')
+
+    // Checks input type is text
+    cy.get('input[name=name]')
+      .invoke('attr', 'type')
+      .should('contain', 'text')
+  })
   it('Create new city', () => {
     cy.login()
     cy.setLocaleToEN()
