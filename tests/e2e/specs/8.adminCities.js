@@ -56,6 +56,7 @@ describe('Admin Cities', () => {
       .clear()
       .type('A New City Edited')
     cy.wait(1000)
+    cy.get('table.v-datatable.v-table > tbody > tr').should('have.length', 1)
     cy.get('table.v-datatable.v-table > tbody > tr > td')
       .eq(1)
       .contains('A New City Edited')
