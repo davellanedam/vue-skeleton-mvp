@@ -11,7 +11,7 @@ describe('Forgot Password', () => {
     cy.url().should('include', '/forgot')
   })
   it('Checks input types', () => {
-    cy.visit('/login')
+    cy.visit('/forgot')
     cy.setLocaleToEN()
     // Checks input type is email
     cy.get('input[name=email]')
@@ -19,6 +19,7 @@ describe('Forgot Password', () => {
       .should('contain', 'email')
   })
   it('Displays errors when user does not exist', () => {
+    cy.visit('/forgot')
     cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
@@ -32,6 +33,7 @@ describe('Forgot Password', () => {
     cy.url().should('include', '/forgot')
   })
   it('Forgot password', () => {
+    cy.visit('/forgot')
     cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
