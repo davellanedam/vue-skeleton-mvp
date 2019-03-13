@@ -78,7 +78,6 @@ describe('Forgot Password / Reset Password', () => {
       expect(xhr.status).to.eq(200)
       expect(xhr.responseBody).to.have.property('verification')
       verification = xhr.responseBody.verification
-      console.log(verification)
 
       // Go to reset password
       cy.visit(`/reset/${verification}`)
