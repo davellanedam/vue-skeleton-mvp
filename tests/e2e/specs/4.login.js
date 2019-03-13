@@ -10,6 +10,18 @@ describe('Login', () => {
     // url should be /login
     cy.url().should('include', '/login')
   })
+  it('Checks input types', () => {
+    cy.visit('/login')
+    cy.setLocaleToEN()
+    // Checks input type is email
+    cy.get('input[name=email]')
+      .invoke('attr', 'type')
+      .should('contain', 'email')
+    // Checks input type is password
+    cy.get('input[name=password]')
+      .invoke('attr', 'type')
+      .should('contain', 'password')
+  })
   it('Displays errors when user does not exist', () => {
     cy.setLocaleToEN()
     cy.get('input[name=email]')
