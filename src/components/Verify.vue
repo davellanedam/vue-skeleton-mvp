@@ -11,7 +11,6 @@
 </template>
 
 <script>
-import router from '@/router'
 import ErrorMessage from '@/components/ErrorMessage.vue'
 import SuccessMessage from '@/components/SuccessMessage.vue'
 import { mapActions } from 'vuex'
@@ -26,9 +25,6 @@ export default {
   },
   async created() {
     try {
-      if (this.$store.state.auth.isTokenSet) {
-        router.push({ name: 'home' })
-      }
       await this.sendVerify(this.$route.params.id)
     } catch (error) {
       return
