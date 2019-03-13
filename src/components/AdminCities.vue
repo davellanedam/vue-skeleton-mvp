@@ -14,11 +14,15 @@
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
-        <v-dialog v-model="dialog" max-width="500px">
+        <v-dialog
+          v-model="dialog"
+          max-width="500px"
+          content-class="dlgNewEditItem"
+        >
           <template v-slot:activator="{ on }">
-            <v-btn color="secondary" v-on="on">
-              {{ $t('dataTable.NEW_ITEM') }}
-            </v-btn>
+            <v-btn color="secondary" v-on="on" class="btnNewItem">{{
+              $t('dataTable.NEW_ITEM')
+            }}</v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -66,12 +70,12 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="red lighten3" flat @click="close">
-                {{ $t('dataTable.CANCEL') }}
-              </v-btn>
-              <v-btn color="yellow lighten3" flat @click="save">
-                {{ $t('dataTable.SAVE') }}
-              </v-btn>
+              <v-btn color="red lighten3" flat @click="close">{{
+                $t('dataTable.CANCEL')
+              }}</v-btn>
+              <v-btn color="yellow lighten3" flat @click="save">{{
+                $t('dataTable.SAVE')
+              }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>

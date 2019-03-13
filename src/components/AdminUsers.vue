@@ -14,9 +14,13 @@
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
-        <v-dialog v-model="dialog" max-width="800px">
+        <v-dialog
+          v-model="dialog"
+          max-width="800px"
+          content-class="dlgNewEditItem"
+        >
           <template v-slot:activator="{ on }">
-            <v-btn color="secondary" v-on="on">
+            <v-btn color="secondary" v-on="on" class="btnNewItem">
               {{ $t('dataTable.NEW_ITEM') }}
             </v-btn>
           </template>
