@@ -6,7 +6,7 @@ describe('Signup', () => {
     cy.setLocaleToEN()
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'Signup')
+      .contains('Signup')
   })
   it('Displays errors when user already exists', () => {
     cy.get('input[name=name]')
@@ -24,7 +24,7 @@ describe('Signup', () => {
 
     cy.get('div.error')
       .should('be.visible')
-      .and('contain', 'E-mail already exists')
+      .contains('E-mail already exists')
 
     // and still be on the same URL
     cy.url().should('include', '/signup')
@@ -48,7 +48,7 @@ describe('Signup', () => {
 
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'Protected Home')
+      .contains('Protected Home')
 
     // Accept to verify account
     cy.get('div.dlgVerifyAccount').and(
@@ -71,6 +71,6 @@ describe('Signup', () => {
 
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'Login')
+      .contains('Login')
   })
 })

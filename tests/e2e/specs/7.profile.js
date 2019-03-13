@@ -7,6 +7,6 @@ describe('Profile', () => {
     cy.visit('/profile')
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'My profile')
+      .contains('My profile')
   })
 })

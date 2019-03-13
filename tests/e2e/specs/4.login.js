@@ -6,7 +6,7 @@ describe('Login', () => {
     cy.setLocaleToEN()
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'Login')
+      .contains('Login')
   })
   it('Displays errors when user does not exist', () => {
     cy.get('input[name=email]')
@@ -18,7 +18,7 @@ describe('Login', () => {
 
     cy.get('div.error')
       .should('be.visible')
-      .and('contain', 'User does not exists')
+      .contains('User does not exists')
 
     // and still be on the same URL
     cy.url().should('include', '/login')
@@ -33,7 +33,7 @@ describe('Login', () => {
 
     cy.get('div.error')
       .should('be.visible')
-      .and('contain', 'Wrong password')
+      .contains('Wrong password')
 
     // and still be on the same URL
     cy.url().should('include', '/login')
@@ -51,7 +51,7 @@ describe('Login', () => {
 
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'Protected Home')
+      .contains('Protected Home')
 
     // Logout
     cy.get('button.btnLogout')
@@ -63,7 +63,7 @@ describe('Login', () => {
 
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'Login')
+      .contains('Login')
   })
   it('Go to forgot password', () => {
     cy.get('a.btnForgotPassword')

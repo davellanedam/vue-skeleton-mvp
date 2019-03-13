@@ -6,7 +6,7 @@ describe('Forgot Password', () => {
     cy.setLocaleToEN()
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'Forgot my password')
+      .contains('Forgot my password')
   })
   it('Displays errors when user does not exist', () => {
     cy.get('input[name=email]')
@@ -15,7 +15,7 @@ describe('Forgot Password', () => {
 
     cy.get('div.error')
       .should('be.visible')
-      .and('contain', 'User does not exists')
+      .contains('User does not exists')
 
     // and still be on the same URL
     cy.url().should('include', '/forgot')

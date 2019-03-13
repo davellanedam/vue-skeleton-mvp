@@ -4,6 +4,6 @@ describe('About', () => {
     cy.setLocaleToEN()
     cy.get('h1')
       .should('have.class', 'display-2')
-      .and('contain', 'About')
+      .contains('About')
   })
 })
