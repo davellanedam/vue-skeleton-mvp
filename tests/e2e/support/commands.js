@@ -10,11 +10,11 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', () => {
+Cypress.Commands.add('login', email => {
   cy.visit('/login')
   cy.get('input[name=email]')
     .clear()
-    .type('admin@admin.com')
+    .type(email)
   cy.get('input[name=password]')
     .clear()
     .type('12345{enter}')
