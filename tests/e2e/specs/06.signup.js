@@ -146,4 +146,43 @@ describe('Signup', () => {
         .contains('Login')
     })
   })
+  it('Displays errors when account is already verified', () => {
+    cy.visit('/login')
+    cy.setLocaleToEN()
+    cy.login(email)
+
+    // url should be home
+    cy.url().should('include', '/home')
+
+    cy.get('h1')
+      .should('have.class', 'display-2')
+      .contains('Protected Home')
+
+    // get verification and visit verification url
+    let verification = ''
+    cy.window().then(window => {
+      const user = JSON.parse(window.localStorage.getItem('user'))
+      verification = user.verification
+
+      cy.visit(`/verify/${verification}`)
+      // url should be verify
+      cy.url().should('include', `/verify/${verification}`)
+
+      cy.get('div.error')
+        .should('be.visible')
+        .contains('Not found or already verified')
+
+      // Logout
+      cy.get('button.btnLogout')
+        .should('be.visible')
+        .click()
+
+      // url should be login
+      cy.url().should('include', '/login')
+
+      cy.get('h1')
+        .should('have.class', 'display-2')
+        .contains('Login')
+    })
+  })
 })
