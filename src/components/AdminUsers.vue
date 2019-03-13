@@ -185,12 +185,20 @@
 
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="red lighten3" flat @click="close">
-                {{ $t('dataTable.CANCEL') }}
-              </v-btn>
-              <v-btn color="yellow lighten3" flat @click="save">
-                {{ $t('dataTable.SAVE') }}
-              </v-btn>
+              <v-btn
+                color="red lighten3"
+                flat
+                @click="close"
+                class="btnCancel"
+                >{{ $t('dataTable.CANCEL') }}</v-btn
+              >
+              <v-btn
+                color="yellow lighten3"
+                flat
+                @click="save"
+                class="btnSave"
+                >{{ $t('dataTable.SAVE') }}</v-btn
+              >
             </v-card-actions>
           </v-card>
         </v-dialog>
