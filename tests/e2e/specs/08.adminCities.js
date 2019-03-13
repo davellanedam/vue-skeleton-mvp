@@ -36,7 +36,7 @@ describe('Admin Cities', () => {
       .click()
     cy.get('div.dlgNewEditItem.v-dialog--active').should('be.visible')
 
-    // Type new city and save
+    // Type new city data and save
     cy.get('input[name=name]')
       .clear()
       .type('A New City')
