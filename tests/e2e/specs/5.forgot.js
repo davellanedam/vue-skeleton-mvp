@@ -9,6 +9,7 @@ describe('Forgot Password', () => {
       .contains('Forgot my password')
   })
   it('Displays errors when user does not exist', () => {
+    cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
       .type(`${faker.internet.email()}{enter}`)
@@ -21,6 +22,7 @@ describe('Forgot Password', () => {
     cy.url().should('include', '/forgot')
   })
   it('Forgot password', () => {
+    cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
       .type('admin@admin.com{enter}')

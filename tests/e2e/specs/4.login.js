@@ -9,6 +9,7 @@ describe('Login', () => {
       .contains('Login')
   })
   it('Displays errors when user does not exist', () => {
+    cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
       .type(faker.internet.email())
@@ -24,6 +25,7 @@ describe('Login', () => {
     cy.url().should('include', '/login')
   })
   it('Displays errors when password is wrong', () => {
+    cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
       .type('admin@admin.com')
@@ -39,6 +41,7 @@ describe('Login', () => {
     cy.url().should('include', '/login')
   })
   it('Login', () => {
+    cy.setLocaleToEN()
     cy.get('input[name=email]')
       .clear()
       .type('admin@admin.com')
@@ -66,6 +69,7 @@ describe('Login', () => {
       .contains('Login')
   })
   it('Go to forgot password', () => {
+    cy.setLocaleToEN()
     cy.get('a.btnForgotPassword')
       .should('be.visible')
       .click()

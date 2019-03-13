@@ -9,6 +9,7 @@ describe('Signup', () => {
       .contains('Signup')
   })
   it('Displays errors when user already exists', () => {
+    cy.setLocaleToEN()
     cy.get('input[name=name]')
       .clear()
       .type('Another User')
@@ -30,6 +31,7 @@ describe('Signup', () => {
     cy.url().should('include', '/signup')
   })
   it('Signup', () => {
+    cy.setLocaleToEN()
     cy.get('input[name=name]')
       .clear()
       .type('Another User')
