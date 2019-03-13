@@ -8,6 +8,8 @@ describe('Profile', () => {
     cy.get('h1')
       .should('have.class', 'display-2')
       .contains('My profile')
+    // url should be /profile
+    cy.url().should('include', '/profile')
     cy.get('input[name=email]').should('have.value', 'admin@admin.com')
   })
   it('Edits profile', () => {

@@ -7,6 +7,8 @@ describe('Forgot Password', () => {
     cy.get('h1')
       .should('have.class', 'display-2')
       .contains('Forgot my password')
+    // url should be /forgot
+    cy.url().should('include', '/forgot')
   })
   it('Displays errors when user does not exist', () => {
     cy.setLocaleToEN()

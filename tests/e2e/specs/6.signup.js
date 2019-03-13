@@ -7,6 +7,8 @@ describe('Signup', () => {
     cy.get('h1')
       .should('have.class', 'display-2')
       .contains('Signup')
+    // url should be /signup
+    cy.url().should('include', '/signup')
   })
   it('Displays errors when user already exists', () => {
     cy.setLocaleToEN()

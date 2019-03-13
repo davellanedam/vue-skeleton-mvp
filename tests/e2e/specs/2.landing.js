@@ -5,5 +5,7 @@ describe('Landing', () => {
     cy.get('h1')
       .should('have.class', 'display-2')
       .contains('Landing')
+    // url should be /
+    cy.url().should('include', '/')
   })
 })
