@@ -3,6 +3,7 @@
 [![Author](http://img.shields.io/badge/author-@davellanedam-blue.svg?style=flat-square)](https://twitter.com/davellanedam)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/LICENSE)
 [![Tag](https://img.shields.io/github/tag/davellanedam/vue-skeleton-mvp.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/tags)
+[![npm downloads](https://img.shields.io/npm/dt/vue-skeleton-mvp.svg?style=flat-square&label=npm%20downloads)]()
 
 ## Getting started
 
