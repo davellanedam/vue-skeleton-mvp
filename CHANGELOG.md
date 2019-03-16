@@ -1,3 +1,7 @@
+## v.1.0.4 (Mar 16, 2019)
+
+- README.md changes
+
 ## v.1.0.3 (Mar 16, 2019)
 
 - npm download shield added to README.md

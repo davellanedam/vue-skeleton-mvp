@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node.js express.js MongoDB JWT REST API - Basic Project Skeleton. Great for building an MVP for your front-end app (Vue, react, angular, or anything that can consume an API)",
   "license": "MIT",
   "repository": {
