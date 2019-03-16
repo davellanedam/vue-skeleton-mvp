@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout wrap>
-      <v-flex xs12 sm12 md4 mt-3 pl-3>
+      <v-flex xs12 sm12 md4 mt-3 pl-4>
         <v-toolbar-title>{{ $t('users.TITLE') }}</v-toolbar-title>
       </v-flex>
       <v-flex xs12 sm6 md4 px-3>
@@ -11,6 +11,7 @@
           :label="$t('dataTable.SEARCH')"
           single-line
           hide-details
+          clearable
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
@@ -21,6 +22,7 @@
         >
           <template v-slot:activator="{ on }">
             <v-btn color="secondary" v-on="on" class="btnNewItem">
+              <v-icon class="mr-2">add</v-icon>
               {{ $t('dataTable.NEW_ITEM') }}
             </v-btn>
           </template>
@@ -221,7 +223,7 @@
     >
       <template v-slot:items="props">
         <td class="justify-center layout px-0">
-          <v-tooltip bottom>
+          <v-tooltip top>
             <v-icon
               slot="activator"
               class="mt-3 mr-2"
@@ -231,7 +233,7 @@
             >
             <span>{{ $t('dataTable.EDIT') }}</span>
           </v-tooltip>
-          <v-tooltip bottom>
+          <v-tooltip top>
             <v-icon
               slot="activator"
               class="mt-3"

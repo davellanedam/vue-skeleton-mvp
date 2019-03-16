@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-layout wrap>
-      <v-flex xs12 sm12 md4 mt-3 pl-3>
+      <v-flex xs12 sm12 md4 mt-3 pl-4>
         <v-toolbar-title>{{ $t('cities.TITLE') }}</v-toolbar-title>
       </v-flex>
       <v-flex xs12 sm6 md4 px-3>
@@ -11,18 +11,16 @@
           :label="$t('dataTable.SEARCH')"
           single-line
           hide-details
+          clearable
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
-        <v-dialog
-          v-model="dialog"
-          max-width="500px"
-          content-class="dlgNewEditItem"
-        >
+        <v-dialog v-model="dialog" max-width="500px" content-class="dlgNewEditItem">
           <template v-slot:activator="{ on }">
-            <v-btn color="secondary" v-on="on" class="btnNewItem">{{
-              $t('dataTable.NEW_ITEM')
-            }}</v-btn>
+            <v-btn color="secondary" v-on="on" class="btnNewItem">
+              <v-icon class="mr-2">add</v-icon>
+              {{ $t('dataTable.NEW_ITEM') }}
+            </v-btn>
           </template>
           <v-card>
             <v-card-title>
@@ -36,8 +34,8 @@
                       <label for="createdAt">{{ $t('common.CREATED') }}</label>
                       <div name="createdAt">
                         {{
-                          editedItem.createdAt
-                            | moment('ddd, MMMM D YYYY, h:mm a')
+                        editedItem.createdAt
+                        | moment('ddd, MMMM D YYYY, h:mm a')
                         }}
                       </div>
                     </v-flex>
@@ -45,8 +43,8 @@
                       <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
                       <div name="updatedAt">
                         {{
-                          editedItem.updatedAt
-                            | moment('ddd, MMMM D YYYY, h:mm a')
+                        editedItem.updatedAt
+                        | moment('ddd, MMMM D YYYY, h:mm a')
                         }}
                       </div>
                     </v-flex>
@@ -75,15 +73,13 @@
                 flat
                 @click="close"
                 class="btnCancel"
-                >{{ $t('dataTable.CANCEL') }}</v-btn
-              >
+              >{{ $t('dataTable.CANCEL') }}</v-btn>
               <v-btn
                 color="yellow lighten3"
                 flat
                 @click="save"
                 class="btnSave"
-                >{{ $t('dataTable.SAVE') }}</v-btn
-              >
+              >{{ $t('dataTable.SAVE') }}</v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -104,24 +100,12 @@
     >
       <template v-slot:items="props">
         <td class="justify-center layout px-0">
-          <v-tooltip bottom>
-            <v-icon
-              slot="activator"
-              class="mt-3 mr-2"
-              small
-              @click="editItem(props.item)"
-              >edit</v-icon
-            >
+          <v-tooltip top>
+            <v-icon slot="activator" class="mt-3 mr-2" small @click="editItem(props.item)">edit</v-icon>
             <span>{{ $t('dataTable.EDIT') }}</span>
           </v-tooltip>
-          <v-tooltip bottom>
-            <v-icon
-              slot="activator"
-              class="mt-3"
-              small
-              @click="deleteItem(props.item)"
-              >delete</v-icon
-            >
+          <v-tooltip top>
+            <v-icon slot="activator" class="mt-3" small @click="deleteItem(props.item)">delete</v-icon>
             <span>{{ $t('dataTable.DELETE') }}</span>
           </v-tooltip>
         </td>
@@ -136,8 +120,8 @@
       <template v-slot:no-data>{{ $t('dataTable.NO_DATA') }}</template>
       <template v-slot:no-results>{{ $t('dataTable.NO_RESULTS') }}</template>
     </v-data-table>
-    <error-message />
-    <success-message />
+    <error-message/>
+    <success-message/>
   </div>
 </template>
 

@@ -24,7 +24,10 @@
             :to="{ name: item.link }"
             exact
           >
-            <v-list-tile-content>{{ item.title }}</v-list-tile-content>
+            <v-list-tile-content class="d-inline mt-3">
+              <v-icon>{{ item.icon }}</v-icon>
+              {{ item.title }}
+            </v-list-tile-content>
           </v-list-tile>
         </v-list-group>
 
@@ -42,7 +45,7 @@
       <span class="hidden-md-and-up">
         <v-toolbar-side-icon @click="sidebar = !sidebar"></v-toolbar-side-icon>
       </span>
-      <v-toolbar-title class="headline text-uppercase">
+      <v-toolbar-title class="headline text-uppercase ml-0">
         <router-link
           :to="{ name: 'home' }"
           tag="span"
@@ -86,7 +89,10 @@
               exact
               :class="[item.class]"
             >
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title>
+                <v-icon>{{ item.icon }}</v-icon>
+                {{ item.title }}
+              </v-list-tile-title>
             </v-list-tile>
           </v-list>
         </v-menu>
@@ -141,11 +147,13 @@ export default {
         {
           title: this.$t('adminItems.CITIES'),
           link: 'admin-cities',
+          icon: 'location_city',
           class: 'btnAdminCities'
         },
         {
           title: this.$t('adminItems.USERS'),
           link: 'admin-users',
+          icon: 'supervisor_account',
           class: 'btnAdminUsers'
         }
       ]
