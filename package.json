@@ -1,7 +1,12 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Node.js express.js MongoDB JWT REST API - Basic Project Skeleton. Great for building an MVP for your front-end app (Vue, react, angular, or anything that can consume an API)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davellanedam/vue-mvp.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -12,8 +17,8 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vee-validate": "^2.1.7",
-    "vue": "^2.6.8",
+    "vee-validate": "^2.2.0",
+    "vue": "^2.6.9",
     "vue-country-flag": "^1.1.0",
     "vue-i18n": "^8.9.0",
     "vue-moment": "^4.0.0",
@@ -33,19 +38,38 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-eslint": "^10.0.1",
     "chai": "^4.1.2",
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.2",
     "eslint-plugin-vue": "^5.2.2",
     "faker": "^4.1.0",
     "fibers": "^3.1.1",
     "prettier": "^1.16.4",
-    "sass": "^1.17.2",
+    "sass": "^1.17.3",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",
     "vue-cli-plugin-axios": "0.0.4",
     "vue-cli-plugin-i18n": "^0.5.2",
     "vue-cli-plugin-vuetify": "^0.5.0",
-    "vue-template-compiler": "^2.6.8",
+    "vue-template-compiler": "^2.6.9",
     "vuetify-loader": "^1.0.5"
-  }
+  },
+  "keywords": [
+    "vuejs",
+    "vue-router",
+    "vuex",
+    "vuetify",
+    "javascript",
+    "i18n",
+    "eslint",
+    "skeleton",
+    "async",
+    "await",
+    "mvp",
+    "frontend",
+    "testing",
+    "prettier",
+    "cypress",
+    "mocha",
+    "chai"
+  ]
 }
