@@ -41,9 +41,9 @@ A demo of this API is located at: https://vue-demo.daniel-avellaneda.com
 email: `admin@admin.com`  
 password: `12345`
 
-**IMPORTANT:** Database resets every 30 mins like "12:00am, 12:30am, 1:00am" and so on. So anything you do with the API will be lost after a short time.
+**IMPORTANT:** Database resets every 30 mins like "12:00am, 12:30am, 1:00am" and so on. So anything you do will be lost after a short time.
 
-Demo is also linked to a VueJS project that shows how this frontend can be integrated to an API.  
+Demo is also linked to a Node.js express.js MongoDB JWT REST API project that shows how this frontend can be integrated to an API.  
 Repo is here: https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton  
 Running demo is here: https://api-demo.daniel-avellaneda.com
 
