@@ -1,3 +1,7 @@
+## v.1.0.6 (Mar 16, 2019)
+
+- Production source map false
+
 ## v.1.0.5 (Mar 16, 2019)
 
 - Translations
