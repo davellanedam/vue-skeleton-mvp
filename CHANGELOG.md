@@ -1,3 +1,11 @@
+## v.1.0.8 (Mar 16, 2019)
+
+- Search input is clearable
+- Tooltips in datatables now shows at top
+- Icon plus added to new item
+- Icons for users and cities in menus
+- Margins alignment for app title and admin areas titles
+
 ## v.1.0.7 (Mar 16, 2019)
 
 - .env.e2e added for end to end testing to use local api server
