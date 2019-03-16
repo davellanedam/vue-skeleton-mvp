@@ -1,3 +1,7 @@
+## v.1.0.5 (Mar 16, 2019)
+
+- Translations
+
 ## v.1.0.4 (Mar 16, 2019)
 
 - README.md changes
