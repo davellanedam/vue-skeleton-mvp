@@ -21,7 +21,7 @@
           content-class="dlgNewEditItem"
         >
           <template v-slot:activator="{ on }">
-            <v-btn color="secondary" v-on="on" class="btnNewItem">
+            <v-btn color="secondary" v-on="on" class="btnNewItem pr-4">
               <v-icon class="mr-2">add</v-icon>
               {{ $t('dataTable.NEW_ITEM') }}
             </v-btn>
