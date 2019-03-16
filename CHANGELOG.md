@@ -1,3 +1,7 @@
+## v.1.0.9 (Mar 16, 2019)
+
+- New item proportional spacing
+
 ## v.1.0.8 (Mar 16, 2019)
 
 - Search input is clearable
