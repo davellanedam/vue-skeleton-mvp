@@ -1,3 +1,7 @@
+## v.1.0.10 (Mar 16, 2019)
+
+- Translations
+
 ## v.1.0.9 (Mar 16, 2019)
 
 - New item proportional spacing
