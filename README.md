@@ -34,7 +34,7 @@ This project is created to help other developers create a **basic VueJS app in a
 
 ## Demo
 
-A demo of this API is located at: https://vue-demo.daniel-avellaneda.com
+A demo of this Frontend is located at: https://vue-demo.daniel-avellaneda.com
 
 ### Login credentials:
 
