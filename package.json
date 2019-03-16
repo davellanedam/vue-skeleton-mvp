@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Node.js express.js MongoDB JWT REST API - Basic Project Skeleton. Great for building an MVP for your front-end app (Vue, react, angular, or anything that can consume an API)",
   "license": "MIT",
   "repository": {
@@ -12,7 +12,7 @@
     "build": "vue-cli-service build",
     "format": "prettier --write --config .prettierrc \"**/*.js\"",
     "lint": "vue-cli-service lint --fix",
-    "test:e2e": "vue-cli-service test:e2e",
+    "test:e2e": "vue-cli-service test:e2e --mode e2e",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {

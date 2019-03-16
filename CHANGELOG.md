@@ -1,3 +1,9 @@
+## v.1.0.7 (Mar 16, 2019)
+
+- .env.e2e added for end to end testing to use local api server
+- main tag removed
+- apache htaccess removed from /public
+
 ## v.1.0.6 (Mar 16, 2019)
 
 - Production source map false
