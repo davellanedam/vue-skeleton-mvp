@@ -152,6 +152,7 @@
                   v-model="city"
                   :items="allCities"
                   clearable
+                  :no-data-text="$t('myProfile.NO_RESULTS_FOUND')"
                   :data-vv-as="$t('myProfile.CITY')"
                   :error="errors.has('city')"
                   :error-messages="errors.collect('city')"

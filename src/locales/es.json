@@ -146,6 +146,7 @@
     "EMAIL": "E-mail",
     "PHONE": "Teléfono",
     "CITY": "Ciudad",
+    "NO_RESULTS_FOUND": "No se encontraron resultados",
     "COUNTRY": "País",
     "SAVE": "Guardar",
     "PROFILE_SAVED_SUCCESSFULLY": "Perfil guardado exitosamente"
