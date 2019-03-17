@@ -1,7 +1,7 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "1.0.10",
-  "description": "Node.js express.js MongoDB JWT REST API - Basic Project Skeleton. Great for building an MVP for your front-end app (Vue, react, angular, or anything that can consume an API)",
+  "version": "1.2.0",
+  "description": "VueJS Vuetify Vue Router Vuex - Basic Project Skeleton. This is a basic VueJs, Vuetify, Vue Router and Vuex skeleton written on JavaScript using async/await. Great for building an MVP for your project.",
   "license": "MIT",
   "repository": {
     "type": "git",

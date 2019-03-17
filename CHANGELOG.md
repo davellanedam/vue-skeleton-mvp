@@ -1,3 +1,8 @@
+## v.1.2.0 (Mar 17, 2019)
+
+- Fix: testing tooltips
+- Feature: Extract axios calls to apis. Thank you Eric! ([#1](https://github.com/davellanedam/vue-skeleton-mvp/pull/1))
+
 ## v.1.0.10 (Mar 16, 2019)
 
 - Translations
