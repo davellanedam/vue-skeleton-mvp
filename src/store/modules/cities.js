@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import axios from 'axios'
+import api from '@/services/api/cities'
 
 const state = {
   allCities: []
@@ -12,8 +12,8 @@ const getters = {
 const actions = {
   getAllCities({ commit }) {
     return new Promise(resolve => {
-      axios
-        .get('/cities/all')
+      api
+        .getAllCities()
         .then(response => {
           if (response.status === 200) {
             const cities = []
