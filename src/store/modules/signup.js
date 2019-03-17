@@ -1,13 +1,13 @@
 import * as types from '../mutation-types'
 import router from '@/router'
-import axios from 'axios'
+import api from '@/services/api/signup'
 
 const actions = {
   userSignUp({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
-        .post('/register', payload)
+      api
+        .userSignUp(payload)
         .then(response => {
           if (response.status === 201) {
             window.localStorage.setItem(
