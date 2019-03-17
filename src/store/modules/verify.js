@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import axios from 'axios'
+import api from '@/services/api/verify'
 
 const state = {
   emailVerified: false
@@ -16,8 +16,8 @@ const actions = {
       const data = {
         id
       }
-      axios
-        .post('/verify', data)
+      api
+        .sendVerify(data)
         .then(response => {
           if (response.status === 200) {
             const verified = response.data.verified
