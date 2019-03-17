@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import axios from 'axios'
+import api from '../../services/api'
 
 const state = {
   resetEmailSent: false
@@ -13,8 +13,8 @@ const actions = {
   forgotPassword({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
-        .post('/forgot', payload)
+      api
+        .forgotPassword(payload)
         .then(response => {
           if (response.status === 200) {
             commit(types.RESET_EMAIL_SENT, true)

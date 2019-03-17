@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import router from '@/router'
-import axios from 'axios'
+import api from '../../services/api'
 
 const state = {
   user: null,
@@ -18,8 +18,8 @@ const actions = {
   userLogin({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
-        .post('/login', payload)
+      api
+        .userLogin(payload)
         .then(response => {
           if (response.status === 200) {
             window.localStorage.setItem(

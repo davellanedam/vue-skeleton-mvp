@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import axios from 'axios'
+import api from '../../services/api'
 
 const state = {
   users: [],
@@ -14,10 +14,8 @@ const getters = {
 const actions = {
   getUsers({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      axios
-        .get('/users', {
-          params: payload
-        })
+      api
+        .getUsers(payload)
         .then(response => {
           if (response.status === 200) {
             commit(types.USERS, response.data.docs)
@@ -46,8 +44,8 @@ const actions = {
         city: payload.city,
         country: payload.country
       }
-      axios
-        .patch(`/users/${payload._id}`, data)
+      api
+        .editUser(payload._id, data)
         .then(response => {
           if (response.status === 200) {
             commit(types.SUCCESS, {
@@ -70,8 +68,8 @@ const actions = {
   },
   saveUser({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      axios
-        .post('/users/', payload)
+      api
+        .saveUser(payload)
         .then(response => {
           if (response.status === 201) {
             commit(types.SUCCESS, {
@@ -94,8 +92,8 @@ const actions = {
   },
   deleteUser({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      axios
-        .delete(`/users/${payload}`)
+      api
+        .deleteUser(payload)
         .then(response => {
           if (response.status === 200) {
             commit(types.SUCCESS, {

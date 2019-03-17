@@ -1,12 +1,13 @@
 import * as types from '../mutation-types'
 import router from '@/router'
-import axios from 'axios'
+import api from '../../services/api'
 
 const actions = {
   userSignUp({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
+      api
+        .userSignUp()
         .post('/register', payload)
         .then(response => {
           if (response.status === 201) {

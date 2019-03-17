@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import axios from 'axios'
+import api from '../../services/api'
 
 const state = {
   showChangePasswordInputs: true
@@ -13,8 +13,8 @@ const actions = {
   resetPassword({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
-        .post('/reset', payload)
+      api
+        .resetPassword(payload)
         .then(response => {
           if (response.status === 200) {
             commit(types.SHOW_CHANGE_PASSWORD_INPUTS, false)

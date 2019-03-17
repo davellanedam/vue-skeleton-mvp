@@ -1,5 +1,5 @@
 import * as types from '../mutation-types'
-import axios from 'axios'
+import api from '../../services/api'
 
 const state = {
   profile: {
@@ -22,8 +22,8 @@ const actions = {
   changeMyPassword({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
-        .post('/profile/changePassword', payload)
+      api
+        .changeMyPassword(payload)
         .then(response => {
           if (response.status === 200) {
             commit(types.SUCCESS, {
@@ -48,8 +48,8 @@ const actions = {
   getProfile({ commit }) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
-        .get('/profile')
+      api
+        .getProfile()
         .then(response => {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
@@ -72,8 +72,8 @@ const actions = {
   saveProfile({ commit }, payload) {
     return new Promise((resolve, reject) => {
       commit(types.SHOW_LOADING, true)
-      axios
-        .patch('/profile', payload)
+      api
+        .saveProfile(payload)
         .then(response => {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
