@@ -71,5 +71,6 @@ export const buildSuccess = (
     commit(types.SUCCESS, msg)
   }
   commit(types.ERROR, null)
+  commit(types.SHOW_LOADING, false)
   resolve(resolveParam)
 }
