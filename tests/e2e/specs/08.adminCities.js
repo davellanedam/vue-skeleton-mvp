@@ -48,6 +48,11 @@ describe('Admin Cities', () => {
     cy.setLocaleToEN()
     cy.visit('/admin/cities')
 
+    // Search city
+    cy.get('input[aria-label=Search]')
+      .clear()
+      .type('A New City')
+    cy.wait(1000)
     // Click and edit first element
     cy.get('td > span.v-tooltip.v-tooltip--top')
       .eq(0)

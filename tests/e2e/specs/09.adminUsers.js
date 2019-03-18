@@ -123,6 +123,11 @@ describe('Admin Users', () => {
     cy.setLocaleToEN()
     cy.visit('/admin/users')
 
+    // Search user
+    cy.get('input[aria-label=Search]')
+      .clear()
+      .type('A New User')
+    cy.wait(1000)
     // Click and edit first element
     cy.get('td > span.v-tooltip.v-tooltip--top')
       .eq(0)
