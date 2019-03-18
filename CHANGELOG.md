@@ -1,3 +1,9 @@
+## v.1.2.6 (Mar 17, 2019)
+
+-   Refactor show loading
+-   Fix tests admin cities and admin users
+-   NPM updated
+
 ## v.1.2.5 (Mar 17, 2019)
 
 -   Refactor success in actions
