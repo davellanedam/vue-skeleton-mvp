@@ -1,6 +1,7 @@
 import * as types from '../mutation-types'
 import router from '@/router'
 import api from '@/services/api/signup'
+import { handleError } from '@/utils/utils.js'
 
 const actions = {
   userSignUp({ commit }, payload) {
@@ -30,13 +31,7 @@ const actions = {
           }
         })
         .catch(error => {
-          // Catches error connection or any other error (checks if error.response exists)
-          let errMsg = error.response
-            ? error.response.data.errors.msg
-            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-          commit(types.SHOW_LOADING, false)
-          commit(types.ERROR, errMsg)
-          reject(error)
+          handleError(error, commit, reject)
         })
     })
   }

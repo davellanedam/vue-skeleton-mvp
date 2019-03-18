@@ -1,4 +1,5 @@
 import i18n from '@/i18n.js'
+import * as types from '@/store/mutation-types'
 
 export const formatErrorMessages = (translationParent, msg) => {
   let errorArray = []
@@ -48,4 +49,14 @@ export const buildPayloadPagination = (pagination, search) => {
     }
   }
   return query
+}
+
+export const handleError = (error, commit, reject) => {
+  // Catches error connection or any other error (checks if error.response exists)
+  let errMsg = error.response
+    ? error.response.data.errors.msg
+    : 'SERVER_TIMEOUT_CONNECTION_ERROR'
+  commit(types.SHOW_LOADING, false)
+  commit(types.ERROR, errMsg)
+  reject(error)
 }

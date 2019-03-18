@@ -1,5 +1,6 @@
 import * as types from '../mutation-types'
 import api from '@/services/api/cities'
+import { handleError } from '@/utils/utils.js'
 
 const state = {
   allCities: []
@@ -11,7 +12,7 @@ const getters = {
 
 const actions = {
   getAllCities({ commit }) {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       api
         .getAllCities()
         .then(response => {
@@ -26,12 +27,7 @@ const actions = {
           }
         })
         .catch(error => {
-          // Catches error connection or any other error (checks if error.response exists)
-          let errMsg = error.response
-            ? error.response.data.errors.msg
-            : 'SERVER_TIMEOUT_CONNECTION_ERROR'
-          commit(types.SHOW_LOADING, false)
-          commit(types.ERROR, errMsg)
+          handleError(error, commit, reject)
         })
     })
   }
