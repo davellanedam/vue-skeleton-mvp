@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import api from '@/services/api/adminUsers'
-import { handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const state = {
   users: [],
@@ -43,11 +43,13 @@ const actions = {
         .editUser(payload._id, data)
         .then(response => {
           if (response.status === 200) {
-            commit(types.SUCCESS, {
-              msg: 'common.SAVED_SUCCESSFULLY'
-            })
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'common.SAVED_SUCCESSFULLY'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {
@@ -61,11 +63,13 @@ const actions = {
         .saveUser(payload)
         .then(response => {
           if (response.status === 201) {
-            commit(types.SUCCESS, {
-              msg: 'common.SAVED_SUCCESSFULLY'
-            })
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'common.SAVED_SUCCESSFULLY'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {
@@ -79,11 +83,13 @@ const actions = {
         .deleteUser(payload)
         .then(response => {
           if (response.status === 200) {
-            commit(types.SUCCESS, {
-              msg: 'common.DELETED_SUCCESSFULLY'
-            })
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'common.DELETED_SUCCESSFULLY'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {

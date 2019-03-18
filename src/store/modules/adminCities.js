@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import api from '@/services/api/adminCities'
-import { handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const state = {
   cities: [],
@@ -38,11 +38,13 @@ const actions = {
         .editCity(payload._id, data)
         .then(response => {
           if (response.status === 200) {
-            commit(types.SUCCESS, {
-              msg: 'common.SAVED_SUCCESSFULLY'
-            })
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'common.SAVED_SUCCESSFULLY'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {
@@ -56,11 +58,13 @@ const actions = {
         .saveCity(payload)
         .then(response => {
           if (response.status === 201) {
-            commit(types.SUCCESS, {
-              msg: 'common.SAVED_SUCCESSFULLY'
-            })
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'common.SAVED_SUCCESSFULLY'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {
@@ -74,11 +78,13 @@ const actions = {
         .deleteCity(payload)
         .then(response => {
           if (response.status === 200) {
-            commit(types.SUCCESS, {
-              msg: 'common.DELETED_SUCCESSFULLY'
-            })
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'common.DELETED_SUCCESSFULLY'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {

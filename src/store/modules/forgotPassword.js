@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import api from '@/services/api/forgotPassword'
-import { handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const state = {
   resetEmailSent: false
@@ -19,13 +19,15 @@ const actions = {
         .then(response => {
           if (response.status === 200) {
             commit(types.RESET_EMAIL_SENT, true)
-            commit(types.SUCCESS, {
-              msg: 'forgotPassword.RESET_EMAIL_SENT',
-              params: [payload.email],
-              timeout: 0
-            })
-            commit(types.SHOW_LOADING, false)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'forgotPassword.RESET_EMAIL_SENT',
+                params: [payload.email],
+                timeout: 0
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {

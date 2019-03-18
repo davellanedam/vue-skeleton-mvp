@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import api from '@/services/api/resetPassword'
-import { handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const state = {
   showChangePasswordInputs: true
@@ -19,11 +19,13 @@ const actions = {
         .then(response => {
           if (response.status === 200) {
             commit(types.SHOW_CHANGE_PASSWORD_INPUTS, false)
-            commit(types.SUCCESS, {
-              msg: 'resetPassword.PASSWORD_CHANGED'
-            })
-            commit(types.SHOW_LOADING, false)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'resetPassword.PASSWORD_CHANGED'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {

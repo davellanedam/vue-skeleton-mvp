@@ -1,7 +1,7 @@
 import * as types from '../mutation-types'
 import router from '@/router'
 import api from '@/services/api/signup'
-import { handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const actions = {
   userSignUp({ commit }, payload) {
@@ -22,8 +22,10 @@ const actions = {
             commit(types.SAVE_USER, response.data.user)
             commit(types.SAVE_TOKEN, response.data.token)
             commit(types.SHOW_LOADING, false)
-            commit(types.ERROR, null)
-            resolve(
+            buildSuccess(
+              null,
+              commit,
+              resolve,
               router.push({
                 name: 'home'
               })

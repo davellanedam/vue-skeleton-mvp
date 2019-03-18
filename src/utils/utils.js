@@ -60,3 +60,16 @@ export const handleError = (error, commit, reject) => {
   commit(types.ERROR, errMsg)
   reject(error)
 }
+
+export const buildSuccess = (
+  msg,
+  commit,
+  resolve,
+  resolveParam = undefined
+) => {
+  if (msg !== null) {
+    commit(types.SUCCESS, msg)
+  }
+  commit(types.ERROR, null)
+  resolve(resolveParam)
+}

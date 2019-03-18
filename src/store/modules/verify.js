@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import api from '@/services/api/verify'
-import { handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const state = {
   emailVerified: false
@@ -31,11 +31,14 @@ const actions = {
               localStorage.setItem('user', JSON.stringify(_user))
               commit(types.SAVE_USER, _user)
             }
-            commit(types.SUCCESS, {
-              msg: 'verify.EMAIL_VERIFIED'
-            })
             commit(types.SHOW_LOADING, false)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'verify.EMAIL_VERIFIED'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {

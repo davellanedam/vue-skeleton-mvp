@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import api from '@/services/api/profile'
-import { handleError } from '@/utils/utils.js'
+import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const state = {
   profile: {
@@ -27,12 +27,13 @@ const actions = {
         .changeMyPassword(payload)
         .then(response => {
           if (response.status === 200) {
-            commit(types.SUCCESS, {
-              msg: 'myProfile.PASSWORD_CHANGED'
-            })
-            commit(types.SHOW_LOADING, false)
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'myProfile.PASSWORD_CHANGED'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {
@@ -49,8 +50,7 @@ const actions = {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
             commit(types.SHOW_LOADING, false)
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(null, commit, resolve)
           }
         })
         .catch(error => {
@@ -66,12 +66,13 @@ const actions = {
         .then(response => {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
-            commit(types.SUCCESS, {
-              msg: 'myProfile.PROFILE_SAVED_SUCCESSFULLY'
-            })
-            commit(types.SHOW_LOADING, false)
-            commit(types.ERROR, null)
-            resolve()
+            buildSuccess(
+              {
+                msg: 'myProfile.PROFILE_SAVED_SUCCESSFULLY'
+              },
+              commit,
+              resolve
+            )
           }
         })
         .catch(error => {
