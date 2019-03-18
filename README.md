@@ -3,7 +3,8 @@
 [![Author](http://img.shields.io/badge/author-@davellanedam-blue.svg?style=flat-square)](https://twitter.com/davellanedam)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/LICENSE)
 [![Tag](https://img.shields.io/github/tag/davellanedam/vue-skeleton-mvp.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/tags)
-[![npm downloads](https://img.shields.io/npm/dt/vue-skeleton-mvp.svg?style=flat-square&label=npm%20downloads)]()
+[![npm downloads](https://img.shields.io/npm/dt/vue-skeleton-mvp.svg?style=flat-square&label=npm%20downloads)](<>)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3e7e1611c3b4a06a6c1df9391e3fe7a)](https://www.codacy.com/app/davellanedam/vue-skeleton-mvp?utm_source=github.com&utm_medium=referral&utm_content=davellanedam/vue-skeleton-mvp&utm_campaign=Badge_Grade)
 
 ## Getting started
 
@@ -13,31 +14,31 @@ This project is created to help other developers create a **basic VueJS app in a
 
 ## Features
 
-- Vuetify
-- Multiple environment ready (development, production).
-- Vue router
-- Vuex
-- i18n ready.
-- Landing page.
-- Protected home page.
-- Login.
-- Signup.
-- Forgot password.
-- Account verification.
-- User profile.
-- Users admin area with CRUD operations.
-- Cities admin area with CRUD operations.
-- Testing with Cypress and mocha/chai.
-- NPM script for keeping good source code formatting using prettier and ESLint.
-- Use of ESLint for good coding practices.
-- Use of prettier for beautiful format.
-- JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` is the **signed and encrypted token** given in the response from the login process.
+-   Vuetify
+-   Multiple environment ready (development, production).
+-   Vue router
+-   Vuex
+-   i18n ready.
+-   Landing page.
+-   Protected home page.
+-   Login.
+-   Signup.
+-   Forgot password.
+-   Account verification.
+-   User profile.
+-   Users admin area with CRUD operations.
+-   Cities admin area with CRUD operations.
+-   Testing with Cypress and mocha/chai.
+-   NPM script for keeping good source code formatting using prettier and ESLint.
+-   Use of ESLint for good coding practices.
+-   Use of prettier for beautiful format.
+-   JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` is the **signed and encrypted token** given in the response from the login process.
 
 ## Demo
 
-A demo of this Frontend is located at: https://vue-demo.daniel-avellaneda.com
+A demo of this Frontend is located at: <https://vue-demo.daniel-avellaneda.com>
 
-### Login credentials:
+### Login credentials
 
 email: `admin@admin.com`  
 password: `12345`
@@ -45,14 +46,14 @@ password: `12345`
 **IMPORTANT:** Database resets every 30 mins like "12:00am, 12:30am, 1:00am" and so on. So anything you do will be lost after a short time.
 
 Demo is also linked to a Node.js express.js MongoDB JWT REST API project that shows how this frontend can be integrated to an API.  
-Repo is here: https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton  
-Running demo is here: https://api-demo.daniel-avellaneda.com
+Repo is here: <https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton>  
+Running demo is here: <https://api-demo.daniel-avellaneda.com>
 
 ## How to install
 
 ### Using Git (recommended)
 
-1. Clone the project from github. Change "myproject" to your project name.
+1.  Clone the project from github. Change "myproject" to your project name.
 
 ```bash
 git clone https://github.com/davellanedam/vue-skeleton-mvp.git ./myproject
@@ -60,8 +61,8 @@ git clone https://github.com/davellanedam/vue-skeleton-mvp.git ./myproject
 
 ### Using manual download ZIP
 
-1. Download repository
-2. Uncompress to your desired directory
+1.  Download repository
+2.  Uncompress to your desired directory
 
 ### Install npm dependencies after installing (Git or manual download)
 
@@ -73,43 +74,35 @@ npm update
 
 ## VERY IMPORTANT
 
-This project use Vue Router HTML5 History Mode, this means when you are in development mode you can hit Cmd+R (mac) or F5 (Windows) to reload the page and it will work, but when the project is built you will have problems, so will need to do a small change in your web server to make that work. Please read the official Vue Router documentation here: https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations
+This project use Vue Router HTML5 History Mode, this means when you are in development mode you can hit Cmd+R (mac) or F5 (Windows) to reload the page and it will work, but when the project is built you will have problems, so will need to do a small change in your web server to make that work. Please read the official Vue Router documentation here: <https://router.vuejs.org/guide/essentials/history-mode.html#example-server-configurations>
 
 ### Compiles and hot-reloads for development
 
-```
-npm run serve
-```
+    npm run serve
 
 ### Compiles and minifies for production
 
-```
-npm run build
-```
+    npm run build
 
 ### Run your tests
 
-```
-npm run test
-```
+    npm run test
 
 ### Lints and fixes files
 
-```
-npm run lint
-```
+    npm run lint
+
+### Formatting markdown files
+
+    npm run remark
 
 ### Run your end-to-end tests
 
-```
-npm run test:e2e
-```
+    npm run test:e2e
 
 ### Run your unit tests
 
-```
-npm run test:unit
-```
+    npm run test:unit
 
 ### Customize configuration
 
@@ -119,9 +112,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 Feel free to report any bugs or improvements. Pull requests are always welcome.
 
-## I love this! How can I help?
+## I love this! How can I help
 
-It´s amazing you feel like that! Send me a tweet https://twitter.com/davellanedam, share this with others, make a pull request or if you feel really thankful you can always buy me a beer! Enjoy!
+It´s amazing you feel like that! Send me a tweet <https://twitter.com/davellanedam>, share this with others, make a pull request or if you feel really thankful you can always buy me a beer! Enjoy!
 
 ## License
 
