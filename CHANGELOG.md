@@ -1,3 +1,7 @@
+## v.1.2.5 (Mar 17, 2019)
+
+-   Refactor success in actions
+
 ## v.1.2.4 (Mar 17, 2019)
 
 -   Use of remark
