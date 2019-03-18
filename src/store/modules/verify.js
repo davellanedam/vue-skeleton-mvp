@@ -31,7 +31,6 @@ const actions = {
               localStorage.setItem('user', JSON.stringify(_user))
               commit(types.SAVE_USER, _user)
             }
-            commit(types.SHOW_LOADING, false)
             buildSuccess(
               {
                 msg: 'verify.EMAIL_VERIFIED'

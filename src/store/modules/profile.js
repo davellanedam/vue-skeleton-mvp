@@ -49,7 +49,6 @@ const actions = {
         .then(response => {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
-            commit(types.SHOW_LOADING, false)
             buildSuccess(null, commit, resolve)
           }
         })

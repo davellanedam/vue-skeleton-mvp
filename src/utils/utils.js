@@ -67,7 +67,8 @@ export const buildSuccess = (
   resolve,
   resolveParam = undefined
 ) => {
-  if (msg !== null) {
+  commit(types.SHOW_LOADING, false)
+  if (msg) {
     commit(types.SUCCESS, msg)
   }
   commit(types.ERROR, null)

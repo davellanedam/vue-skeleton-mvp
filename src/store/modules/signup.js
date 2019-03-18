@@ -21,7 +21,6 @@ const actions = {
             )
             commit(types.SAVE_USER, response.data.user)
             commit(types.SAVE_TOKEN, response.data.token)
-            commit(types.SHOW_LOADING, false)
             buildSuccess(
               null,
               commit,
