@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Meta from 'vue-meta'
 import routes from './routes'
 import { store } from '@/store'
 
 Vue.use(Router)
+Vue.use(Meta)
 
 const router = new Router({
   mode: 'history',

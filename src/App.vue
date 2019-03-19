@@ -123,6 +123,11 @@ import LocaleChanger from './components/LocaleChanger'
 import Loading from '@/components/Loading.vue'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$store.getters.appTitle
+    }
+  },
   name: 'App',
   components: {
     LocaleChanger,

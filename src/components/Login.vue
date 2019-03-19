@@ -67,6 +67,12 @@ import ErrorMessage from '@/components/ErrorMessage.vue'
 import { mapActions } from 'vuex'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$store.getters.appTitle,
+      titleTemplate: this.$t('login.TITLE') + ' - %s'
+    }
+  },
   data() {
     return {
       email: '',

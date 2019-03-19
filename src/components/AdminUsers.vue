@@ -267,6 +267,12 @@ import SuccessMessage from '@/components/SuccessMessage.vue'
 import { getFormat, buildPayloadPagination } from '../utils/utils.js'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$store.getters.appTitle,
+      titleTemplate: this.$t('users.TITLE') + ' - %s'
+    }
+  },
   components: {
     ErrorMessage,
     SuccessMessage

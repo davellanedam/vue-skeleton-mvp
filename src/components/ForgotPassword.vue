@@ -50,6 +50,12 @@ import SuccessMessage from '@/components/SuccessMessage.vue'
 import { mapActions } from 'vuex'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$store.getters.appTitle,
+      titleTemplate: this.$t('forgotPassword.TITLE') + ' - %s'
+    }
+  },
   data() {
     return {
       email: ''

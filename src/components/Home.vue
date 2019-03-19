@@ -22,9 +22,8 @@
                 flat
                 @click="showVerifyDialog = false"
                 class="btnClose"
+                >{{ $t('home.CLOSE') }}</v-btn
               >
-                {{ $t('home.CLOSE') }}
-              </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -39,6 +38,12 @@
 
 <script>
 export default {
+  metaInfo() {
+    return {
+      title: this.$store.getters.appTitle,
+      titleTemplate: this.$t('home.TITLE') + ' - %s'
+    }
+  },
   data() {
     return {
       showVerifyDialog: !this.$store.state.verify.emailVerified
