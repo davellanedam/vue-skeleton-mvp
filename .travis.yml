@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - 10
+cache:
+  npm: true
+  directories:
+    - ~/.cache
+install:
+  - npm ci
+script:
+  - $(npm bin)/cypress run --env API_URL=https://api-demo.daniel-avellaneda.com --headless --config video=false
+if: tag IS present
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key:
+    secure: $NPM_DEPLOY_TOKEN
+  on:
+    tags: true
+    repo: davellanedam/vue-skeleton-mvp

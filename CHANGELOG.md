@@ -1,3 +1,7 @@
+## v.1.2.7 (Mar 18, 2019)
+
+-   Travis CI
+
 ## v.1.2.6 (Mar 17, 2019)
 
 -   Refactor show loading

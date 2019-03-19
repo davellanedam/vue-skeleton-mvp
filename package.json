@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/davellanedam/vue-mvp.git"
+    "url": "https://github.com/davellanedam/vue-skeleton-mvp.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
