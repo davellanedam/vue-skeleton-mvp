@@ -1,3 +1,7 @@
+## v.1.2.8 (Mar 18, 2019)
+
+-   Travis setup
+
 ## v.1.2.7 (Mar 18, 2019)
 
 -   Travis CI
