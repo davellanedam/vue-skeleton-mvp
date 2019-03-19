@@ -4,16 +4,11 @@ const email = faker.internet.email()
 describe('Signup', () => {
   it('Visits the signup url', () => {
     cy.visit('/signup')
-    cy.setLocaleToEN()
-    cy.get('h1')
-      .should('have.class', 'display-2')
-      .contains('Signup')
     // url should be /signup
     cy.url().should('include', '/signup')
   })
   it('Checks input types', () => {
     cy.visit('/signup')
-    cy.setLocaleToEN()
     // Checks input type is email
     cy.get('input[name=email]')
       .invoke('attr', 'type')
@@ -46,7 +41,6 @@ describe('Signup', () => {
     cy.get('div.error')
       .should('be.visible')
       .contains('E-mail already exists')
-
     // and still be on the same URL
     cy.url().should('include', '/signup')
   })
@@ -69,10 +63,6 @@ describe('Signup', () => {
     // url should be home
     cy.url().should('include', '/home')
 
-    cy.get('h1')
-      .should('have.class', 'display-2')
-      .contains('Protected Home')
-
     // Accept to verify account
     cy.get('div.dlgVerifyAccount').and(
       'contain',
@@ -91,10 +81,6 @@ describe('Signup', () => {
 
     // url should be login
     cy.url().should('include', '/login')
-
-    cy.get('h1')
-      .should('have.class', 'display-2')
-      .contains('Login')
   })
   it('Verify account', () => {
     cy.visit('/login')
@@ -103,10 +89,6 @@ describe('Signup', () => {
 
     // url should be home
     cy.url().should('include', '/home')
-
-    cy.get('h1')
-      .should('have.class', 'display-2')
-      .contains('Protected Home')
 
     // Accept to verify account
     cy.get('div.dlgVerifyAccount').and(
@@ -142,10 +124,6 @@ describe('Signup', () => {
 
         // url should be login
         cy.url().should('include', '/login')
-
-        cy.get('h1')
-          .should('have.class', 'display-2')
-          .contains('Login')
       })
     }
   })
@@ -156,10 +134,6 @@ describe('Signup', () => {
 
     // url should be home
     cy.url().should('include', '/home')
-
-    cy.get('h1')
-      .should('have.class', 'display-2')
-      .contains('Protected Home')
 
     // get verification and visit verification url
     let verification = ''
@@ -182,10 +156,6 @@ describe('Signup', () => {
 
       // url should be login
       cy.url().should('include', '/login')
-
-      cy.get('h1')
-        .should('have.class', 'display-2')
-        .contains('Login')
     })
   })
 })

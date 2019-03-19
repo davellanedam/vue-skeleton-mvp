@@ -1,15 +1,12 @@
 describe('Admin Cities', () => {
   it('Visits the admin cities url and list cities', () => {
     cy.login('admin@admin.com')
-    cy.setLocaleToEN()
     cy.visit('/admin/cities')
     // url should be /admin/cities
     cy.url().should('include', '/admin/cities')
-    cy.get('div.v-toolbar__title').contains('Cities')
   })
   it('Checks input types for create/edit new city', () => {
     cy.login('admin@admin.com')
-    cy.setLocaleToEN()
     cy.visit('/admin/cities')
 
     // Click create new city

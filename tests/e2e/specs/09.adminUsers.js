@@ -3,11 +3,9 @@ import faker from 'faker'
 describe('Admin Users', () => {
   it('Visits the admin users url and list users', () => {
     cy.login('admin@admin.com')
-    cy.setLocaleToEN()
     cy.visit('/admin/users')
     // url should be /admin/users
     cy.url().should('include', '/admin/users')
-    cy.get('div.v-toolbar__title').contains('Users')
   })
   it('Checks input types for create/edit new user', () => {
     cy.login('admin@admin.com')

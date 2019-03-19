@@ -3,18 +3,13 @@ import faker from 'faker'
 describe('Profile', () => {
   it('Visits the profile url', () => {
     cy.login('admin@admin.com')
-    cy.setLocaleToEN()
     cy.visit('/profile')
-    cy.get('h1')
-      .should('have.class', 'display-2')
-      .contains('My profile')
     // url should be /profile
     cy.url().should('include', '/profile')
     cy.get('input[name=email]').should('have.value', 'admin@admin.com')
   })
   it('Checks input types', () => {
     cy.login('admin@admin.com')
-    cy.setLocaleToEN()
     cy.visit('/profile')
     // Checks input type is email
     cy.get('input[name=email]')
@@ -132,7 +127,6 @@ describe('Profile', () => {
   })
   it('Checks input types for change password', () => {
     cy.login('admin@admin.com')
-    cy.setLocaleToEN()
     cy.visit('/profile')
     cy.get('button.btnChangePassword').click()
     cy.get('div.v-dialog.v-dialog--active').should('be.visible')
