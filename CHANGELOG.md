@@ -1,3 +1,7 @@
+## v.1.2.11 (Mar 18, 2019)
+
+-   Badge for Travis build in README.md
+
 ## v.1.2.10 (Mar 18, 2019)
 
 -   Tests reset password and verify account don´t run when Travis CI is executed

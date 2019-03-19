@@ -3,6 +3,7 @@
 [![Author](http://img.shields.io/badge/author-@davellanedam-blue.svg?style=flat-square)](https://twitter.com/davellanedam)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/LICENSE)
 [![Tag](https://img.shields.io/github/tag/davellanedam/vue-skeleton-mvp.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/tags)
+[![Travis](https://img.shields.io/travis/com/davellanedam/vue-skeleton-mvp.svg?style=flat-square)](<>)
 [![npm downloads](https://img.shields.io/npm/dt/vue-skeleton-mvp.svg?style=flat-square&label=npm%20downloads)](<>)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3e7e1611c3b4a06a6c1df9391e3fe7a)](https://www.codacy.com/app/davellanedam/vue-skeleton-mvp?utm_source=github.com&utm_medium=referral&utm_content=davellanedam/vue-skeleton-mvp&utm_campaign=Badge_Grade)
 
