@@ -8,7 +8,7 @@ cache:
 install:
   - npm ci
 script:
-  - $(npm bin)/cypress run --env API_URL=https://api-demo.daniel-avellaneda.com --config video=false
+  - npm run ci
 if: tag IS present
 deploy:
   provider: npm
