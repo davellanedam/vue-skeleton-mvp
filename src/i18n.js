@@ -3,12 +3,6 @@ import VueI18n from 'vue-i18n'
 import VeeValidate from 'vee-validate'
 import en from 'vee-validate/dist/locale/en'
 import es from 'vee-validate/dist/locale/es'
-const moment = require('moment')
-require('moment/locale/es')
-
-Vue.use(require('vue-moment'), {
-  moment
-})
 
 Vue.use(VueI18n)
 

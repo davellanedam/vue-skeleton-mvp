@@ -37,19 +37,13 @@
                     <v-flex xs12 md4>
                       <label for="createdAt">{{ $t('common.CREATED') }}</label>
                       <div name="createdAt">
-                        {{
-                          editedItem.createdAt
-                            | moment('ddd, MMMM D YYYY, h:mm a')
-                        }}
+                        {{ getFormat(editedItem.createdAt) }}
                       </div>
                     </v-flex>
                     <v-flex xs12 md4>
                       <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
                       <div name="updatedAt">
-                        {{
-                          editedItem.updatedAt
-                            | moment('ddd, MMMM D YYYY, h:mm a')
-                        }}
+                        {{ getFormat(editedItem.updatedAt) }}
                       </div>
                     </v-flex>
                     <v-flex xs12 md4>
@@ -251,8 +245,8 @@
         <td>{{ props.item.city }}</td>
         <td>{{ props.item.country }}</td>
         <td>{{ props.item.phone }}</td>
-        <td>{{ props.item.createdAt | moment('ddd, MMMM D YYYY, h:mm a') }}</td>
-        <td>{{ props.item.updatedAt | moment('ddd, MMMM D YYYY, h:mm a') }}</td>
+        <td>{{ getFormat(props.item.createdAt) }}</td>
+        <td>{{ getFormat(props.item.updatedAt) }}</td>
       </template>
       <template v-slot:pageText="props">
         {{ props.pageStart }} - {{ props.pageStop }} {{ $t('dataTable.OF') }}
@@ -270,7 +264,7 @@
 import { mapActions } from 'vuex'
 import ErrorMessage from '@/components/ErrorMessage.vue'
 import SuccessMessage from '@/components/SuccessMessage.vue'
-import { buildPayloadPagination } from '../utils/utils.js'
+import { getFormat, buildPayloadPagination } from '../utils/utils.js'
 
 export default {
   components: {
@@ -409,6 +403,10 @@ export default {
       'saveUser',
       'deleteUser'
     ]),
+    getFormat(date) {
+      window.__localeId__ = this.$store.getters.locale
+      return getFormat(date, 'ddd, MMMM D YYYY, h:mm a')
+    },
     roleName(value) {
       return value === 'admin' ? this.$t('roles.ADMIN') : this.$t('roles.USER')
     },

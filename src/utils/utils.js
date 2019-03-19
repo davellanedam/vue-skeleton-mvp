@@ -1,5 +1,16 @@
 import i18n from '@/i18n.js'
 import * as types from '@/store/mutation-types'
+import { format } from 'date-fns'
+const localesDateFns = {
+  en: require('date-fns/locale/en'),
+  es: require('date-fns/locale/es')
+}
+
+export const getFormat = (date, formatStr) => {
+  return format(date, formatStr, {
+    locale: localesDateFns[window.__localeId__]
+  })
+}
 
 export const formatErrorMessages = (translationParent, msg) => {
   let errorArray = []
