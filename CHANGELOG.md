@@ -1,3 +1,7 @@
+## v.1.3.0 (Mar 18, 2019)
+
+-   Switched from moment.js to date-fns
+
 ## v.1.2.11 (Mar 18, 2019)
 
 -   Badge for Travis build in README.md
