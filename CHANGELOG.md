@@ -1,3 +1,7 @@
+## v.1.2.10 (Mar 18, 2019)
+
+-   Tests reset password and verify account don´t run when Travis CI is executed
+
 ## v.1.2.9 (Mar 18, 2019)
 
 -   Travis setup

@@ -62,38 +62,41 @@ describe('Forgot Password / Reset Password', () => {
     cy.visit('/forgot')
     cy.setLocaleToEN()
 
-    cy.server()
+    // This does not run when executing Travis CI
+    if (Cypress.env('ENV') !== 'ci') {
+      cy.server()
 
-    //This is the post call we are interested in capturing
-    cy.route('POST', Cypress.env('API_URL') + '/forgot').as('forgot')
-    cy.visit('/forgot')
-    cy.get('input[name=email]')
-      .clear()
-      .type('admin@admin.com{enter}')
-
-    cy.wait('@forgot')
-
-    //Assert on XHR
-    cy.get('@forgot').then(function(xhr) {
-      expect(xhr.status).to.eq(200)
-      expect(xhr.responseBody).to.have.property('verification')
-      verification = xhr.responseBody.verification
-
-      // Go to reset password
-      cy.visit(`/reset/${verification}`)
-      // url should be verify
-      cy.url().should('include', `/reset/${verification}`)
-
-      cy.get('input[name=password]')
+      //This is the post call we are interested in capturing
+      cy.route('POST', Cypress.env('API_URL') + '/forgot').as('forgot')
+      cy.visit('/forgot')
+      cy.get('input[name=email]')
         .clear()
-        .type('12345')
-      cy.get('input[name=confirmPassword]')
-        .clear()
-        .type('12345{enter}')
+        .type('admin@admin.com{enter}')
 
-      cy.get('div.success')
-        .should('be.visible')
-        .and('contain', 'Password changed successfully')
-    })
+      cy.wait('@forgot')
+
+      //Assert on XHR
+      cy.get('@forgot').then(function (xhr) {
+        expect(xhr.status).to.eq(200)
+        expect(xhr.responseBody).to.have.property('verification')
+        verification = xhr.responseBody.verification
+
+        // Go to reset password
+        cy.visit(`/reset/${verification}`)
+        // url should be verify
+        cy.url().should('include', `/reset/${verification}`)
+
+        cy.get('input[name=password]')
+          .clear()
+          .type('12345')
+        cy.get('input[name=confirmPassword]')
+          .clear()
+          .type('12345{enter}')
+
+        cy.get('div.success')
+          .should('be.visible')
+          .and('contain', 'Password changed successfully')
+      })
+    }
   })
 })

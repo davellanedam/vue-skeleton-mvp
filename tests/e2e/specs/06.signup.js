@@ -119,32 +119,35 @@ describe('Signup', () => {
       .should('be.visible')
       .click()
 
-    // get verification and visit verification url
-    let verification = ''
-    cy.window().then(window => {
-      const user = JSON.parse(window.localStorage.getItem('user'))
-      verification = user.verification
+    // This does not run when executing Travis CI
+    if (Cypress.env('ENV') !== 'ci') {
+      // get verification and visit verification url
+      let verification = ''
+      cy.window().then(window => {
+        const user = JSON.parse(window.localStorage.getItem('user'))
+        verification = user.verification
 
-      cy.visit(`/verify/${verification}`)
-      // url should be verify
-      cy.url().should('include', `/verify/${verification}`)
+        cy.visit(`/verify/${verification}`)
+        // url should be verify
+        cy.url().should('include', `/verify/${verification}`)
 
-      cy.get('div.success')
-        .should('be.visible')
-        .contains('E-mail verified successfully')
+        cy.get('div.success')
+          .should('be.visible')
+          .contains('E-mail verified successfully')
 
-      // Logout
-      cy.get('button.btnLogout')
-        .should('be.visible')
-        .click()
+        // Logout
+        cy.get('button.btnLogout')
+          .should('be.visible')
+          .click()
 
-      // url should be login
-      cy.url().should('include', '/login')
+        // url should be login
+        cy.url().should('include', '/login')
 
-      cy.get('h1')
-        .should('have.class', 'display-2')
-        .contains('Login')
-    })
+        cy.get('h1')
+          .should('have.class', 'display-2')
+          .contains('Login')
+      })
+    }
   })
   it('Displays errors when account is already verified', () => {
     cy.visit('/login')
