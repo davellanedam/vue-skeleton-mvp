@@ -1,4 +1,10 @@
-## v.1.3.0 (Mar 18, 2019)
+## v.1.4.0 (Mar 19, 2019)
+
+-   Use of vue-meta to customize page titles between components
+-   Use of Vue router transitions between routes
+-   NPM updated
+
+## v.1.3.0 (Mar 19, 2019)
 
 -   Switched from moment.js to date-fns
 
