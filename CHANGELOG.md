@@ -1,3 +1,7 @@
+## v.1.4.1 (Mar 19, 2019)
+
+-   Fixed tests to handle page transitions
+
 ## v.1.4.0 (Mar 19, 2019)
 
 -   Use of vue-meta to customize page titles between components
