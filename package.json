@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "VueJS Vuetify Vue Router Vuex - Basic Project Skeleton. This is a basic VueJs, Vuetify, Vue Router and Vuex skeleton written on JavaScript using async/await. Great for building an MVP for your project.",
   "license": "MIT",
   "repository": {
@@ -22,14 +22,14 @@
     "date-fns": "^1.30.1",
     "remark-cli": "^6.0.1",
     "vee-validate": "^2.2.0",
-    "vue": "^2.6.9",
+    "vue": "^2.6.10",
     "vue-country-flag": "^1.1.0",
     "vue-i18n": "^8.9.0",
     "vue-meta": "^1.5.8",
-    "vue-router": "^3.0.1",
+    "vue-router": "^3.0.2",
     "vuetify": "^1.5.7",
     "vuetify-confirm": "^0.2.4",
-    "vuex": "^3.0.1"
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",
@@ -41,7 +41,7 @@
     "@vue/eslint-config-prettier": "^4.0.1",
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-eslint": "^10.0.1",
-    "chai": "^4.1.2",
+    "chai": "^4.2.0",
     "eslint": "^5.15.3",
     "eslint-plugin-vue": "^5.2.2",
     "faker": "^4.1.0",
@@ -50,12 +50,12 @@
     "sass": "^1.17.3",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
+    "stylus-loader": "^3.0.2",
     "vue-cli-plugin-axios": "0.0.4",
     "vue-cli-plugin-i18n": "^0.5.2",
     "vue-cli-plugin-vuetify": "^0.5.0",
-    "vue-template-compiler": "^2.6.9",
-    "vuetify-loader": "^1.0.5"
+    "vue-template-compiler": "^2.6.10",
+    "vuetify-loader": "^1.2.1"
   },
   "keywords": [
     "vuejs",

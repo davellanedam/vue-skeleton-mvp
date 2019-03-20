@@ -1,3 +1,7 @@
+## v.1.4.3 (Mar 20, 2019)
+
+-   NPM updated
+
 ## v.1.4.2 (Mar 19, 2019)
 
 -   Fixed README.md
