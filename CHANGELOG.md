@@ -1,3 +1,7 @@
+## v.1.4.2 (Mar 19, 2019)
+
+-   Fixed README.md
+
 ## v.1.4.1 (Mar 19, 2019)
 
 -   Fixed tests to handle page transitions
