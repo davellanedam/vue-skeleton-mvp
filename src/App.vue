@@ -133,7 +133,11 @@ export default {
       },
       meta: [
         { name: 'msapplication-TileColor', content: '#ffc40d' },
-        { name: 'theme-color', content: '#ffffff' }
+        { name: 'theme-color', content: '#ffffff' },
+        {
+          name: 'apple-mobile-web-app-title',
+          content: this.$store.getters.appTitle
+        }
       ],
       link: [
         {

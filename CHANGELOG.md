@@ -1,3 +1,7 @@
+## v.1.5.1 (Mar 25, 2019)
+
+-   FIX: app title added to 'add to home screen' feature.
+
 ## v.1.5.0 (Mar 25, 2019)
 
 -   Added favicons (Standard, iOS, Android, Windows, Safari)
