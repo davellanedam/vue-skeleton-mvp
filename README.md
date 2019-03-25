@@ -13,6 +13,18 @@ This is a basic VueJs, Vuetify, Vue Router and Vuex skeleton written on JavaScri
 
 This project is created to help other developers create a **basic VueJS app in an easy way**. This basic example shows how powerful and simple JavaScript and VueJS can be. Do you want to contribute? Pull requests are always welcome to show more features.
 
+## Donate
+
+Hi! I'm Daniel Avellaneda, I'm currently an open source enthusiast and dedicate my free time to open source projects.
+
+I'm the creator and maintainer of [node-express-mongodb-jwt-rest-api-skeleton](https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton/blob/master/README.md) and [vue-skeleton-mvp](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/README.md) both with thousands of downloads. These projects are what I call a Free starter web app combo: API + Frontend.
+
+I'm doing my best to provide you a good experience when using my apps, so if you like what I'm doing and wish to say "thanks!", feel free to buy me a coffee :coffee:
+
+<a href="https://www.buymeacoffee.com/muGHf41NT" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
+Feel free to send me a tweet <https://twitter.com/davellanedam>, share this with others or make a pull request
+
 ## Features
 
 -   Vuetify
@@ -126,10 +138,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Bugs or improvements
 
 Feel free to report any bugs or improvements. Pull requests are always welcome.
-
-## I love this! How can I help
-
-It´s amazing you feel like that! Send me a tweet <https://twitter.com/davellanedam>, share this with others, make a pull request or if you feel really thankful you can always buy me a beer! Enjoy!
 
 ## License
 
