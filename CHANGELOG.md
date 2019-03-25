@@ -1,3 +1,7 @@
+## v.1.5.3 (Mar 25, 2019)
+
+-   FIX: app title text is now responsive.
+
 ## v.1.5.2 (Mar 25, 2019)
 
 -   FIX: app title added to 'add to home screen' feature in Android.

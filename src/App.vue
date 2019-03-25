@@ -46,20 +46,22 @@
         <v-toolbar-side-icon @click="sidebar = !sidebar"></v-toolbar-side-icon>
       </span>
       <v-toolbar-title class="headline text-uppercase ml-0">
-        <router-link
-          :to="{ name: 'home' }"
-          tag="span"
-          style="cursor: pointer"
-          v-if="isTokenSet"
-          >{{ appTitle }}</router-link
-        >
-        <router-link
-          :to="{ name: 'landing' }"
-          tag="span"
-          style="cursor: pointer"
-          v-else
-          >{{ appTitle }}</router-link
-        >
+        <div v-resize-text>
+          <router-link
+            :to="{ name: 'home' }"
+            tag="span"
+            style="cursor: pointer"
+            v-if="isTokenSet"
+            >{{ appTitle }}</router-link
+          >
+          <router-link
+            :to="{ name: 'landing' }"
+            tag="span"
+            style="cursor: pointer"
+            v-else
+            >{{ appTitle }}</router-link
+          >
+        </div>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
@@ -123,6 +125,7 @@
 import { mapGetters } from 'vuex'
 import LocaleChanger from './components/LocaleChanger'
 import Loading from '@/components/Loading.vue'
+import ResizeText from 'vue-resize-text'
 
 export default {
   metaInfo() {
@@ -168,6 +171,9 @@ export default {
   components: {
     LocaleChanger,
     Loading
+  },
+  directives: {
+    ResizeText
   },
   data() {
     return {
