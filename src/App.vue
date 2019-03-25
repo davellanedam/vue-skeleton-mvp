@@ -137,7 +137,8 @@ export default {
         {
           name: 'apple-mobile-web-app-title',
           content: this.$store.getters.appTitle
-        }
+        },
+        { name: 'application-name', content: this.$store.getters.appTitle }
       ],
       link: [
         {

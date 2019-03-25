@@ -1,6 +1,4 @@
 {
-  "name": "My awesome app",
-  "short_name": "My awesome app",
   "icons": [{
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
