@@ -1,3 +1,7 @@
+## v.1.5.0 (Mar 25, 2019)
+
+-   Added favicons (Standard, iOS, Android, Windows, Safari)
+
 ## v.1.4.4 (Mar 25, 2019)
 
 -   README.md updated
