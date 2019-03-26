@@ -1,3 +1,7 @@
+## v2.0.1 (Mar 26, 2019)
+
+-   NPM updated
+
 ## v2.0.0 (Mar 26, 2019)
 
 -   FEATURE: Checks for app updates every 2 hours in case app has been added to home screen in iOS and Chrome
