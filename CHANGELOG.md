@@ -1,3 +1,7 @@
+## v.1.6.0 (Mar 25, 2019)
+
+-   FEATURE: Added go back button in forgot password
+
 ## v.1.5.3 (Mar 25, 2019)
 
 -   FIX: app title text is now responsive.

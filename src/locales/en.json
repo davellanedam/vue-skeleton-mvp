@@ -29,7 +29,8 @@
     "SAVED_SUCCESSFULLY": "Saved successfully",
     "DELETED_SUCCESSFULLY": "Deleted successfully",
     "CREATED": "Created",
-    "UPDATED": "Updated"
+    "UPDATED": "Updated",
+    "GO_BACK": "Go back"
   },
   "loading": {
     "PLEASE_WAIT": "Please wait..."

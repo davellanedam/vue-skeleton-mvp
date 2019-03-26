@@ -27,6 +27,10 @@
               ></v-text-field>
             </v-flex>
             <v-flex text-xs-center mt-5>
+              <v-btn color="secondary" @click="goBack()">
+                <v-icon class="mr-2">arrow_back</v-icon>
+                {{ $t('common.GO_BACK') }}
+              </v-btn>
               <v-btn
                 color="secondary"
                 type="submit"
@@ -79,6 +83,9 @@ export default {
       } catch (error) {
         return
       }
+    },
+    goBack() {
+      router.go(-1)
     }
   },
   computed: {
