@@ -32,6 +32,7 @@ export default {
   async created() {
     try {
       await this.sendVerify(this.$route.params.id)
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return
     }

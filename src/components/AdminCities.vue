@@ -219,6 +219,7 @@ export default {
             buildPayloadPagination(this.pagination, this.buildSearch())
           )
           this.dataTableLoading = false
+          // eslint-disable-next-line no-unused-vars
         } catch (error) {
           this.dataTableLoading = false
         }
@@ -245,6 +246,7 @@ export default {
           buildPayloadPagination(this.pagination, this.buildSearch())
         )
         this.dataTableLoading = false
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
         this.dataTableLoading = false
       }
@@ -278,6 +280,7 @@ export default {
           )
           this.dataTableLoading = false
         }
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
         this.dataTableLoading = false
       }
@@ -310,6 +313,7 @@ export default {
           }
           this.close()
         }
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
         this.dataTableLoading = false
         this.close()

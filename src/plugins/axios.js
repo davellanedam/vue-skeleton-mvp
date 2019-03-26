@@ -8,7 +8,7 @@ axios.defaults.headers.common['Accept-Language'] =
   JSON.parse(localStorage.getItem('locale')) || 'en'
 
 axios.interceptors.request.use(
-  function(config) {
+  config => {
     // Do something before request is sent
     // If request is different than login, then send Authorization header with token from localstorage
     if (config.url !== '/login') {
@@ -17,7 +17,7 @@ axios.interceptors.request.use(
     }
     return config
   },
-  function(error) {
+  error => {
     // Do something with request error
     return Promise.reject(error)
   }
@@ -25,11 +25,11 @@ axios.interceptors.request.use(
 
 // Add a response interceptor
 axios.interceptors.response.use(
-  function(response) {
+  response => {
     // Do something with response data
     return response
   },
-  function(error) {
+  error => {
     // Do something with response error
     return Promise.reject(error)
   }

@@ -352,6 +352,7 @@ export default {
           })
           return
         }
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
         return
       }
@@ -375,6 +376,7 @@ export default {
           this.close()
           return
         }
+        // eslint-disable-next-line no-unused-vars
       } catch (error) {
         this.oldPassword = ''
         this.newPassword = ''
@@ -389,6 +391,7 @@ export default {
     try {
       await this.getProfile()
       await this.getAllCities()
+      // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return
     }
