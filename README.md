@@ -32,6 +32,7 @@ Feel free to send me a tweet <https://twitter.com/davellanedam>, share this with
 -   Vue router
 -   Vuex
 -   i18n ready.
+-   Ready to add to home screen in iOS and Chrome, checks if there´s an app update every 2 hours and reloads page (When a web app is added as stand alone there´s no reload button in the browser so new .js files from a new build never get loaded)
 -   Landing page.
 -   Protected home page.
 -   Login.
