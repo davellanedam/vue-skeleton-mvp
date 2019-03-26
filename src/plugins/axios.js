@@ -10,8 +10,16 @@ axios.defaults.headers.common['Accept-Language'] =
 axios.interceptors.request.use(
   config => {
     // Do something before request is sent
-    // If request is different than login, then send Authorization header with token from localstorage
-    if (config.url !== '/login') {
+    // If request is different than any if the URLS in urlsExcludedForBearerHeader
+    // then send Authorization header with token from localstorage
+    const urlsExcludedForBearerHeader = [
+      '/login',
+      '/forgot',
+      '/register',
+      '/reset',
+      `${window.location.origin}/version.manifest`
+    ]
+    if (urlsExcludedForBearerHeader.indexOf(config.url) === -1) {
       config.headers.Authorization =
         'Bearer ' + JSON.parse(localStorage.getItem('token'))
     }
@@ -35,7 +43,7 @@ axios.interceptors.response.use(
   }
 )
 
-Plugin.install = function(Vue) {
+Plugin.install = Vue => {
   Vue.axios = axios
   window.axios = axios
   Object.defineProperties(Vue.prototype, {
