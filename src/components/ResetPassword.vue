@@ -39,12 +39,7 @@
               ></v-text-field>
             </v-flex>
             <v-flex v-show="showChangePasswordInputs" text-xs-center mt-5>
-              <v-btn
-                color="secondary"
-                type="submit"
-                :disabled="disabledButton"
-                >{{ $t('resetPassword.CHANGE_PASSWORD') }}</v-btn
-              >
+              <SubmitButton :text="$t('resetPassword.CHANGE_PASSWORD')" />
             </v-flex>
           </v-layout>
         </form>
@@ -100,9 +95,6 @@ export default {
   computed: {
     showChangePasswordInputs() {
       return this.$store.state.resetPassword.showChangePasswordInputs
-    },
-    disabledButton() {
-      return this.$store.state.loading.showLoading
     }
   },
   created() {

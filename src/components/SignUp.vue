@@ -64,12 +64,7 @@
               ></v-text-field>
             </v-flex>
             <v-flex text-xs-center mt-5>
-              <v-btn
-                color="secondary"
-                type="submit"
-                :disabled="disabledButton"
-                >{{ $t('signup.SIGN_ME_UP') }}</v-btn
-              >
+              <SubmitButton :text="$t('signup.SIGN_ME_UP')" />
             </v-flex>
           </v-layout>
         </form>
@@ -82,6 +77,7 @@
 <script>
 import router from '@/router'
 import ErrorMessage from '@/components/ErrorMessage.vue'
+import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -100,7 +96,8 @@ export default {
     }
   },
   components: {
-    ErrorMessage
+    ErrorMessage,
+    SubmitButton
   },
   methods: {
     ...mapActions(['userSignUp']),
@@ -119,11 +116,6 @@ export default {
       } catch (error) {
         return
       }
-    }
-  },
-  computed: {
-    disabledButton() {
-      return this.$store.state.loading.showLoading
     }
   },
   created() {

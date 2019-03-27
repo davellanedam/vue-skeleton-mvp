@@ -31,12 +31,7 @@
                 <v-icon class="mr-2">arrow_back</v-icon>
                 {{ $t('common.GO_BACK') }}
               </v-btn>
-              <v-btn
-                color="secondary"
-                type="submit"
-                :disabled="disabledButton"
-                >{{ $t('forgotPassword.RECOVER') }}</v-btn
-              >
+              <SubmitButton :text="$t('forgotPassword.RECOVER')" />
             </v-flex>
           </v-layout>
         </form>
@@ -51,6 +46,7 @@
 import router from '@/router'
 import ErrorMessage from '@/components/ErrorMessage.vue'
 import SuccessMessage from '@/components/SuccessMessage.vue'
+import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -67,7 +63,8 @@ export default {
   },
   components: {
     ErrorMessage,
-    SuccessMessage
+    SuccessMessage,
+    SubmitButton
   },
   methods: {
     ...mapActions(['forgotPassword']),
@@ -87,11 +84,6 @@ export default {
     },
     goBack() {
       router.go(-1)
-    }
-  },
-  computed: {
-    disabledButton() {
-      return this.$store.state.loading.showLoading
     }
   },
   created() {
