@@ -1,4 +1,4 @@
-import * as types from '../mutation-types'
+import * as types from '@/store/mutation-types'
 import router from '@/router'
 import api from '@/services/api/signup'
 import { buildSuccess, handleError } from '@/utils/utils.js'

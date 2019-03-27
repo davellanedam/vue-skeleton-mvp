@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import * as types from '../store/mutation-types'
-import { formatErrorMessages } from '../utils/utils.js'
+import * as types from '@/store/mutation-types'
+import { formatErrorMessages } from '@/utils/utils.js'
 
 export default {
   data() {

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Meta from 'vue-meta'
-import routes from './routes'
+import routes from '@/router/routes'
 import { store } from '@/store'
 import update from '@/services/api/updateSite'
 import { compareVersion } from '@/utils/utils.js'

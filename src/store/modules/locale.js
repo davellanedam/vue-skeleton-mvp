@@ -1,4 +1,4 @@
-import * as types from '../mutation-types'
+import * as types from '@/store/mutation-types'
 import i18n from '@/i18n'
 import { Validator } from 'vee-validate'
 

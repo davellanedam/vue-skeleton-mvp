@@ -1,4 +1,4 @@
-import * as types from '../mutation-types'
+import * as types from '@/store/mutation-types'
 import api from '@/services/api/cities'
 import { handleError } from '@/utils/utils.js'
 

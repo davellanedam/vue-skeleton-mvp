@@ -131,7 +131,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import LocaleChanger from './components/LocaleChanger'
+import LocaleChanger from '@/components/LocaleChanger'
 import Loading from '@/components/Loading.vue'
 import ResizeText from 'vue-resize-text'
 
