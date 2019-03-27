@@ -54,6 +54,7 @@
 import router from '@/router'
 import ErrorMessage from '@/components/ErrorMessage.vue'
 import SuccessMessage from '@/components/SuccessMessage.vue'
+import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -72,7 +73,8 @@ export default {
   },
   components: {
     ErrorMessage,
-    SuccessMessage
+    SuccessMessage,
+    SubmitButton
   },
   methods: {
     ...mapActions(['resetPassword']),
