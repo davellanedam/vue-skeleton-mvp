@@ -2,6 +2,14 @@
   <v-app dark>
     <v-navigation-drawer v-model="sidebar" app disable-resize-watcher>
       <v-list>
+        <v-list-tile>
+          <v-list-tile-content>{{ appTitle }}</v-list-tile-content>
+          <v-list-tile-action>
+            <v-btn icon @click.stop="sidebar = !sidebar">
+              <v-icon>chevron_left</v-icon>
+            </v-btn>
+          </v-list-tile-action>
+        </v-list-tile>
         <v-list-tile
           v-for="(item, index) in menuItems"
           :key="index"

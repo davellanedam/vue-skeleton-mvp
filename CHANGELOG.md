@@ -1,3 +1,7 @@
+## v2.1.0 (Mar 26, 2019)
+
+-   Added close button drawer in mobile menu
+
 ## v2.0.1 (Mar 26, 2019)
 
 -   NPM updated
