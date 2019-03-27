@@ -1,3 +1,8 @@
+## v2.2.0 (Mar 27, 2019)
+
+-   Use of resolve path alias
+-   SubmitButton component
+
 ## v2.1.0 (Mar 26, 2019)
 
 -   Added close button drawer in mobile menu
