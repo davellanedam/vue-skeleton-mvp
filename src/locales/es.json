@@ -17,7 +17,7 @@
     "UNAUTHORIZED": "No autorizado",
     "EMAIL_ALREADY_EXISTS": "E-mail ya existe",
     "ID_MALFORMED": "ID malformado",
-    "BAD_FORMAT_FOR_FILTER_USE_JSON_FORMAT": "Mal formato para el filtro, use format JSON",
+    "ERROR_WITH_FILTER": "Error con el filtro",
     "CITY_ALREADY_EXISTS": "Ciudad ya existe"
   },
   "common": {
