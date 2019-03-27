@@ -10,7 +10,7 @@ axios.defaults.headers.common['Accept-Language'] =
 axios.interceptors.request.use(
   config => {
     // Do something before request is sent
-    // If request is different than any if the URLS in urlsExcludedForBearerHeader
+    // If request is different than any of the URLS in urlsExcludedForBearerHeader
     // then send Authorization header with token from localstorage
     const urlsExcludedForBearerHeader = [
       '/login',
