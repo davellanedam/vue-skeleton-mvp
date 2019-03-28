@@ -1,3 +1,7 @@
+## v2.2.1 (Mar 28, 2019)
+
+-   NPM update
+
 ## v2.2.0 (Mar 27, 2019)
 
 -   Use of resolve path alias
