@@ -6,6 +6,7 @@ import { store } from '@/store'
 import update from '@/services/api/updateSite'
 import { compareVersion } from '@/utils/utils.js'
 import { addMinutes, isPast } from 'date-fns'
+import { isMobile } from 'mobile-device-detect'
 const MINUTES_TO_CHECK_FOR_UPDATES = 120
 
 Vue.use(Router)
@@ -64,11 +65,8 @@ const checkForUpdates = () => {
 }
 
 router.beforeEach((to, from, next) => {
-  const isInWebAppiOS = window.navigator.standalone === true
-  const isInWebAppChrome = window.matchMedia('(display-mode: standalone)')
-    .matches
-  // Checks if app is being used as stand alone
-  if (isInWebAppiOS || isInWebAppChrome) {
+  // Checks if app is being used in mobile
+  if (isMobile) {
     setLocalStorageVersionAndDate()
     checkForUpdates()
   }

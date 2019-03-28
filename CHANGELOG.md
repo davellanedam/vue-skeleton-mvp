@@ -1,3 +1,7 @@
+## v2.3.0 (Mar 28, 2019)
+
+-   FIX: Checks for app updates every 2 hours in case app is being used from mobile
+
 ## v2.2.1 (Mar 28, 2019)
 
 -   NPM update
