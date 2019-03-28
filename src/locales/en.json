@@ -1,5 +1,6 @@
 {
   "errors": {
+    "BAD_TOKEN": "Bad token",
     "WRONG_PASSWORD": "Wrong password",
     "USER_DOES_NOT_EXIST": "User does not exists",
     "PASSWORDS_DONT_MATCH": "Passwords don´t match",
