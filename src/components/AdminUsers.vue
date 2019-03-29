@@ -216,27 +216,31 @@
       class="elevation-1"
     >
       <template v-slot:items="props">
-        <td class="justify-center layout px-0">
-          <v-tooltip top>
-            <v-icon
-              slot="activator"
-              class="mt-3 mr-2"
-              small
-              @click="editItem(props.item)"
-              >edit</v-icon
-            >
-            <span>{{ $t('dataTable.EDIT') }}</span>
-          </v-tooltip>
-          <v-tooltip top>
-            <v-icon
-              slot="activator"
-              class="mt-3"
-              small
-              @click="deleteItem(props.item)"
-              >delete</v-icon
-            >
-            <span>{{ $t('dataTable.DELETE') }}</span>
-          </v-tooltip>
+        <td class="fill-height px-0">
+          <v-layout class="justify-center">
+            <v-tooltip top>
+              <v-btn
+                icon
+                class="mx-0"
+                slot="activator"
+                @click="editItem(props.item)"
+              >
+                <v-icon>edit</v-icon>
+              </v-btn>
+              <span>{{ $t('dataTable.EDIT') }}</span>
+            </v-tooltip>
+            <v-tooltip top>
+              <v-btn
+                icon
+                class="mx-0"
+                slot="activator"
+                @click="deleteItem(props.item)"
+              >
+                <v-icon>delete</v-icon>
+              </v-btn>
+              <span>{{ $t('dataTable.DELETE') }}</span>
+            </v-tooltip>
+          </v-layout>
         </td>
         <td>{{ props.item.name }}</td>
         <td>{{ props.item.email }}</td>

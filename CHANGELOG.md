@@ -1,3 +1,7 @@
+## v2.4.2 (Mar 29, 2019)
+
+-   FIX: Icons in datatables centered on any display size, also bigger to help mobile users.
+
 ## v2.4.1 (Mar 29, 2019)
 
 -   FIX: Got rid of UUoC (Useless use of cat) when creating version.manifest script
