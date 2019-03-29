@@ -51,7 +51,7 @@ describe('Admin Cities', () => {
       .type('A New City')
     cy.wait(1000)
     // Click and edit first element
-    cy.get('td > span.v-tooltip.v-tooltip--top')
+    cy.get('td > div > span.v-tooltip.v-tooltip--top')
       .eq(0)
       .click()
     cy.get('input[name=name]')
@@ -99,7 +99,7 @@ describe('Admin Cities', () => {
       .contains('A New City Edited')
 
     // Click and delete first element
-    cy.get('td > span.v-tooltip.v-tooltip--top')
+    cy.get('td > div > span.v-tooltip.v-tooltip--top')
       .eq(1)
       .click()
     cy.get('div.v-dialog.v-dialog--active').should('be.visible')

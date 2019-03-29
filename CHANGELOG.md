@@ -1,3 +1,7 @@
+## v2.4.3 (Mar 29, 2019)
+
+-   FIX: Tests for adminCities and adminUsers.
+
 ## v2.4.2 (Mar 29, 2019)
 
 -   FIX: Icons in datatables centered on any display size, also bigger to help mobile users.
