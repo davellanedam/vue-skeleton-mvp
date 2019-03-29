@@ -1,10 +1,14 @@
 import i18n from '@/i18n.js'
 import * as types from '@/store/mutation-types'
-import { format } from 'date-fns'
+import { addMinutes, isPast, format } from 'date-fns'
+import update from '@/services/api/updateSite'
+import { store } from '@/store'
+
 const localesDateFns = {
   en: require('date-fns/locale/en'),
   es: require('date-fns/locale/es')
 }
+const MINUTES_TO_CHECK_FOR_UPDATES = 120
 
 export const getFormat = (date, formatStr) => {
   return format(date, formatStr, {
@@ -107,4 +111,78 @@ export const compareVersion = (v1, v2) => {
     }
   }
   return v1.length === v2.length ? 0 : v1.length < v2.length ? -1 : 1
+}
+
+// If no localstorage appVersion or checkForAppUpdatesAt have been set, then set them
+export const setLocalStorageVersionAndDateForUpdates = () => {
+  if (
+    window.localStorage.getItem('appVersion') === null ||
+    window.localStorage.getItem('checkForAppUpdatesAt') === null
+  ) {
+    window.localStorage.setItem('appVersion', '"1.0.0"')
+    window.localStorage.setItem(
+      'checkForAppUpdatesAt',
+      JSON.stringify(format(new Date(), 'X'))
+    )
+  }
+}
+
+// This is useful for iOS due the cache when app is added to home screen.
+export const checkIfUpdateIsNeeded = (localVersion, appVersion) => {
+  // Set new date/time for next update check
+  window.localStorage.setItem(
+    'checkForAppUpdatesAt',
+    JSON.stringify(
+      format(addMinutes(new Date(), MINUTES_TO_CHECK_FOR_UPDATES), 'X')
+    )
+  )
+  // Compare versions, if result is -1 (localVersion is lower than appVersion)
+  // there is a new version available, so refresh page
+  if (compareVersion(localVersion, appVersion) === -1) {
+    window.localStorage.setItem('appVersion', JSON.stringify(appVersion))
+    // Reload page
+    window.location.reload(true)
+  }
+}
+
+// Gets file from axios at url SERVER/version.manifest
+export const checkForUpdates = () => {
+  setLocalStorageVersionAndDateForUpdates()
+  // Checks if checkForAppUpdatesAt set in localstorage is past to check for updates
+  if (
+    isPast(
+      new Date(
+        JSON.parse(window.localStorage.getItem('checkForAppUpdatesAt')) * 1000
+      )
+    )
+  ) {
+    update.checkIfUpdatedSiteVersion().then(response => {
+      if (response.status === 200) {
+        // Get localVersion from localstorage
+        const localVersion = JSON.parse(
+          window.localStorage.getItem('appVersion')
+        )
+        // Get appVersion from response
+        const appVersion = response.data.trim()
+        // Checks if an update is needed
+        checkIfUpdateIsNeeded(localVersion, appVersion)
+      }
+    })
+  }
+}
+
+// Checks if tokenExpiration in localstorage date is past, if so then trigger an update
+export const checkIfTokenNeedsRefresh = () => {
+  // Checks if time set in localstorage is past to check for refresh token
+  if (window.localStorage.getItem('tokenExpiration') !== null) {
+    if (
+      isPast(
+        new Date(
+          JSON.parse(window.localStorage.getItem('tokenExpiration')) * 1000
+        )
+      )
+    ) {
+      store.dispatch('refreshToken')
+    }
+  }
 }
