@@ -174,7 +174,10 @@ export const checkForUpdates = () => {
 // Checks if tokenExpiration in localstorage date is past, if so then trigger an update
 export const checkIfTokenNeedsRefresh = () => {
   // Checks if time set in localstorage is past to check for refresh token
-  if (window.localStorage.getItem('tokenExpiration') !== null) {
+  if (
+    window.localStorage.getItem('token') !== null &&
+    window.localStorage.getItem('tokenExpiration') !== null
+  ) {
     if (
       isPast(
         new Date(
