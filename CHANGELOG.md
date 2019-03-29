@@ -1,3 +1,7 @@
+## v2.4.1 (Mar 29, 2019)
+
+-   FIX: Got rid of UUoC (Useless use of cat) when creating version.manifest script
+
 ## v2.4.0 (Mar 29, 2019)
 
 -   FEATURE: Ability to refresh token when switching routes or making API calls
