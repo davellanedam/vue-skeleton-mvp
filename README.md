@@ -46,6 +46,7 @@ Feel free to send me a tweet <https://twitter.com/davellanedam>, share this with
 -   NPM script for keeping good source code formatting using prettier and ESLint.
 -   Use of ESLint for good coding practices.
 -   Use of prettier for beautiful format.
+-   Ability to refresh token
 -   JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` is the **signed and encrypted token** given in the response from the login process.
 
 ## Demo
