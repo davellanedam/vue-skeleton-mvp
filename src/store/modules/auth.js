@@ -2,12 +2,14 @@ import * as types from '@/store/mutation-types'
 import router from '@/router'
 import api from '@/services/api/auth'
 import { buildSuccess, handleError } from '@/utils/utils.js'
+import { addMinutes, format } from 'date-fns'
 
 const state = {
   user: null,
   token: JSON.parse(!!localStorage.getItem('token')) || null,
   isTokenSet: !!localStorage.getItem('token')
 }
+const MINUTES_TO_CHECK_FOR_TOKEN_REFRESH = 1440
 
 const getters = {
   user: state => state.user,
@@ -31,6 +33,15 @@ const actions = {
               'token',
               JSON.stringify(response.data.token)
             )
+            window.localStorage.setItem(
+              'tokenExpiration',
+              JSON.stringify(
+                format(
+                  addMinutes(new Date(), MINUTES_TO_CHECK_FOR_TOKEN_REFRESH),
+                  'X'
+                )
+              )
+            )
             commit(types.SAVE_USER, response.data.user)
             commit(types.SAVE_TOKEN, response.data.token)
             commit(types.EMAIL_VERIFIED, response.data.user.verified)
@@ -49,6 +60,34 @@ const actions = {
         })
     })
   },
+  refreshToken({ commit }) {
+    return new Promise((resolve, reject) => {
+      api
+        .refreshToken()
+        .then(response => {
+          if (response.status === 200) {
+            window.localStorage.setItem(
+              'token',
+              JSON.stringify(response.data.token)
+            )
+            window.localStorage.setItem(
+              'tokenExpiration',
+              JSON.stringify(
+                format(
+                  addMinutes(new Date(), MINUTES_TO_CHECK_FOR_TOKEN_REFRESH),
+                  'X'
+                )
+              )
+            )
+            commit(types.SAVE_TOKEN, response.data.token)
+            resolve()
+          }
+        })
+        .catch(error => {
+          handleError(error, commit, reject)
+        })
+    })
+  },
   autoLogin({ commit }) {
     const user = JSON.parse(localStorage.getItem('user'))
     commit(types.SAVE_USER, user)
@@ -58,6 +97,7 @@ const actions = {
   },
   userLogout({ commit }) {
     window.localStorage.removeItem('token')
+    window.localStorage.removeItem('tokenExpiration')
     window.localStorage.removeItem('user')
     commit(types.LOGOUT)
     router.push({

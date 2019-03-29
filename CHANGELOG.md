@@ -1,3 +1,7 @@
+## v2.4.0 (Mar 29, 2019)
+
+-   FEATURE: Ability to refresh token when switching routes or making API calls
+
 ## v2.3.0 (Mar 28, 2019)
 
 -   FIX: Checks for app updates every 2 hours in case app is being used from mobile
