@@ -1,3 +1,7 @@
+## v2.5.0 (Mar 30, 2019)
+
+-   FEATURE: Success and Error messages now have notification queue
+
 ## v2.4.3 (Mar 29, 2019)
 
 -   FIX: Tests for adminCities and adminUsers.
