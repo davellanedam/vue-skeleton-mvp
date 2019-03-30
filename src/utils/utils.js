@@ -72,7 +72,10 @@ export const handleError = (error, commit, reject) => {
     ? error.response.data.errors.msg
     : 'SERVER_TIMEOUT_CONNECTION_ERROR'
   commit(types.SHOW_LOADING, false)
-  commit(types.ERROR, errMsg)
+  commit(types.ERROR, null)
+  setTimeout(() => {
+    commit(types.ERROR, errMsg)
+  }, 0)
   reject(error)
 }
 
@@ -83,9 +86,10 @@ export const buildSuccess = (
   resolveParam = undefined
 ) => {
   commit(types.SHOW_LOADING, false)
-  if (msg) {
+  commit(types.SUCCESS, null)
+  setTimeout(() => {
     commit(types.SUCCESS, msg)
-  }
+  }, 0)
   commit(types.ERROR, null)
   resolve(resolveParam)
 }

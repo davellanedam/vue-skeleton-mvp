@@ -43,15 +43,11 @@ export default {
     }
   },
   watch: {
-    successMessage(value) {
-      if (value) {
+    successMessage() {
+      this.showSuccessMessage = false
+      setTimeout(() => {
         this.showSuccessMessage = true
-      }
-    },
-    showSuccessMessage(value) {
-      if (!value) {
-        this.$store.commit(types.SUCCESS, null)
-      }
+      }, 100)
     }
   }
 }
