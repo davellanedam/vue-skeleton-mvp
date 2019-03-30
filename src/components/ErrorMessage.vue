@@ -37,15 +37,11 @@ export default {
     }
   },
   watch: {
-    error(value) {
-      if (value) {
+    error() {
+      this.showErrorMessage = false
+      setTimeout(() => {
         this.showErrorMessage = true
-      }
-    },
-    showErrorMessage(value) {
-      if (!value) {
-        this.$store.commit(types.ERROR, null)
-      }
+      }, 100)
     }
   }
 }
