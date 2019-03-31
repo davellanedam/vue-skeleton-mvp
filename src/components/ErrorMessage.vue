@@ -26,21 +26,23 @@ import * as types from '@/store/mutation-types'
 import { formatErrorMessages } from '@/utils/utils.js'
 
 export default {
-  data() {
-    return {
-      showErrorMessage: false
-    }
-  },
   computed: {
+    showErrorMessage: {
+      get() {
+        return this.$store.state.error.showErrorMessage
+      },
+      set(value) {
+        this.$store.commit(types.SHOW_ERROR, value)
+      }
+    },
     error() {
       return formatErrorMessages('errors', this.$store.state.error.errorMessage)
     }
   },
   watch: {
     error() {
-      this.showErrorMessage = false
       setTimeout(() => {
-        this.showErrorMessage = true
+        this.showErrorMessage = this.error === null ? false : true
       }, 100)
     }
   }

@@ -23,12 +23,15 @@
 import * as types from '@/store/mutation-types'
 
 export default {
-  data() {
-    return {
-      showSuccessMessage: false
-    }
-  },
   computed: {
+    showSuccessMessage: {
+      get() {
+        return this.$store.state.success.showSuccessMessage
+      },
+      set(value) {
+        this.$store.commit(types.SHOW_SUCCESS, value)
+      }
+    },
     successMessage() {
       if (this.$store.state.success.successMessageParams) {
         return this.$i18n.t(this.$store.state.success.successMessage, [
@@ -44,9 +47,8 @@ export default {
   },
   watch: {
     successMessage() {
-      this.showSuccessMessage = false
       setTimeout(() => {
-        this.showSuccessMessage = true
+        this.showSuccessMessage = this.successMessage === '' ? false : true
       }, 100)
     }
   }
