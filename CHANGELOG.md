@@ -1,3 +1,7 @@
+## v2.5.1 (Mar 30, 2019)
+
+-   WORKAROUND: Vuetify Datatables has a bug in Safari on Mac and iOS, did a small workaround
+
 ## v2.5.0 (Mar 30, 2019)
 
 -   FEATURE: Success and Error messages now have notification queue

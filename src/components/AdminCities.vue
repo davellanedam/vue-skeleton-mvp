@@ -326,3 +326,9 @@ export default {
   }
 }
 </script>
+
+<style>
+table.v-table {
+  max-width: none;
+}
+</style>
