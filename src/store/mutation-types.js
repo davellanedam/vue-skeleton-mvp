@@ -1,8 +1,10 @@
 // locale
 export const SET_LOCALE = 'SET_LOCALE'
 // error
+export const SHOW_ERROR = 'SHOW_ERROR'
 export const ERROR = 'ERROR'
 // success
+export const SHOW_SUCCESS = 'SHOW_SUCCESS'
 export const SUCCESS = 'SUCCESS'
 // loading
 export const SHOW_LOADING = 'SHOW_LOADING'

@@ -5,6 +5,7 @@ import routes from '@/router/routes'
 import { store } from '@/store'
 import { isMobile } from 'mobile-device-detect'
 import { checkForUpdates, checkIfTokenNeedsRefresh } from '@/utils/utils.js'
+import * as types from '@/store/mutation-types'
 
 Vue.use(Router)
 Vue.use(Meta)
@@ -26,6 +27,8 @@ router.beforeEach((to, from, next) => {
     return next('/login')
   } else {
     checkIfTokenNeedsRefresh()
+    store.commit(types.SHOW_SUCCESS, false)
+    store.commit(types.SHOW_ERROR, false)
     return next()
   }
 })

@@ -74,7 +74,7 @@ export const handleError = (error, commit, reject) => {
   commit(types.SHOW_LOADING, false)
   commit(types.ERROR, null)
   setTimeout(() => {
-    commit(types.ERROR, errMsg)
+    errMsg ? commit(types.ERROR, errMsg) : commit(types.SHOW_ERROR, false)
   }, 0)
   reject(error)
 }
@@ -88,7 +88,7 @@ export const buildSuccess = (
   commit(types.SHOW_LOADING, false)
   commit(types.SUCCESS, null)
   setTimeout(() => {
-    commit(types.SUCCESS, msg)
+    msg ? commit(types.SUCCESS, msg) : commit(types.SHOW_SUCCESS, false)
   }, 0)
   commit(types.ERROR, null)
   resolve(resolveParam)
