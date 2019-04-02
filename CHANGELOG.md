@@ -1,3 +1,7 @@
+## v2.6.1 (Apr 2, 2019)
+
+-   NPM update
+
 ## v2.6.0 (Mar 31, 2019)
 
 -   IMPROVEMENT: Success and Error messages now have notification queue
