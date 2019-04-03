@@ -56,9 +56,6 @@
 
 <script>
 import router from '@/router'
-import Heading from '@/components/common/Heading.vue'
-import ErrorMessage from '@/components/common/ErrorMessage.vue'
-import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -73,11 +70,6 @@ export default {
       email: '',
       password: ''
     }
-  },
-  components: {
-    Heading,
-    ErrorMessage,
-    SubmitButton
   },
   methods: {
     ...mapActions(['userLogin']),

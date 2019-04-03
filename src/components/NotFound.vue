@@ -5,13 +5,3 @@
     </v-layout>
   </v-container>
 </template>
-
-<script>
-import Heading from '@/components/common/Heading.vue'
-
-export default {
-  components: {
-    Heading
-  }
-}
-</script>

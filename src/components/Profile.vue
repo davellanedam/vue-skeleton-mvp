@@ -215,10 +215,6 @@
 </template>
 
 <script>
-import Heading from '@/components/common/Heading.vue'
-import ErrorMessage from '@/components/common/ErrorMessage.vue'
-import SuccessMessage from '@/components/common/SuccessMessage.vue'
-import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -237,12 +233,6 @@ export default {
       confirmPassword: '',
       searchInput: ''
     }
-  },
-  components: {
-    Heading,
-    ErrorMessage,
-    SuccessMessage,
-    SubmitButton
   },
   computed: {
     name: {

@@ -38,11 +38,6 @@
 
 <script>
 import router from '@/router'
-import Heading from '@/components/common/Heading.vue'
-import Description from '@/components/common/Description.vue'
-import ErrorMessage from '@/components/common/ErrorMessage.vue'
-import SuccessMessage from '@/components/common/SuccessMessage.vue'
-import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -56,13 +51,6 @@ export default {
     return {
       email: ''
     }
-  },
-  components: {
-    Heading,
-    Description,
-    ErrorMessage,
-    SuccessMessage,
-    SubmitButton
   },
   methods: {
     ...mapActions(['forgotPassword']),

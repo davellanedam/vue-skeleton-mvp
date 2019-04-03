@@ -143,8 +143,6 @@
 
 <script>
 import { mapActions } from 'vuex'
-import ErrorMessage from '@/components/common/ErrorMessage.vue'
-import SuccessMessage from '@/components/common/SuccessMessage.vue'
 import { getFormat, buildPayloadPagination } from '@/utils/utils.js'
 
 export default {
@@ -153,10 +151,6 @@ export default {
       title: this.$store.getters.appTitle,
       titleTemplate: this.$t('cities.TITLE') + ' - %s'
     }
-  },
-  components: {
-    ErrorMessage,
-    SuccessMessage
   },
   data() {
     return {

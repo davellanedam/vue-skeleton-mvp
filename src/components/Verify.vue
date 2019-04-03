@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import ErrorMessage from '@/components/common/ErrorMessage.vue'
-import SuccessMessage from '@/components/common/SuccessMessage.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -19,10 +17,6 @@ export default {
       title: this.$store.getters.appTitle,
       titleTemplate: this.$t('verify.TITLE') + ' - %s'
     }
-  },
-  components: {
-    ErrorMessage,
-    SuccessMessage
   },
   methods: {
     ...mapActions(['sendVerify'])
