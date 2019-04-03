@@ -1,3 +1,7 @@
+## v3.1.0 (Apr 3, 2019)
+
+-   Common components imported as a plugin
+
 ## v3.0.0 (Apr 3, 2019)
 
 -   Toolbar component
