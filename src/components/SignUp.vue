@@ -1,9 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex xs12 text-xs-center mt-5 mb-3>
-        <h1 class="display-2 font-weight-bold">{{ $t('signup.TITLE') }}</h1>
-      </v-flex>
+      <Heading :title="$t('signup.TITLE')" />
       <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="submit">
           <v-layout column>
@@ -69,13 +67,14 @@
           </v-layout>
         </form>
       </v-flex>
-      <error-message />
+      <ErrorMessage />
     </v-layout>
   </v-container>
 </template>
 
 <script>
 import router from '@/router'
+import Heading from '@/components/common/Heading.vue'
 import ErrorMessage from '@/components/common/ErrorMessage.vue'
 import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
@@ -96,6 +95,7 @@ export default {
     }
   },
   components: {
+    Heading,
     ErrorMessage,
     SubmitButton
   },

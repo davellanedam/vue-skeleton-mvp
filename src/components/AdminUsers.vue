@@ -259,8 +259,8 @@
       <template v-slot:no-data>{{ $t('dataTable.NO_DATA') }}</template>
       <template v-slot:no-results>{{ $t('dataTable.NO_RESULTS') }}</template>
     </v-data-table>
-    <error-message />
-    <success-message />
+    <ErrorMessage />
+    <SuccessMessage />
   </div>
 </template>
 

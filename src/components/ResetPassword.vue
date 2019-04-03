@@ -2,9 +2,7 @@
   <v-container fluid>
     <v-layout row wrap>
       <v-flex xs12 text-xs-center mt-5 mb-3>
-        <h1 class="display-2 font-weight-bold">
-          {{ $t('resetPassword.TITLE') }}
-        </h1>
+        <Heading :title="$t('resetPassword.TITLE')" />
       </v-flex>
       <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="submit">
@@ -44,14 +42,15 @@
           </v-layout>
         </form>
       </v-flex>
-      <error-message />
-      <success-message />
+      <ErrorMessage />
+      <SuccessMessage />
     </v-layout>
   </v-container>
 </template>
 
 <script>
 import router from '@/router'
+import Heading from '@/components/common/Heading.vue'
 import ErrorMessage from '@/components/common/ErrorMessage.vue'
 import SuccessMessage from '@/components/common/SuccessMessage.vue'
 import SubmitButton from '@/components/common/SubmitButton.vue'
@@ -72,6 +71,7 @@ export default {
     }
   },
   components: {
+    Heading,
     ErrorMessage,
     SuccessMessage,
     SubmitButton

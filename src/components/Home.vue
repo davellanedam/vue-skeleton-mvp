@@ -28,15 +28,16 @@
           </v-card>
         </v-dialog>
       </div>
-      <v-flex xs12 text-xs-center mt-5 mb-3>
-        <h1 class="display-2 font-weight-bold">{{ $t('home.TITLE') }}</h1>
-      </v-flex>
-      <v-flex xs12 text-xs-center mb-2>{{ $t('home.DESCRIPTION') }}</v-flex>
+      <Heading :title="$t('home.TITLE')" />
+      <Description :description="$t('home.DESCRIPTION')" />
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import Heading from '@/components/common/Heading.vue'
+import Description from '@/components/common/Description.vue'
+
 export default {
   metaInfo() {
     return {
@@ -48,6 +49,10 @@ export default {
     return {
       showVerifyDialog: !this.$store.state.verify.emailVerified
     }
+  },
+  components: {
+    Heading,
+    Description
   }
 }
 </script>

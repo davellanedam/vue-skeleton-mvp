@@ -23,6 +23,7 @@
 import * as types from '@/store/mutation-types'
 
 export default {
+  name: 'SuccessMessage',
   computed: {
     showSuccessMessage: {
       get() {
