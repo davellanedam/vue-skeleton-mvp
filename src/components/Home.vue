@@ -35,9 +35,6 @@
 </template>
 
 <script>
-import Heading from '@/components/common/Heading.vue'
-import Description from '@/components/common/Description.vue'
-
 export default {
   metaInfo() {
     return {
@@ -49,10 +46,6 @@ export default {
     return {
       showVerifyDialog: !this.$store.state.verify.emailVerified
     }
-  },
-  components: {
-    Heading,
-    Description
   }
 }
 </script>
