@@ -217,8 +217,8 @@
 </template>
 
 <script>
-import ErrorMessage from '@/components/ErrorMessage.vue'
-import SuccessMessage from '@/components/SuccessMessage.vue'
+import ErrorMessage from '@/components/common/ErrorMessage.vue'
+import SuccessMessage from '@/components/common/SuccessMessage.vue'
 import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 

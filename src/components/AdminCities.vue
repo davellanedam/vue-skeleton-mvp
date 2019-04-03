@@ -143,8 +143,8 @@
 
 <script>
 import { mapActions } from 'vuex'
-import ErrorMessage from '@/components/ErrorMessage.vue'
-import SuccessMessage from '@/components/SuccessMessage.vue'
+import ErrorMessage from '@/components/common/ErrorMessage.vue'
+import SuccessMessage from '@/components/common/SuccessMessage.vue'
 import { getFormat, buildPayloadPagination } from '@/utils/utils.js'
 
 export default {
