@@ -1,9 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex xs12 text-xs-center mt-5 mb-3>
-        <h1 class="display-2 font-weight-bold">{{ $t('myProfile.TITLE') }}</h1>
-      </v-flex>
+      <Heading :title="$t('myProfile.TITLE')" />
       <v-flex xs12 sm8 offset-sm2>
         <v-dialog v-model="dialog" max-width="400px">
           <template v-slot:activator="{ on }">
@@ -210,15 +208,16 @@
           </v-container>
         </form>
       </v-flex>
-      <error-message />
-      <success-message />
+      <ErrorMessage />
+      <SuccessMessage />
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import ErrorMessage from '@/components/ErrorMessage.vue'
-import SuccessMessage from '@/components/SuccessMessage.vue'
+import Heading from '@/components/common/Heading.vue'
+import ErrorMessage from '@/components/common/ErrorMessage.vue'
+import SuccessMessage from '@/components/common/SuccessMessage.vue'
 import SubmitButton from '@/components/common/SubmitButton.vue'
 import { mapActions } from 'vuex'
 
@@ -240,6 +239,7 @@ export default {
     }
   },
   components: {
+    Heading,
     ErrorMessage,
     SuccessMessage,
     SubmitButton

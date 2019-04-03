@@ -136,15 +136,15 @@
       <template v-slot:no-data>{{ $t('dataTable.NO_DATA') }}</template>
       <template v-slot:no-results>{{ $t('dataTable.NO_RESULTS') }}</template>
     </v-data-table>
-    <error-message />
-    <success-message />
+    <ErrorMessage />
+    <SuccessMessage />
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import ErrorMessage from '@/components/ErrorMessage.vue'
-import SuccessMessage from '@/components/SuccessMessage.vue'
+import ErrorMessage from '@/components/common/ErrorMessage.vue'
+import SuccessMessage from '@/components/common/SuccessMessage.vue'
 import { getFormat, buildPayloadPagination } from '@/utils/utils.js'
 
 export default {

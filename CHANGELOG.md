@@ -1,3 +1,10 @@
+## v3.0.0 (Apr 3, 2019)
+
+-   Toolbar component
+-   Success and error components moved to /common
+-   Heading and description components
+-   NPM update
+
 ## v2.6.1 (Apr 2, 2019)
 
 -   NPM update

@@ -26,6 +26,7 @@ import * as types from '@/store/mutation-types'
 import { formatErrorMessages } from '@/utils/utils.js'
 
 export default {
+  name: 'ErrorMessage',
   computed: {
     showErrorMessage: {
       get() {
