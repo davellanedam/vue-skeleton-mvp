@@ -3,7 +3,10 @@ import i18n from '@/i18n'
 import { Validator } from 'vee-validate'
 
 const state = {
-  locale: JSON.parse(localStorage.getItem('locale')) || 'en'
+  locale:
+    JSON.parse(localStorage.getItem('locale')) ||
+    navigator.language.slice(0, 2) ||
+    'en'
 }
 
 const getters = {
