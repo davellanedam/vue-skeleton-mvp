@@ -1,3 +1,7 @@
+## v3.2.0 (Apr 5, 2019)
+
+-   Browser language is now automatically detected
+
 ## v3.1.0 (Apr 3, 2019)
 
 -   Common components imported as a plugin
