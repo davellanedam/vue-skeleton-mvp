@@ -27,8 +27,8 @@ router.beforeEach((to, from, next) => {
     return next('/login')
   } else {
     checkIfTokenNeedsRefresh()
-    store.commit(types.SHOW_SUCCESS, false)
-    store.commit(types.SHOW_ERROR, false)
+    store.commit(types.SUCCESS, null)
+    store.commit(types.ERROR, null)
     return next()
   }
 })
