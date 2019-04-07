@@ -1,3 +1,7 @@
+## v3.2.1 (Apr 7, 2019)
+
+-   Fix notifications when switching locale
+
 ## v3.2.0 (Apr 5, 2019)
 
 -   Browser language is now automatically detected
