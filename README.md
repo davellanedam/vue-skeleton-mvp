@@ -15,7 +15,7 @@ This project is created to help other developers create a **basic VueJS app in a
 
 ## Buy me a coffee
 
-Hi! I'm Daniel Avellaneda, I'm currently an open source enthusiast and dedicate my free time to open source projects.
+Hi! I'm Daniel Avellaneda, I'm currently an open source enthusiast and devote my free time to open source projects.
 
 I'm the creator and maintainer of [node-express-mongodb-jwt-rest-api-skeleton](https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton/blob/master/README.md) and [vue-skeleton-mvp](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/README.md) both with thousands of downloads. These projects are what I call a Free starter web app combo: API + Frontend.
 
