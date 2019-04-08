@@ -36,6 +36,10 @@
   "loading": {
     "PLEASE_WAIT": "Please wait..."
   },
+  "footer": {
+    "MADE_WITH": "Made with",
+    "BY": "by"
+  },
   "menuItems": {
     "LANDING": "Landing",
     "HOME": "Home",
@@ -91,7 +95,12 @@
   },
   "landing": {
     "TITLE": "Landing",
-    "DESCRIPTION": "This page is publicly available"
+    "DESCRIPTION": "This page is publicly available.",
+    "BUY_ME_A_COFFEE": "I'm doing my best to provide you a good experience when using my apps, so if you like what I'm doing and wish to say \"thanks!\", please buy me a coffee",
+    "DESCRIPTION_VUE": "This project is created to help other web developers create a basic VueJS app in an easy way.",
+    "DESCRIPTION_API": "Demo is also linked to a Node.js express.js MongoDB JWT REST API project that shows how this frontend can be integrated to an API.",
+    "API_DOCUMENTATION": "API documentation",
+    "FRONTEND_DOCUMENTATION": "Frontend documentation"
   },
   "home": {
     "TITLE": "Protected Home",
@@ -106,7 +115,7 @@
   },
   "login": {
     "TITLE": "Login",
-    "DESCRIPTION": "This is a demo. Database resets every 30 mins like \"12:00am, 12:30am, 1:00am\" and so on. So anything you do will be lost after a short time.<br />E-mail: admin@admin.com <br />Password: 12345",
+    "DESCRIPTION": "This is a demo. Database resets every 30 mins. So anything you do will be lost after a short time.<br />E-mail: admin@admin.com <br />Password: 12345",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
     "LOGIN": "Login",
