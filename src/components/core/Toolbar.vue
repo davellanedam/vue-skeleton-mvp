@@ -22,7 +22,7 @@
           <v-list-tile-content>{{ item.title }}</v-list-tile-content>
         </v-list-tile>
 
-        <v-list-group v-if="admin" prepend-icon="build" no-action>
+        <v-list-group v-if="admin" prepend-icon="mdi-lock" no-action>
           <v-list-tile slot="activator">
             <v-list-tile-title>{{ $t('adminItems.ADMIN') }}</v-list-tile-title>
           </v-list-tile>
@@ -41,7 +41,7 @@
 
         <v-list-tile v-if="isTokenSet" @click="userLogout">
           <v-list-tile-action>
-            <v-icon>exit_to_app</v-icon>
+            <v-icon>mdi-exit-to-app</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
             {{ $t('menuItems.LOGOUT') }}
@@ -87,7 +87,7 @@
 
         <v-menu v-if="admin" offset-y class="hidden-sm-and-down">
           <v-btn slot="activator" flat class="btnAdmin">
-            <v-icon>build</v-icon>
+            <v-icon>mdi-lock</v-icon>
             &nbsp;{{ $t('adminItems.ADMIN') }}
           </v-btn>
           <v-list>
@@ -113,7 +113,7 @@
           @click="userLogout"
           class="hidden-sm-and-down btnLogout"
         >
-          <v-icon left>exit_to_app</v-icon>
+          <v-icon left>mdi-exit-to-app</v-icon>
           {{ $t('menuItems.LOGOUT') }}
         </v-btn>
         <LocaleChanger />
@@ -193,13 +193,13 @@ export default {
         {
           title: this.$t('adminItems.CITIES'),
           link: 'admin-cities',
-          icon: 'location_city',
+          icon: 'mdi-city',
           class: 'btnAdminCities'
         },
         {
           title: this.$t('adminItems.USERS'),
           link: 'admin-users',
-          icon: 'supervisor_account',
+          icon: 'mdi-account-supervisor',
           class: 'btnAdminUsers'
         }
       ]
@@ -210,41 +210,45 @@ export default {
           {
             title: this.$t('menuItems.HOME'),
             link: 'home',
-            icon: 'home',
+            icon: 'mdi-home',
             class: 'btnHome'
           },
           {
             title: this.$t('menuItems.ABOUT'),
             link: 'about',
-            icon: 'help_outline',
+            icon: 'mdi-help-circle-outline',
             class: 'btnAbout'
           },
           {
             title: this.$t('menuItems.MY_PROFILE'),
             link: 'profile',
-            icon: 'face',
+            icon: 'mdi-face',
             class: 'btnProfile'
           }
         ]
       } else {
         return [
-          { title: this.$t('menuItems.HOME'), link: 'landing', icon: 'home' },
+          {
+            title: this.$t('menuItems.HOME'),
+            link: 'landing',
+            icon: 'mdi-home'
+          },
           {
             title: this.$t('menuItems.ABOUT'),
             link: 'about',
-            icon: 'help_outline',
+            icon: 'mdi-help-circle-outline',
             class: 'btnAbout'
           },
           {
             title: this.$t('menuItems.LOGIN'),
             link: 'login',
-            icon: 'lock',
+            icon: 'mdi-lock',
             class: 'btnLogin'
           },
           {
             title: this.$t('menuItems.SIGNUP'),
             link: 'signup',
-            icon: 'add_circle_outline',
+            icon: 'mdi-plus-circle-outline',
             class: 'btnLogin'
           }
         ]
