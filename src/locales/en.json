@@ -106,6 +106,7 @@
   },
   "login": {
     "TITLE": "Login",
+    "DESCRIPTION": "This is a demo. Database resets every 30 mins like \"12:00am, 12:30am, 1:00am\" and so on. So anything you do will be lost after a short time.<br />E-mail: admin@admin.com <br />Password: 12345",
     "EMAIL": "E-mail",
     "PASSWORD": "Password",
     "LOGIN": "Login",

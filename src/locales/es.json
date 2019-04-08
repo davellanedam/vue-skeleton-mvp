@@ -106,6 +106,7 @@
   },
   "login": {
     "TITLE": "Ingresar",
+    "DESCRIPTION": "Este es un demo. La base de datos se purga cada 30 minutos \"12:00am, 12:30am, 1:00am\" y así sucesivamente. Cualquier cambio que se realice se perderá luego de este tiempo.<br />E-mail: admin@admin.com <br />Password: 12345",
     "EMAIL": "E-mail",
     "PASSWORD": "Contraseña",
     "LOGIN": "Ingresar",
