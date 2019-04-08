@@ -1,3 +1,7 @@
+## v3.2.2 (Apr 9, 2019)
+
+-   NPM updated
+
 ## v3.2.1 (Apr 7, 2019)
 
 -   Fix notifications when switching locale
