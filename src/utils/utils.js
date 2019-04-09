@@ -160,18 +160,24 @@ export const checkForUpdates = () => {
       )
     )
   ) {
-    update.checkIfUpdatedSiteVersion().then(response => {
-      if (response.status === 200) {
-        // Get localVersion from localstorage
-        const localVersion = JSON.parse(
-          window.localStorage.getItem('appVersion')
-        )
-        // Get appVersion from response
-        const appVersion = response.data.trim()
-        // Checks if an update is needed
-        checkIfUpdateIsNeeded(localVersion, appVersion)
-      }
-    })
+    update
+      .checkIfUpdatedSiteVersion()
+      .then(response => {
+        if (response.status === 200) {
+          // Get localVersion from localstorage
+          const localVersion = JSON.parse(
+            window.localStorage.getItem('appVersion')
+          )
+          // Get appVersion from response
+          const appVersion = response.data.trim()
+          // Checks if an update is needed
+          checkIfUpdateIsNeeded(localVersion, appVersion)
+        }
+      })
+      // eslint-disable-next-line no-unused-vars
+      .catch(error => {
+        return
+      })
   }
 }
 

@@ -26,7 +26,7 @@
         >https://github.com/davellanedam/vue-skeleton-mvp</a
       >
     </v-flex>
-    <v-flex xs12 text-xs-center mb-5>
+    <v-flex xs12 text-xs-center>
       {{ $t('landing.DESCRIPTION_API') }}
       <br />
       <br />
