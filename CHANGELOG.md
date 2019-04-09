@@ -1,3 +1,8 @@
+## v3.3.3 (Apr 10, 2019)
+
+-   Fix: mobile update error catched
+-   Fix: footer margins
+
 ## v3.3.2 (Apr 9, 2019)
 
 -   Footer component
