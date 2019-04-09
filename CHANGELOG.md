@@ -1,3 +1,7 @@
+## v3.5.1 (Apr 9, 2019)
+
+-   Google Analytics only in production mode
+
 ## v3.5.0 (Apr 9, 2019)
 
 -   Google Analytics only in production mode
