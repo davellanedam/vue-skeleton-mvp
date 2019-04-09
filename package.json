@@ -51,7 +51,7 @@
     "faker": "^4.1.0",
     "fibers": "^3.1.1",
     "prettier": "^1.16.4",
-    "sass": "^1.17.4",
+    "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
