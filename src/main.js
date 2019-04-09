@@ -6,6 +6,7 @@ import App from '@/App.vue'
 import router from '@/router'
 import { store } from '@/store'
 import i18n from '@/i18n'
+import ga from '@/ga'
 
 Vue.config.productionTip = false
 
@@ -13,6 +14,7 @@ const app = new Vue({
   router,
   store,
   i18n,
+  ga,
   render: h => h(App),
   created() {
     store.dispatch('setLocale', store.getters.locale)
