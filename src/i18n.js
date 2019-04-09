@@ -3,6 +3,14 @@ import VueI18n from 'vue-i18n'
 import VeeValidate from 'vee-validate'
 import en from 'vee-validate/dist/locale/en'
 import es from 'vee-validate/dist/locale/es'
+import VueAnalytics from 'vue-analytics'
+
+// Use Google Analytics only in production mode
+if (process.env.NODE_ENV === 'production') {
+  Vue.use(VueAnalytics, {
+    id: process.env.VUE_APP_GOOGLE_ANALYTICS_CODE
+  })
+}
 
 Vue.use(VueI18n)
 

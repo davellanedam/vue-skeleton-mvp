@@ -25,6 +25,7 @@
     "remark-cli": "^6.0.1",
     "vee-validate": "^2.2.2",
     "vue": "^2.6.10",
+    "vue-analytics": "^5.16.4",
     "vue-country-flag": "^1.1.0",
     "vue-i18n": "^8.10.0",
     "vue-meta": "^1.6.0",

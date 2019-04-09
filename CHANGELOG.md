@@ -1,13 +1,18 @@
-## v3.3.5 (Apr 10, 2019)
+## v3.4.0 (Apr 9, 2019)
+
+-   NPM updated
+-   Google Analytics only in production mode
+
+## v3.3.5 (Apr 9, 2019)
 
 -   Default version.manifest
 
-## v3.3.4 (Apr 10, 2019)
+## v3.3.4 (Apr 9, 2019)
 
 -   Tranlations
 -   NPM updated
 
-## v3.3.3 (Apr 10, 2019)
+## v3.3.3 (Apr 9, 2019)
 
 -   Fix: mobile update error catched
 -   Fix: footer margins

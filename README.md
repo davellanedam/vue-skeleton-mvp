@@ -15,9 +15,13 @@ This project is created to help other developers create a **basic VueJS app in a
 
 ## Buy me a coffee
 
-Hi! I'm Daniel Avellaneda, I'm currently an open source enthusiast and devote my free time to open source projects.
+Hi! I'm Daniel Avellaneda, I'm an open source enthusiast and devote my free time to building projects in this field.
 
-I'm the creator and maintainer of [node-express-mongodb-jwt-rest-api-skeleton](https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton/blob/master/README.md) and [vue-skeleton-mvp](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/README.md) both with thousands of downloads. These projects are what I call a Free starter web app combo: API + Frontend.
+I'm the creator and maintainer of [node-express-mongodb-jwt-rest-api-skeleton](https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton/blob/master/README.md) and [vue-skeleton-mvp](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/README.md)
+
+These projects are a "starter web app kit" for any developer who wants to build their own app without starting from scratch: API + Frontend
+
+Both projects have been downloaded thousands of times by web developers around the world.
 
 I'm doing my best to provide you a good experience when using my apps, so if you like what I'm doing and wish to say "thanks!", please buy me a coffee :coffee:
 
@@ -32,6 +36,7 @@ Feel free to send me a tweet <https://twitter.com/davellanedam>, share this with
 -   Vue router
 -   Vuex
 -   i18n ready.
+-   Google Analytics ready.
 -   Ready to add to home screen in iOS and Chrome, checks if there´s an app update every 2 hours and reloads page (When a web app is added as stand alone there´s no reload button in the browser so new .js files from a new build never get loaded)
 -   Landing page.
 -   Protected home page.
