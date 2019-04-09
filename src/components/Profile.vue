@@ -148,6 +148,7 @@
                   v-model="city"
                   :items="allCities"
                   clearable
+                  clear-icon="mdi-close"
                   :no-data-text="$t('myProfile.NO_RESULTS_FOUND')"
                   :data-vv-as="$t('myProfile.CITY')"
                   :error="errors.has('city')"
