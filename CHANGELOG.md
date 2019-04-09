@@ -1,3 +1,7 @@
+## v3.3.5 (Apr 10, 2019)
+
+-   Default version.manifest
+
 ## v3.3.4 (Apr 10, 2019)
 
 -   Tranlations
