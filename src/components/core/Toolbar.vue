@@ -6,7 +6,7 @@
           <v-list-tile-content>{{ appTitle }}</v-list-tile-content>
           <v-list-tile-action>
             <v-btn icon @click.stop="sidebar = !sidebar">
-              <v-icon>chevron_left</v-icon>
+              <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
           </v-list-tile-action>
         </v-list-tile>
