@@ -29,8 +29,8 @@
     "CLOSE": "Close",
     "SAVED_SUCCESSFULLY": "Saved successfully",
     "DELETED_SUCCESSFULLY": "Deleted successfully",
-    "CREATED": "Created",
-    "UPDATED": "Updated",
+    "CREATED": "Created At",
+    "UPDATED": "Updated At",
     "GO_BACK": "Go back"
   },
   "loading": {
