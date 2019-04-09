@@ -7,11 +7,12 @@
       <v-flex xs12 sm6 md4 px-3>
         <v-text-field
           v-model="search"
-          append-icon="search"
+          append-icon="mdi-magnify"
           :label="$t('dataTable.SEARCH')"
           single-line
           hide-details
           clearable
+          clear-icon="mdi-close"
         ></v-text-field>
       </v-flex>
       <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
@@ -22,7 +23,7 @@
         >
           <template v-slot:activator="{ on }">
             <v-btn color="secondary" v-on="on" class="btnNewItem pr-4">
-              <v-icon class="mr-2">add</v-icon>
+              <v-icon class="mr-2">mdi-plus</v-icon>
               {{ $t('dataTable.NEW_ITEM') }}
             </v-btn>
           </template>
@@ -108,7 +109,7 @@
                 slot="activator"
                 @click="editItem(props.item)"
               >
-                <v-icon>edit</v-icon>
+                <v-icon>mdi-pencil</v-icon>
               </v-btn>
               <span>{{ $t('dataTable.EDIT') }}</span>
             </v-tooltip>
@@ -119,7 +120,7 @@
                 slot="activator"
                 @click="deleteItem(props.item)"
               >
-                <v-icon>delete</v-icon>
+                <v-icon>mdi-delete</v-icon>
               </v-btn>
               <span>{{ $t('dataTable.DELETE') }}</span>
             </v-tooltip>

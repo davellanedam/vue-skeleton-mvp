@@ -8,7 +8,7 @@
               class="headline grey lighten-2 black--text dlgVerifyAccount"
               primary-title
             >
-              <v-icon class="orange--text">warning</v-icon>
+              <v-icon class="orange--text">mdi-information</v-icon>
               &nbsp;{{ $t('home.VERIFY_YOUR_ACCOUNT') }}
             </v-card-title>
             <v-card-text>
@@ -31,6 +31,7 @@
       <Heading :title="$t('home.TITLE')" />
       <Description :description="$t('home.DESCRIPTION')" />
     </v-layout>
+    <ProjectDescription />
   </v-container>
 </template>
 

@@ -22,7 +22,7 @@
             </v-flex>
             <v-flex text-xs-center mt-5>
               <v-btn color="secondary" @click="goBack()">
-                <v-icon class="mr-2">arrow_back</v-icon>
+                <v-icon class="mr-2">mdi-arrow-left</v-icon>
                 {{ $t('common.GO_BACK') }}
               </v-btn>
               <SubmitButton :text="$t('forgotPassword.RECOVER')" />

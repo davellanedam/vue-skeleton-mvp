@@ -1,3 +1,9 @@
+## v3.3.0 (Apr 9, 2019)
+
+-   Footer component
+-   Project description component
+-   MDI icons
+
 ## v3.2.2 (Apr 9, 2019)
 
 -   NPM updated
