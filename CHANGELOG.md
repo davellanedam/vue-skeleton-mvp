@@ -1,3 +1,8 @@
+## v3.3.4 (Apr 10, 2019)
+
+-   Tranlations
+-   NPM updated
+
 ## v3.3.3 (Apr 10, 2019)
 
 -   Fix: mobile update error catched
