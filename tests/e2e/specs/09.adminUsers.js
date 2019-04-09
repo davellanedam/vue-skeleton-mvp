@@ -71,34 +71,30 @@ describe('Admin Users', () => {
       .clear()
       .type('12345')
     // role
-    cy.get('div.inputRole > div > div > div > div > div > i')
-      .contains('arrow_drop_down')
-      .click()
+    cy.get(
+      'div.inputRole > div > div > div > div > div > i.mdi-menu-down'
+    ).click()
     cy.get('div.v-list__tile__title')
       .contains('Administrator')
       .click()
-    cy.get('div.inputRole > div > div > div > div > div > i')
-      .contains('clear')
-      .click()
-    cy.get('div.inputRole > div > div > div > div > div > i')
-      .contains('arrow_drop_down')
-      .click()
+    cy.get('div.inputRole > div > div > div > div > div > i.mdi-close').click()
+    cy.get(
+      'div.inputRole > div > div > div > div > div > i.mdi-menu-down'
+    ).click()
     cy.get('div.v-list__tile__title')
       .contains('User')
       .click()
     // city
-    cy.get('div.inputCity > div > div > div > div > div > i')
-      .contains('arrow_drop_down')
-      .click()
+    cy.get(
+      'div.inputCity > div > div > div > div > div > i.mdi-menu-down'
+    ).click()
     cy.get('div.v-list__tile__title')
       .contains('Cali')
       .click()
-    cy.get('div.inputCity > div > div > div > div > div > i')
-      .contains('clear')
-      .click()
-    cy.get('div.inputCity > div > div > div > div > div > i')
-      .contains('arrow_drop_down')
-      .click()
+    cy.get('div.inputCity > div > div > div > div > div > i.mdi-close').click()
+    cy.get(
+      'div.inputCity > div > div > div > div > div > i.mdi-menu-down'
+    ).click()
     cy.get('div.v-list__tile__title')
       .contains('Bucaramanga')
       .click()
@@ -139,22 +135,18 @@ describe('Admin Users', () => {
       .clear()
       .type(faker.internet.email())
     // role
-    cy.get('div.inputRole > div > div > div > div > div > i')
-      .contains('clear')
-      .click()
-    cy.get('div.inputRole > div > div > div > div > div > i')
-      .contains('arrow_drop_down')
-      .click()
+    cy.get('div.inputRole > div > div > div > div > div > i.mdi-close').click()
+    cy.get(
+      'div.inputRole > div > div > div > div > div > i.mdi-menu-down'
+    ).click()
     cy.get('div.v-list__tile__title')
       .contains('Administrator')
       .click()
     // city
-    cy.get('div.inputCity > div > div > div > div > div > i')
-      .contains('clear')
-      .click()
-    cy.get('div.inputCity > div > div > div > div > div > i')
-      .contains('arrow_drop_down')
-      .click()
+    cy.get('div.inputCity > div > div > div > div > div > i.mdi-close').click()
+    cy.get(
+      'div.inputCity > div > div > div > div > div > i.mdi-menu-down'
+    ).click()
     cy.get('div.v-list__tile__title')
       .contains('Cali')
       .click()
