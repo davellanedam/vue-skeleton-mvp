@@ -96,7 +96,8 @@
   "landing": {
     "TITLE": "Página de aterrizaje",
     "DESCRIPTION": "Esta página está disponible públicamente",
-    "BUY_ME_A_COFFEE": "I'm doing my best to provide you a good experience when using my apps, so if you like what I'm doing and wish to say \"thanks!\", please buy me a coffee",
+    "BUY_ME_A_COFFEE": "Cómprame un café",
+    "BUY_ME_A_COFFEE_DESCRIPTION": "Estoy haciendo lo mejor para proveer una buena experiencia cuando uses mis aplicaciones, así que si te gusta lo que estoy haciendo y quieres decir \"¡gracias!\", por favor haz click en el botón y cómprame un café",
     "DESCRIPTION_VUE": "Este proyecto fue creado para ayudar a que otros desarrolladores web construyan una app básica en VueJS.",
     "DESCRIPTION_API": "Este demo está enlazado a una API hecha con Node.js express.js MongoDB JWT, que muestra cómo este proyecto de frontend puede ser enlazado con una API.",
     "API_DOCUMENTATION": "Documentación API",
