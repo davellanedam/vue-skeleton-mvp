@@ -66,16 +66,25 @@ export const buildPayloadPagination = (pagination, search) => {
   return query
 }
 
+// Catches error connection or any other error (checks if error.response exists)
 export const handleError = (error, commit, reject) => {
-  // Catches error connection or any other error (checks if error.response exists)
-  let errMsg = error.response
-    ? error.response.data.errors.msg
-    : 'SERVER_TIMEOUT_CONNECTION_ERROR'
+  let errMsg = ''
+  // Resets errors in store
   commit(types.SHOW_LOADING, false)
   commit(types.ERROR, null)
-  setTimeout(() => {
-    errMsg ? commit(types.ERROR, errMsg) : commit(types.SHOW_ERROR, false)
-  }, 0)
+
+  // Checks if unauthorized
+  if (error.response.status === 401) {
+    store.dispatch('userLogout')
+  } else {
+    // Any other error
+    errMsg = error.response
+      ? error.response.data.errors.msg
+      : 'SERVER_TIMEOUT_CONNECTION_ERROR'
+    setTimeout(() => {
+      errMsg ? commit(types.ERROR, errMsg) : commit(types.SHOW_ERROR, false)
+    }, 0)
+  }
   reject(error)
 }
 

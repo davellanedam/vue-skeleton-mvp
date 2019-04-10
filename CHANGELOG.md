@@ -1,3 +1,7 @@
+## v3.5.2 (Apr 9, 2019)
+
+-   Fix: If token is expired triggers store userLogout
+
 ## v3.5.1 (Apr 9, 2019)
 
 -   Google Analytics only in production mode
