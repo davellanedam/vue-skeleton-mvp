@@ -1,3 +1,7 @@
+## v3.5.4 (Apr 9, 2019)
+
+-   GA code id tracking
+
 ## v3.5.3 (Apr 9, 2019)
 
 -   README.md updated
