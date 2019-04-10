@@ -1,7 +1,7 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "3.5.2",
-  "description": "VueJS Vuetify Vue Router Vuex - Basic Project Skeleton. This is a basic VueJs, Vuetify, Vue Router and Vuex skeleton written on JavaScript using async/await. Great for building an MVP for your project.",
+  "version": "3.5.3",
+  "description": "VueJS Vuetify Vue Router Vuex - Basic Project Skeleton - Starter Web App. Written on JavaScript using async/await.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -72,6 +72,10 @@
     "eslint",
     "skeleton",
     "async",
+    "starter",
+    "webapp",
+    "web",
+    "app",
     "await",
     "mvp",
     "frontend",
