@@ -1,3 +1,7 @@
+## v3.5.3 (Apr 9, 2019)
+
+-   README.md updated
+
 ## v3.5.2 (Apr 9, 2019)
 
 -   Fix: If token is expired triggers store userLogout
