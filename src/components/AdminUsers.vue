@@ -512,7 +512,7 @@ export default {
       }
     }
   },
-  async created() {
+  async mounted() {
     try {
       await this.getAllCities()
       // eslint-disable-next-line no-unused-vars

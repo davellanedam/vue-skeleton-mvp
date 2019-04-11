@@ -21,7 +21,7 @@ export default {
   methods: {
     ...mapActions(['sendVerify'])
   },
-  async created() {
+  async mounted() {
     try {
       await this.sendVerify(this.$route.params.id)
       // eslint-disable-next-line no-unused-vars

@@ -1,3 +1,7 @@
+## v3.6.0 (Apr 11, 2019)
+
+-   Calling async actions now done from mounted instead of created
+
 ## v3.5.4 (Apr 9, 2019)
 
 -   GA code id tracking
