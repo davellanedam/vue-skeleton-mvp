@@ -1,3 +1,11 @@
+## v3.6.2 (Apr 14, 2019)
+
+-   NPM updated
+
+## v3.6.1 (Apr 14, 2019)
+
+-   NPM updated
+
 ## v3.6.0 (Apr 11, 2019)
 
 -   Calling async actions now done from mounted instead of created
