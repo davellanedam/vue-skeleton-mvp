@@ -1,3 +1,7 @@
+## v3.6.3 (Apr 14, 2019)
+
+-   Google Analytics in main.js
+
 ## v3.6.2 (Apr 14, 2019)
 
 -   NPM updated
