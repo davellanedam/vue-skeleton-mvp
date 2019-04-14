@@ -6,7 +6,9 @@ export default [
       requiresAuth: true
     },
     component: () =>
-      import(/* webpackChunkName: "admin-cities" */ '@/components/AdminCities.vue')
+      import(
+        /* webpackChunkName: "admin-cities" */ '@/components/AdminCities.vue'
+      )
   },
   {
     path: '/admin/users',
@@ -15,6 +17,8 @@ export default [
       requiresAuth: true
     },
     component: () =>
-      import(/* webpackChunkName: "admin-users" */ '@/components/AdminUsers.vue')
+      import(
+        /* webpackChunkName: "admin-users" */ '@/components/AdminUsers.vue'
+      )
   }
 ]
