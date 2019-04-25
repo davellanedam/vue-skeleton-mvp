@@ -56,7 +56,7 @@
     "eslint-plugin-vue": "^5.2.2",
     "faker": "^4.1.0",
     "fibers": "^3.1.1",
-    "husky": "^2.0.0",
+    "husky": "^2.1.0",
     "prettier": "^1.17.0",
     "sass": "^1.19.0",
     "sass-loader": "^7.1.0",
