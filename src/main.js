@@ -1,21 +1,15 @@
 import Vue from 'vue'
 import '@/plugins/axios'
 import '@/plugins/vuetify'
+import '@/plugins/veevalidate'
 import '@/plugins/common'
+import '@/plugins/googleAnalytics'
+import i18n from '@/plugins/i18n'
 import App from '@/App.vue'
 import router from '@/router'
 import { store } from '@/store'
-import i18n from '@/i18n'
-import VueAnalytics from 'vue-analytics'
 
 Vue.config.productionTip = false
-
-if (process.env.NODE_ENV === 'production') {
-  Vue.use(VueAnalytics, {
-    id: 'UA-138050457-1',
-    router
-  })
-}
 
 const app = new Vue({
   router,

@@ -1,5 +1,5 @@
 import * as types from '@/store/mutation-types'
-import i18n from '@/i18n'
+import i18n from '@/plugins/i18n'
 import { Validator } from 'vee-validate'
 
 const state = {
