@@ -8,8 +8,9 @@
     "url": "https://github.com/davellanedam/vue-skeleton-mvp.git"
   },
   "scripts": {
+    "generate-build-version": "node generate-build-version",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && ./setversion.sh",
+    "build": "npm run generate-build-version && vue-cli-service build",
     "format": "prettier --write --config .prettierrc \"**/*.js\"",
     "lint": "vue-cli-service lint --fix",
     "test:e2e": "vue-cli-service test:e2e --mode e2e",
