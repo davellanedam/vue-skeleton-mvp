@@ -2,8 +2,8 @@
 
 import Vue from 'vue'
 import axios from 'axios'
-import { isMobile } from 'mobile-device-detect'
-import { checkForUpdates, checkIfTokenNeedsRefresh } from '@/utils/utils.js'
+import { checkIfTokenNeedsRefresh } from '@/utils/utils.js'
+import { checkForUpdates } from '@/utils/updates.js'
 
 axios.defaults.baseURL = process.env.VUE_APP_API_URL || ''
 axios.defaults.headers.common['Accept-Language'] =
@@ -19,7 +19,7 @@ axios.interceptors.request.use(
       '/forgot',
       '/register',
       '/reset',
-      `${window.location.origin}/version.manifest`
+      `${window.location.origin}/version.json`
     ]
     if (urlsExcludedForBearerHeader.indexOf(config.url) === -1) {
       config.headers.Authorization =
@@ -38,10 +38,11 @@ axios.interceptors.response.use(
   response => {
     // Do something with response data
     // Checks if app is being used in mobile
-    if (response.config.url !== process.env.VUE_APP_API_URL + '/token') {
-      if (isMobile) {
-        checkForUpdates()
-      }
+    if (
+      response.config.url !== process.env.VUE_APP_API_URL + '/token' &&
+      response.config.url !== `${window.location.origin}/version.json`
+    ) {
+      checkForUpdates()
       checkIfTokenNeedsRefresh()
     }
     return response

@@ -1,3 +1,8 @@
+## v3.7.0 (May 5, 2019)
+
+-   NPM updated
+-   New site version system generator and checker
+
 ## v3.6.4 (Apr 24, 2019)
 
 -   NPM updated
