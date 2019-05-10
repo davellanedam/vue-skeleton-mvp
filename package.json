@@ -38,7 +38,7 @@
     "vue-router": "^3.0.6",
     "vuetify": "^1.5.14",
     "vuetify-confirm": "^0.2.5",
-    "vuex": "^3.1.0"
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",
