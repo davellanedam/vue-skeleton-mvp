@@ -28,7 +28,7 @@
           </v-card>
         </v-dialog>
       </div>
-      <Heading :title="$t('home.TITLE')" />
+      <Heading :title="$t('home.GREETING', [name])" />
       <Description :description="$t('home.DESCRIPTION')" />
     </v-layout>
     <ProjectDescription />
@@ -45,6 +45,7 @@ export default {
   },
   data() {
     return {
+      name: this.$store.state.auth.user.name,
       showVerifyDialog: !this.$store.state.verify.emailVerified
     }
   }

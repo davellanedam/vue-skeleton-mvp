@@ -105,6 +105,7 @@
   },
   "home": {
     "TITLE": "Protected Home",
+    "GREETING": "Welcome %{0}",
     "DESCRIPTION": "This page is only available privately when the users log in with their credentials",
     "VERIFY_YOUR_ACCOUNT": "IMPORTANT: Verify your account",
     "VERIFY_YOUR_ACCOUNT_DESCRIPTION": "You must verify your account by clicking the link sent to your E-mail to be able to enjoy all our app features",

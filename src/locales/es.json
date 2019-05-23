@@ -105,6 +105,7 @@
   },
   "home": {
     "TITLE": "Inicio Protegido",
+    "GREETING": "Bienvenido(a) %{0}",
     "DESCRIPTION": "Esta página está disponible únicamente de forma privada cuando el usuario ingresa con sus credenciales",
     "VERIFY_YOUR_ACCOUNT": "IMPORTANTE: Verifica tu cuenta",
     "VERIFY_YOUR_ACCOUNT_DESCRIPTION": "Debes verificar tu cuenta haciendo click en el enlace enviado a tu E-mail para que puedas disfrutar de todas las características de nuestra aplicación",
