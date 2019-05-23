@@ -1,3 +1,8 @@
+## v3.8.0 (May 23, 2019)
+
+-   Greeting user when logged in
+-   NPM updated
+
 ## v3.7.1 (May 14, 2019)
 
 -   NPM updated
