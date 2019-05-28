@@ -2,5 +2,6 @@
   "pluginsFile": "tests/e2e/plugins/index.js",
   "env": {
     "API_URL": "http://localhost:3000"
-  }
+  },
+  "numTestsKeptInMemory": 10
 }
