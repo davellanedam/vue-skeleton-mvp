@@ -1,3 +1,7 @@
+## v3.8.2 (May 27, 2019)
+
+-   Fix high memory consumption by cypress
+
 ## v3.8.1 (May 27, 2019)
 
 -   NPM updated
