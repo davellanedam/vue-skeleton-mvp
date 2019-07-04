@@ -56,7 +56,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('resetPassword.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('resetPassword.TITLE')} - %s`
     }
   },
   data() {
@@ -76,11 +76,9 @@ export default {
             id: this.id,
             password: this.password
           })
-          return
         }
-        // eslint-disable-next-line no-unused-vars
       } catch (error) {
-        return
+        console.log(error)
       }
     }
   },

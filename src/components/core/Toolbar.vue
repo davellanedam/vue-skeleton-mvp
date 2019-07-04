@@ -182,11 +182,7 @@ export default {
   computed: {
     ...mapGetters(['appTitle', 'isTokenSet', 'user']),
     admin() {
-      return this.user !== null
-        ? this.user.role === 'admin'
-          ? true
-          : false
-        : false
+      return this.user !== null ? this.user.role === 'admin' : false
     },
     adminItems() {
       return [
@@ -226,33 +222,32 @@ export default {
             class: 'btnProfile'
           }
         ]
-      } else {
-        return [
-          {
-            title: this.$t('menuItems.HOME'),
-            link: 'landing',
-            icon: 'mdi-home'
-          },
-          {
-            title: this.$t('menuItems.ABOUT'),
-            link: 'about',
-            icon: 'mdi-help-circle-outline',
-            class: 'btnAbout'
-          },
-          {
-            title: this.$t('menuItems.LOGIN'),
-            link: 'login',
-            icon: 'mdi-lock',
-            class: 'btnLogin'
-          },
-          {
-            title: this.$t('menuItems.SIGNUP'),
-            link: 'signup',
-            icon: 'mdi-plus-circle-outline',
-            class: 'btnLogin'
-          }
-        ]
       }
+      return [
+        {
+          title: this.$t('menuItems.HOME'),
+          link: 'landing',
+          icon: 'mdi-home'
+        },
+        {
+          title: this.$t('menuItems.ABOUT'),
+          link: 'about',
+          icon: 'mdi-help-circle-outline',
+          class: 'btnAbout'
+        },
+        {
+          title: this.$t('menuItems.LOGIN'),
+          link: 'login',
+          icon: 'mdi-lock',
+          class: 'btnLogin'
+        },
+        {
+          title: this.$t('menuItems.SIGNUP'),
+          link: 'signup',
+          icon: 'mdi-plus-circle-outline',
+          class: 'btnLogin'
+        }
+      ]
     }
   },
   methods: {

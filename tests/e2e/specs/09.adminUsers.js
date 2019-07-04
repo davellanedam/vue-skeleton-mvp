@@ -43,6 +43,7 @@ describe('Admin Users', () => {
       .invoke('attr', 'type')
       .should('contain', 'password')
   })
+  // eslint-disable-next-line max-statements
   it('Create new user', () => {
     cy.login('admin@admin.com')
     cy.setLocaleToEN()
@@ -112,6 +113,7 @@ describe('Admin Users', () => {
       .should('be.visible')
       .contains('Saved successfully')
   })
+  // eslint-disable-next-line max-statements
   it('Edit user', () => {
     cy.login('admin@admin.com')
     cy.setLocaleToEN()

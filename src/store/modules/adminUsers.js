@@ -2,11 +2,6 @@ import * as types from '@/store/mutation-types'
 import api from '@/services/api/adminUsers'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
-const state = {
-  users: [],
-  totalUsers: 0
-}
-
 const getters = {
   users: state => state.users,
   totalUsers: state => state.totalUsers
@@ -106,6 +101,11 @@ const mutations = {
   [types.TOTAL_USERS](state, value) {
     state.totalUsers = value
   }
+}
+
+const state = {
+  users: [],
+  totalUsers: 0
 }
 
 export default {

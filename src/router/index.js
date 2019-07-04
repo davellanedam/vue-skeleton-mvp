@@ -22,12 +22,11 @@ router.beforeEach((to, from, next) => {
   const isTokenSet = store.getters.isTokenSet
   if (requiresAuth && !isTokenSet) {
     return next('/login')
-  } else {
-    checkIfTokenNeedsRefresh()
-    store.commit(types.SUCCESS, null)
-    store.commit(types.ERROR, null)
-    return next()
   }
+  checkIfTokenNeedsRefresh()
+  store.commit(types.SUCCESS, null)
+  store.commit(types.ERROR, null)
+  return next()
 })
 
 export default router

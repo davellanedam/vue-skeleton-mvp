@@ -1,12 +1,5 @@
 import * as types from '@/store/mutation-types'
 
-const state = {
-  showSuccessMessage: false,
-  successMessage: null,
-  successMessageParams: [],
-  successMessageTimeout: 0
-}
-
 const getters = {
   showSuccessMessage: state => state.successMessage,
   successMessage: state => state.successMessage,
@@ -31,8 +24,15 @@ const mutations = {
     }
   },
   [types.SHOW_SUCCESS](state, payload) {
-    state.showSuccessMessage = !payload ? false : true
+    state.showSuccessMessage = !!payload
   }
+}
+
+const state = {
+  showSuccessMessage: false,
+  successMessage: null,
+  successMessageParams: [],
+  successMessageTimeout: 0
 }
 
 export default {

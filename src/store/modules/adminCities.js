@@ -2,11 +2,6 @@ import * as types from '@/store/mutation-types'
 import api from '@/services/api/adminCities'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
-const state = {
-  cities: [],
-  totalCities: 0
-}
-
 const getters = {
   cities: state => state.cities,
   totalCities: state => state.totalCities
@@ -101,6 +96,11 @@ const mutations = {
   [types.TOTAL_CITIES](state, value) {
     state.totalCities = value
   }
+}
+
+const state = {
+  cities: [],
+  totalCities: 0
 }
 
 export default {

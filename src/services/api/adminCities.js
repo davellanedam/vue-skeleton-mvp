@@ -3,7 +3,7 @@ import axios from 'axios'
 export default {
   getCities(params) {
     return axios.get('/cities', {
-      params: params
+      params
     })
   },
   editCity(id, payload) {

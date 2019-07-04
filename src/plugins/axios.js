@@ -1,5 +1,3 @@
-'use strict'
-
 import Vue from 'vue'
 import axios from 'axios'
 import { checkIfTokenNeedsRefresh } from '@/utils/utils.js'
@@ -22,8 +20,9 @@ axios.interceptors.request.use(
       `${window.location.origin}/version.json`
     ]
     if (urlsExcludedForBearerHeader.indexOf(config.url) === -1) {
-      config.headers.Authorization =
-        'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      config.headers.Authorization = `Bearer ${JSON.parse(
+        localStorage.getItem('token')
+      )}`
     }
     return config
   },
@@ -39,7 +38,7 @@ axios.interceptors.response.use(
     // Do something with response data
     // Checks if app is being used in mobile
     if (
-      response.config.url !== process.env.VUE_APP_API_URL + '/token' &&
+      response.config.url !== `${process.env.VUE_APP_API_URL}/token` &&
       response.config.url !== `${window.location.origin}/version.json`
     ) {
       checkForUpdates()
@@ -53,6 +52,7 @@ axios.interceptors.response.use(
   }
 )
 
+// eslint-disable-next-line no-shadow
 Plugin.install = Vue => {
   Vue.axios = axios
   window.axios = axios

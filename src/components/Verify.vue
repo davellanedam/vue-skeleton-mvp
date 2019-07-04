@@ -15,7 +15,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('verify.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('verify.TITLE')} - %s`
     }
   },
   methods: {
@@ -24,9 +24,8 @@ export default {
   async mounted() {
     try {
       await this.sendVerify(this.$route.params.id)
-      // eslint-disable-next-line no-unused-vars
     } catch (error) {
-      return
+      console.log(error)
     }
   }
 }

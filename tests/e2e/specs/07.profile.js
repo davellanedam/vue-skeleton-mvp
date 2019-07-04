@@ -41,6 +41,7 @@ describe('Profile', () => {
       .invoke('attr', 'type')
       .should('contain', 'tel')
   })
+  // eslint-disable-next-line max-statements
   it('Edits profile', () => {
     cy.login('admin@admin.com')
     cy.setLocaleToEN()

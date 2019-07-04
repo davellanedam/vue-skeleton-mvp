@@ -63,7 +63,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('login.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('login.TITLE')} - %s`
     }
   },
   data() {
@@ -82,11 +82,9 @@ export default {
             email: this.email,
             password: this.password
           })
-          return
         }
-        // eslint-disable-next-line no-unused-vars
       } catch (error) {
-        return
+        console.log(error)
       }
     }
   },
