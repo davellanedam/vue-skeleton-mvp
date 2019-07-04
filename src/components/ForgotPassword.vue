@@ -44,7 +44,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('forgotPassword.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('forgotPassword.TITLE')} - %s`
     }
   },
   data() {
@@ -55,17 +55,11 @@ export default {
   methods: {
     ...mapActions(['forgotPassword']),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.forgotPassword({
-            email: this.email
-          })
-          return
-        }
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        return
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.forgotPassword({
+          email: this.email
+        })
       }
     },
     goBack() {

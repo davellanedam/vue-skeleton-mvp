@@ -63,7 +63,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('login.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('login.TITLE')} - %s`
     }
   },
   data() {
@@ -75,18 +75,12 @@ export default {
   methods: {
     ...mapActions(['userLogin']),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.userLogin({
-            email: this.email,
-            password: this.password
-          })
-          return
-        }
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        return
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.userLogin({
+          email: this.email,
+          password: this.password
+        })
       }
     }
   },

@@ -7,7 +7,7 @@ const jsonData = {
   version: appVersion
 }
 
-let jsonContent = JSON.stringify(jsonData)
+const jsonContent = JSON.stringify(jsonData)
 
 fs.writeFile('./public/version.json', jsonContent, 'utf8', err => {
   if (err) {
@@ -15,5 +15,7 @@ fs.writeFile('./public/version.json', jsonContent, 'utf8', err => {
     return console.log(err)
   }
 
-  console.log(`version.json file has been saved with version ${appVersion}`)
+  return console.log(
+    `version.json file has been saved with version ${appVersion}`
+  )
 })

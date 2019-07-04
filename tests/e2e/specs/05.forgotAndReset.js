@@ -60,8 +60,8 @@ describe('Forgot Password / Reset Password', () => {
     if (Cypress.env('ENV') !== 'ci') {
       cy.server()
 
-      //This is the post call we are interested in capturing
-      cy.route('POST', Cypress.env('API_URL') + '/forgot').as('forgot')
+      // This is the post call we are interested in capturing
+      cy.route('POST', `${Cypress.env('API_URL')}/forgot`).as('forgot')
       cy.visit('/forgot')
       cy.get('input[name=email]')
         .clear()
@@ -69,7 +69,7 @@ describe('Forgot Password / Reset Password', () => {
 
       cy.wait('@forgot')
 
-      //Assert on XHR
+      // Assert on XHR
       cy.get('@forgot').then(xhr => {
         expect(xhr.status).to.eq(200)
         expect(xhr.responseBody).to.have.property('verification')

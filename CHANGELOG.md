@@ -1,3 +1,12 @@
+## v4.0.1 (July 3, 2019)
+
+-   Making ESLint 6 happy
+
+## v4.0.0 (July 3, 2019)
+
+-   Making ESLint 6 happy
+-   NPM updated
+
 ## v3.8.5 (June 12, 2019)
 
 -   NPM updated

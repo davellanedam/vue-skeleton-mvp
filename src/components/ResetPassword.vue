@@ -56,7 +56,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('resetPassword.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('resetPassword.TITLE')} - %s`
     }
   },
   data() {
@@ -69,18 +69,12 @@ export default {
   methods: {
     ...mapActions(['resetPassword']),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.resetPassword({
-            id: this.id,
-            password: this.password
-          })
-          return
-        }
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        return
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.resetPassword({
+          id: this.id,
+          password: this.password
+        })
       }
     }
   },

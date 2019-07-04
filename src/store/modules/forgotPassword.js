@@ -2,10 +2,6 @@ import * as types from '@/store/mutation-types'
 import api from '@/services/api/forgotPassword'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
-const state = {
-  resetEmailSent: false
-}
-
 const getters = {
   resetEmailSent: state => state.resetEmailSent
 }
@@ -41,6 +37,10 @@ const mutations = {
   [types.RESET_EMAIL_SENT](state, value) {
     state.resetEmailSent = value
   }
+}
+
+const state = {
+  resetEmailSent: false
 }
 
 export default {

@@ -2,10 +2,6 @@ import * as types from '@/store/mutation-types'
 import api from '@/services/api/verify'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
-const state = {
-  emailVerified: false
-}
-
 const getters = {
   emailVerified: state => state.emailVerified
 }
@@ -51,6 +47,10 @@ const mutations = {
   [types.EMAIL_VERIFIED](state, value) {
     state.emailVerified = value
   }
+}
+
+const state = {
+  emailVerified: false
 }
 
 export default {

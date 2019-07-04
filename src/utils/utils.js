@@ -15,10 +15,10 @@ export const getFormat = (date, formatStr) => {
 }
 
 export const formatErrorMessages = (translationParent, msg) => {
-  let errorArray = []
+  const errorArray = []
   // Check for error msgs
   if (msg !== null) {
-    let json = JSON.parse(JSON.stringify(msg))
+    const json = JSON.parse(JSON.stringify(msg))
     // If error message is an array, then we have mutiple errors
     if (Array.isArray(json)) {
       json.map(error => {
@@ -29,14 +29,14 @@ export const formatErrorMessages = (translationParent, msg) => {
       errorArray.push(i18n.t(`${translationParent}.${msg}`))
     }
     return errorArray
-  } else {
-    // all good, return null
-    return null
   }
+  // all good, return null
+  return null
 }
 
 export const buildPayloadPagination = (pagination, search) => {
-  let { sortBy, descending, page, rowsPerPage } = pagination
+  const { sortBy, page, rowsPerPage } = pagination
+  let { descending } = pagination
   // Gets order
   descending = descending ? -1 : 1
 
@@ -80,7 +80,9 @@ export const handleError = (error, commit, reject) => {
       ? error.response.data.errors.msg
       : 'SERVER_TIMEOUT_CONNECTION_ERROR'
     setTimeout(() => {
-      errMsg ? commit(types.ERROR, errMsg) : commit(types.SHOW_ERROR, false)
+      return errMsg
+        ? commit(types.ERROR, errMsg)
+        : commit(types.SHOW_ERROR, false)
     }, 0)
   }
   reject(error)
@@ -95,7 +97,7 @@ export const buildSuccess = (
   commit(types.SHOW_LOADING, false)
   commit(types.SUCCESS, null)
   setTimeout(() => {
-    msg ? commit(types.SUCCESS, msg) : commit(types.SHOW_SUCCESS, false)
+    return msg ? commit(types.SUCCESS, msg) : commit(types.SHOW_SUCCESS, false)
   }, 0)
   commit(types.ERROR, null)
   resolve(resolveParam)

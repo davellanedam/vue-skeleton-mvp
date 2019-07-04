@@ -2,19 +2,6 @@ import * as types from '@/store/mutation-types'
 import api from '@/services/api/profile'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
-const state = {
-  profile: {
-    verified: false,
-    name: '',
-    email: '',
-    phone: '',
-    city: '',
-    country: '',
-    urlTwitter: '',
-    urlGitHub: ''
-  }
-}
-
 const getters = {
   profile: state => state.profile
 }
@@ -118,6 +105,19 @@ const mutations = {
       default:
         break
     }
+  }
+}
+
+const state = {
+  profile: {
+    verified: false,
+    name: '',
+    email: '',
+    phone: '',
+    city: '',
+    country: '',
+    urlTwitter: '',
+    urlGitHub: ''
   }
 }
 

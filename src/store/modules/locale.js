@@ -2,13 +2,6 @@ import * as types from '@/store/mutation-types'
 import i18n from '@/plugins/i18n'
 import { Validator } from 'vee-validate'
 
-const state = {
-  locale:
-    JSON.parse(localStorage.getItem('locale')) ||
-    navigator.language.slice(0, 2) ||
-    'en'
-}
-
 const getters = {
   locale: state => state.locale
 }
@@ -28,6 +21,13 @@ const mutations = {
   [types.SET_LOCALE](state, value) {
     state.locale = value
   }
+}
+
+const state = {
+  locale:
+    JSON.parse(localStorage.getItem('locale')) ||
+    navigator.language.slice(0, 2) ||
+    'en'
 }
 
 export default {

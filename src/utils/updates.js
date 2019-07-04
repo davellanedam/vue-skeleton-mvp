@@ -71,8 +71,6 @@ export const checkForUpdates = () => {
         }
       })
       // eslint-disable-next-line no-unused-vars
-      .catch(error => {
-        return
-      })
+      .catch(error => {})
   }
 }

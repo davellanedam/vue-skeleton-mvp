@@ -222,7 +222,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('myProfile.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('myProfile.TITLE')} - %s`
     }
   },
   data() {
@@ -243,7 +243,7 @@ export default {
       set(value) {
         const data = {
           key: 'name',
-          value: value
+          value
         }
         this.addProfileData(data)
       }
@@ -258,7 +258,7 @@ export default {
       set(value) {
         const data = {
           key: 'phone',
-          value: value
+          value
         }
         this.addProfileData(data)
       }
@@ -273,7 +273,7 @@ export default {
       set(value) {
         const data = {
           key: 'city',
-          value: value
+          value
         }
         this.addProfileData(data)
       }
@@ -285,7 +285,7 @@ export default {
       set(value) {
         const data = {
           key: 'country',
-          value: value
+          value
         }
         this.addProfileData(data)
       }
@@ -297,7 +297,7 @@ export default {
       set(value) {
         const data = {
           key: 'urlTwitter',
-          value: value
+          value
         }
         this.addProfileData(data)
       }
@@ -309,7 +309,7 @@ export default {
       set(value) {
         const data = {
           key: 'urlGitHub',
-          value: value
+          value
         }
         this.addProfileData(data)
       }
@@ -324,22 +324,16 @@ export default {
       'saveProfile'
     ]),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.saveProfile({
-            name: this.name,
-            phone: this.phone,
-            city: this.city,
-            country: this.country,
-            urlTwitter: this.urlTwitter,
-            urlGitHub: this.urlGitHub
-          })
-          return
-        }
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        return
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.saveProfile({
+          name: this.name,
+          phone: this.phone,
+          city: this.city,
+          country: this.country,
+          urlTwitter: this.urlTwitter,
+          urlGitHub: this.urlGitHub
+        })
       }
     },
     close() {
@@ -368,18 +362,12 @@ export default {
         this.confirmPassword = ''
         this.triggerChangePassword = false
         this.close()
-        return
       }
     }
   },
   async mounted() {
-    try {
-      await this.getProfile()
-      await this.getAllCities()
-      // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      return
-    }
+    await this.getProfile()
+    await this.getAllCities()
   }
 }
 </script>

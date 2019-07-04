@@ -48,9 +48,9 @@
                       </div>
                     </v-flex>
                     <v-flex xs12 md4>
-                      <label for="verified">
-                        {{ $t('users.headers.VERIFIED') }}
-                      </label>
+                      <label for="verified">{{
+                        $t('users.headers.VERIFIED')
+                      }}</label>
                       <div
                         name="verified"
                         v-html="trueFalse(editedItem.verified)"
@@ -273,7 +273,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('users.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('users.TITLE')} - %s`
     }
   },
   data() {
@@ -377,7 +377,7 @@ export default {
   },
   watch: {
     dialog(value) {
-      value || this.close()
+      return value ? true : this.close()
     },
     pagination: {
       async handler() {
@@ -508,17 +508,11 @@ export default {
       } catch (error) {
         this.dataTableLoading = false
         this.close()
-        return
       }
     }
   },
   async mounted() {
-    try {
-      await this.getAllCities()
-      // eslint-disable-next-line no-unused-vars
-    } catch (error) {
-      return
-    }
+    await this.getAllCities()
   }
 }
 </script>

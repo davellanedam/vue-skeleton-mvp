@@ -38,9 +38,8 @@ export default {
         return this.$i18n.t(this.$store.state.success.successMessage, [
           ...this.$store.state.success.successMessageParams
         ])
-      } else {
-        return this.$i18n.t(this.$store.state.success.successMessage)
       }
+      return this.$i18n.t(this.$store.state.success.successMessage)
     },
     successMessageTimeout() {
       return this.$store.state.success.successMessageTimeout
@@ -49,7 +48,7 @@ export default {
   watch: {
     successMessage() {
       setTimeout(() => {
-        this.showSuccessMessage = this.successMessage === '' ? false : true
+        this.showSuccessMessage = this.successMessage !== ''
       }, 100)
     }
   }

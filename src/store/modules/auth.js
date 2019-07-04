@@ -4,11 +4,6 @@ import api from '@/services/api/auth'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 import { addMinutes, format } from 'date-fns'
 
-const state = {
-  user: null,
-  token: JSON.parse(!!localStorage.getItem('token')) || null,
-  isTokenSet: !!localStorage.getItem('token')
-}
 const MINUTES_TO_CHECK_FOR_TOKEN_REFRESH = 1440
 
 const getters = {
@@ -119,6 +114,12 @@ const mutations = {
   [types.SAVE_USER](state, user) {
     state.user = user
   }
+}
+
+const state = {
+  user: null,
+  token: JSON.parse(!!localStorage.getItem('token')) || null,
+  isTokenSet: !!localStorage.getItem('token')
 }
 
 export default {

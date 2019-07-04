@@ -43,7 +43,7 @@ export default {
   watch: {
     error() {
       setTimeout(() => {
-        this.showErrorMessage = this.error === null ? false : true
+        this.showErrorMessage = this.error !== null
       }, 100)
     }
   }

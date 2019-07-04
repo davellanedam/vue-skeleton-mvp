@@ -1,10 +1,5 @@
 import * as types from '@/store/mutation-types'
 
-const state = {
-  showErrorMessage: false,
-  errorMessage: null
-}
-
 const getters = {
   showErrorMessage: state => state.showErrorMessage,
   errorMessage: state => state.errorMessage
@@ -21,8 +16,13 @@ const mutations = {
     }
   },
   [types.SHOW_ERROR](state, payload) {
-    state.showErrorMessage = !payload ? false : true
+    state.showErrorMessage = !!payload
   }
+}
+
+const state = {
+  showErrorMessage: false,
+  errorMessage: null
 }
 
 export default {

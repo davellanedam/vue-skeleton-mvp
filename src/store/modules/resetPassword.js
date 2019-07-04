@@ -2,10 +2,6 @@ import * as types from '@/store/mutation-types'
 import api from '@/services/api/resetPassword'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
-const state = {
-  showChangePasswordInputs: true
-}
-
 const getters = {
   showChangePasswordInputs: state => state.showChangePasswordInputs
 }
@@ -42,6 +38,10 @@ const mutations = {
   [types.SHOW_CHANGE_PASSWORD_INPUTS](state, value) {
     state.showChangePasswordInputs = value
   }
+}
+
+const state = {
+  showChangePasswordInputs: true
 }
 
 export default {

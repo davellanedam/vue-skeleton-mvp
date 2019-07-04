@@ -80,7 +80,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('signup.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('signup.TITLE')} - %s`
     }
   },
   data() {
@@ -94,19 +94,13 @@ export default {
   methods: {
     ...mapActions(['userSignUp']),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.userSignUp({
-            name: this.name,
-            email: this.email,
-            password: this.password
-          })
-          return
-        }
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        return
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.userSignUp({
+          name: this.name,
+          email: this.email,
+          password: this.password
+        })
       }
     }
   },

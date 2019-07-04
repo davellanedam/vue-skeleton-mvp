@@ -150,7 +150,7 @@ export default {
   metaInfo() {
     return {
       title: this.$store.getters.appTitle,
-      titleTemplate: this.$t('cities.TITLE') + ' - %s'
+      titleTemplate: `${this.$t('cities.TITLE')} - %s`
     }
   },
   data() {
@@ -208,7 +208,7 @@ export default {
   },
   watch: {
     dialog(value) {
-      value || this.close()
+      return value ? true : this.close()
     },
     pagination: {
       async handler() {
