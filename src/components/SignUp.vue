@@ -94,17 +94,13 @@ export default {
   methods: {
     ...mapActions(['userSignUp']),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.userSignUp({
-            name: this.name,
-            email: this.email,
-            password: this.password
-          })
-        }
-      } catch (error) {
-        console.log(error)
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.userSignUp({
+          name: this.name,
+          email: this.email,
+          password: this.password
+        })
       }
     }
   },

@@ -69,16 +69,12 @@ export default {
   methods: {
     ...mapActions(['resetPassword']),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.resetPassword({
-            id: this.id,
-            password: this.password
-          })
-        }
-      } catch (error) {
-        console.log(error)
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.resetPassword({
+          id: this.id,
+          password: this.password
+        })
       }
     }
   },

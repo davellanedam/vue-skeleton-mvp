@@ -22,11 +22,7 @@ export default {
     ...mapActions(['sendVerify'])
   },
   async mounted() {
-    try {
-      await this.sendVerify(this.$route.params.id)
-    } catch (error) {
-      console.log(error)
-    }
+    await this.sendVerify(this.$route.params.id)
   }
 }
 </script>

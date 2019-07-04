@@ -1,3 +1,7 @@
+## v4.0.1 (July 3, 2019)
+
+-   Making ESLint 6 happy
+
 ## v4.0.0 (July 3, 2019)
 
 -   Making ESLint 6 happy

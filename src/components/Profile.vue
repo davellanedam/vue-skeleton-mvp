@@ -324,20 +324,16 @@ export default {
       'saveProfile'
     ]),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.saveProfile({
-            name: this.name,
-            phone: this.phone,
-            city: this.city,
-            country: this.country,
-            urlTwitter: this.urlTwitter,
-            urlGitHub: this.urlGitHub
-          })
-        }
-      } catch (error) {
-        console.log(error)
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.saveProfile({
+          name: this.name,
+          phone: this.phone,
+          city: this.city,
+          country: this.country,
+          urlTwitter: this.urlTwitter,
+          urlGitHub: this.urlGitHub
+        })
       }
     },
     close() {
@@ -370,12 +366,8 @@ export default {
     }
   },
   async mounted() {
-    try {
-      await this.getProfile()
-      await this.getAllCities()
-    } catch (error) {
-      console.log(error)
-    }
+    await this.getProfile()
+    await this.getAllCities()
   }
 }
 </script>

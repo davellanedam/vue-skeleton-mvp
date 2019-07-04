@@ -55,15 +55,11 @@ export default {
   methods: {
     ...mapActions(['forgotPassword']),
     async submit() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
-          await this.forgotPassword({
-            email: this.email
-          })
-        }
-      } catch (error) {
-        console.log(error)
+      const valid = await this.$validator.validateAll()
+      if (valid) {
+        await this.forgotPassword({
+          email: this.email
+        })
       }
     },
     goBack() {

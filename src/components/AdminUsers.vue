@@ -512,11 +512,7 @@ export default {
     }
   },
   async mounted() {
-    try {
-      await this.getAllCities()
-    } catch (error) {
-      console.log(error)
-    }
+    await this.getAllCities()
   }
 }
 </script>
