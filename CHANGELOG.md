@@ -1,3 +1,9 @@
+## v4.1.0 (July 10, 2019)
+
+-   Support Chinese. Thank you Xuwenzhi! ([#87](https://github.com/davellanedam/vue-skeleton-mvp/pull/87))
+-   Removed unused translation
+-   NPM updated
+
 ## v4.0.1 (July 3, 2019)
 
 -   Making ESLint 6 happy
