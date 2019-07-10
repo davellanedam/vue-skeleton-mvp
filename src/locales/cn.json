@@ -99,16 +99,16 @@
     "BUY_ME_A_COFFEE": "送杯咖啡给我吧",
     "BUY_ME_A_COFFEE_DESCRIPTION": "你在使用我的应用时，我尽力地为你提供最好的体验。所以，如果你喜欢我所做的并且想说 \"谢谢\" 的话,请点击下面的链接送我一杯咖啡吧。",
     "DESCRIPTION_VUE": "这个项目是为了其他的Web开发者能够简单快速学习VueJS而创建的。",
-    "DESCRIPTION_API": "Demo同时也关联到了Node.js、express.js、MongoDB、JWT和REST API等项目，也向你展示了如何集成API。",
+    "DESCRIPTION_API": "Demo同时也关联到了Node.js、express.js、MongoDB、JWT和REST API等项目，也向你展示了如何与API集成。",
     "API_DOCUMENTATION": "API文档",
     "FRONTEND_DOCUMENTATION": "前端文档"
   },
   "home": {
     "TITLE": "后台主页",
-    "GREETING": "欢迎你 %{0}",
+    "GREETING": "欢迎您 %{0}",
     "DESCRIPTION": "这个页面仅供有权限的用户访问",
     "VERIFY_YOUR_ACCOUNT": "重要: 验证你的账号",
-    "VERIFY_YOUR_ACCOUNT_DESCRIPTION": "你必须要验证你的账号，通过点击链接验邮箱，验证后你可以体验所有特性。",
+    "VERIFY_YOUR_ACCOUNT_DESCRIPTION": "您必须要验证您的账号，通过点击链接验邮箱，验证后您可以体验所有特性。",
     "CLOSE": "关闭"
   },
   "about": {
@@ -126,12 +126,12 @@
   "forgotPassword": {
     "TITLE": "忘记了密码",
     "EMAIL": "邮箱",
-    "DESCRIPTION": "输入您的邮件地址，我们将会发送给你一段回复密码的邮件。",
+    "DESCRIPTION": "输入您的邮件地址，我们将会发送给您一段恢复密码的邮件。",
     "RECOVER": "找回密码",
     "RESET_EMAIL_SENT": "我们已将恢复密码的邮件发送到了你的邮箱里。"
   },
   "resetPassword": {
-    "TITLE": "修改面膜",
+    "TITLE": "修改密码",
     "PASSWORD": "密码",
     "CONFIRM_PASSWORD": "确认密码",
     "CHANGE_PASSWORD": "新密码",
