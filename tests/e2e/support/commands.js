@@ -41,6 +41,15 @@ Cypress.Commands.add('setLocaleToES', () => {
     .click()
 })
 
+Cypress.Commands.add('setLocaleToCN', () => {
+  cy.get('button.btnLocaleActivation')
+    .should('be.visible')
+    .click()
+  cy.get('div.btnCN')
+    .should('be.visible')
+    .click()
+})
+
 //
 //
 // -- This is a child command --

@@ -9,4 +9,9 @@ describe('Locale', () => {
     cy.setLocaleToEN()
     cy.get('h1').contains('Landing')
   })
+  it('Set locale to CN', () => {
+    cy.visit('/')
+    cy.setLocaleToCN()
+    cy.get('h1').contains('首页')
+  })
 })
