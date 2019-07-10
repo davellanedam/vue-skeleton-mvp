@@ -1,0 +1,167 @@
+{
+  "errors": {
+    "BAD_TOKEN": "无效的签名",
+    "WRONG_PASSWORD": "密码错误",
+    "USER_DOES_NOT_EXIST": "用户不存在",
+    "PASSWORDS_DONT_MATCH": "您输入的密码不正确",
+    "PASSWORD_TOO_SHORT_MIN_5": "您输入的密码过短，最少5个字符",
+    "BLOCKED_USER": "登录错误次数太多，您的账号临时被封禁",
+    "SERVER_TIMEOUT_CONNECTION_ERROR": "服务出现错误",
+    "404": "页面没有找到",
+    "EMAIL_IS_NOT_VALID": "您的邮箱不正确",
+    "IS_EMPTY": "您输入的内容为空",
+    "ERROR": "系统错误",
+    "MISSING": "您提交的内容有误，请重试",
+    "NOT_FOUND_OR_ALREADY_VERIFIED": "不存在或者已经验证过",
+    "NOT_FOUND_OR_ALREADY_USED": "不存在或已经使用过",
+    "NOT_FOUND": "页面没有找到",
+    "UNAUTHORIZED": "您的账号没有通过验证",
+    "EMAIL_ALREADY_EXISTS": "您输入的邮箱已存在",
+    "ID_MALFORMED": "您的账号异常",
+    "ERROR_WITH_FILTER": "筛选错误",
+    "CITY_ALREADY_EXISTS": "城市已存在"
+  },
+  "common": {
+    "DELETE": "删除",
+    "CANCEL": "取消",
+    "WARNING": "警告",
+    "DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM": "您确定要删除吗?",
+    "CLOSE": "关闭",
+    "SAVED_SUCCESSFULLY": "保存成功",
+    "DELETED_SUCCESSFULLY": "删除成功",
+    "CREATED": "创建于",
+    "UPDATED": "更新于",
+    "GO_BACK": "返回"
+  },
+  "loading": {
+    "PLEASE_WAIT": "请您耐心等待..."
+  },
+  "footer": {
+    "MADE_WITH": "Made With",
+    "BY": "by"
+  },
+  "menuItems": {
+    "HOME": "主页",
+    "ABOUT": "关于",
+    "MY_PROFILE": "个人中心",
+    "SIGNUP": "注册",
+    "LOGIN": "登录",
+    "LOGOUT": "登出"
+  },
+  "adminItems": {
+    "ADMIN": "管理",
+    "CITIES": "城市列表",
+    "USERS": "用户列表"
+  },
+  "roles": {
+    "ADMIN": "管理员",
+    "USER": "普通用户"
+  },
+  "dataTable": {
+    "NEW_ITEM": "创建",
+    "EDIT_ITEM": "编辑",
+    "CANCEL": "取消",
+    "SAVE": "保存",
+    "EDIT": "编辑",
+    "DELETE": "删除",
+    "RESET": "撤销",
+    "ACTIONS": "操作",
+    "ROWS_PER_PAGE": "每页条数",
+    "NO_DATA": "数据为空",
+    "NO_RESULTS": "没有结果",
+    "OF": "属于",
+    "SEARCH": "搜索"
+  },
+  "cities": {
+    "TITLE": "城市列表",
+    "headers": {
+      "NAME": "名称"
+    }
+  },
+  "users": {
+    "TITLE": "用户",
+    "headers": {
+      "NAME": "姓名",
+      "EMAIL": "邮箱",
+      "ROLE": "角色",
+      "VERIFIED": "已验证",
+      "CITY": "城市",
+      "COUNTRY": "国家",
+      "PHONE": "电话"
+    },
+    "PASSWORD": "密码",
+    "CONFIRM_PASSWORD": "验证密码"
+  },
+  "landing": {
+    "TITLE": "首页",
+    "DESCRIPTION": "这个页面开放访问",
+    "BUY_ME_A_COFFEE": "送杯咖啡给我吧",
+    "BUY_ME_A_COFFEE_DESCRIPTION": "你在使用我的应用时，我尽力地为你提供最好的体验。所以，如果你喜欢我所做的并且想说 \"谢谢\" 的话,请点击下面的链接送我一杯咖啡吧。",
+    "DESCRIPTION_VUE": "这个项目是为了其他的Web开发者能够简单快速学习VueJS而创建的。",
+    "DESCRIPTION_API": "Demo同时也关联到了Node.js、express.js、MongoDB、JWT和REST API等项目，也向你展示了如何与API集成。",
+    "API_DOCUMENTATION": "API文档",
+    "FRONTEND_DOCUMENTATION": "前端文档"
+  },
+  "home": {
+    "TITLE": "后台主页",
+    "GREETING": "欢迎您 %{0}",
+    "DESCRIPTION": "这个页面仅供有权限的用户访问",
+    "VERIFY_YOUR_ACCOUNT": "重要: 验证你的账号",
+    "VERIFY_YOUR_ACCOUNT_DESCRIPTION": "您必须要验证您的账号，通过点击链接验邮箱，验证后您可以体验所有特性。",
+    "CLOSE": "关闭"
+  },
+  "about": {
+    "TITLE": "关于",
+    "DESCRIPTION": "这个页面公开访问"
+  },
+  "login": {
+    "TITLE": "登录",
+    "DESCRIPTION": "这是个DEMO，数据库每30分钟会删除数据。所以任何数据都会在很短的时间内丢失。邮箱:admin@admin.com <br/> 密码:12345。",
+    "EMAIL": "邮箱",
+    "PASSWORD": "密码",
+    "LOGIN": "登录",
+    "FORGOT_PASSWORD": "忘记密码?"
+  },
+  "forgotPassword": {
+    "TITLE": "忘记了密码",
+    "EMAIL": "邮箱",
+    "DESCRIPTION": "输入您的邮件地址，我们将会发送给您一段恢复密码的邮件。",
+    "RECOVER": "找回密码",
+    "RESET_EMAIL_SENT": "我们已将恢复密码的邮件发送到了你的邮箱里。"
+  },
+  "resetPassword": {
+    "TITLE": "修改密码",
+    "PASSWORD": "密码",
+    "CONFIRM_PASSWORD": "确认密码",
+    "CHANGE_PASSWORD": "新密码",
+    "PASSWORD_CHANGED": "密码修改成功"
+  },
+  "signup": {
+    "TITLE": "注册",
+    "NAME": "姓名",
+    "EMAIL": "邮件",
+    "PASSWORD": "密码",
+    "CONFIRM_PASSWORD": "确认密码",
+    "SIGN_ME_UP": "注册"
+  },
+  "verify": {
+    "TITLE": "验证邮箱",
+    "EMAIL_VERIFIED": "邮箱验证成功"
+  },
+  "myProfile": {
+    "TITLE": "个人中心",
+    "CHANGE_MY_PASSWORD": "修改我的密码",
+    "CURRENT_PASSWORD": "当前密码",
+    "NEW_PASSWORD": "新密码",
+    "CONFIRM_NEW_PASSWORD": "确认新密码",
+    "PASSWORD_CHANGED": "密码修改成功",
+    "NAME": "姓名",
+    "EMAIL": "邮箱",
+    "PHONE": "电话",
+    "CITY": "城市",
+    "NO_RESULTS_FOUND": "未找到结果",
+    "COUNTRY": "国家",
+    "SAVE": "保存",
+    "PROFILE_SAVED_SUCCESSFULLY": "个人信息保存成功"
+  }
+}
