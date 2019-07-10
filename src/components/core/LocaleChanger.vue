@@ -39,7 +39,12 @@ export default {
           lang: 'es',
           flag: 'es',
           class: 'btnES'
-        }
+        },
+        {
+          lang: 'cn',
+          flag: 'cn',
+          class: 'btnCN'
+        },
       ]
     }
   },
