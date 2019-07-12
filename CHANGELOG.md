@@ -1,3 +1,7 @@
+## v4.1.1 (July 12, 2019)
+
+-   NPM updated
+
 ## v4.1.0 (July 10, 2019)
 
 -   Support Chinese. Thank you Xuwenzhi! ([#87](https://github.com/davellanedam/vue-skeleton-mvp/pull/87))
