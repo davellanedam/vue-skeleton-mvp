@@ -1,3 +1,11 @@
+## v4.1.3 (July 25, 2019)
+
+-   Fix for travis
+
+## v4.1.2 (July 25, 2019)
+
+-   NPM updated
+
 ## v4.1.1 (July 12, 2019)
 
 -   NPM updated
