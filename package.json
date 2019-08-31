@@ -17,7 +17,7 @@
     "test:unit": "vue-cli-service test:unit",
     "remark": "remark . -o",
     "ci": "npm run ci:test && npm run coverage",
-    "ci:test": "vue-cli-service test:e2e --env API_URL=https://api-demo.daniel-avellaneda.com,ENV=ci --reporter spec --headless --config video=false",
+    "ci:test": "vue-cli-service test:e2e --env API_URL=https://api-demo.daniel-avellaneda.com,ENV=ci --headless --config video=false",
     "coverage": "nyc report --reporter=text-summary"
   },
   "husky": {
