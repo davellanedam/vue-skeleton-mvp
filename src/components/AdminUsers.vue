@@ -15,7 +15,7 @@
           clear-icon="mdi-close"
         ></v-text-field>
       </v-flex>
-      <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
+      <v-flex xs12 sm6 md4 text-right mb-2 mt-2 pr-2>
         <v-dialog
           v-model="dialog"
           max-width="800px"
@@ -212,8 +212,8 @@
       :rows-per-page-items="[5, 10, 25]"
       :headers="headers"
       :items="items"
-      :pagination.sync="pagination"
-      :total-items="totalItems"
+	  :options.sync="pagination"      
+      :server-items-length="totalItems"
       class="elevation-1"
     >
       <template v-slot:items="props">
@@ -283,7 +283,7 @@ export default {
       delayTimer: null,
       dialog: false,
       search: '',
-      pagination: {},
+	  pagination: {},      
       editedItem: {},
       defaultItem: {},
       fieldsToSearch: ['name', 'email', 'role', 'city', 'country', 'phone']
@@ -378,7 +378,7 @@ export default {
   watch: {
     dialog(value) {
       return value ? true : this.close()
-    },
+    },	
     pagination: {
       async handler() {
         try {

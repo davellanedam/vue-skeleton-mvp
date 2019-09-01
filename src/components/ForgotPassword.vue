@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
+    <v-layout wrap>
       <Heading :title="$t('forgotPassword.TITLE')" />
       <Description :description="$t('forgotPassword.DESCRIPTION')" />
       <v-flex xs12 sm6 offset-sm3>
@@ -20,7 +20,7 @@
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
-            <v-flex text-xs-center mt-5>
+            <v-flex text-center mt-5>
               <v-btn color="secondary" @click="goBack()">
                 <v-icon class="mr-2">mdi-arrow-left</v-icon>
                 {{ $t('common.GO_BACK') }}

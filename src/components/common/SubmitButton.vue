@@ -4,7 +4,7 @@
     type="submit"
     :disabled="disabledButton"
     :class="customClass"
-    :flat="flat"
+    :text="flat"
     >{{ text }}</v-btn
   >
 </template>

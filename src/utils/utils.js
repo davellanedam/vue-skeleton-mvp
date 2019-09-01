@@ -35,7 +35,7 @@ export const formatErrorMessages = (translationParent, msg) => {
 }
 
 export const buildPayloadPagination = (pagination, search) => {
-  const { sortBy, page, rowsPerPage } = pagination
+  const { sortBy, page, itemsPerPage } = pagination
   let { descending } = pagination
   // Gets order
   descending = descending ? -1 : 1
@@ -48,7 +48,7 @@ export const buildPayloadPagination = (pagination, search) => {
       sort: sortBy,
       order: descending,
       page,
-      limit: rowsPerPage,
+      limit: itemsPerPage,
       filter: search.query,
       fields: search.fields
     }
@@ -58,7 +58,7 @@ export const buildPayloadPagination = (pagination, search) => {
       sort: sortBy,
       order: descending,
       page,
-      limit: rowsPerPage
+      limit: itemsPerPage
     }
   }
   return query

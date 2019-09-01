@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
+    <v-layout wrap>
       <Heading :title="$t('login.TITLE')" />
       <Description :description="$t('login.DESCRIPTION')" />
       <v-flex xs12 sm6 offset-sm3>
@@ -34,15 +34,15 @@
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
-            <v-flex text-xs-center mt-5>
+            <v-flex text-center mt-5>
               <SubmitButton :text="$t('login.LOGIN')" />
             </v-flex>
-            <v-flex text-xs-center>
+            <v-flex text-center>
               <v-btn
                 :to="{ name: 'forgotPassword' }"
                 color="white"
                 small
-                flat
+                text
                 class="btnForgotPassword"
                 >{{ $t('login.FORGOT_PASSWORD') }}</v-btn
               >

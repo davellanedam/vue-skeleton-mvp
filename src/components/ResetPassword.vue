@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
-      <v-flex xs12 text-xs-center mt-5 mb-3>
+    <v-layout wrap>
+      <v-flex xs12 text-center mt-5 mb-3>
         <Heading :title="$t('resetPassword.TITLE')" />
       </v-flex>
       <v-flex xs12 sm6 offset-sm3>
@@ -36,7 +36,7 @@
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
-            <v-flex v-show="showChangePasswordInputs" text-xs-center mt-5>
+            <v-flex v-show="showChangePasswordInputs" text-center mt-5>
               <SubmitButton :text="$t('resetPassword.CHANGE_PASSWORD')" />
             </v-flex>
           </v-layout>

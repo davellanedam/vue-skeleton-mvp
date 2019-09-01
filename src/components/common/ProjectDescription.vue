@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-flex xs12 text-xs-center mt-5 mb-5>
+    <v-flex xs12 text-center mt-5 mb-5>
       {{ $t('landing.BUY_ME_A_COFFEE_DESCRIPTION') }}
       <br />
       <br />
@@ -17,7 +17,7 @@
       </a>
     </v-flex>
 
-    <v-flex xs12 text-xs-center mb-5>
+    <v-flex xs12 text-center mb-5>
       {{ $t('landing.DESCRIPTION_VUE') }}
       <br />
       <br />
@@ -26,7 +26,7 @@
         >https://github.com/davellanedam/vue-skeleton-mvp</a
       >
     </v-flex>
-    <v-flex xs12 text-xs-center>
+    <v-flex xs12 text-center>
       {{ $t('landing.DESCRIPTION_API') }}
       <br />
       <br />

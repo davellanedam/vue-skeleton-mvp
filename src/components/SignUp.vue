@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
+    <v-layout wrap>
       <Heading :title="$t('signup.TITLE')" />
       <v-flex xs12 sm6 offset-sm3>
         <form @submit.prevent="submit">
@@ -61,7 +61,7 @@
                 autocomplete="off"
               ></v-text-field>
             </v-flex>
-            <v-flex text-xs-center mt-5>
+            <v-flex text-center mt-5>
               <SubmitButton :text="$t('signup.SIGN_ME_UP')" />
             </v-flex>
           </v-layout>

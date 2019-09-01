@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
+    <v-layout wrap>
       <Heading :title="$t('about.TITLE')" />
       <Description :description="$t('about.DESCRIPTION')" />
     </v-layout>

@@ -1,14 +1,14 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
+    <v-layout wrap>
       <Heading :title="$t('myProfile.TITLE')" />
       <v-flex xs12 sm8 offset-sm2>
         <v-dialog v-model="dialog" max-width="400px">
           <template v-slot:activator="{ on }">
-            <v-flex text-xs-center>
+            <v-flex text-center>
               <v-btn
                 small
-                flat
+                text
                 v-on="on"
                 @click="triggerChangePassword = true"
                 class="btnChangePassword"
@@ -199,7 +199,7 @@
                   autocomplete="off"
                 ></v-text-field>
               </v-flex>
-              <v-flex text-xs-center mt-5>
+              <v-flex text-center mt-5>
                 <SubmitButton
                   :text="$t('myProfile.SAVE')"
                   customClass="btnSave"

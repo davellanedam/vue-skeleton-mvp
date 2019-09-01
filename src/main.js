@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import '@/plugins/axios'
-import '@/plugins/vuetify'
+import vuetify from '@/plugins/vuetify'
 import '@/plugins/veevalidate'
 import '@/plugins/common'
 import '@/plugins/googleAnalytics'
@@ -12,6 +12,7 @@ import { store } from '@/store'
 Vue.config.productionTip = false
 
 const app = new Vue({
+  vuetify,
   router,
   store,
   i18n,

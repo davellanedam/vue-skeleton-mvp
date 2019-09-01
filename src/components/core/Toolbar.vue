@@ -2,56 +2,56 @@
   <div>
     <v-navigation-drawer v-model="sidebar" app disable-resize-watcher>
       <v-list>
-        <v-list-tile>
-          <v-list-tile-content>{{ appTitle }}</v-list-tile-content>
-          <v-list-tile-action>
+        <v-list-item>
+          <v-list-item-content>{{ appTitle }}</v-list-item-content>
+          <v-list-item-action>
             <v-btn icon @click.stop="sidebar = !sidebar">
               <v-icon>mdi-chevron-left</v-icon>
             </v-btn>
-          </v-list-tile-action>
-        </v-list-tile>
-        <v-list-tile
+          </v-list-item-action>
+        </v-list-item>
+        <v-list-item
           v-for="(item, index) in menuItems"
           :key="index"
           :to="{ name: item.link }"
           exact
         >
-          <v-list-tile-action>
+          <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
-        </v-list-tile>
+          </v-list-item-action>
+          <v-list-item-content>{{ item.title }}</v-list-item-content>
+        </v-list-item>
 
         <v-list-group v-if="admin" prepend-icon="mdi-lock" no-action>
-          <v-list-tile slot="activator">
-            <v-list-tile-title>{{ $t('adminItems.ADMIN') }}</v-list-tile-title>
-          </v-list-tile>
-          <v-list-tile
+          <v-list-item slot="activator">
+            <v-list-item-title>{{ $t('adminItems.ADMIN') }}</v-list-item-title>
+          </v-list-item>
+          <v-list-item
             v-for="(item, index) in adminItems"
             :key="index"
             :to="{ name: item.link }"
             exact
           >
-            <v-list-tile-content class="d-inline mt-3">
+            <v-list-item-content class="d-inline mt-3">
               <v-icon>{{ item.icon }}</v-icon>
               {{ item.title }}
-            </v-list-tile-content>
-          </v-list-tile>
+            </v-list-item-content>
+          </v-list-item>
         </v-list-group>
 
-        <v-list-tile v-if="isTokenSet" @click="userLogout">
-          <v-list-tile-action>
+        <v-list-item v-if="isTokenSet" @click="userLogout">
+          <v-list-item-action>
             <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
+          </v-list-item-action>
+          <v-list-item-content>
             {{ $t('menuItems.LOGOUT') }}
-          </v-list-tile-content>
-        </v-list-tile>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app>
+    <v-app-bar>
       <span class="hidden-md-and-up">
-        <v-toolbar-side-icon @click="sidebar = !sidebar"></v-toolbar-side-icon>
+        <v-app-bar-nav-icon @click="sidebar = !sidebar"></v-app-bar-nav-icon>
       </span>
       <v-toolbar-title class="headline text-uppercase ml-0">
         <div v-resize-text>
@@ -74,7 +74,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn
-          flat
+          text
           v-for="(item, index) in menuItems"
           :key="index"
           :to="{ name: item.link }"
@@ -86,12 +86,14 @@
         </v-btn>
 
         <v-menu v-if="admin" offset-y class="hidden-sm-and-down">
-          <v-btn slot="activator" flat class="btnAdmin">
-            <v-icon>mdi-lock</v-icon>
-            &nbsp;{{ $t('adminItems.ADMIN') }}
-          </v-btn>
+		  <template v-slot:activator="{ on }">
+			  <v-btn v-on="on" text class="btnAdmin">
+				<v-icon>mdi-lock</v-icon>
+				&nbsp;{{ $t('adminItems.ADMIN') }}
+			  </v-btn>
+		  </template>
           <v-list>
-            <v-list-tile
+            <v-list-item
               active-class="white--text"
               v-for="(item, index) in adminItems"
               :key="index"
@@ -99,16 +101,16 @@
               exact
               :class="[item.class]"
             >
-              <v-list-tile-title>
+              <v-list-item-title>
                 <v-icon>{{ item.icon }}</v-icon>
                 {{ item.title }}
-              </v-list-tile-title>
-            </v-list-tile>
+              </v-list-item-title>
+            </v-list-item>
           </v-list>
         </v-menu>
 
         <v-btn
-          flat
+          text
           v-if="isTokenSet"
           @click="userLogout"
           class="hidden-sm-and-down btnLogout"
@@ -118,7 +120,7 @@
         </v-btn>
         <LocaleChanger />
       </v-toolbar-items>
-    </v-toolbar>
+    </v-app-bar>
   </div>
 </template>
 
@@ -136,7 +138,7 @@ export default {
         lang: this.$i18n.locale
       },
       meta: [
-        { name: 'msapplication-TileColor', content: '#ffc40d' },
+        { name: 'msapplicationColor', content: '#ffc40d' },
         { name: 'theme-color', content: '#ffffff' },
         {
           name: 'apple-mobile-web-app-title',

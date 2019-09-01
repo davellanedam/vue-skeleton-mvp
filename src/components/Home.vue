@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap>
-      <div class="text-xs-center">
+    <v-layout wrap>
+      <div class="text-center">
         <v-dialog v-model="showVerifyDialog" width="500" persistent>
           <v-card>
             <v-card-title

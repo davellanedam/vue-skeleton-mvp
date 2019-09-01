@@ -3,6 +3,7 @@ module.exports = {
   env: {
     node: true
   },
+  plugins: ['vuetify'],
   extends: [
     'formidable/rules/eslint/best-practices/on',
     'formidable/rules/eslint/es6/on',
@@ -15,6 +16,7 @@ module.exports = {
     '@vue/prettier'
   ],
   rules: {
+    'vuetify/no-deprecated-classes': 'error',
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'callback-return': [
