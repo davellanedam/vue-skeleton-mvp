@@ -1,4 +1,4 @@
-import { addMinutes, isPast, format } from 'date-fns'
+import { addMinutes, isPast, format, parseISO } from 'date-fns'
 import update from '@/services/api/updateSite'
 import { store } from '@/store'
 
@@ -54,7 +54,9 @@ export const checkForUpdates = () => {
   if (
     isPast(
       new Date(
-        JSON.parse(window.localStorage.getItem('checkForAppUpdatesAt')) * 1000
+        parseISO(
+          JSON.parse(window.localStorage.getItem('checkForAppUpdatesAt'))
+        ) * 1000
       )
     )
   ) {

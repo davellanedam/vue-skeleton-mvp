@@ -1,15 +1,14 @@
 import i18n from '@/plugins/i18n'
 import * as types from '@/store/mutation-types'
-import { isPast, format } from 'date-fns'
+import { isPast, format, parseISO } from 'date-fns'
 import { store } from '@/store'
 
 const localesDateFns = {
-  en: require('date-fns/locale/en'),
   es: require('date-fns/locale/es')
 }
 
 export const getFormat = (date, formatStr) => {
-  return format(date, formatStr, {
+  return format(parseISO(date), formatStr, {
     locale: localesDateFns[window.__localeId__]
   })
 }
@@ -113,7 +112,8 @@ export const checkIfTokenNeedsRefresh = () => {
     if (
       isPast(
         new Date(
-          JSON.parse(window.localStorage.getItem('tokenExpiration')) * 1000
+          parseISO(JSON.parse(window.localStorage.getItem('tokenExpiration'))) *
+            1000
         )
       )
     ) {
