@@ -236,7 +236,7 @@ export default {
     ...mapActions(['getCities', 'editCity', 'saveCity', 'deleteCity']),
     getFormat(date) {
       window.__localeId__ = this.$store.getters.locale
-      return getFormat(date, 'ddd, MMMM D YYYY, h:mm a')
+      return getFormat(date, 'iii, MMMM d yyyy, h:mm a')
     },
     async doSearch() {
       try {
