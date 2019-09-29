@@ -7,6 +7,8 @@ describe('Profile', () => {
     // url should be /profile
     cy.url().should('include', '/profile')
     cy.get('input[name=email]').should('have.value', 'admin@admin.com')
+    // Logout
+    cy.logout()
   })
   it('Checks input types', () => {
     cy.login('admin@admin.com')
@@ -40,6 +42,8 @@ describe('Profile', () => {
     cy.get('input[name=phone]')
       .invoke('attr', 'type')
       .should('contain', 'tel')
+    // Logout
+    cy.logout()
   })
   // eslint-disable-next-line max-statements
   it('Edits profile', () => {
@@ -103,6 +107,24 @@ describe('Profile', () => {
     cy.get('input[name=country]').should('have.value', country)
     cy.get('input[name=urlTwitter]').should('have.value', urlTwitter)
     cy.get('input[name=urlGitHub]').should('have.value', urlGitHub)
+    // Logout
+    cy.logout()
+  })
+  it('Checks input types for change password', () => {
+    cy.login('admin@admin.com')
+    cy.visit('/profile')
+    cy.get('button.btnChangePassword').click()
+    cy.get('div.v-dialog.v-dialog--active').should('be.visible')
+    // Checks input type is password
+    cy.get('input[name=oldPassword]')
+      .invoke('attr', 'type')
+      .should('contain', 'password')
+    cy.get('input[name=newPassword]')
+      .invoke('attr', 'type')
+      .should('contain', 'password')
+    cy.get('input[name=confirmPassword]')
+      .invoke('attr', 'type')
+      .should('contain', 'password')
   })
   it('Displays errors when current password is wrong', () => {
     cy.login('admin@admin.com')
@@ -126,22 +148,6 @@ describe('Profile', () => {
       .should('be.visible')
       .contains('Wrong password')
   })
-  it('Checks input types for change password', () => {
-    cy.login('admin@admin.com')
-    cy.visit('/profile')
-    cy.get('button.btnChangePassword').click()
-    cy.get('div.v-dialog.v-dialog--active').should('be.visible')
-    // Checks input type is password
-    cy.get('input[name=oldPassword]')
-      .invoke('attr', 'type')
-      .should('contain', 'password')
-    cy.get('input[name=newPassword]')
-      .invoke('attr', 'type')
-      .should('contain', 'password')
-    cy.get('input[name=confirmPassword]')
-      .invoke('attr', 'type')
-      .should('contain', 'password')
-  })
   it('Change password', () => {
     cy.login('admin@admin.com')
     cy.setLocaleToEN()
@@ -163,5 +169,7 @@ describe('Profile', () => {
     cy.get('div.success')
       .should('be.visible')
       .contains('Password changed successfully')
+    // Logout
+    cy.logout()
   })
 })
