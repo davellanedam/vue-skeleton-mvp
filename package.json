@@ -54,7 +54,7 @@
     "eslint": "^6.5.0",
     "eslint-config-formidable": "^4.0.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-vue": "^5.2.3",
+    "eslint-plugin-vue": "^6.0.2",
     "faker": "^4.1.0",
     "fibers": "^4.0.1",
     "husky": "^3.0.7",
