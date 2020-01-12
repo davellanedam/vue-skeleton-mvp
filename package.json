@@ -16,7 +16,9 @@
     "test:e2e": "vue-cli-service test:e2e --mode e2e",
     "test:unit": "vue-cli-service test:unit",
     "remark": "remark . -o",
-    "ci": "vue-cli-service test:e2e --env API_URL=https://api-demo.daniel-avellaneda.com,ENV=ci --headless --config video=false"
+    "ci": "npm run ci:test && npm run coverage",
+    "ci:test": "vue-cli-service test:e2e --env API_URL=https://api-demo.daniel-avellaneda.com,ENV=ci --reporter spec --headless --config video=false",
+    "coverage": "nyc report --reporter=text-summary"
   },
   "husky": {
     "hooks": {
@@ -26,6 +28,7 @@
   "dependencies": {
     "@mdi/font": "^4.7.95",
     "axios": "^0.19.1",
+    "core-js": "^3.6.3",
     "date-fns": "^2.9.0",
     "remark-cli": "^7.0.1",
     "vee-validate": "^2.2.15",
@@ -41,6 +44,7 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^1.10.4",
     "@kazupon/vue-i18n-loader": "^0.5.0",
     "@vue/cli-plugin-babel": "^4.1.2",
     "@vue/cli-plugin-e2e-cypress": "^4.1.2",
@@ -50,6 +54,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.0.0-beta.30",
     "babel-eslint": "^10.0.3",
+    "babel-plugin-istanbul": "^6.0.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-formidable": "^4.0.0",
@@ -58,6 +63,8 @@
     "faker": "^4.1.0",
     "fibers": "^4.0.2",
     "husky": "^4.0.7",
+    "istanbul-lib-coverage": "^3.0.0",
+    "nyc": "^15.0.0",
     "prettier": "^1.19.1",
     "sass": "^1.24.4",
     "sass-loader": "^8.0.1",
