@@ -13,14 +13,25 @@
 Cypress.Commands.add('login', email => {
   cy.visit('/login')
   cy.get('input[name=email]')
+    .should('be.visible')
     .clear()
     .type(email)
   cy.get('input[name=password]')
+    .should('be.visible')
     .clear()
     .type('12345{enter}')
 
   // url should be home
   cy.url().should('include', '/home')
+})
+
+Cypress.Commands.add('logout', () => {
+  // Logout
+  cy.get('button.btnLogout')
+    .should('be.visible')
+    .click()
+  // url should be login
+  cy.url().should('include', '/login')
 })
 
 Cypress.Commands.add('setLocaleToEN', () => {

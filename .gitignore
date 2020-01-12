@@ -2,6 +2,8 @@
 node_modules
 /dist
 
+.nyc_output
+/coverage/
 /tests/e2e/reports/
 selenium-debug.log
 
@@ -22,3 +24,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+.history/

@@ -75,12 +75,7 @@ describe('Signup', () => {
       .click()
 
     // Logout
-    cy.get('button.btnLogout')
-      .should('be.visible')
-      .click()
-
-    // url should be login
-    cy.url().should('include', '/login')
+    cy.logout()
   })
   it('Verify account', () => {
     cy.visit('/login')
@@ -118,12 +113,7 @@ describe('Signup', () => {
           .contains('E-mail verified successfully')
 
         // Logout
-        cy.get('button.btnLogout')
-          .should('be.visible')
-          .click()
-
-        // url should be login
-        cy.url().should('include', '/login')
+        cy.logout()
       })
     }
   })
@@ -150,12 +140,7 @@ describe('Signup', () => {
         .contains('Not found or already verified')
 
       // Logout
-      cy.get('button.btnLogout')
-        .should('be.visible')
-        .click()
-
-      // url should be login
-      cy.url().should('include', '/login')
+      cy.logout()
     })
   })
 })

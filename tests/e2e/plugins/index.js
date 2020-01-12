@@ -13,6 +13,11 @@ module.exports = (on, config) => {
   //  watchOptions: {}
   // }))
 
+  // Check coverage on each task
+  on('task', require('@cypress/code-coverage/task'))
+  // Instrument code
+  on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'))
+
   return Object.assign({}, config, {
     fixturesFolder: 'tests/e2e/fixtures',
     integrationFolder: 'tests/e2e/specs',

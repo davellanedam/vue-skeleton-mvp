@@ -59,13 +59,10 @@ describe('Login', () => {
       .type('12345{enter}')
     // url should be home
     cy.url().should('include', '/home')
-
+  })
+  it('Logout', () => {
     // Logout
-    cy.get('button.btnLogout')
-      .should('be.visible')
-      .click()
-    // url should be login
-    cy.url().should('include', '/login')
+    cy.logout()
   })
   it('Go to forgot password', () => {
     cy.visit('/login')
