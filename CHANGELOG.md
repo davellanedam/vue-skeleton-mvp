@@ -1,3 +1,7 @@
+## v4.2.1 (January 12, 2020)
+
+-   Code coverage disabled for CI
+
 ## v4.2.0 (January 12, 2020)
 
 -   Fix for date-fns for using new version
