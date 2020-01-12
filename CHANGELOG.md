@@ -1,3 +1,10 @@
+## v4.2.0 (January 12, 2020)
+
+-   Fix for date-fns for using new version
+-   Logout tests
+-   NPM updated
+-   Code coverage
+
 ## v4.1.3 (July 25, 2019)
 
 -   Fix for travis
