@@ -1,3 +1,7 @@
+## v4.2.2 (March 16, 2020)
+
+-   NPM updated
+
 ## v4.2.1 (January 12, 2020)
 
 -   Code coverage disabled for CI
