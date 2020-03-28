@@ -1,138 +1,160 @@
-<template>
+_<template>
   <div>
-    <v-layout wrap>
-      <v-flex xs12 sm12 md4 mt-3 pl-4>
-        <v-toolbar-title>{{ $t('cities.TITLE') }}</v-toolbar-title>
-      </v-flex>
-      <v-flex xs12 sm6 md4 px-3>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          :label="$t('dataTable.SEARCH')"
-          single-line
-          hide-details
-          clearable
-          clear-icon="mdi-close"
-        ></v-text-field>
-      </v-flex>
-      <v-flex xs12 sm6 md4 text-xs-right mb-2 mt-2 pr-2>
-        <v-dialog
-          v-model="dialog"
-          max-width="500px"
-          content-class="dlgNewEditItem"
-        >
-          <template v-slot:activator="{ on }">
-            <v-btn color="secondary" v-on="on" class="btnNewItem pr-4">
-              <v-icon class="mr-2">mdi-plus</v-icon>
-              {{ $t('dataTable.NEW_ITEM') }}
-            </v-btn>
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="headline">{{ formTitle }}</span>
-            </v-card-title>
-            <v-card-text>
-              <v-container grid-list-md>
-                <v-layout wrap>
-                  <template v-if="editedItem._id">
-                    <v-flex xs12 md6>
-                      <label for="createdAt">{{ $t('common.CREATED') }}</label>
-                      <div name="createdAt">
-                        {{ getFormat(editedItem.createdAt) }}
-                      </div>
-                    </v-flex>
-                    <v-flex xs12 md6>
-                      <label for="updatedAt">{{ $t('common.UPDATED') }}</label>
-                      <div name="updatedAt">
-                        {{ getFormat(editedItem.updatedAt) }}
-                      </div>
-                    </v-flex>
-                  </template>
-                  <v-flex xs12>
-                    <v-text-field
-                      id="name"
-                      name="name"
-                      v-model="editedItem.name"
-                      :label="$t('cities.headers.NAME')"
-                      :data-vv-as="$t('cities.headers.NAME')"
-                      :error="errors.has('name')"
-                      :error-messages="errors.collect('name')"
-                      v-validate.disable="'required'"
-                      autocomplete="off"
-                    ></v-text-field>
-                  </v-flex>
-                </v-layout>
-              </v-container>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                color="red lighten3"
-                flat
-                @click="close"
-                class="btnCancel"
-                >{{ $t('dataTable.CANCEL') }}</v-btn
-              >
-              <v-btn
-                color="yellow lighten3"
-                flat
-                @click="save"
-                class="btnSave"
-                >{{ $t('dataTable.SAVE') }}</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </v-flex>
-    </v-layout>
     <v-data-table
-      must-sort
       :loading="dataTableLoading"
-      :rows-per-page-text="$t('dataTable.ROWS_PER_PAGE')"
       :no-data-text="$t('dataTable.NO_DATA')"
       :no-results-text="$t('dataTable.NO_RESULTS')"
-      :rows-per-page-items="[5, 10, 25]"
       :headers="headers"
       :items="items"
-      :pagination.sync="pagination"
-      :total-items="totalItems"
+      :options.sync="pagination"
+      :items-per-page="5"
+      :server-items-length="totalItems"
       class="elevation-1"
+      :footer-props="{
+        'items-per-page-text': $t('dataTable.ROWS_PER_PAGE'),
+        'items-per-page-options': [5, 10, 25]
+      }"
     >
-      <template v-slot:items="props">
-        <td class="fill-height px-0">
-          <v-layout class="justify-center">
-            <v-tooltip top>
-              <v-btn
-                icon
-                class="mx-0"
-                slot="activator"
-                @click="editItem(props.item)"
+      <template v-slot:top>
+        <v-layout wrap>
+          <v-flex xs12 sm12 md4 mt-3 pl-4>
+            <div align="left">
+              <v-toolbar-title>{{ $t('cities.TITLE') }}</v-toolbar-title>
+            </div>
+          </v-flex>
+          <v-flex xs12 sm6 md4 px-3>
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              :label="$t('dataTable.SEARCH')"
+              single-line
+              hide-details
+              clearable
+              id="search"
+              clear-icon="mdi-close"
+            ></v-text-field>
+          </v-flex>
+          <v-flex xs12 sm6 md4 mb-2 mt-2 pr-2>
+            <ValidationObserver
+              ref="observer"
+              v-slot="{ invalid }"
+              tag="form"
+              @submit.prevent="submit()"
+            >
+              <v-dialog
+                v-model="dialog"
+                max-width="500px"
+                content-class="dlgNewEditItem"
               >
+                <template v-slot:activator="{ on }">
+                  <div align="right">
+                    <v-btn color="secondary" v-on="on" class="btnNewItem">
+                      <v-icon class="mr-2">mdi-plus</v-icon>
+                      {{ $t('dataTable.NEW_ITEM') }}
+                    </v-btn>
+                  </div>
+                </template>
+                <v-card>
+                  <v-card-title>
+                    <span class="headline">{{ formTitle }}</span>
+                  </v-card-title>
+
+                  <v-card-text>
+                    <v-container grid-list-md>
+                      <v-layout wrap>
+                        <template v-if="editedItem._id">
+                          <v-flex xs12 md6>
+                            <label for="createdAt">{{
+                              $t('common.CREATED')
+                            }}</label>
+                            <div name="createdAt">
+                              {{ getFormat(editedItem.createdAt) }}
+                            </div>
+                          </v-flex>
+                          <v-flex xs12 md6>
+                            <label for="updatedAt">{{
+                              $t('common.UPDATED')
+                            }}</label>
+                            <div name="updatedAt">
+                              {{ getFormat(editedItem.updatedAt) }}
+                            </div>
+                          </v-flex>
+                        </template>
+                        <v-flex xs12>
+                          <ValidationProvider
+                            rules="required"
+                            v-slot="{ errors }"
+                          >
+                            <v-text-field
+                              requierd
+                              id="name"
+                              name="name"
+                              v-model="editedItem.name"
+                              :label="$t('cities.headers.NAME')"
+                              :error="errors.length > 0"
+                              :error-messages="errors[0]"
+                              autocomplete="off"
+                            ></v-text-field>
+                          </ValidationProvider>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-card-text>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="red lighten3"
+                      text
+                      @click="close"
+                      class="btnCancel"
+                      >{{ $t('dataTable.CANCEL') }}</v-btn
+                    >
+                    <v-btn
+                      color="green lighten3"
+                      text
+                      @click="save"
+                      class="btnSave"
+                      :disabled="invalid"
+                      >{{ $t('dataTable.SAVE') }}</v-btn
+                    >
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </ValidationObserver>
+          </v-flex>
+        </v-layout>
+      </template>
+      <template v-slot:item._id="{ item }">
+        <v-layout class="justify-center">
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-btn id="edit" icon v-on="on" @click="editItem(item)">
                 <v-icon>mdi-pencil</v-icon>
               </v-btn>
-              <span>{{ $t('dataTable.EDIT') }}</span>
-            </v-tooltip>
-            <v-tooltip top>
-              <v-btn
-                icon
-                class="mx-0"
-                slot="activator"
-                @click="deleteItem(props.item)"
-              >
+            </template>
+            <span>{{ $t('dataTable.EDIT') }}</span>
+          </v-tooltip>
+          <v-tooltip top>
+            <template v-slot:activator="{ on }">
+              <v-btn id="delete" icon v-on="on" @click="deleteItem(item)">
                 <v-icon>mdi-delete</v-icon>
               </v-btn>
-              <span>{{ $t('dataTable.DELETE') }}</span>
-            </v-tooltip>
-          </v-layout>
-        </td>
-        <td>{{ props.item.name }}</td>
-        <td>{{ getFormat(props.item.createdAt) }}</td>
-        <td>{{ getFormat(props.item.updatedAt) }}</td>
+            </template>
+            <span>{{ $t('dataTable.DELETE') }}</span>
+          </v-tooltip>
+        </v-layout>
       </template>
-      <template v-slot:pageText="props">
-        {{ props.pageStart }} - {{ props.pageStop }} {{ $t('dataTable.OF') }}
-        {{ props.itemsLength }}
+      <template v-slot:item.createdAt="{ item }">
+        {{ getFormat(item.createdAt) }}
+      </template>
+      <template v-slot:item.updatedAt="{ item }">
+        {{ getFormat(item.updatedAt) }}
+      </template>
+      <template v-slot:footer.page-text="{ pageStart, pageStop, itemsLength }">
+        {{ pageStart }} - {{ pageStop }}
+        {{ $t('dataTable.OF') }}
+        {{ itemsLength }}
       </template>
       <template v-slot:no-data>{{ $t('dataTable.NO_DATA') }}</template>
       <template v-slot:no-results>{{ $t('dataTable.NO_RESULTS') }}</template>
@@ -145,6 +167,7 @@
 <script>
 import { mapActions } from 'vuex'
 import { getFormat, buildPayloadPagination } from '@/utils/utils.js'
+import { ValidationProvider, ValidationObserver } from 'vee-validate'
 
 export default {
   metaInfo() {
@@ -164,6 +187,10 @@ export default {
       defaultItem: {},
       fieldsToSearch: ['name']
     }
+  },
+  components: {
+    ValidationProvider,
+    ValidationObserver
   },
   computed: {
     formTitle() {
@@ -257,6 +284,7 @@ export default {
     },
     editItem(item) {
       this.editedItem = Object.assign({}, item)
+      console.log(item)
       this.dialog = true
     },
     async deleteItem(item) {
@@ -268,7 +296,7 @@ export default {
             buttonTrueText: this.$t('common.DELETE'),
             buttonFalseText: this.$t('common.CANCEL'),
             buttonTrueColor: 'red lighten3',
-            buttonFalseColor: 'yellow lighten3'
+            buttonFalseColor: 'green'
           }
         )
         if (response) {
@@ -291,9 +319,9 @@ export default {
       }, 300)
     },
     async save() {
-      try {
-        const valid = await this.$validator.validateAll()
-        if (valid) {
+      const isValid = await this.$refs.observer.validate()
+      if (isValid) {
+        try {
           this.dataTableLoading = true
           // Updating item
           if (this.editedItem._id) {
@@ -311,11 +339,11 @@ export default {
             this.dataTableLoading = false
           }
           this.close()
+          // eslint-disable-next-line no-unused-vars
+        } catch (error) {
+          this.dataTableLoading = false
+          this.close()
         }
-        // eslint-disable-next-line no-unused-vars
-      } catch (error) {
-        this.dataTableLoading = false
-        this.close()
       }
     }
   }

@@ -1,8 +1,8 @@
 import * as types from '@/store/mutation-types'
 
 const getters = {
-  showErrorMessage: state => state.showErrorMessage,
-  errorMessage: state => state.errorMessage
+  showErrorMessage: (state) => state.showErrorMessage,
+  errorMessage: (state) => state.errorMessage
 }
 
 const mutations = {

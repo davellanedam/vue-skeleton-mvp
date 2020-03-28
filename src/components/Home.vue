@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <div class="text-xs-center">
+      <div align="center">
         <v-dialog v-model="showVerifyDialog" width="500" persistent>
           <v-card>
             <v-card-title
@@ -11,7 +11,7 @@
               <v-icon class="orange--text">mdi-information</v-icon>
               &nbsp;{{ $t('home.VERIFY_YOUR_ACCOUNT') }}
             </v-card-title>
-            <v-card-text>
+            <v-card-text class="mt-4">
               {{ $t('home.VERIFY_YOUR_ACCOUNT_DESCRIPTION') }}
             </v-card-text>
             <v-divider></v-divider>
@@ -19,7 +19,7 @@
               <v-spacer></v-spacer>
               <v-btn
                 color="primary"
-                flat
+                text
                 @click="showVerifyDialog = false"
                 class="btnClose"
                 >{{ $t('home.CLOSE') }}</v-btn

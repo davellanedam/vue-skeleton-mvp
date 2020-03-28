@@ -9,7 +9,7 @@ const actions = {
       commit(types.SHOW_LOADING, true)
       api
         .userSignUp(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 201) {
             window.localStorage.setItem(
               'user',
@@ -31,7 +31,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })

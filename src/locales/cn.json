@@ -1,4 +1,12 @@
 {
+  "messages": {
+    "email": "需要有效的電子郵件",
+    "required": "此字段為必填",
+    "password": "需要密碼",
+    "min": "此字段不得少於 {length} 個字符",
+    "url": "必須是有效的網址",
+    "confirmed": "密碼必須匹配"
+  },
   "errors": {
     "BAD_TOKEN": "无效的签名",
     "WRONG_PASSWORD": "密码错误",

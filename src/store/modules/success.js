@@ -1,10 +1,10 @@
 import * as types from '@/store/mutation-types'
 
 const getters = {
-  showSuccessMessage: state => state.successMessage,
-  successMessage: state => state.successMessage,
-  successMessageParams: state => state.successMessageParams,
-  successMessageTimeout: state => state.successMessageTimeout
+  showSuccessMessage: (state) => state.successMessage,
+  successMessage: (state) => state.successMessage,
+  successMessageParams: (state) => state.successMessageParams,
+  successMessageTimeout: (state) => state.successMessageTimeout
 }
 
 const mutations = {

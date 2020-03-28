@@ -17,22 +17,16 @@ describe('Forgot Password / Reset Password', () => {
   it('Displays errors when user does not exist', () => {
     cy.visit('/forgot')
     cy.setLocaleToEN()
-    cy.get('input[name=email]')
-      .clear()
-      .type(`${faker.internet.email()}{enter}`)
+    cy.get('input[name=email]').clear().type(`${faker.internet.email()}{enter}`)
 
-    cy.get('div.error')
-      .should('be.visible')
-      .contains('User does not exists')
+    cy.get('div.error').should('be.visible').contains('User does not exists')
     // and still be on the same URL
     cy.url().should('include', '/forgot')
   })
   it('Forgot password', () => {
     cy.visit('/forgot')
     cy.setLocaleToEN()
-    cy.get('input[name=email]')
-      .clear()
-      .type('admin@admin.com{enter}')
+    cy.get('input[name=email]').clear().type('admin@admin.com{enter}')
 
     cy.get('div.success')
       .should('be.visible')
@@ -63,14 +57,12 @@ describe('Forgot Password / Reset Password', () => {
       // This is the post call we are interested in capturing
       cy.route('POST', `${Cypress.env('API_URL')}/forgot`).as('forgot')
       cy.visit('/forgot')
-      cy.get('input[name=email]')
-        .clear()
-        .type('admin@admin.com{enter}')
+      cy.get('input[name=email]').clear().type('admin@admin.com{enter}')
 
       cy.wait('@forgot')
 
       // Assert on XHR
-      cy.get('@forgot').then(xhr => {
+      cy.get('@forgot').then((xhr) => {
         expect(xhr.status).to.eq(200)
         expect(xhr.responseBody).to.have.property('verification')
         verification = xhr.responseBody.verification
@@ -80,12 +72,8 @@ describe('Forgot Password / Reset Password', () => {
         // url should be verify
         cy.url().should('include', `/reset/${verification}`)
 
-        cy.get('input[name=password]')
-          .clear()
-          .type('12345')
-        cy.get('input[name=confirmPassword]')
-          .clear()
-          .type('12345{enter}')
+        cy.get('input[name=password]').clear().type('12345')
+        cy.get('input[name=confirmPassword]').clear().type('12345{enter}')
 
         cy.get('div.success')
           .should('be.visible')

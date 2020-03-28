@@ -1,13 +1,9 @@
 <template>
   <v-dialog v-model="showLoading" persistent width="300">
-    <v-card color="secondary white--text">
+    <v-card class="pt-4">
       <v-card-text>
         {{ $t('loading.PLEASE_WAIT') }}
-        <v-progress-linear
-          indeterminate
-          color="white"
-          class="mb-0"
-        ></v-progress-linear>
+        <v-progress-linear indeterminate class="mb-0"></v-progress-linear>
       </v-card-text>
     </v-card>
   </v-dialog>

@@ -2,8 +2,8 @@ import * as types from '@/store/mutation-types'
 import packageJson from '../../../package.json'
 
 const getters = {
-  appTitle: state => state.appTitle,
-  appVersion: state => state.appVersion
+  appTitle: (state) => state.appTitle,
+  appVersion: (state) => state.appVersion
 }
 
 const actions = {

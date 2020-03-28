@@ -22,7 +22,7 @@ export const formatErrorMessages = (translationParent, msg) => {
     const json = JSON.parse(JSON.stringify(msg))
     // If error message is an array, then we have mutiple errors
     if (Array.isArray(json)) {
-      json.map(error => {
+      json.map((error) => {
         errorArray.push(i18n.t(`${translationParent}.${error.msg}`))
       })
     } else {
@@ -36,10 +36,16 @@ export const formatErrorMessages = (translationParent, msg) => {
 }
 
 export const buildPayloadPagination = (pagination, search) => {
-  const { sortBy, page, rowsPerPage } = pagination
-  let { descending } = pagination
-  // Gets order
-  descending = descending ? -1 : 1
+  const { page, itemsPerPage } = pagination
+  let { sortDesc, sortBy } = pagination
+
+  // When sorting you always get both values
+  if (sortBy.length === 1 && sortDesc.length === 1) {
+    // Gets order
+    sortDesc = sortDesc[0] === true ? -1 : 1
+    // Gets column to sort on
+    sortBy = sortBy ? sortBy[0] : ''
+  }
 
   let query = {}
 
@@ -47,9 +53,9 @@ export const buildPayloadPagination = (pagination, search) => {
   if (search) {
     query = {
       sort: sortBy,
-      order: descending,
+      order: sortDesc,
       page,
-      limit: rowsPerPage,
+      limit: itemsPerPage,
       filter: search.query,
       fields: search.fields
     }
@@ -57,9 +63,9 @@ export const buildPayloadPagination = (pagination, search) => {
     // Pagination with no filters
     query = {
       sort: sortBy,
-      order: descending,
+      order: sortDesc,
       page,
-      limit: rowsPerPage
+      limit: itemsPerPage
     }
   }
   return query

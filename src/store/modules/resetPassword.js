@@ -3,7 +3,7 @@ import api from '@/services/api/resetPassword'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const getters = {
-  showChangePasswordInputs: state => state.showChangePasswordInputs
+  showChangePasswordInputs: (state) => state.showChangePasswordInputs
 }
 
 const actions = {
@@ -12,7 +12,7 @@ const actions = {
       commit(types.SHOW_LOADING, true)
       api
         .resetPassword(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             commit(types.SHOW_CHANGE_PASSWORD_INPUTS, false)
             buildSuccess(
@@ -24,7 +24,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           if (error.response.status === 404) {
             commit(types.SHOW_CHANGE_PASSWORD_INPUTS, false)
           }

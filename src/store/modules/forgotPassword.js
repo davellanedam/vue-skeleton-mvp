@@ -3,7 +3,7 @@ import api from '@/services/api/forgotPassword'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const getters = {
-  resetEmailSent: state => state.resetEmailSent
+  resetEmailSent: (state) => state.resetEmailSent
 }
 
 const actions = {
@@ -12,7 +12,7 @@ const actions = {
       commit(types.SHOW_LOADING, true)
       api
         .forgotPassword(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             commit(types.RESET_EMAIL_SENT, true)
             buildSuccess(
@@ -26,7 +26,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })

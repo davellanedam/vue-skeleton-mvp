@@ -3,8 +3,8 @@ import api from '@/services/api/adminCities'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const getters = {
-  cities: state => state.cities,
-  totalCities: state => state.totalCities
+  cities: (state) => state.cities,
+  totalCities: (state) => state.totalCities
 }
 
 const actions = {
@@ -12,14 +12,14 @@ const actions = {
     return new Promise((resolve, reject) => {
       api
         .getCities(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             commit(types.CITIES, response.data.docs)
             commit(types.TOTAL_CITIES, response.data.totalDocs)
             resolve()
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
@@ -31,7 +31,7 @@ const actions = {
       }
       api
         .editCity(payload._id, data)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             buildSuccess(
               {
@@ -42,7 +42,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
@@ -51,7 +51,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       api
         .saveCity(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 201) {
             buildSuccess(
               {
@@ -62,7 +62,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
@@ -71,7 +71,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       api
         .deleteCity(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             buildSuccess(
               {
@@ -82,7 +82,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
