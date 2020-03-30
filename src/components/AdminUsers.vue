@@ -18,7 +18,7 @@
       <template v-slot:top>
         <v-layout wrap>
           <v-flex xs12 sm12 md4 mt-3 pl-4>
-            <div align="left">
+            <div class="text-left">
               <v-toolbar-title>{{ $t('users.TITLE') }}</v-toolbar-title>
             </div>
           </v-flex>
@@ -47,7 +47,7 @@
                 content-class="dlgNewEditItem"
               >
                 <template v-slot:activator="{ on }">
-                  <div align="right">
+                  <div class="text-right">
                     <v-btn color="secondary" v-on="on" class="btnNewItem pr-4">
                       <v-icon class="mr-2">mdi-plus</v-icon>
                       {{ $t('dataTable.NEW_ITEM') }}
@@ -327,7 +327,6 @@
 <script>
 import { mapActions } from 'vuex'
 import { getFormat, buildPayloadPagination } from '@/utils/utils.js'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
 
 export default {
   metaInfo() {
@@ -348,10 +347,6 @@ export default {
       defaultItem: {},
       fieldsToSearch: ['name', 'email', 'role', 'city', 'country', 'phone']
     }
-  },
-  components: {
-    ValidationProvider,
-    ValidationObserver
   },
   computed: {
     roles() {

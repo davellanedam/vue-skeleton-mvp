@@ -18,7 +18,7 @@ _<template>
       <template v-slot:top>
         <v-layout wrap>
           <v-flex xs12 sm12 md4 mt-3 pl-4>
-            <div align="left">
+            <div class="text-left">
               <v-toolbar-title>{{ $t('cities.TITLE') }}</v-toolbar-title>
             </div>
           </v-flex>
@@ -47,7 +47,7 @@ _<template>
                 content-class="dlgNewEditItem"
               >
                 <template v-slot:activator="{ on }">
-                  <div align="right">
+                  <div class="text-right">
                     <v-btn color="secondary" v-on="on" class="btnNewItem">
                       <v-icon class="mr-2">mdi-plus</v-icon>
                       {{ $t('dataTable.NEW_ITEM') }}
@@ -167,7 +167,6 @@ _<template>
 <script>
 import { mapActions } from 'vuex'
 import { getFormat, buildPayloadPagination } from '@/utils/utils.js'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
 
 export default {
   metaInfo() {
@@ -187,10 +186,6 @@ export default {
       defaultItem: {},
       fieldsToSearch: ['name']
     }
-  },
-  components: {
-    ValidationProvider,
-    ValidationObserver
   },
   computed: {
     formTitle() {
@@ -284,7 +279,6 @@ export default {
     },
     editItem(item) {
       this.editedItem = Object.assign({}, item)
-      console.log(item)
       this.dialog = true
     },
     async deleteItem(item) {

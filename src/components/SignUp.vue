@@ -84,7 +84,6 @@
 <script>
 import router from '@/router'
 import { mapActions } from 'vuex'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
 
 export default {
   metaInfo() {
@@ -115,10 +114,6 @@ export default {
     if (this.$store.state.auth.isTokenSet) {
       router.push({ name: 'home' })
     }
-  },
-  components: {
-    ValidationProvider,
-    ValidationObserver
   }
 }
 </script>

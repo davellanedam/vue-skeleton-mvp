@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import * as VeeValidate from 'vee-validate'
+import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import en from '../locales/en'
 import es from '../locales/es'
 import cn from '../locales/cn'
@@ -33,5 +34,6 @@ localize({
 })
 
 Vue.use(VeeValidate)
-
+Vue.component('ValidationProvider', ValidationProvider)
+Vue.component('ValidationObserver', ValidationObserver)
 export default VeeValidate

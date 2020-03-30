@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <Toolbar />
-    <v-content align="center">
+    <v-content class="text-center">
       <loading />
       <v-container fluid>
         <transition name="fade" mode="out-in">

@@ -235,7 +235,6 @@
 
 <script>
 import { mapActions } from 'vuex'
-import { ValidationProvider, ValidationObserver } from 'vee-validate'
 
 export default {
   metaInfo() {
@@ -253,10 +252,6 @@ export default {
       confirmPassword: '',
       searchInput: ''
     }
-  },
-  components: {
-    ValidationProvider,
-    ValidationObserver
   },
   computed: {
     name: {
