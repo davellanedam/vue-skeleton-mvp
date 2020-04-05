@@ -1,3 +1,7 @@
+## v5.0.3 (April 5, 2020)
+
+-   FIX: Button for saving on changing password was not rendering correctly.
+
 ## v5.0.2 (April 5, 2020)
 
 -   NPM updated

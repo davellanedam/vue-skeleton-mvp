@@ -26,7 +26,7 @@
                   <v-icon class="mr-2">mdi-arrow-left</v-icon>
                   {{ $t('common.GO_BACK') }}
                 </v-btn>
-                <SubmitButton :text="$t('forgotPassword.RECOVER')" />
+                <SubmitButton :buttonText="$t('forgotPassword.RECOVER')" />
               </v-flex>
             </v-layout>
           </form>

@@ -36,7 +36,7 @@
                 </ValidationProvider>
               </v-flex>
               <v-flex text-xs-center mt-5>
-                <SubmitButton :text="$t('login.LOGIN')" />
+                <SubmitButton :buttonText="$t('login.LOGIN')" />
               </v-flex>
               <v-flex text-xs-center>
                 <v-btn

@@ -96,7 +96,8 @@
                   </v-btn>
                   <SubmitButton
                     id="updatePassword"
-                    :text="$t('dataTable.SAVE')"
+                    text
+                    :buttonText="$t('dataTable.SAVE')"
                     color="green"
                   />
                 </v-card-actions>
@@ -218,7 +219,7 @@
                 </v-flex>
                 <v-flex text-xs-center mt-5>
                   <SubmitButton
-                    :text="$t('myProfile.SAVE')"
+                    :buttonText="$t('myProfile.SAVE')"
                     customClass="btnSave"
                   />
                 </v-flex>
