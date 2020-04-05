@@ -1,9 +1,9 @@
 import * as types from '@/store/mutation-types'
 import i18n from '@/plugins/i18n'
-import { Validator } from 'vee-validate'
+import * as Validator from 'vee-validate'
 
 const getters = {
-  locale: state => state.locale
+  locale: (state) => state.locale
 }
 
 const actions = {

@@ -4,7 +4,6 @@
     type="submit"
     :disabled="disabledButton"
     :class="customClass"
-    :flat="flat"
     >{{ text }}</v-btn
   >
 </template>
@@ -15,8 +14,7 @@ export default {
   props: {
     color: String,
     text: String,
-    customClass: String,
-    flat: Boolean
+    customClass: String
   },
   computed: {
     disabledButton() {

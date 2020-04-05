@@ -10,7 +10,7 @@
           :timeout="successMessageTimeout"
         >
           {{ successMessage }}
-          <v-btn dark flat @click="showSuccessMessage = false">
+          <v-btn text @click="showSuccessMessage = false">
             {{ $t('common.CLOSE') }}
           </v-btn>
         </v-snackbar>

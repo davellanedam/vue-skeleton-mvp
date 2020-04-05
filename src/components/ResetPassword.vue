@@ -5,42 +5,51 @@
         <Heading :title="$t('resetPassword.TITLE')" />
       </v-flex>
       <v-flex xs12 sm6 offset-sm3>
-        <form @submit.prevent="submit">
-          <v-layout column>
-            <v-flex v-show="showChangePasswordInputs">
-              <v-text-field
-                id="password"
-                name="password"
-                type="password"
-                :label="$t('resetPassword.PASSWORD')"
-                v-model="password"
-                :data-vv-as="$t('resetPassword.PASSWORD')"
-                :error="errors.has('password')"
-                :error-messages="errors.collect('password')"
-                v-validate.disable="'required|min:5'"
-                ref="password"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex v-show="showChangePasswordInputs">
-              <v-text-field
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                :label="$t('resetPassword.CONFIRM_PASSWORD')"
-                v-model="confirmPassword"
-                :data-vv-as="$t('resetPassword.PASSWORD')"
-                :error="errors.has('confirmPassword')"
-                :error-messages="errors.collect('confirmPassword')"
-                v-validate.disable="'required|min:5|confirmed:password'"
-                autocomplete="off"
-              ></v-text-field>
-            </v-flex>
-            <v-flex v-show="showChangePasswordInputs" text-xs-center mt-5>
-              <SubmitButton :text="$t('resetPassword.CHANGE_PASSWORD')" />
-            </v-flex>
-          </v-layout>
-        </form>
+        <ValidationObserver v-slot="{ handleSubmit }">
+          <form @submit.prevent="handleSubmit(submit)">
+            <v-layout column>
+              <v-flex v-show="showChangePasswordInputs">
+                <ValidationProvider
+                  rules="required|min:5"
+                  v-slot="{ errors }"
+                  vid="password"
+                >
+                  <v-text-field
+                    id="password"
+                    name="password"
+                    type="password"
+                    :label="$t('resetPassword.PASSWORD')"
+                    v-model="password"
+                    :error="errors.length > 0"
+                    :error-messages="errors[0]"
+                    ref="password"
+                    autocomplete="off"
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-flex>
+              <v-flex v-show="showChangePasswordInputs">
+                <ValidationProvider
+                  rules="required|min:5|confirmed:password"
+                  v-slot="{ errors }"
+                >
+                  <v-text-field
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    :label="$t('resetPassword.CONFIRM_PASSWORD')"
+                    v-model="confirmPassword"
+                    :error="errors.length > 0"
+                    :error-messages="errors[0]"
+                    autocomplete="off"
+                  ></v-text-field>
+                </ValidationProvider>
+              </v-flex>
+              <v-flex v-show="showChangePasswordInputs" text-xs-center mt-5>
+                <SubmitButton :text="$t('resetPassword.CHANGE_PASSWORD')" />
+              </v-flex>
+            </v-layout>
+          </form>
+        </ValidationObserver>
       </v-flex>
       <ErrorMessage />
       <SuccessMessage />
@@ -69,13 +78,10 @@ export default {
   methods: {
     ...mapActions(['resetPassword']),
     async submit() {
-      const valid = await this.$validator.validateAll()
-      if (valid) {
-        await this.resetPassword({
-          id: this.id,
-          password: this.password
-        })
-      }
+      await this.resetPassword({
+        id: this.id,
+        password: this.password
+      })
     }
   },
   computed: {

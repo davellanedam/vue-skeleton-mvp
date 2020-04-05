@@ -13,7 +13,9 @@
           src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
           :alt="$t('landing.BUY_ME_A_COFFEE')"
         />
-        <span style="margin-left:5px">{{ $t('landing.BUY_ME_A_COFFEE') }}</span>
+        <span style="margin-left: 5px;">{{
+          $t('landing.BUY_ME_A_COFFEE')
+        }}</span>
       </a>
     </v-flex>
 
@@ -26,7 +28,7 @@
         >https://github.com/davellanedam/vue-skeleton-mvp</a
       >
     </v-flex>
-    <v-flex xs12 text-xs-center>
+    <v-flex xs12>
       {{ $t('landing.DESCRIPTION_API') }}
       <br />
       <br />

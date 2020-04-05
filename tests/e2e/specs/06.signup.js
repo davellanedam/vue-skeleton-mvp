@@ -25,40 +25,22 @@ describe('Signup', () => {
   it('Displays errors when user already exists', () => {
     cy.visit('/signup')
     cy.setLocaleToEN()
-    cy.get('input[name=name]')
-      .clear()
-      .type('Another User')
-    cy.get('input[name=email]')
-      .clear()
-      .type('admin@admin.com')
-    cy.get('input[name=password]')
-      .clear()
-      .type('12345')
-    cy.get('input[name=confirmPassword]')
-      .clear()
-      .type('12345{enter}')
+    cy.get('input[name=name]').clear().type('Another User')
+    cy.get('input[name=email]').clear().type('admin@admin.com')
+    cy.get('input[name=password]').clear().type('12345')
+    cy.get('input[name=confirmPassword]').clear().type('12345{enter}')
 
-    cy.get('div.error')
-      .should('be.visible')
-      .contains('E-mail already exists')
+    cy.get('div.error').should('be.visible').contains('E-mail already exists')
     // and still be on the same URL
     cy.url().should('include', '/signup')
   })
   it('Signup', () => {
     cy.visit('/signup')
     cy.setLocaleToEN()
-    cy.get('input[name=name]')
-      .clear()
-      .type('Another User')
-    cy.get('input[name=email]')
-      .clear()
-      .type(email)
-    cy.get('input[name=password]')
-      .clear()
-      .type('12345')
-    cy.get('input[name=confirmPassword]')
-      .clear()
-      .type('12345{enter}')
+    cy.get('input[name=name]').clear().type('Another User')
+    cy.get('input[name=email]').clear().type(email)
+    cy.get('input[name=password]').clear().type('12345')
+    cy.get('input[name=confirmPassword]').clear().type('12345{enter}')
 
     // url should be home
     cy.url().should('include', '/home')
@@ -70,9 +52,7 @@ describe('Signup', () => {
     )
 
     // Close dialog
-    cy.get('button.btnClose')
-      .should('be.visible')
-      .click()
+    cy.get('button.btnClose').should('be.visible').click()
 
     // Logout
     cy.logout()
@@ -92,15 +72,13 @@ describe('Signup', () => {
     )
 
     // Close dialog
-    cy.get('button.btnClose')
-      .should('be.visible')
-      .click()
+    cy.get('button.btnClose').should('be.visible').click()
 
     // This does not run when executing Travis CI
     if (Cypress.env('ENV') !== 'ci') {
       // get verification and visit verification url
       let verification = ''
-      cy.window().then(window => {
+      cy.window().then((window) => {
         const user = JSON.parse(window.localStorage.getItem('user'))
         verification = user.verification
 
@@ -127,7 +105,7 @@ describe('Signup', () => {
 
     // get verification and visit verification url
     let verification = ''
-    cy.window().then(window => {
+    cy.window().then((window) => {
       const user = JSON.parse(window.localStorage.getItem('user'))
       verification = user.verification
 

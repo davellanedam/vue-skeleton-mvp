@@ -3,7 +3,7 @@ import api from '@/services/api/verify'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const getters = {
-  emailVerified: state => state.emailVerified
+  emailVerified: (state) => state.emailVerified
 }
 
 const actions = {
@@ -15,7 +15,7 @@ const actions = {
       }
       api
         .sendVerify(data)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             const verified = response.data.verified
             commit(types.EMAIL_VERIFIED, verified)
@@ -36,7 +36,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })

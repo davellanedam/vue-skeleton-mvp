@@ -3,7 +3,7 @@ import api from '@/services/api/profile'
 import { buildSuccess, handleError } from '@/utils/utils.js'
 
 const getters = {
-  profile: state => state.profile
+  profile: (state) => state.profile
 }
 
 const actions = {
@@ -12,7 +12,7 @@ const actions = {
       commit(types.SHOW_LOADING, true)
       api
         .changeMyPassword(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             buildSuccess(
               {
@@ -23,7 +23,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
@@ -33,13 +33,13 @@ const actions = {
       commit(types.SHOW_LOADING, true)
       api
         .getProfile()
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
             buildSuccess(null, commit, resolve)
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
@@ -49,7 +49,7 @@ const actions = {
       commit(types.SHOW_LOADING, true)
       api
         .saveProfile(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             commit(types.FILL_PROFILE, response.data)
             buildSuccess(
@@ -61,7 +61,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })

@@ -8,7 +8,7 @@ axios.defaults.headers.common['Accept-Language'] =
   JSON.parse(localStorage.getItem('locale')) || 'en'
 
 axios.interceptors.request.use(
-  config => {
+  (config) => {
     // Do something before request is sent
     // If request is different than any of the URLS in urlsExcludedForBearerHeader
     // then send Authorization header with token from localstorage
@@ -26,7 +26,7 @@ axios.interceptors.request.use(
     }
     return config
   },
-  error => {
+  (error) => {
     // Do something with request error
     return Promise.reject(error)
   }
@@ -34,7 +34,7 @@ axios.interceptors.request.use(
 
 // Add a response interceptor
 axios.interceptors.response.use(
-  response => {
+  (response) => {
     // Do something with response data
     // Checks if app is being used in mobile
     if (
@@ -46,14 +46,14 @@ axios.interceptors.response.use(
     }
     return response
   },
-  error => {
+  (error) => {
     // Do something with response error
     return Promise.reject(error)
   }
 )
 
 // eslint-disable-next-line no-shadow
-Plugin.install = Vue => {
+Plugin.install = (Vue) => {
   Vue.axios = axios
   window.axios = axios
   Object.defineProperties(Vue.prototype, {

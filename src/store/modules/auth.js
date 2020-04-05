@@ -7,9 +7,9 @@ import { addMinutes, format } from 'date-fns'
 const MINUTES_TO_CHECK_FOR_TOKEN_REFRESH = 1440
 
 const getters = {
-  user: state => state.user,
-  token: state => state.token,
-  isTokenSet: state => state.isTokenSet
+  user: (state) => state.user,
+  token: (state) => state.token,
+  isTokenSet: (state) => state.isTokenSet
 }
 
 const actions = {
@@ -18,7 +18,7 @@ const actions = {
       commit(types.SHOW_LOADING, true)
       api
         .userLogin(payload)
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             window.localStorage.setItem(
               'user',
@@ -50,7 +50,7 @@ const actions = {
             )
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
@@ -59,7 +59,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       api
         .refreshToken()
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             window.localStorage.setItem(
               'token',
@@ -78,7 +78,7 @@ const actions = {
             resolve()
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })

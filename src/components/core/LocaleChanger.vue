@@ -1,11 +1,13 @@
 <template>
   <v-menu v-model="showMenu" offset-y>
-    <v-btn class="btnLocaleActivation" slot="activator" flat>
-      <v-icon>mdi-earth</v-icon>
-      &nbsp;{{ displayLocale }}
-    </v-btn>
+    <template v-slot:activator="{ on }">
+      <v-btn class="btnLocaleActivation" v-on="on" text>
+        <v-icon>mdi-earth</v-icon>
+        &nbsp;{{ displayLocale }}
+      </v-btn>
+    </template>
     <v-list>
-      <v-list-tile
+      <v-list-item
         active-class="white--text"
         v-for="(item, i) in langs"
         :key="`Lang${i}`"
@@ -14,10 +16,10 @@
         :class="[item.class]"
       >
         <country-flag :country="item.flag" size="small" class="pl-5" />
-        <v-list-tile-title class="ml-3">{{
+        <v-list-item-title class="ml-3">{{
           item.lang.toUpperCase()
-        }}</v-list-tile-title>
-      </v-list-tile>
+        }}</v-list-item-title>
+      </v-list-item>
     </v-list>
   </v-menu>
 </template>

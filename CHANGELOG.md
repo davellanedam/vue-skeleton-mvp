@@ -1,3 +1,10 @@
+## v5.0.0 (March 27, 2020)
+
+-   Vuetify bumped to v2
+-   All node packages up to date
+-   Updated validation engine
+-   Light and dark mode added
+
 ## v4.2.2 (March 16, 2020)
 
 -   NPM updated
