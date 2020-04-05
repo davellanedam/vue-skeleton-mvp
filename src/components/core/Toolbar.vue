@@ -1,80 +1,31 @@
-<template>
+<template v-slot:activator="{ on }">
   <div>
-    <v-navigation-drawer v-model="sidebar" app disable-resize-watcher>
-      <v-list>
-        <v-list-tile>
-          <v-list-tile-content>{{ appTitle }}</v-list-tile-content>
-          <v-list-tile-action>
-            <v-btn icon @click.stop="sidebar = !sidebar">
-              <v-icon>mdi-chevron-left</v-icon>
-            </v-btn>
-          </v-list-tile-action>
-        </v-list-tile>
-        <v-list-tile
-          v-for="(item, index) in menuItems"
-          :key="index"
-          :to="{ name: item.link }"
-          exact
-        >
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
-        </v-list-tile>
-
-        <v-list-group v-if="admin" prepend-icon="mdi-lock" no-action>
-          <v-list-tile slot="activator">
-            <v-list-tile-title>{{ $t('adminItems.ADMIN') }}</v-list-tile-title>
-          </v-list-tile>
-          <v-list-tile
-            v-for="(item, index) in adminItems"
-            :key="index"
-            :to="{ name: item.link }"
-            exact
-          >
-            <v-list-tile-content class="d-inline mt-3">
-              <v-icon>{{ item.icon }}</v-icon>
-              {{ item.title }}
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list-group>
-
-        <v-list-tile v-if="isTokenSet" @click="userLogout">
-          <v-list-tile-action>
-            <v-icon>mdi-exit-to-app</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            {{ $t('menuItems.LOGOUT') }}
-          </v-list-tile-content>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-toolbar app>
+    <v-app-bar flat>
       <span class="hidden-md-and-up">
-        <v-toolbar-side-icon @click="sidebar = !sidebar"></v-toolbar-side-icon>
+        <v-app-bar-nav-icon @click="sidebar = !sidebar"></v-app-bar-nav-icon>
       </span>
-      <v-toolbar-title class="headline text-uppercase ml-0">
+      <div class="headline text-uppercase ml-0">
         <div v-resize-text>
           <router-link
             :to="{ name: 'home' }"
             tag="span"
-            style="cursor: pointer"
+            style="cursor: pointer;"
             v-if="isTokenSet"
             >{{ appTitle }}</router-link
           >
           <router-link
             :to="{ name: 'landing' }"
             tag="span"
-            style="cursor: pointer"
+            style="cursor: pointer;"
             v-else
             >{{ appTitle }}</router-link
           >
         </div>
-      </v-toolbar-title>
+      </div>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn
-          flat
+          text
           v-for="(item, index) in menuItems"
           :key="index"
           :to="{ name: item.link }"
@@ -84,31 +35,38 @@
           <v-icon>{{ item.icon }}</v-icon>
           &nbsp;{{ item.title }}
         </v-btn>
-
+        <v-list-item class="hidden-sm-and-down">
+          <v-icon>mdi-weather-sunny</v-icon>
+          <v-list-item-action>
+            <v-switch v-model="isDark" inset></v-switch>
+          </v-list-item-action>
+          <v-icon class="pl-2">mdi-weather-night</v-icon>
+        </v-list-item>
         <v-menu v-if="admin" offset-y class="hidden-sm-and-down">
-          <v-btn slot="activator" flat class="btnAdmin">
-            <v-icon>mdi-lock</v-icon>
-            &nbsp;{{ $t('adminItems.ADMIN') }}
-          </v-btn>
+          <template v-slot:activator="{ on }">
+            <v-btn v-on="on" text class="btnAdmin">
+              <v-icon>mdi-lock</v-icon>
+              &nbsp;{{ $t('adminItems.ADMIN') }}
+            </v-btn>
+          </template>
           <v-list>
-            <v-list-tile
-              active-class="white--text"
+            <v-list-item
               v-for="(item, index) in adminItems"
               :key="index"
               :to="{ name: item.link }"
               exact
               :class="[item.class]"
             >
-              <v-list-tile-title>
+              <v-list-item-title>
                 <v-icon>{{ item.icon }}</v-icon>
                 {{ item.title }}
-              </v-list-tile-title>
-            </v-list-tile>
+              </v-list-item-title>
+            </v-list-item>
           </v-list>
         </v-menu>
 
         <v-btn
-          flat
+          text
           v-if="isTokenSet"
           @click="userLogout"
           class="hidden-sm-and-down btnLogout"
@@ -118,7 +76,67 @@
         </v-btn>
         <LocaleChanger />
       </v-toolbar-items>
-    </v-toolbar>
+    </v-app-bar>
+    <v-navigation-drawer v-model="sidebar" absolute disable-resize-watcher>
+      <v-list>
+        <v-list-item>
+          <v-list-item-content>{{ appTitle }}</v-list-item-content>
+          <v-list-item-action>
+            <v-btn icon @click.stop="sidebar = !sidebar">
+              <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+          </v-list-item-action>
+        </v-list-item>
+        <v-list-item
+          v-for="(item, index) in menuItems"
+          :key="index"
+          :to="{ name: item.link }"
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>{{ item.title }}</v-list-item-content>
+        </v-list-item>
+
+        <v-list-group v-if="admin" prepend-icon="mdi-lock" no-action>
+          <v-list-item slot="activator" class="pl-0">
+            <v-list-item-content>{{
+              $t('adminItems.ADMIN')
+            }}</v-list-item-content>
+          </v-list-item>
+          <v-list-item
+            v-for="(item, index) in adminItems"
+            :key="index"
+            :to="{ name: item.link }"
+            exact
+          >
+            <v-list-item-content class="d-inline mt-3">
+              <v-icon>{{ item.icon }}</v-icon>
+              {{ item.title }}
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+
+        <v-list-item v-if="isTokenSet" @click="userLogout">
+          <v-list-item-action>
+            <v-icon>mdi-exit-to-app</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            {{ $t('menuItems.LOGOUT') }}
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item>
+          <v-list-item-action></v-list-item-action>
+          <v-icon>mdi-weather-sunny</v-icon>
+          <v-list-item-action class="ml-2">
+            <v-switch id="themeSwitcher" v-model="isDark" inset></v-switch>
+          </v-list-item-action>
+          <v-icon>mdi-weather-night</v-icon>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
   </div>
 </template>
 
@@ -176,6 +194,7 @@ export default {
   },
   data() {
     return {
+      isDark: false,
       sidebar: false
     }
   },
@@ -254,6 +273,16 @@ export default {
     userLogout() {
       this.$store.dispatch('userLogout')
     }
+  },
+  watch: {
+    isDark() {
+      this.$vuetify.theme.dark = this.isDark
+      localStorage.setItem('dark', this.isDark)
+    }
+  },
+  created() {
+    const dark = localStorage.getItem('dark')
+    this.isDark = dark ? JSON.parse(dark) : false
   }
 }
 </script>

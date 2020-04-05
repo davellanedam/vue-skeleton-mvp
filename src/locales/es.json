@@ -1,4 +1,12 @@
 {
+  "messages": {
+    "email": "Se requiere correo electrónico válido",
+    "required": "Este campo es obligatorio",
+    "password": "Se requiere contraseña",
+    "min": "Este campo debe tener no menos de {length} caracteres",
+    "url": "Debe ser una URL válida",
+    "confirmed": "Las contraseñas deben coincidir"
+  },
   "errors": {
     "BAD_TOKEN": "Token malo",
     "WRONG_PASSWORD": "Contraseña errada",

@@ -18,7 +18,7 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   checkForUpdates()
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
   const isTokenSet = store.getters.isTokenSet
   if (requiresAuth && !isTokenSet) {
     return next('/login')

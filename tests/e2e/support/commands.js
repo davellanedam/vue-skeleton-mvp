@@ -10,12 +10,9 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', email => {
+Cypress.Commands.add('login', (email) => {
   cy.visit('/login')
-  cy.get('input[name=email]')
-    .should('be.visible')
-    .clear()
-    .type(email)
+  cy.get('input[name=email]').should('be.visible').clear().type(email)
   cy.get('input[name=password]')
     .should('be.visible')
     .clear()
@@ -27,38 +24,24 @@ Cypress.Commands.add('login', email => {
 
 Cypress.Commands.add('logout', () => {
   // Logout
-  cy.get('button.btnLogout')
-    .should('be.visible')
-    .click()
+  cy.get('button.btnLogout').should('be.visible').click()
   // url should be login
   cy.url().should('include', '/login')
 })
 
 Cypress.Commands.add('setLocaleToEN', () => {
-  cy.get('button.btnLocaleActivation')
-    .should('be.visible')
-    .click()
-  cy.get('div.btnEN')
-    .should('be.visible')
-    .click()
+  cy.get('button.btnLocaleActivation').should('be.visible').click()
+  cy.get('div.btnEN').should('be.visible').click()
 })
 
 Cypress.Commands.add('setLocaleToES', () => {
-  cy.get('button.btnLocaleActivation')
-    .should('be.visible')
-    .click()
-  cy.get('div.btnES')
-    .should('be.visible')
-    .click()
+  cy.get('button.btnLocaleActivation').should('be.visible').click()
+  cy.get('div.btnES').should('be.visible').click()
 })
 
 Cypress.Commands.add('setLocaleToCN', () => {
-  cy.get('button.btnLocaleActivation')
-    .should('be.visible')
-    .click()
-  cy.get('div.btnCN')
-    .should('be.visible')
-    .click()
+  cy.get('button.btnLocaleActivation').should('be.visible').click()
+  cy.get('div.btnCN').should('be.visible').click()
 })
 
 //

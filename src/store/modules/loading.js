@@ -1,7 +1,7 @@
 import * as types from '@/store/mutation-types'
 
 const getters = {
-  showLoading: state => state.showLoading
+  showLoading: (state) => state.showLoading
 }
 
 const mutations = {

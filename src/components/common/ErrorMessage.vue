@@ -12,7 +12,7 @@
           <ul>
             <li v-for="(item, index) in error" :key="index">{{ item }}</li>
           </ul>
-          <v-btn dark flat @click="showErrorMessage = false">{{
+          <v-btn text @click="showErrorMessage = false">{{
             $t('common.CLOSE')
           }}</v-btn>
         </v-snackbar>

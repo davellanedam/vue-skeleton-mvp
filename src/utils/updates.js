@@ -62,7 +62,7 @@ export const checkForUpdates = () => {
   ) {
     update
       .checkIfUpdatedSiteVersion()
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           // Get latestVersion from response
           const latestVersion = response.data.version.trim()
@@ -73,6 +73,6 @@ export const checkForUpdates = () => {
         }
       })
       // eslint-disable-next-line no-unused-vars
-      .catch(error => {})
+      .catch((error) => {})
   }
 }

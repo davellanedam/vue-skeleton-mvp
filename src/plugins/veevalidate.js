@@ -1,14 +1,39 @@
 import Vue from 'vue'
-import VeeValidate from 'vee-validate'
-import en from 'vee-validate/dist/locale/en'
-import es from 'vee-validate/dist/locale/es'
+import * as VeeValidate from 'vee-validate'
+import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import en from '../locales/en'
+import es from '../locales/es'
+import cn from '../locales/cn'
+import { localize, extend } from 'vee-validate'
+import { required, email, min, confirmed } from 'vee-validate/dist/rules'
 
-const veeValidateConfig = {
-  locale: JSON.parse(localStorage.getItem('locale')) || 'en',
-  dictionary: {
-    en,
-    es
+// The types of validators used in the project
+extend('required', required)
+extend('confirmed', confirmed)
+extend('email', email)
+extend('min', min)
+extend('url', {
+  validate: (str) => {
+    const pattern = new RegExp(
+      '^(https?:\\/\\/)?' + // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+        '(\\#[-a-z\\d_]*)?$',
+      'i'
+    ) // fragment locator
+    return !!pattern.test(str)
   }
-}
+})
 
-Vue.use(VeeValidate, veeValidateConfig)
+localize({
+  en,
+  es,
+  cn
+})
+
+Vue.use(VeeValidate)
+Vue.component('ValidationProvider', ValidationProvider)
+Vue.component('ValidationObserver', ValidationObserver)
+export default VeeValidate

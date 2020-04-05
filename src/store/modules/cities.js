@@ -3,7 +3,7 @@ import api from '@/services/api/cities'
 import { handleError } from '@/utils/utils.js'
 
 const getters = {
-  allCities: state => state.allCities
+  allCities: (state) => state.allCities
 }
 
 const actions = {
@@ -11,18 +11,18 @@ const actions = {
     return new Promise((resolve, reject) => {
       api
         .getAllCities()
-        .then(response => {
+        .then((response) => {
           if (response.status === 200) {
             const cities = []
             const array = response.data
-            array.forEach(element => {
+            array.forEach((element) => {
               cities.push(element.name)
             })
             commit(types.FILL_ALL_CITIES, cities)
             resolve()
           }
         })
-        .catch(error => {
+        .catch((error) => {
           handleError(error, commit, reject)
         })
     })
