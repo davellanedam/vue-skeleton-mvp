@@ -1,3 +1,12 @@
+## v5.0.2 (April 5, 2020)
+
+-   NPM updated
+
+## v5.0.1 (April 5, 2020)
+
+-   NPM updated
+-   Fixed admin menu to hide on mobile
+
 ## v5.0.0 (March 27, 2020)
 
 -   Vuetify bumped to v2
