@@ -42,9 +42,9 @@
           </v-list-item-action>
           <v-icon class="pl-2">mdi-weather-night</v-icon>
         </v-list-item>
-        <v-menu v-if="admin" offset-y class="hidden-sm-and-down">
+        <v-menu v-if="admin" offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn v-on="on" text class="btnAdmin">
+            <v-btn v-on="on" text class="btnAdmin hidden-sm-and-down">
               <v-icon>mdi-lock</v-icon>
               &nbsp;{{ $t('adminItems.ADMIN') }}
             </v-btn>
@@ -57,10 +57,10 @@
               exact
               :class="[item.class]"
             >
-              <v-list-item-title>
+              <v-list-item-icon class="mr-2">
                 <v-icon>{{ item.icon }}</v-icon>
-                {{ item.title }}
-              </v-list-item-title>
+              </v-list-item-icon>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -111,10 +111,10 @@
             :to="{ name: item.link }"
             exact
           >
-            <v-list-item-content class="d-inline mt-3">
+            <v-list-item-icon>
               <v-icon>{{ item.icon }}</v-icon>
-              {{ item.title }}
-            </v-list-item-content>
+            </v-list-item-icon>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </v-list-group>
 
