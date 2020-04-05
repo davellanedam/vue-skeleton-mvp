@@ -70,7 +70,7 @@
                 </ValidationProvider>
               </v-flex>
               <v-flex text-xs-center mt-5>
-                <SubmitButton :text="$t('signup.SIGN_ME_UP')" />
+                <SubmitButton :buttonText="$t('signup.SIGN_ME_UP')" />
               </v-flex>
             </v-layout>
           </form>

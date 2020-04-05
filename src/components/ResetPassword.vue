@@ -45,7 +45,9 @@
                 </ValidationProvider>
               </v-flex>
               <v-flex v-show="showChangePasswordInputs" text-xs-center mt-5>
-                <SubmitButton :text="$t('resetPassword.CHANGE_PASSWORD')" />
+                <SubmitButton
+                  :buttonText="$t('resetPassword.CHANGE_PASSWORD')"
+                />
               </v-flex>
             </v-layout>
           </form>
