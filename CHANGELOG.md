@@ -1,3 +1,7 @@
+## v5.0.2 (April 5, 2020)
+
+-   NPM updated
+
 ## v5.0.1 (April 5, 2020)
 
 -   NPM updated
