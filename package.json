@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton-mvp",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "description": "VueJS Vuetify Vue Router Vuex - Basic Project Skeleton - Starter Web App. Written on JavaScript using async/await.",
   "license": "MIT",
   "repository": {
@@ -64,7 +64,7 @@
     "husky": "^4.2.3",
     "istanbul-lib-coverage": "^3.0.0",
     "nyc": "^15.0.1",
-    "prettier": "^2.0.2",
+    "prettier": "^2.0.3",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
     "stylus": "^0.54.7",
