@@ -1,3 +1,8 @@
+## v5.0.5 (April 19, 2020)
+
+-   NPM updated
+-   Added @vue/babel-preset-app to dev dependencies
+
 ## v5.0.4 (April 5, 2020)
 
 -   NPM updated
