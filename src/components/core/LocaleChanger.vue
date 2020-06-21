@@ -14,8 +14,9 @@
         :value="item.lang"
         @click="switchLocale(item.lang)"
         :class="[item.class]"
+        class="'d-inline-flex"
       >
-        <country-flag :country="item.flag" size="small" class="pl-5" />
+        <country-flag :country="item.flag" size="small" />
         <v-list-item-title class="ml-3">{{
           item.lang.toUpperCase()
         }}</v-list-item-title>
@@ -65,3 +66,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.flag {
+  width: 118px;
+}
+</style>
