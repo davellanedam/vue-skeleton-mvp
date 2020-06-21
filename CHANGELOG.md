@@ -1,3 +1,13 @@
+## v5.0.7 (June 21, 2020)
+
+-   Removed empty unit test sample
+
+## v5.0.6 (June 21, 2020)
+
+-   NPM updated
+-   date-fns format change. Fix for updates.
+-   lint-staged package added
+
 ## v5.0.5 (April 19, 2020)
 
 -   NPM updated
