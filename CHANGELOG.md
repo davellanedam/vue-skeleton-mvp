@@ -2,6 +2,7 @@
 
 -   NPM updated
 -   date-fns format change. Fix for updates.
+-   lint-staged package added
 
 ## v5.0.5 (April 19, 2020)
 
