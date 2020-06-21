@@ -1,4 +1,4 @@
-import { addMinutes, isPast, format, parseISO } from 'date-fns'
+import { addMinutes, isPast, format, fromUnixTime } from 'date-fns'
 import update from '@/services/api/updateSite'
 import { store } from '@/store'
 
@@ -25,7 +25,7 @@ export const setLocalStorageDateForUpdates = () => {
   if (window.localStorage.getItem('checkForAppUpdatesAt') === null) {
     window.localStorage.setItem(
       'checkForAppUpdatesAt',
-      JSON.stringify(format(new Date(), 'X'))
+      JSON.stringify(format(new Date(), 't'))
     )
   }
 }
@@ -36,7 +36,7 @@ export const checkIfUpdateIsNeeded = (latestVersion, localVersion) => {
   window.localStorage.setItem(
     'checkForAppUpdatesAt',
     JSON.stringify(
-      format(addMinutes(new Date(), MINUTES_TO_CHECK_FOR_UPDATES), 'X')
+      format(addMinutes(new Date(), MINUTES_TO_CHECK_FOR_UPDATES), 't')
     )
   )
   // If there is a new version available, so refresh page
@@ -54,9 +54,9 @@ export const checkForUpdates = () => {
   if (
     isPast(
       new Date(
-        parseISO(
+        fromUnixTime(
           JSON.parse(window.localStorage.getItem('checkForAppUpdatesAt'))
-        ) * 1000
+        )
       )
     )
   ) {
