@@ -1,3 +1,7 @@
+## v5.0.8 (June 21, 2020)
+
+-   Removed empty unit test sampleFix flags due to upgrade version
+
 ## v5.0.7 (June 21, 2020)
 
 -   Removed empty unit test sample
