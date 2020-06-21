@@ -19,11 +19,6 @@
     "ci": "vue-cli-service test:e2e --env API_URL=https://api-demo.daniel-avellaneda.com,ENV=ci --headless --config video=false",
     "coverage": "nyc report --reporter=text-summary"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run remark"
-    }
-  },
   "dependencies": {
     "@mdi/font": "^5.1.45",
     "axios": "^0.19.2",
@@ -64,6 +59,7 @@
     "fibers": "^5.0.0",
     "husky": "^4.2.5",
     "istanbul-lib-coverage": "^3.0.0",
+    "lint-staged": "^10.2.11",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "sass": "^1.26.8",
@@ -75,6 +71,17 @@
     "vue-cli-plugin-vuetify": "^2.0.5",
     "vue-template-compiler": "^2.6.11",
     "vuetify-loader": "^1.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run remark"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "keywords": [
     "vuejs",
