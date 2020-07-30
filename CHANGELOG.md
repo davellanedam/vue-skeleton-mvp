@@ -1,3 +1,7 @@
+## v5.0.9 (July 30, 2020)
+
+-   NPM updated
+
 ## v5.0.8 (June 21, 2020)
 
 -   Removed empty unit test sampleFix flags due to upgrade version
