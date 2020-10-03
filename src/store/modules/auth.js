@@ -33,7 +33,7 @@ const actions = {
               JSON.stringify(
                 format(
                   addMinutes(new Date(), MINUTES_TO_CHECK_FOR_TOKEN_REFRESH),
-                  'X'
+                  't'
                 )
               )
             )
@@ -70,7 +70,7 @@ const actions = {
               JSON.stringify(
                 format(
                   addMinutes(new Date(), MINUTES_TO_CHECK_FOR_TOKEN_REFRESH),
-                  'X'
+                  't'
                 )
               )
             )
