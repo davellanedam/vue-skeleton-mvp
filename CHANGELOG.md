@@ -1,3 +1,7 @@
+## v5.0.11 (October 3, 2020)
+
+-   Fixes with date-fns
+
 ## v5.0.10 (October 3, 2020)
 
 -   NPM updated
