@@ -9,14 +9,14 @@
           <router-link
             :to="{ name: 'home' }"
             tag="span"
-            style="cursor: pointer;"
+            style="cursor: pointer"
             v-if="isTokenSet"
             >{{ appTitle }}</router-link
           >
           <router-link
             :to="{ name: 'landing' }"
             tag="span"
-            style="cursor: pointer;"
+            style="cursor: pointer"
             v-else
             >{{ appTitle }}</router-link
           >

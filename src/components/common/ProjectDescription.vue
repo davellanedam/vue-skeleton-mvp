@@ -13,7 +13,7 @@
           src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
           :alt="$t('landing.BUY_ME_A_COFFEE')"
         />
-        <span style="margin-left: 5px;">{{
+        <span style="margin-left: 5px">{{
           $t('landing.BUY_ME_A_COFFEE')
         }}</span>
       </a>
