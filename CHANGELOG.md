@@ -1,3 +1,8 @@
+## v5.0.10 (October 3, 2020)
+
+-   NPM updated
+-   Fixes ESLint
+
 ## v5.0.9 (July 30, 2020)
 
 -   NPM updated
