@@ -1,4 +1,5 @@
-_<template>
+_
+<template>
   <div>
     <v-data-table
       :loading="dataTableLoading"
@@ -125,7 +126,7 @@ _<template>
           </v-flex>
         </v-layout>
       </template>
-      <template v-slot:item._id="{ item }">
+      <template v-slot:[`item._id`]="{ item }">
         <v-layout class="justify-center">
           <v-tooltip top>
             <template v-slot:activator="{ on }">
@@ -145,13 +146,15 @@ _<template>
           </v-tooltip>
         </v-layout>
       </template>
-      <template v-slot:item.createdAt="{ item }">
+      <template v-slot:[`item.createdAt`]="{ item }">
         {{ getFormat(item.createdAt) }}
       </template>
-      <template v-slot:item.updatedAt="{ item }">
+      <template v-slot:[`item.updatedAt`]="{ item }">
         {{ getFormat(item.updatedAt) }}
       </template>
-      <template v-slot:footer.page-text="{ pageStart, pageStop, itemsLength }">
+      <template
+        v-slot:[`footer.page-text`]="{ pageStart, pageStop, itemsLength }"
+      >
         {{ pageStart }} - {{ pageStop }}
         {{ $t('dataTable.OF') }}
         {{ itemsLength }}

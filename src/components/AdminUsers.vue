@@ -271,7 +271,7 @@
         <td>{{ props.item.country }}</td>
         <td>{{ props.item.phone }}</td>
       </template>
-      <template v-slot:item._id="{ item }">
+      <template v-slot:[`item._id`]="{ item }">
         <td class="fill-height px-0">
           <v-layout class="justify-center">
             <v-tooltip top>
@@ -305,13 +305,15 @@
           </v-layout>
         </td>
       </template>
-      <template v-slot:item.createdAt="{ item }">
+      <template v-slot:[`item.createdAt`]="{ item }">
         {{ getFormat(item.createdAt) }}
       </template>
-      <template v-slot:item.updatedAt="{ item }">
+      <template v-slot:[`item.updatedAt`]="{ item }">
         {{ getFormat(item.updatedAt) }}
       </template>
-      <template v-slot:footer.page-text="{ pageStart, pageStop, itemsLength }">
+      <template
+        v-slot:[`footer.page-text`]="{ pageStart, pageStop, itemsLength }"
+      >
         {{ pageStart }} - {{ pageStop }}
         {{ $t('dataTable.OF') }}
         {{ itemsLength }}
