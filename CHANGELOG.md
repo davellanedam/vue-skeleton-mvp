@@ -1,7 +1,11 @@
+## v5.0.14 (October 12, 2020)
+
+-   Added cypress test for French locale
+
 ## v5.0.13 (October 12, 2020)
 
 -   Changed deprecated v-content to v-main in App.vue component
--   Removed unused class
+-   Change class for menu item
 
 ## v5.0.12 (October 12, 2020)
 

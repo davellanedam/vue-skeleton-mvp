@@ -14,7 +14,6 @@
         :value="item.lang"
         @click="switchLocale(item.lang)"
         :class="[item.class]"
-        class="d-block-flex"
       >
         <country-flag :country="item.flag" size="small" />
         <v-list-item-title class="ml-3">{{
@@ -75,5 +74,9 @@ export default {
 <style>
 .flag {
   width: 118px;
+}
+
+.v-list-item {
+  min-width: 185px;
 }
 </style>
