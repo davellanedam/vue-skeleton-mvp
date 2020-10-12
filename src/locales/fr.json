@@ -1,0 +1,175 @@
+{
+  "messages": {
+    "email": "Une adresse email valide est requise",
+    "required": "Ce champs est requis",
+    "password": "Mot de passe requis",
+    "min": "Ce champs doit contenir au minimum {length} caractères",
+    "url": "Doit être une URL valide",
+    "confirmed": "Les mots de passe doivent correspondre"
+  },
+  "errors": {
+    "BAD_TOKEN": "Mauvais token",
+    "WRONG_PASSWORD": "Mot de passe incorrect",
+    "USER_DOES_NOT_EXIST": "L'utilisateur n'existe pas",
+    "PASSWORDS_DONT_MATCH": "Les mots de passe ne sont pas identiques",
+    "PASSWORD_TOO_SHORT_MIN_5": "Mot de passe trop court, minimum 5 caractères",
+    "BLOCKED_USER": "Trop d'échecs de tentatives de connexion, utilisateur bloqué temporairement",
+    "SERVER_TIMEOUT_CONNECTION_ERROR": "Le serveur ne répond pas, erreur de connexion",
+    "404": "404 Page non trouvée",
+    "EMAIL_IS_NOT_VALID": "E-mail invalide",
+    "IS_EMPTY": "Champs vides",
+    "ERROR": "Erreur",
+    "MISSING": "Champs manquants",
+    "NOT_FOUND_OR_ALREADY_VERIFIED": "Non trouvé ou déjà vérifié",
+    "NOT_FOUND_OR_ALREADY_USED": "Non trouvé ou déjà utilisé",
+    "NOT_FOUND": "Non trouvé",
+    "UNAUTHORIZED": "Non autorisé",
+    "EMAIL_ALREADY_EXISTS": "L'e-mail existe déjà",
+    "ID_MALFORMED": "ID malformé",
+    "ERROR_WITH_FILTER": "Erreur avec les filtres",
+    "CITY_ALREADY_EXISTS": "La ville existe déjà"
+  },
+  "common": {
+    "DELETE": "Supprimer",
+    "CANCEL": "Annuler",
+    "WARNING": "Alerte",
+    "DO_YOU_REALLY_WANT_TO_DELETE_THIS_ITEM": "Voulez-vous vraiment supprimer cet élément ?",
+    "CLOSE": "Fermer",
+    "SAVED_SUCCESSFULLY": "Enregistré avec succès",
+    "DELETED_SUCCESSFULLY": "Supprimé avec succès",
+    "CREATED": "Créé le",
+    "UPDATED": "Mis à jour le",
+    "GO_BACK": "Retour"
+  },
+  "loading": {
+    "PLEASE_WAIT": "Veuillez patienter..."
+  },
+  "footer": {
+    "MADE_WITH": "Fait avec",
+    "BY": "par"
+  },
+  "menuItems": {
+    "HOME": "Accueil",
+    "ABOUT": "À propos",
+    "MY_PROFILE": "Mon profil",
+    "SIGNUP": "Inscription",
+    "LOGIN": "Connexion",
+    "LOGOUT": "Déconnexion"
+  },
+  "adminItems": {
+    "ADMIN": "Admin",
+    "CITIES": "Villes",
+    "USERS": "Utilisateurs"
+  },
+  "roles": {
+    "ADMIN": "Administrateur",
+    "USER": "Utilisateur"
+  },
+  "dataTable": {
+    "NEW_ITEM": "Nouvel élément",
+    "EDIT_ITEM": "Modifier l'élément",
+    "CANCEL": "Annuler",
+    "SAVE": "Enregistrer",
+    "EDIT": "Modifier",
+    "DELETE": "Supprimer",
+    "RESET": "Réinitialiser",
+    "ACTIONS": "Actions",
+    "ROWS_PER_PAGE": "Lignes par page",
+    "NO_DATA": "Pas de données",
+    "NO_RESULTS": "Pas de résultat",
+    "OF": "de",
+    "SEARCH": "Rechercher"
+  },
+  "cities": {
+    "TITLE": "Villes",
+    "headers": {
+      "NAME": "Nom"
+    }
+  },
+  "users": {
+    "TITLE": "Utilisateurs",
+    "headers": {
+      "NAME": "Nom",
+      "EMAIL": "E-mail",
+      "ROLE": "Rôle",
+      "VERIFIED": "Vérifié",
+      "CITY": "Ville",
+      "COUNTRY": "Pays",
+      "PHONE": "Téléphone"
+    },
+    "PASSWORD": "Mot de passe",
+    "CONFIRM_PASSWORD": "Confirmation mot de passe"
+  },
+  "landing": {
+    "TITLE": "Page d'atterrissage",
+    "DESCRIPTION": "Cette page est disponible publiquement.",
+    "BUY_ME_A_COFFEE": "Payez moi un café",
+    "BUY_ME_A_COFFEE_DESCRIPTION": "Je fais de mon mieux pour pour vous offrir une bonne expérience lors de l'utilisation de mes applications, alors si vous aimez ce que je fais et souhaitez me dire \"merci !\", cliquez sur le bouton et payez moi un café.",
+    "DESCRIPTION_VUE": "Ce projet a été créé pour aider d'autres développeurs web à créer facilement une application basique en VueJS.",
+    "DESCRIPTION_API": "Demo is also linked to a Node.js express.js MongoDB JWT REST API project that shows how this frontend can be integrated to an API.",
+    "API_DOCUMENTATION": "Documentation API",
+    "FRONTEND_DOCUMENTATION": "Documentation frontend"
+  },
+  "home": {
+    "TITLE": "Accueil sécurisé",
+    "GREETING": "Bienvenue %{0}",
+    "DESCRIPTION": "Cette page est uniquement disponible de manière privée quand un utilisateur se connecte avec ses informations d'identification",
+    "VERIFY_YOUR_ACCOUNT": "IMPORTANT : Vérifiez votre compte",
+    "VERIFY_YOUR_ACCOUNT_DESCRIPTION": "Vous devez vérifier votre compte en cliquant sur le lien qui vous a été envoyé par e-mail pour pouvoir profiter de toutes les fonctionnalités de notre application.",
+    "CLOSE": "Fermer"
+  },
+  "about": {
+    "TITLE": "À propos",
+    "DESCRIPTION": "Cette page est disponible publiquement"
+  },
+  "login": {
+    "TITLE": "Connexion",
+    "DESCRIPTION": "Ceci est une démo. La base de données se réinitialise toutes les 30 minutes. Ainsi, tout ce que vous ferez sera perdu après un court laps de temps.<br />E-mail : admin@admin.com <br />Mot de passe : 12345",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Mot de passe",
+    "LOGIN": "Connexion",
+    "FORGOT_PASSWORD": "Mot de passe oublié ?"
+  },
+  "forgotPassword": {
+    "TITLE": "J'ai oublié mon mot de passe",
+    "EMAIL": "E-mail",
+    "DESCRIPTION": "Entrez votre adresse e-mail afin que l'on puisse vous envoyer un message avec des instructions pour récupérer votre mot de passe",
+    "RECOVER": "Récupérer",
+    "RESET_EMAIL_SENT": "Nous avons envoyé un message à %{0} avec les instructions pour récupérer votre mot de passe"
+  },
+  "resetPassword": {
+    "TITLE": "Modifier mot de passe",
+    "PASSWORD": "Mot de passe",
+    "CONFIRM_PASSWORD": "Confirmer mot de passe",
+    "CHANGE_PASSWORD": "Modifier mot de passe",
+    "PASSWORD_CHANGED": "Mot de passe modifié avec succès"
+  },
+  "signup": {
+    "TITLE": "Inscription",
+    "NAME": "Nom",
+    "EMAIL": "E-mail",
+    "PASSWORD": "Mot de passe",
+    "CONFIRM_PASSWORD": "Confirmer mot de passe",
+    "SIGN_ME_UP": "M'inscrire"
+  },
+  "verify": {
+    "TITLE": "Vérification e-mail",
+    "EMAIL_VERIFIED": "E-mail vérifié avec succès"
+  },
+  "myProfile": {
+    "TITLE": "Mon profil",
+    "CHANGE_MY_PASSWORD": "Modifier mon mot de passe",
+    "CURRENT_PASSWORD": "Mot de passe actuel",
+    "NEW_PASSWORD": "Nouveau mot de passe",
+    "CONFIRM_NEW_PASSWORD": "Confirmer mot de passe",
+    "PASSWORD_CHANGED": "Mot de passe modifié avec succès",
+    "NAME": "Nom",
+    "EMAIL": "E-mail",
+    "PHONE": "Téléphone",
+    "CITY": "Ville",
+    "NO_RESULTS_FOUND": "Aucun résultat trouvé",
+    "COUNTRY": "Pays",
+    "SAVE": "Enregistrer",
+    "PROFILE_SAVED_SUCCESSFULLY": "Profil enregistré avec succès"
+  }
+}
