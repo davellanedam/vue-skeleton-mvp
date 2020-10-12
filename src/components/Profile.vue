@@ -10,7 +10,7 @@
                 small
                 text
                 v-on="on"
-                color="primary"
+                color="secondary"
                 @click="triggerChangePassword = true"
                 class="btnChangePassword"
                 >{{ $t('myProfile.CHANGE_MY_PASSWORD') }}</v-btn

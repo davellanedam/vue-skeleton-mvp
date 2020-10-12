@@ -22,7 +22,7 @@
                 </ValidationProvider>
               </v-flex>
               <v-flex text-xs-center mt-5>
-                <v-btn color="secondary" @click="goBack()">
+                <v-btn color="secondary" @click="goBack()" class="mr-3">
                   <v-icon class="mr-2">mdi-arrow-left</v-icon>
                   {{ $t('common.GO_BACK') }}
                 </v-btn>
