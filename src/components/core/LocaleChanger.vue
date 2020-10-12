@@ -14,7 +14,7 @@
         :value="item.lang"
         @click="switchLocale(item.lang)"
         :class="[item.class]"
-        class="'d-inline-flex"
+        class="d-block-flex"
       >
         <country-flag :country="item.flag" size="small" />
         <v-list-item-title class="ml-3">{{

@@ -1,3 +1,8 @@
+## v5.0.13 (October 12, 2020)
+
+-   Changed deprecated v-content to v-main in App.vue component
+-   Removed unused class
+
 ## v5.0.12 (October 12, 2020)
 
 -   French localization (Thanks to alpliar: <https://github.com/davellanedam/vue-skeleton-mvp/pull/247>)
