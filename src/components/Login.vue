@@ -35,7 +35,7 @@
                   ></v-text-field>
                 </ValidationProvider>
               </v-flex>
-              <v-flex text-xs-center mt-5>
+              <v-flex text-xs-center mt-5 mb-3>
                 <SubmitButton :buttonText="$t('login.LOGIN')" />
               </v-flex>
               <v-flex text-xs-center>

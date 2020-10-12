@@ -73,10 +73,10 @@ export default {
 
 <style>
 .flag {
-  width: 118px;
+  width: 118px !important;
 }
 
 .v-list-item {
-  min-width: 185px;
+  min-width: 185px !important;
 }
 </style>

@@ -1,3 +1,8 @@
+## v5.0.15 (October 12, 2020)
+
+-   Fix flags locale.
+-   Fixes in styling profile, login, forgot password components
+
 ## v5.0.14 (October 12, 2020)
 
 -   Added cypress test for French locale
