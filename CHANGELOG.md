@@ -1,3 +1,8 @@
+## v5.0.12 (October 12, 2020)
+
+-   French localization (Thanks to alpliar: <https://github.com/davellanedam/vue-skeleton-mvp/pull/247>)
+-   NPM updated
+
 ## v5.0.11 (October 3, 2020)
 
 -   Fixes with date-fns
