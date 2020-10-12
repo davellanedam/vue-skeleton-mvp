@@ -44,6 +44,11 @@ export default {
           class: 'btnES'
         },
         {
+          lang: 'fr',
+          flag: 'fr',
+          class: 'btnFR'
+        },
+        {
           lang: 'cn',
           flag: 'cn',
           class: 'btnCN'
