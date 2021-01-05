@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@mdi/font": "^5.6.55",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "date-fns": "^2.16.1",
     "remark-cli": "^8.0.1",
