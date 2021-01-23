@@ -1,456 +1,461 @@
+## v5.0.16 (January 23, 2021)
+
+*   Fix flags locale.
+*   Fixes in styling profile, login, forgot password components
+
 ## v5.0.15 (October 12, 2020)
 
--   Fix flags locale.
--   Fixes in styling profile, login, forgot password components
+*   Fix flags locale.
+*   Fixes in styling profile, login, forgot password components
 
 ## v5.0.14 (October 12, 2020)
 
--   Added cypress test for French locale
+*   Added cypress test for French locale
 
 ## v5.0.13 (October 12, 2020)
 
--   Changed deprecated v-content to v-main in App.vue component
--   Change class for menu item
+*   Changed deprecated v-content to v-main in App.vue component
+*   Change class for menu item
 
 ## v5.0.12 (October 12, 2020)
 
--   French localization (Thanks to alpliar: <https://github.com/davellanedam/vue-skeleton-mvp/pull/247>)
--   NPM updated
+*   French localization (Thanks to alpliar: <https://github.com/davellanedam/vue-skeleton-mvp/pull/247>)
+*   NPM updated
 
 ## v5.0.11 (October 3, 2020)
 
--   Fixes with date-fns
+*   Fixes with date-fns
 
 ## v5.0.10 (October 3, 2020)
 
--   NPM updated
--   Fixes ESLint
+*   NPM updated
+*   Fixes ESLint
 
 ## v5.0.9 (July 30, 2020)
 
--   NPM updated
+*   NPM updated
 
 ## v5.0.8 (June 21, 2020)
 
--   Removed empty unit test sampleFix flags due to upgrade version
+*   Removed empty unit test sampleFix flags due to upgrade version
 
 ## v5.0.7 (June 21, 2020)
 
--   Removed empty unit test sample
+*   Removed empty unit test sample
 
 ## v5.0.6 (June 21, 2020)
 
--   NPM updated
--   date-fns format change. Fix for updates.
--   lint-staged package added
+*   NPM updated
+*   date-fns format change. Fix for updates.
+*   lint-staged package added
 
 ## v5.0.5 (April 19, 2020)
 
--   NPM updated
--   Added @vue/babel-preset-app to dev dependencies
+*   NPM updated
+*   Added @vue/babel-preset-app to dev dependencies
 
 ## v5.0.4 (April 5, 2020)
 
--   NPM updated
--   Travis CI updated
+*   NPM updated
+*   Travis CI updated
 
 ## v5.0.3 (April 5, 2020)
 
--   FIX: Button for saving on changing password was not rendering correctly.
+*   FIX: Button for saving on changing password was not rendering correctly.
 
 ## v5.0.2 (April 5, 2020)
 
--   NPM updated
+*   NPM updated
 
 ## v5.0.1 (April 5, 2020)
 
--   NPM updated
--   Fixed admin menu to hide on mobile
+*   NPM updated
+*   Fixed admin menu to hide on mobile
 
 ## v5.0.0 (March 27, 2020)
 
--   Vuetify bumped to v2
--   All node packages up to date
--   Updated validation engine
--   Light and dark mode added
+*   Vuetify bumped to v2
+*   All node packages up to date
+*   Updated validation engine
+*   Light and dark mode added
 
 ## v4.2.2 (March 16, 2020)
 
--   NPM updated
+*   NPM updated
 
 ## v4.2.1 (January 12, 2020)
 
--   Code coverage disabled for CI
+*   Code coverage disabled for CI
 
 ## v4.2.0 (January 12, 2020)
 
--   Fix for date-fns for using new version
--   Logout tests
--   NPM updated
--   Code coverage
+*   Fix for date-fns for using new version
+*   Logout tests
+*   NPM updated
+*   Code coverage
 
 ## v4.1.3 (July 25, 2019)
 
--   Fix for travis
+*   Fix for travis
 
 ## v4.1.2 (July 25, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v4.1.1 (July 12, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v4.1.0 (July 10, 2019)
 
--   Support Chinese. Thank you Xuwenzhi! ([#87](https://github.com/davellanedam/vue-skeleton-mvp/pull/87))
--   Removed unused translation
--   NPM updated
+*   Support Chinese. Thank you Xuwenzhi! ([#87](https://github.com/davellanedam/vue-skeleton-mvp/pull/87))
+*   Removed unused translation
+*   NPM updated
 
 ## v4.0.1 (July 3, 2019)
 
--   Making ESLint 6 happy
+*   Making ESLint 6 happy
 
 ## v4.0.0 (July 3, 2019)
 
--   Making ESLint 6 happy
--   NPM updated
+*   Making ESLint 6 happy
+*   NPM updated
 
 ## v3.8.5 (June 12, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.8.4 (June 5, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.8.3 (June 4, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.8.2 (May 27, 2019)
 
--   Fix high memory consumption by cypress
+*   Fix high memory consumption by cypress
 
 ## v3.8.1 (May 27, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.8.0 (May 23, 2019)
 
--   Greeting user when logged in
--   NPM updated
+*   Greeting user when logged in
+*   NPM updated
 
 ## v3.7.1 (May 14, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.7.0 (May 5, 2019)
 
--   NPM updated
--   New site version system generator and checker
+*   NPM updated
+*   New site version system generator and checker
 
 ## v3.6.4 (Apr 24, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.6.3 (Apr 14, 2019)
 
--   Google Analytics in main.js
+*   Google Analytics in main.js
 
 ## v3.6.2 (Apr 14, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.6.1 (Apr 14, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.6.0 (Apr 11, 2019)
 
--   Calling async actions now done from mounted instead of created
+*   Calling async actions now done from mounted instead of created
 
 ## v3.5.4 (Apr 9, 2019)
 
--   GA code id tracking
+*   GA code id tracking
 
 ## v3.5.3 (Apr 9, 2019)
 
--   README.md updated
+*   README.md updated
 
 ## v3.5.2 (Apr 9, 2019)
 
--   Fix: If token is expired triggers store userLogout
+*   Fix: If token is expired triggers store userLogout
 
 ## v3.5.1 (Apr 9, 2019)
 
--   Google Analytics only in production mode
+*   Google Analytics only in production mode
 
 ## v3.5.0 (Apr 9, 2019)
 
--   Google Analytics only in production mode
+*   Google Analytics only in production mode
 
 ## v3.4.0 (Apr 9, 2019)
 
--   NPM updated
--   Google Analytics only in production mode
+*   NPM updated
+*   Google Analytics only in production mode
 
 ## v3.3.5 (Apr 9, 2019)
 
--   Default version.manifest
+*   Default version.manifest
 
 ## v3.3.4 (Apr 9, 2019)
 
--   Tranlations
--   NPM updated
+*   Tranlations
+*   NPM updated
 
 ## v3.3.3 (Apr 9, 2019)
 
--   Fix: mobile update error catched
--   Fix: footer margins
+*   Fix: mobile update error catched
+*   Fix: footer margins
 
 ## v3.3.2 (Apr 9, 2019)
 
--   Footer component
--   Project description component
--   MDI icons
+*   Footer component
+*   Project description component
+*   MDI icons
 
 ## v3.3.1 (Apr 9, 2019)
 
--   Footer component
--   Project description component
--   MDI icons
+*   Footer component
+*   Project description component
+*   MDI icons
 
 ## v3.3.0 (Apr 9, 2019)
 
--   Footer component
--   Project description component
--   MDI icons
+*   Footer component
+*   Project description component
+*   MDI icons
 
 ## v3.2.2 (Apr 9, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v3.2.1 (Apr 7, 2019)
 
--   Fix notifications when switching locale
+*   Fix notifications when switching locale
 
 ## v3.2.0 (Apr 5, 2019)
 
--   Browser language is now automatically detected
+*   Browser language is now automatically detected
 
 ## v3.1.0 (Apr 3, 2019)
 
--   Common components imported as a plugin
+*   Common components imported as a plugin
 
 ## v3.0.0 (Apr 3, 2019)
 
--   Toolbar component
--   Success and error components moved to /common
--   Heading and description components
--   NPM update
+*   Toolbar component
+*   Success and error components moved to /common
+*   Heading and description components
+*   NPM update
 
 ## v2.6.1 (Apr 2, 2019)
 
--   NPM update
+*   NPM update
 
 ## v2.6.0 (Mar 31, 2019)
 
--   IMPROVEMENT: Success and Error messages now have notification queue
+*   IMPROVEMENT: Success and Error messages now have notification queue
 
 ## v2.5.1 (Mar 30, 2019)
 
--   WORKAROUND: Vuetify Datatables has a bug in Safari on Mac and iOS, did a small workaround
+*   WORKAROUND: Vuetify Datatables has a bug in Safari on Mac and iOS, did a small workaround
 
 ## v2.5.0 (Mar 30, 2019)
 
--   FEATURE: Success and Error messages now have notification queue
+*   FEATURE: Success and Error messages now have notification queue
 
 ## v2.4.3 (Mar 29, 2019)
 
--   FIX: Tests for adminCities and adminUsers.
+*   FIX: Tests for adminCities and adminUsers.
 
 ## v2.4.2 (Mar 29, 2019)
 
--   FIX: Icons in datatables centered on any display size, also bigger to help mobile users.
+*   FIX: Icons in datatables centered on any display size, also bigger to help mobile users.
 
 ## v2.4.1 (Mar 29, 2019)
 
--   FIX: Got rid of UUoC (Useless use of cat) when creating version.manifest script
+*   FIX: Got rid of UUoC (Useless use of cat) when creating version.manifest script
 
 ## v2.4.0 (Mar 29, 2019)
 
--   FEATURE: Ability to refresh token when switching routes or making API calls
+*   FEATURE: Ability to refresh token when switching routes or making API calls
 
 ## v2.3.0 (Mar 28, 2019)
 
--   FIX: Checks for app updates every 2 hours in case app is being used from mobile
+*   FIX: Checks for app updates every 2 hours in case app is being used from mobile
 
 ## v2.2.1 (Mar 28, 2019)
 
--   NPM update
+*   NPM update
 
 ## v2.2.0 (Mar 27, 2019)
 
--   Use of resolve path alias
--   SubmitButton component
+*   Use of resolve path alias
+*   SubmitButton component
 
 ## v2.1.0 (Mar 26, 2019)
 
--   Added close button drawer in mobile menu
+*   Added close button drawer in mobile menu
 
 ## v2.0.1 (Mar 26, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v2.0.0 (Mar 26, 2019)
 
--   FEATURE: Checks for app updates every 2 hours in case app has been added to home screen in iOS and Chrome
--   ESLint formidable new rules
--   URL´s array that don´t need to send Bearer header
--   api service to check version.manifest
--   creates version.manifest on dist directory, gets version from package.json
--   build script executes setversion.sh after build
+*   FEATURE: Checks for app updates every 2 hours in case app has been added to home screen in iOS and Chrome
+*   ESLint formidable new rules
+*   URL´s array that don´t need to send Bearer header
+*   api service to check version.manifest
+*   creates version.manifest on dist directory, gets version from package.json
+*   build script executes setversion.sh after build
 
 ## v1.6.0 (Mar 25, 2019)
 
--   FEATURE: Added go back button in forgot password
+*   FEATURE: Added go back button in forgot password
 
 ## v1.5.3 (Mar 25, 2019)
 
--   FIX: app title text is now responsive.
+*   FIX: app title text is now responsive.
 
 ## v1.5.2 (Mar 25, 2019)
 
--   FIX: app title added to 'add to home screen' feature in Android.
+*   FIX: app title added to 'add to home screen' feature in Android.
 
 ## v1.5.1 (Mar 25, 2019)
 
--   FIX: app title added to 'add to home screen' feature.
+*   FIX: app title added to 'add to home screen' feature.
 
 ## v1.5.0 (Mar 25, 2019)
 
--   Added favicons (Standard, iOS, Android, Windows, Safari)
+*   Added favicons (Standard, iOS, Android, Windows, Safari)
 
 ## v1.4.4 (Mar 25, 2019)
 
--   README.md updated
+*   README.md updated
 
 ## v1.4.3 (Mar 20, 2019)
 
--   NPM updated
+*   NPM updated
 
 ## v1.4.2 (Mar 19, 2019)
 
--   Fixed README.md
+*   Fixed README.md
 
 ## v1.4.1 (Mar 19, 2019)
 
--   Fixed tests to handle page transitions
+*   Fixed tests to handle page transitions
 
 ## v1.4.0 (Mar 19, 2019)
 
--   Use of vue-meta to customize page titles between components
--   Use of Vue router transitions between routes
--   NPM updated
+*   Use of vue-meta to customize page titles between components
+*   Use of Vue router transitions between routes
+*   NPM updated
 
 ## v1.3.0 (Mar 19, 2019)
 
--   Switched from moment.js to date-fns
+*   Switched from moment.js to date-fns
 
 ## v1.2.11 (Mar 18, 2019)
 
--   Badge for Travis build in README.md
+*   Badge for Travis build in README.md
 
 ## v1.2.10 (Mar 18, 2019)
 
--   Tests reset password and verify account don´t run when Travis CI is executed
+*   Tests reset password and verify account don´t run when Travis CI is executed
 
 ## v1.2.9 (Mar 18, 2019)
 
--   Travis setup
+*   Travis setup
 
 ## v1.2.8 (Mar 18, 2019)
 
--   Travis setup
+*   Travis setup
 
 ## v1.2.7 (Mar 18, 2019)
 
--   Travis CI
+*   Travis CI
 
 ## v1.2.6 (Mar 17, 2019)
 
--   Refactor show loading
--   Fix tests admin cities and admin users
--   NPM updated
+*   Refactor show loading
+*   Fix tests admin cities and admin users
+*   NPM updated
 
 ## v1.2.5 (Mar 17, 2019)
 
--   Refactor success in actions
+*   Refactor success in actions
 
 ## v1.2.4 (Mar 17, 2019)
 
--   Use of remark
+*   Use of remark
 
 ## v1.2.3 (Mar 17, 2019)
 
--   Refactor handleError in actions
+*   Refactor handleError in actions
 
 ## v1.2.1 (Mar 17, 2019)
 
--   Use of remark to format markdown files
+*   Use of remark to format markdown files
 
 ## v1.2.0 (Mar 17, 2019)
 
--   Fix: testing tooltips
--   Feature: Extract axios calls to apis. Thank you Eric! ([#1](https://github.com/davellanedam/vue-skeleton-mvp/pull/1))
+*   Fix: testing tooltips
+*   Feature: Extract axios calls to apis. Thank you Eric! ([#1](https://github.com/davellanedam/vue-skeleton-mvp/pull/1))
 
 ## v1.0.10 (Mar 16, 2019)
 
--   Translations
+*   Translations
 
 ## v1.0.9 (Mar 16, 2019)
 
--   New item proportional spacing
+*   New item proportional spacing
 
 ## v1.0.8 (Mar 16, 2019)
 
--   Search input is clearable
--   Tooltips in datatables now shows at top
--   Icon plus added to new item
--   Icons for users and cities in menus
--   Margins alignment for app title and admin areas titles
+*   Search input is clearable
+*   Tooltips in datatables now shows at top
+*   Icon plus added to new item
+*   Icons for users and cities in menus
+*   Margins alignment for app title and admin areas titles
 
 ## v1.0.7 (Mar 16, 2019)
 
--   .enve2e added for end to end testing to use local api server
--   main tag removed
--   apache htaccess removed from /public
+*   .enve2e added for end to end testing to use local api server
+*   main tag removed
+*   apache htaccess removed from /public
 
 ## v1.0.6 (Mar 16, 2019)
 
--   Production source map false
+*   Production source map false
 
 ## v1.0.5 (Mar 16, 2019)
 
--   Translations
+*   Translations
 
 ## v1.0.4 (Mar 16, 2019)
 
--   README.md changes
+*   README.md changes
 
 ## v1.0.3 (Mar 16, 2019)
 
--   npm download shield added to README.md
+*   npm download shield added to README.md
 
 ## v1.0.2 (Mar 16, 2019)
 
--   README.md changes
+*   README.md changes
 
 ## v1.0.1 (Mar 15, 2019)
 
--   README.md changes
+*   README.md changes
 
 ## v1.0.0 (Mar 15, 2019)
 
--   First stable release
+*   First stable release

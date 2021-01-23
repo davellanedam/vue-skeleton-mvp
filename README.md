@@ -3,9 +3,9 @@
 [![Author](http://img.shields.io/badge/author-@davellanedam-blue.svg?style=flat-square)](https://twitter.com/davellanedam)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/blob/master/LICENSE)
 [![Tag](https://img.shields.io/github/tag/davellanedam/vue-skeleton-mvp.svg?style=flat-square)](https://github.com/davellanedam/vue-skeleton-mvp/tags)
-[![Travis](https://img.shields.io/travis/com/davellanedam/vue-skeleton-mvp.svg?style=flat-square)](<>)
-[![npm downloads](https://img.shields.io/npm/dt/vue-skeleton-mvp.svg?style=flat-square&label=npm%20downloads)](<>)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3e7e1611c3b4a06a6c1df9391e3fe7a)](https://www.codacy.com/app/davellanedam/vue-skeleton-mvp?utm_source=github.com&utm_medium=referral&utm_content=davellanedam/vue-skeleton-mvp&utm_campaign=Badge_Grade)
+[![Travis](https://img.shields.io/travis/com/davellanedam/vue-skeleton-mvp.svg?style=flat-square)]()
+[![npm downloads](https://img.shields.io/npm/dt/vue-skeleton-mvp.svg?style=flat-square\&label=npm%20downloads)]()
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a3e7e1611c3b4a06a6c1df9391e3fe7a)](https://www.codacy.com/app/davellanedam/vue-skeleton-mvp?utm_source=github.com\&utm_medium=referral\&utm_content=davellanedam/vue-skeleton-mvp\&utm_campaign=Badge_Grade)
 
 ## Getting started
 
@@ -31,28 +31,28 @@ Feel free to send me a tweet <https://twitter.com/davellanedam>, share this with
 
 ## Features
 
--   Vuetify
--   Multiple environment ready (development, production).
--   Vue router
--   Vuex
--   i18n ready.
--   Google Analytics ready.
--   Ready to add to home screen in iOS and Chrome, checks if there´s an app update every 2 hours and reloads page (When a web app is added as stand alone there´s no reload button in the browser so new .js files from a new build never get loaded)
--   Landing page.
--   Protected home page.
--   Login.
--   Signup.
--   Forgot password.
--   Account verification.
--   User profile.
--   Users admin area with CRUD operations.
--   Cities admin area with CRUD operations.
--   Testing with Cypress and mocha/chai.
--   NPM script for keeping good source code formatting using prettier and ESLint.
--   Use of ESLint for good coding practices.
--   Use of prettier for beautiful format.
--   Ability to refresh token
--   JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` is the **signed and encrypted token** given in the response from the login process.
+*   Vuetify
+*   Multiple environment ready (development, production).
+*   Vue router
+*   Vuex
+*   i18n ready.
+*   Google Analytics ready.
+*   Ready to add to home screen in iOS and Chrome, checks if there´s an app update every 2 hours and reloads page (When a web app is added as stand alone there´s no reload button in the browser so new .js files from a new build never get loaded)
+*   Landing page.
+*   Protected home page.
+*   Login.
+*   Signup.
+*   Forgot password.
+*   Account verification.
+*   User profile.
+*   Users admin area with CRUD operations.
+*   Cities admin area with CRUD operations.
+*   Testing with Cypress and mocha/chai.
+*   NPM script for keeping good source code formatting using prettier and ESLint.
+*   Use of ESLint for good coding practices.
+*   Use of prettier for beautiful format.
+*   Ability to refresh token
+*   JWT Tokens, make requests with a token after login with `Authorization` header with value `Bearer yourToken` where `yourToken` is the **signed and encrypted token** given in the response from the login process.
 
 ## Demo
 
@@ -60,13 +60,13 @@ A demo of this Frontend is located at: <https://vue-demo.daniel-avellaneda.com>
 
 ### Login credentials
 
-email: `admin@admin.com`  
+email: `admin@admin.com`\
 password: `12345`
 
 **IMPORTANT:** Database resets every 30 mins like "12:00am, 12:30am, 1:00am" and so on. So anything you do will be lost after a short time.
 
-Demo is also linked to a Node.js express.js MongoDB JWT REST API project that shows how this frontend can be integrated to an API.  
-Repo is here: <https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton>  
+Demo is also linked to a Node.js express.js MongoDB JWT REST API project that shows how this frontend can be integrated to an API.\
+Repo is here: <https://github.com/davellanedam/node-express-mongodb-jwt-rest-api-skeleton>\
 Running demo is here: <https://api-demo.daniel-avellaneda.com>
 
 ## How to install
