@@ -4,6 +4,8 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import en from '../locales/en'
 import es from '../locales/es'
 import cn from '../locales/cn'
+import ua from '../locales/ua'
+import fr from '../locales/fr'
 import { localize, extend } from 'vee-validate'
 import { required, email, min, confirmed } from 'vee-validate/dist/rules'
 
@@ -30,7 +32,9 @@ extend('url', {
 localize({
   en,
   es,
-  cn
+  cn,
+  ua,
+  fr
 })
 
 Vue.use(VeeValidate)
