@@ -1,3 +1,15 @@
+## v5.0.20 (April 30, 2022)
+
+*   Added missing FR and UA to date-fns config
+
+## v5.0.19 (April 30, 2022)
+
+*   Support Ukranian. Thank you Alexander! ([#269](https://github.com/davellanedam/vue-skeleton-mvp/pull/269))
+
+## v5.0.18 (April 30, 2022)
+
+*   Rollback NPM update due to some strange errors from vuetify
+
 ## v5.0.17 (April 30, 2022)
 
 *   Support Ukranian. Thank you Alexander! ([#269](https://github.com/davellanedam/vue-skeleton-mvp/pull/269))
