@@ -1,3 +1,7 @@
+## v5.0.19 (April 30, 2022)
+
+*   Support Ukranian. Thank you Alexander! ([#269](https://github.com/davellanedam/vue-skeleton-mvp/pull/269))
+
 ## v5.0.18 (April 30, 2022)
 
 *   Rollback NPM update due to some strange errors from vuetify
