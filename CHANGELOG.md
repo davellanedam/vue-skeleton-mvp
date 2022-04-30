@@ -1,3 +1,8 @@
+## v5.0.17 (April 30, 2022)
+
+*   Support Ukranian. Thank you Alexander! ([#269](https://github.com/davellanedam/vue-skeleton-mvp/pull/269))
+*   NPM updated
+
 ## v5.0.16 (January 23, 2021)
 
 *   Fix flags locale.
